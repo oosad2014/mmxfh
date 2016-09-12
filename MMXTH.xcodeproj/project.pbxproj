@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		0471DC361D8696FA00547781 /* FirstScene.m in Sources */ = {isa = PBXBuildFile; fileRef = 0471DC351D8696FA00547781 /* FirstScene.m */; };
+		0471DC3C1D869F6C00547781 /* Train.m in Sources */ = {isa = PBXBuildFile; fileRef = 0471DC3B1D869F6C00547781 /* Train.m */; };
+		0471DC3E1D86B05400547781 /* button.png in Resources */ = {isa = PBXBuildFile; fileRef = 0471DC3D1D86B05400547781 /* button.png */; };
 		5770E1781D82A5C10079ACBC /* Default.png in Resources */ = {isa = PBXBuildFile; fileRef = 5770E1771D82A5C10079ACBC /* Default.png */; };
 		5770E17A1D82A5C10079ACBC /* Default@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 5770E1791D82A5C10079ACBC /* Default@2x.png */; };
 		5770E17C1D82A5C10079ACBC /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 5770E17B1D82A5C10079ACBC /* Default-568h@2x.png */; };
@@ -208,6 +211,11 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		0471DC341D8696FA00547781 /* FirstScene.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FirstScene.h; sourceTree = "<group>"; };
+		0471DC351D8696FA00547781 /* FirstScene.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FirstScene.m; sourceTree = "<group>"; };
+		0471DC3A1D869F6C00547781 /* Train.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Train.h; sourceTree = "<group>"; };
+		0471DC3B1D869F6C00547781 /* Train.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Train.m; sourceTree = "<group>"; };
+		0471DC3D1D86B05400547781 /* button.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = button.png; path = Resources/button.png; sourceTree = "<group>"; };
 		5770E1701D82A5C10079ACBC /* MMXTH.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MMXTH.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		5770E1741D82A5C10079ACBC /* libObjectiveChipmunk.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libObjectiveChipmunk.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		5770E1771D82A5C10079ACBC /* Default.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = Default.png; path = Resources/Default.png; sourceTree = "<group>"; };
@@ -678,6 +686,31 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		0471DC2C1D86942300547781 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				0471DC3A1D869F6C00547781 /* Train.h */,
+				0471DC3B1D869F6C00547781 /* Train.m */,
+			);
+			name = Model;
+			sourceTree = "<group>";
+		};
+		0471DC2D1D86942D00547781 /* Layer */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Layer;
+			sourceTree = "<group>";
+		};
+		0471DC301D86969E00547781 /* Scene */ = {
+			isa = PBXGroup;
+			children = (
+				0471DC341D8696FA00547781 /* FirstScene.h */,
+				0471DC351D8696FA00547781 /* FirstScene.m */,
+			);
+			name = Scene;
+			sourceTree = "<group>";
+		};
 		5770E1671D82A5C10079ACBC = {
 			isa = PBXGroup;
 			children = (
@@ -710,6 +743,7 @@
 		5770E1761D82A5C10079ACBC /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				0471DC3D1D86B05400547781 /* button.png */,
 				5770E1771D82A5C10079ACBC /* Default.png */,
 				5770E1791D82A5C10079ACBC /* Default@2x.png */,
 				5770E17B1D82A5C10079ACBC /* Default-568h@2x.png */,
@@ -1540,6 +1574,9 @@
 		5770E42A1D82A5C50079ACBC /* Classes */ = {
 			isa = PBXGroup;
 			children = (
+				0471DC301D86969E00547781 /* Scene */,
+				0471DC2D1D86942D00547781 /* Layer */,
+				0471DC2C1D86942300547781 /* Model */,
 				5770E42B1D82A5C50079ACBC /* AppDelegate.h */,
 				5770E42C1D82A5C50079ACBC /* AppDelegate.m */,
 				5770E42E1D82A5C50079ACBC /* HelloWorldScene.h */,
@@ -1644,6 +1681,7 @@
 				5770E35A1D82A5C40079ACBC /* LICENSE_CCBReader.txt in Resources */,
 				5770E1971D82A5C10079ACBC /* Icon-Spotlight-iOS7.png in Resources */,
 				5770E18B1D82A5C10079ACBC /* Icon-76@2x.png in Resources */,
+				0471DC3E1D86B05400547781 /* button.png in Resources */,
 				5770E1991D82A5C10079ACBC /* Icon-Spotlight-iOS7@2x.png in Resources */,
 				5770E1891D82A5C10079ACBC /* Icon-76.png in Resources */,
 				5770E19E1D82A5C10079ACBC /* iTunesArtwork@2x in Resources */,
@@ -1757,6 +1795,7 @@
 				5770E37C1D82A5C40079ACBC /* ALBuffer.m in Sources */,
 				5770E1F31D82A5C10079ACBC /* CCDirector.m in Sources */,
 				5770E1A51D82A5C10079ACBC /* CCRendererGLSupport.m in Sources */,
+				0471DC3C1D869F6C00547781 /* Train.m in Sources */,
 				5770E20C1D82A5C20079ACBC /* CCLayoutBox.m in Sources */,
 				5770E3391D82A5C40079ACBC /* TGAlib.m in Sources */,
 				5770E3561D82A5C40079ACBC /* CCBLocalizationManager.m in Sources */,
@@ -1772,6 +1811,7 @@
 				5770E2FB1D82A5C30079ACBC /* CCTouchIOS.m in Sources */,
 				5770E2531D82A5C20079ACBC /* CCSprite.m in Sources */,
 				5770E30D1D82A5C30079ACBC /* CCDirectorMac.m in Sources */,
+				0471DC361D8696FA00547781 /* FirstScene.m in Sources */,
 				5770E3921D82A5C40079ACBC /* ALSource.m in Sources */,
 				5770E42D1D82A5C50079ACBC /* AppDelegate.m in Sources */,
 				5770E3AE1D82A5C40079ACBC /* NSMutableDictionary+WeakReferences.m in Sources */,
@@ -1891,6 +1931,7 @@
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				ARCHS = "$(ARCHS_STANDARD)";
 				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
 				COPY_PHASE_STRIP = NO;
 				GCC_DYNAMIC_NO_PIC = NO;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
@@ -1921,6 +1962,7 @@
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				ARCHS = "$(ARCHS_STANDARD)";
 				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
 				COPY_PHASE_STRIP = YES;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "MMXTH/Supporting Files/Prefix.pch";
@@ -1998,6 +2040,7 @@
 				5770E4371D82A5C50079ACBC /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		5770E4381D82A5C50079ACBC /* Build configuration list for PBXNativeTarget "ObjectiveChipmunk" */ = {
 			isa = XCConfigurationList;
@@ -2006,6 +2049,7 @@
 				5770E43A1D82A5C50079ACBC /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

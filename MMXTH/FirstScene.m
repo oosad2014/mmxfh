@@ -29,12 +29,14 @@
     // class initalization goes here
 
     // Background
+    // You can change the .png files to change the background
     CCSprite9Slice *background = [CCSprite9Slice spriteWithImageNamed:@"white_square.png"];
     background.anchorPoint = CGPointZero;
     background.contentSize = [CCDirector sharedDirector].viewSize;
     background.color = [CCColor grayColor];
     [self addChild:background];
     
+    // As a reason of I couldn't change the color of the words of the button
     CCLabelTTF *title = [CCLabelTTF labelWithString:@"Start" fontName:@"ArialMT" fontSize:20];
     title.color = [CCColor redColor];
     title.positionType = CCPositionTypeNormalized;

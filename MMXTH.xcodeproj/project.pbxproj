@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		04607B051D8942B10052025A /* SecondScene.m in Sources */ = {isa = PBXBuildFile; fileRef = 04607B041D8942B10052025A /* SecondScene.m */; };
 		0471DC361D8696FA00547781 /* FirstScene.m in Sources */ = {isa = PBXBuildFile; fileRef = 0471DC351D8696FA00547781 /* FirstScene.m */; };
 		0471DC3C1D869F6C00547781 /* Train.m in Sources */ = {isa = PBXBuildFile; fileRef = 0471DC3B1D869F6C00547781 /* Train.m */; };
 		0471DC3E1D86B05400547781 /* button.png in Resources */ = {isa = PBXBuildFile; fileRef = 0471DC3D1D86B05400547781 /* button.png */; };
@@ -211,6 +212,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		04607B031D8942B10052025A /* SecondScene.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SecondScene.h; sourceTree = "<group>"; };
+		04607B041D8942B10052025A /* SecondScene.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SecondScene.m; sourceTree = "<group>"; };
 		0471DC341D8696FA00547781 /* FirstScene.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FirstScene.h; sourceTree = "<group>"; };
 		0471DC351D8696FA00547781 /* FirstScene.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FirstScene.m; sourceTree = "<group>"; };
 		0471DC3A1D869F6C00547781 /* Train.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Train.h; sourceTree = "<group>"; };
@@ -707,6 +710,8 @@
 			children = (
 				0471DC341D8696FA00547781 /* FirstScene.h */,
 				0471DC351D8696FA00547781 /* FirstScene.m */,
+				04607B031D8942B10052025A /* SecondScene.h */,
+				04607B041D8942B10052025A /* SecondScene.m */,
 			);
 			name = Scene;
 			sourceTree = "<group>";
@@ -1821,6 +1826,7 @@
 				5770E3731D82A5C40079ACBC /* OALAudioTracks.m in Sources */,
 				5770E3601D82A5C40079ACBC /* OALAction.m in Sources */,
 				5770E2771D82A5C20079ACBC /* CCTMXXMLParser.m in Sources */,
+				04607B051D8942B10052025A /* SecondScene.m in Sources */,
 				5770E3091D82A5C30079ACBC /* CCAppDelegate.m in Sources */,
 				5770E3061D82A5C30079ACBC /* UITouch+CC.m in Sources */,
 				5770E2881D82A5C30079ACBC /* CCLightCollection.m in Sources */,

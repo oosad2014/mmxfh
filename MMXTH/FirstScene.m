@@ -11,6 +11,7 @@
 // -----------------------------------------------------------------
 
 #import "FirstScene.h"
+#import "SecondScene.h"
 
 // -----------------------------------------------------------------
 
@@ -43,6 +44,7 @@
     title.position = ccp(0.5f, 0.5f);
     
     CCButton *beginButton = [CCButton buttonWithTitle:@"Start" spriteFrame:[CCSpriteFrame frameWithImageNamed:@"button.png"]];
+    [beginButton setTarget:self selector:@selector(onBeginButtonClicked:)];
     beginButton.positionType = CCPositionTypeNormalized;
     beginButton.position = ccp(0.5f, 0.5f);
     
@@ -51,8 +53,12 @@
     return self;
 }
 
-
 // -----------------------------------------------------------------
+
+- (void)onBeginButtonClicked:(id)sender {
+    [[CCDirector sharedDirector] replaceScene:[SecondScene scene]
+                               withTransition:[CCTransition transitionFadeWithColor:[CCColor redColor] duration:0.5f]];
+}
 
 @end
 

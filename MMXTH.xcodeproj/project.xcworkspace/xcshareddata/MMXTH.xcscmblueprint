@@ -1,0 +1,30 @@
+{
+  "DVTSourceControlWorkspaceBlueprintPrimaryRemoteRepositoryKey" : "4AB57E848171C7E31046218A049EEECB8ADC63F9",
+  "DVTSourceControlWorkspaceBlueprintWorkingCopyRepositoryLocationsKey" : {
+
+  },
+  "DVTSourceControlWorkspaceBlueprintWorkingCopyStatesKey" : {
+    "4AB57E848171C7E31046218A049EEECB8ADC63F9" : 0,
+    "7E588F51FB205EF7EA2C4ABAF6AA740D5190F892" : 0
+  },
+  "DVTSourceControlWorkspaceBlueprintIdentifierKey" : "7FFFA161-9EB3-46F0-AF36-AA4AAA4865F6",
+  "DVTSourceControlWorkspaceBlueprintWorkingCopyPathsKey" : {
+    "4AB57E848171C7E31046218A049EEECB8ADC63F9" : "mmxfh\/",
+    "7E588F51FB205EF7EA2C4ABAF6AA740D5190F892" : "..\/Desktop\/proj\/Moe%20Train\/Cocos2D3.x-UIKit"
+  },
+  "DVTSourceControlWorkspaceBlueprintNameKey" : "MMXTH",
+  "DVTSourceControlWorkspaceBlueprintVersion" : 204,
+  "DVTSourceControlWorkspaceBlueprintRelativePathToProjectKey" : "MMXTH.xcodeproj",
+  "DVTSourceControlWorkspaceBlueprintRemoteRepositoriesKey" : [
+    {
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryURLKey" : "https:\/\/github.com\/oosad2014\/mmxfh.git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositorySystemKey" : "com.apple.dt.Xcode.sourcecontrol.Git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryIdentifierKey" : "4AB57E848171C7E31046218A049EEECB8ADC63F9"
+    },
+    {
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryURLKey" : "https:\/\/github.com\/inouesatoru\/Moe-Train.git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositorySystemKey" : "com.apple.dt.Xcode.sourcecontrol.Git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryIdentifierKey" : "7E588F51FB205EF7EA2C4ABAF6AA740D5190F892"
+    }
+  ]
+}

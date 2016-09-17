@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		04FB8FA91D8D29B300D81DE4 /* Train.m in Sources */ = {isa = PBXBuildFile; fileRef = 04FB8FA81D8D29B300D81DE4 /* Train.m */; };
+		04FB8FAC1D8D354400D81DE4 /* SecondScene.m in Sources */ = {isa = PBXBuildFile; fileRef = 04FB8FAB1D8D354400D81DE4 /* SecondScene.m */; };
 		5770E1781D82A5C10079ACBC /* Default.png in Resources */ = {isa = PBXBuildFile; fileRef = 5770E1771D82A5C10079ACBC /* Default.png */; };
 		5770E17A1D82A5C10079ACBC /* Default@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 5770E1791D82A5C10079ACBC /* Default@2x.png */; };
 		5770E17C1D82A5C10079ACBC /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 5770E17B1D82A5C10079ACBC /* Default-568h@2x.png */; };
@@ -203,11 +205,15 @@
 		5770E4251D82A5C50079ACBC /* LICENSE_Chipmunk.txt in Resources */ = {isa = PBXBuildFile; fileRef = 5770E4241D82A5C50079ACBC /* LICENSE_Chipmunk.txt */; };
 		5770E4291D82A5C50079ACBC /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 5770E4281D82A5C50079ACBC /* main.m */; };
 		5770E42D1D82A5C50079ACBC /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 5770E42C1D82A5C50079ACBC /* AppDelegate.m */; };
-		5770E4301D82A5C50079ACBC /* HelloWorldScene.m in Sources */ = {isa = PBXBuildFile; fileRef = 5770E42F1D82A5C50079ACBC /* HelloWorldScene.m */; };
+		5770E4301D82A5C50079ACBC /* FirstScene.m in Sources */ = {isa = PBXBuildFile; fileRef = 5770E42F1D82A5C50079ACBC /* FirstScene.m */; };
 		5770E4321D82A5C50079ACBC /* white_square.png in Resources */ = {isa = PBXBuildFile; fileRef = 5770E4311D82A5C50079ACBC /* white_square.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		04FB8FA71D8D29B300D81DE4 /* Train.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Train.h; sourceTree = "<group>"; };
+		04FB8FA81D8D29B300D81DE4 /* Train.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Train.m; sourceTree = "<group>"; };
+		04FB8FAA1D8D354400D81DE4 /* SecondScene.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SecondScene.h; sourceTree = "<group>"; };
+		04FB8FAB1D8D354400D81DE4 /* SecondScene.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SecondScene.m; sourceTree = "<group>"; };
 		5770E1701D82A5C10079ACBC /* MMXTH.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MMXTH.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		5770E1741D82A5C10079ACBC /* libObjectiveChipmunk.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libObjectiveChipmunk.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		5770E1771D82A5C10079ACBC /* Default.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = Default.png; path = Resources/Default.png; sourceTree = "<group>"; };
@@ -661,8 +667,8 @@
 		5770E4281D82A5C50079ACBC /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = main.m; path = "Supporting Files/main.m"; sourceTree = "<group>"; };
 		5770E42B1D82A5C50079ACBC /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = AppDelegate.h; path = Classes/AppDelegate.h; sourceTree = "<group>"; };
 		5770E42C1D82A5C50079ACBC /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = AppDelegate.m; path = Classes/AppDelegate.m; sourceTree = "<group>"; };
-		5770E42E1D82A5C50079ACBC /* HelloWorldScene.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = HelloWorldScene.h; path = Classes/HelloWorldScene.h; sourceTree = "<group>"; };
-		5770E42F1D82A5C50079ACBC /* HelloWorldScene.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = HelloWorldScene.m; path = Classes/HelloWorldScene.m; sourceTree = "<group>"; };
+		5770E42E1D82A5C50079ACBC /* FirstScene.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = FirstScene.h; path = Classes/FirstScene.h; sourceTree = "<group>"; };
+		5770E42F1D82A5C50079ACBC /* FirstScene.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = FirstScene.m; path = Classes/FirstScene.m; sourceTree = "<group>"; };
 		5770E4311D82A5C50079ACBC /* white_square.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = white_square.png; path = Resources/white_square.png; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -678,6 +684,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		04FB8FA31D8D24DA00D81DE4 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				04FB8FA71D8D29B300D81DE4 /* Train.h */,
+				04FB8FA81D8D29B300D81DE4 /* Train.m */,
+			);
+			name = Model;
+			sourceTree = "<group>";
+		};
 		5770E1671D82A5C10079ACBC = {
 			isa = PBXGroup;
 			children = (
@@ -1540,10 +1555,13 @@
 		5770E42A1D82A5C50079ACBC /* Classes */ = {
 			isa = PBXGroup;
 			children = (
+				04FB8FA31D8D24DA00D81DE4 /* Model */,
 				5770E42B1D82A5C50079ACBC /* AppDelegate.h */,
 				5770E42C1D82A5C50079ACBC /* AppDelegate.m */,
-				5770E42E1D82A5C50079ACBC /* HelloWorldScene.h */,
-				5770E42F1D82A5C50079ACBC /* HelloWorldScene.m */,
+				5770E42E1D82A5C50079ACBC /* FirstScene.h */,
+				5770E42F1D82A5C50079ACBC /* FirstScene.m */,
+				04FB8FAA1D8D354400D81DE4 /* SecondScene.h */,
+				04FB8FAB1D8D354400D81DE4 /* SecondScene.m */,
 			);
 			name = Classes;
 			sourceTree = "<group>";
@@ -1681,9 +1699,10 @@
 				5770E1C61D82A5C10079ACBC /* CCCache.m in Sources */,
 				5770E3961D82A5C40079ACBC /* ALWrapper.m in Sources */,
 				5770E2C71D82A5C30079ACBC /* CCEffectNode.m in Sources */,
+				04FB8FAC1D8D354400D81DE4 /* SecondScene.m in Sources */,
 				5770E2C41D82A5C30079ACBC /* CCEffectPixellate.m in Sources */,
 				5770E1EB1D82A5C10079ACBC /* CCClippingNode.m in Sources */,
-				5770E4301D82A5C50079ACBC /* HelloWorldScene.m in Sources */,
+				5770E4301D82A5C50079ACBC /* FirstScene.m in Sources */,
 				5770E3441D82A5C40079ACBC /* CCAnimationManager.m in Sources */,
 				5770E2CA1D82A5C30079ACBC /* CCEffectStack.m in Sources */,
 				5770E27E1D82A5C30079ACBC /* cocos2d.m in Sources */,
@@ -1732,6 +1751,7 @@
 				5770E2421D82A5C20079ACBC /* CCRenderTexture.m in Sources */,
 				5770E3B11D82A5C40079ACBC /* OALAudioFile.m in Sources */,
 				5770E3501D82A5C40079ACBC /* CCBsequence.m in Sources */,
+				04FB8FA91D8D29B300D81DE4 /* Train.m in Sources */,
 				5770E2151D82A5C20079ACBC /* CCNode.m in Sources */,
 				5770E1BE1D82A5C10079ACBC /* CCRenderer.m in Sources */,
 				5770E2BE1D82A5C30079ACBC /* CCEffectColor.m in Sources */,
@@ -1998,6 +2018,7 @@
 				5770E4371D82A5C50079ACBC /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		5770E4381D82A5C50079ACBC /* Build configuration list for PBXNativeTarget "ObjectiveChipmunk" */ = {
 			isa = XCConfigurationList;
@@ -2006,6 +2027,7 @@
 				5770E43A1D82A5C50079ACBC /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

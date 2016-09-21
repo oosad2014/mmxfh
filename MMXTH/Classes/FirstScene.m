@@ -29,12 +29,19 @@
     // The thing is, that if this fails, your app will 99.99% crash anyways, so why bother
     // Just make an assert, so that you can catch it in debug
     NSAssert(self, @"Whoops");
+    CCSprite *titleBackGround = [CCSprite spriteWithImageNamed:@"timeField.png"];
+    titleBackGround.position = CGPointMake(self.contentSize.width/2, self.contentSize.height/2);
+    titleBackGround.scaleX = self.contentSize.width/titleBackGround.contentSize.width;
+    titleBackGround.scaleY = self.contentSize.height/titleBackGround.contentSize.height;
+    [self addChild:titleBackGround];
     CCButton *moeStageOneButton = [CCButton buttonWithTitle:@"Moe Train Stage1" spriteFrame:[CCSpriteFrame frameWithImageNamed:@"button.png"]
                                    ];
     moeStageOneButton.positionType = CCPositionTypeNormalized;
-    moeStageOneButton.position = ccp(0.15f, 0.85f);
+    moeStageOneButton.position = ccp(0.50f, 0.15f);
     [moeStageOneButton setTarget:self selector:@selector(onMoeTrainStageOneClicked:)];
     [self addChild:moeStageOneButton];
+   
+
 
 
     

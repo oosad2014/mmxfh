@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		04075E7C1D927B8600AC4280 /* timeField.png in Resources */ = {isa = PBXBuildFile; fileRef = 04075E7B1D927B8600AC4280 /* timeField.png */; };
 		04FB8FA91D8D29B300D81DE4 /* Train.m in Sources */ = {isa = PBXBuildFile; fileRef = 04FB8FA81D8D29B300D81DE4 /* Train.m */; };
 		04FB8FAC1D8D354400D81DE4 /* SecondScene.m in Sources */ = {isa = PBXBuildFile; fileRef = 04FB8FAB1D8D354400D81DE4 /* SecondScene.m */; };
 		5770E1781D82A5C10079ACBC /* Default.png in Resources */ = {isa = PBXBuildFile; fileRef = 5770E1771D82A5C10079ACBC /* Default.png */; };
@@ -210,6 +211,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		04075E7B1D927B8600AC4280 /* timeField.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = timeField.png; path = ../../../Desktop/timeField.png; sourceTree = "<group>"; };
 		04FB8FA71D8D29B300D81DE4 /* Train.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Train.h; sourceTree = "<group>"; };
 		04FB8FA81D8D29B300D81DE4 /* Train.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Train.m; sourceTree = "<group>"; };
 		04FB8FAA1D8D354400D81DE4 /* SecondScene.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SecondScene.h; sourceTree = "<group>"; };
@@ -725,6 +727,7 @@
 		5770E1761D82A5C10079ACBC /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				04075E7B1D927B8600AC4280 /* timeField.png */,
 				5770E1771D82A5C10079ACBC /* Default.png */,
 				5770E1791D82A5C10079ACBC /* Default@2x.png */,
 				5770E17B1D82A5C10079ACBC /* Default-568h@2x.png */,
@@ -1664,6 +1667,7 @@
 				5770E18B1D82A5C10079ACBC /* Icon-76@2x.png in Resources */,
 				5770E1991D82A5C10079ACBC /* Icon-Spotlight-iOS7@2x.png in Resources */,
 				5770E1891D82A5C10079ACBC /* Icon-76.png in Resources */,
+				04075E7C1D927B8600AC4280 /* timeField.png in Resources */,
 				5770E19E1D82A5C10079ACBC /* iTunesArtwork@2x in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

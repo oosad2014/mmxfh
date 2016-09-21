@@ -19,6 +19,7 @@
 
 @interface SecondScene : CCScene {
     Train *train;
+    Train *newTrain;
 }
 
 // -----------------------------------------------------------------

@@ -28,7 +28,7 @@ static int count = 0;
     Row = 0;
     Column = 0;
     url = @"";
-    trainArray = [NSArray arrayWithObjects:@"Icon.png", @"Icon@2x.png", @"button.png", nil];
+    trainArray = [NSArray arrayWithObjects:@"Icon.png", @"Icon-Small.png", @"button.png", nil];
     return self;
 }
 
@@ -67,6 +67,13 @@ static int count = 0;
     train.positionType = CCPositionTypeNormalized;
     [train setPosition:ccp([train getRow], [train getColumn])];
     return train;
+}
+
+-(id)copyWithZone:(NSZone *)zone {
+    Train *copyTrain = [[[self class] allocWithZone:zone] init];
+    copyTrain.url = self.url;
+    copyTrain.trainArray = self.trainArray;
+    return copyTrain;
 }
 
 @end

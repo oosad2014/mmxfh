@@ -129,7 +129,8 @@
     // 获取点击坐标
     CGPoint touchLocation = [touch locationInNode:self];
     CCLOG(@"touchBegan!");
-    CCLOG(@"Location:%@", NSStringFromCGPoint(touchLocation));
+    //CCLOG(@"Location:%@", NSStringFromCGPoint(touchLocation));
+    [self spriteSelectedOrNot:touchLocation];
 }
 
 -(void)touchMoved:(CCTouch *)touch withEvent:(CCTouchEvent *)event {
@@ -142,6 +143,23 @@
 
 -(void)touchCancelled:(CCTouch *)touch withEvent:(CCTouchEvent *)event {
     CCLOG(@"touchCancelled!");
+}
+
+// 此函数用来确认火车图片被选择，并进行相应操作
+-(void)spriteSelectedOrNot:(CGPoint)pos {
+    CGPoint posSelected = pos;
+    if (CGRectContainsPoint(train.boundingBox, posSelected)) {
+        CCLOG(@"火车已选择此图片！");
+        [self changeSpriteStyle];
+    }
+}
+
+-(void)changeSpriteStyle {
+    [newTrain removeFromParent];
+    newTrain = [[Train alloc] init];
+    newTrain = [newTrain create:0.5f ySet:0.8f];
+    
+    [self addChild:newTrain z:9];
 }
 @end
 

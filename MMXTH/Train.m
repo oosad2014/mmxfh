@@ -58,7 +58,6 @@ static int count = 0;
 
 // -----------------------------------------------------------------
 
-// 其实create后，train实例里的内容并没有，所以，train实例里什么都没有
 -(Train *)create:(float)x ySet:(float)y {
     url = [trainArray objectAtIndex:[Train getCount]];
     Train *train = [Train spriteWithImageNamed:url];

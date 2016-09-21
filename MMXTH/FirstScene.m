@@ -24,11 +24,20 @@
 }
 
 - (id)init {
-    if ((self = [super init])) {
-        CCLOG(@"%@: %@", NSStringFromSelector(_cmd), self);
-    }
+    // Apple recommend assigning self with supers return value
+    self = [super init];
+    if (!self) return(nil);
     // class initalization goes here
 
+    CCNodeColor *background = [CCNodeColor nodeWithColor:[CCColor colorWithRed:27.0f/255.0f green:185.0f/255.0f blue:239.0f/255.0f alpha:1.0f]];
+    [self addChild:background];
+    
+    [self initScene];
+
+    return self;
+}
+
+-(void)initScene {
     // Background
     // You can change the .png files to change the background
     CCSprite9Slice *background = [CCSprite9Slice spriteWithImageNamed:@"white_square.png"];
@@ -50,7 +59,6 @@
     
     [self addChild:title z:10];
     [self addChild:beginButton z:9];
-    return self;
 }
 
 // -----------------------------------------------------------------

@@ -33,8 +33,16 @@
     if ((self = [super init])) {
         CCLOG(@"%@: %@", NSStringFromSelector(_cmd), self);
     }
-    // class initalization goes here
+    self.userInteractionEnabled = YES; // 注册触屏事件
+    // 暂时不知道为什么必须定义一个CCNodeColor才能使用触屏功能
+    CCNodeColor *background = [CCNodeColor nodeWithColor:[CCColor colorWithRed:27.0f/255.0f green:185.0f/255.0f blue:239.0f/255.0f alpha:1.0f]];
+    [self addChild:background];
     
+    [self initScene];
+    return self;
+}
+
+-(void)initScene {
     // Background
     // You can change the .png files to change the background
     CCSprite9Slice *background = [CCSprite9Slice spriteWithImageNamed:@"white_square.png"];
@@ -67,10 +75,7 @@
     [self addChild:train z:9];
     
     [self insideScene];
-    
-    return self;
 }
-
 // -----------------------------------------------------------------
 
 - (void)onBackButtonClicked:(id)sender {
@@ -114,6 +119,29 @@
     train = [[Train alloc] init];
     train = [train create:0.5f ySet:0.3f];
     [self addChild:train z:9];
+}
+
+#pragma mark--------------------------------------------------------------
+#pragma mark - Touch Handler
+#pragma mark--------------------------------------------------------------
+
+- (void)touchBegan:(CCTouch *)touch withEvent:(CCTouchEvent *)event {
+    // 获取点击坐标
+    CGPoint touchLocation = [touch locationInNode:self];
+    CCLOG(@"touchBegan!");
+    CCLOG(@"Location:%@", NSStringFromCGPoint(touchLocation));
+}
+
+-(void)touchMoved:(CCTouch *)touch withEvent:(CCTouchEvent *)event {
+    CCLOG(@"touchMoved!");
+}
+
+-(void)touchEnded:(CCTouch *)touch withEvent:(CCTouchEvent *)event {
+    CCLOG(@"touchEnded!");
+}
+
+-(void)touchCancelled:(CCTouch *)touch withEvent:(CCTouchEvent *)event {
+    CCLOG(@"touchCancelled!");
 }
 @end
 

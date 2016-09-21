@@ -38,6 +38,7 @@
                                    ];
     moeStageOneButton.positionType = CCPositionTypeNormalized;
     moeStageOneButton.position = ccp(0.50f, 0.15f);
+    moeStageOneButton.color=[CCColor redColor];
     [moeStageOneButton setTarget:self selector:@selector(onMoeTrainStageOneClicked:)];
     [self addChild:moeStageOneButton];
    

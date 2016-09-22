@@ -21,7 +21,8 @@
 @interface SecondScene : CCScene {
     ModleController *mController;
    Train *train;
-   Train *newTrain;
+   Train *Traingoods;
+    Train *newTrain;
 }
 
 // -----------------------------------------------------------------

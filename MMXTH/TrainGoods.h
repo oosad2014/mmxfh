@@ -12,10 +12,10 @@
 
 #import <Foundation/Foundation.h>
 #import "cocos2d.h"
-
+#import"Train.h"
 // -----------------------------------------------------------------
 
-//@interface TrainGoods : Train
+@interface TrainGoods : Train
 
 // -----------------------------------------------------------------
 // properties
@@ -27,7 +27,7 @@
 
 // -----------------------------------------------------------------
 
-//@end
+@end
 
 
 

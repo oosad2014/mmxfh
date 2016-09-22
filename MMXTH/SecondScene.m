@@ -38,15 +38,17 @@
     CCNodeColor *background = [CCNodeColor nodeWithColor:[CCColor colorWithRed:27.0f/255.0f green:185.0f/255.0f blue:239.0f/255.0f alpha:1.0f]];
     [self addChild:background];
     mController=[ [ModleController alloc] init];
-    [mController setTrain:[[Train alloc] init]];
+    [mController setTrain:[[TrainHead alloc] init]];
     train=mController.getTrain;
-    train=[train create:0.5f ySet:0.15f];
-    //train = [[Train alloc] init];
-    //train = [train create:0.5f ySet:0.15f];
-    //train.positionType = CCPositionTypeNormalized;
-    //[train setPosition:ccp([train getRow], [train getColumn])];
-    
+    train=[train create:0.3f ySet:0.6f];
     [self addChild:train z:9];
+    [mController setTrain:[[TrainGoods alloc] init]];
+    Traingoods=mController.getTrain;
+    Traingoods=[Traingoods create:0.6f ySet:0.6f];
+    [self addChild:Traingoods z:9];
+  // 目前准备用三个指针来更改三个不同的方位的三个图片
+
+    
     [self initScene];
     return self;
 }
@@ -60,6 +62,10 @@
     BackGround.scaleY = self.contentSize.height/BackGround.contentSize.height;
 
     [self addChild:BackGround];
+      [mController setTrain:[[TrainHead alloc] init]];
+    train=mController.getTrain;
+    train=[train create:0.5f ySet:0.15f];
+    [self addChild:train z:9];
     
     
     // BackButton
@@ -166,11 +172,11 @@
 }
 
 -(void)changeSpriteStyle {
-    [newTrain removeFromParent];
-    newTrain = [[Train alloc] init];
-    newTrain = [newTrain create:0.5f ySet:0.6f];
+    [Traingoods removeFromParent];
+    Traingoods = [[Train alloc] init];
+    Traingoods = [Traingoods create:0.6f ySet:0.6f];
     
-    [self addChild:newTrain z:9];
+    [self addChild:Traingoods z:9];
 }
 @end
 

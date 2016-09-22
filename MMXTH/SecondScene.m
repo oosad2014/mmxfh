@@ -37,11 +37,12 @@
     // 暂时不知道为什么必须定义一个CCNodeColor才能使用触屏功能
     CCNodeColor *background = [CCNodeColor nodeWithColor:[CCColor colorWithRed:27.0f/255.0f green:185.0f/255.0f blue:239.0f/255.0f alpha:1.0f]];
     [self addChild:background];
-    ModleController *mController;
     mController=[ [ModleController alloc] init];
     [mController setTrain:[[Train alloc] init]];
-    train = [[Train alloc] init];
-    train = [train create:0.5f ySet:0.15f];
+    train=mController.getTrain;
+    train=[train create:0.5f ySet:0.15f];
+    //train = [[Train alloc] init];
+    //train = [train create:0.5f ySet:0.15f];
     //train.positionType = CCPositionTypeNormalized;
     //[train setPosition:ccp([train getRow], [train getColumn])];
     

@@ -14,10 +14,12 @@
 #import "cocos2d.h"
 #import "cocos2d-ui.h"
 #import "Train.h"
+#import "ModleController.h"
 
 // -----------------------------------------------------------------
 
 @interface SecondScene : CCScene {
+    ModleController *mController;
    Train *train;
    Train *newTrain;
 }

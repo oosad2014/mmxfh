@@ -14,6 +14,7 @@
 #import "Train.h"
 #import "TrainHead.h"
 #import "TrainGoods.h"
+#import "ModleController.h"
 
 
 // -----------------------------------------------------------------
@@ -36,7 +37,15 @@
     // 暂时不知道为什么必须定义一个CCNodeColor才能使用触屏功能
     CCNodeColor *background = [CCNodeColor nodeWithColor:[CCColor colorWithRed:27.0f/255.0f green:185.0f/255.0f blue:239.0f/255.0f alpha:1.0f]];
     [self addChild:background];
+    ModleController *mController;
+    mController=[ [ModleController alloc] init];
+    [mController setTrain:[[Train alloc] init]];
+    train = [[Train alloc] init];
+    train = [train create:0.5f ySet:0.15f];
+    //train.positionType = CCPositionTypeNormalized;
+    //[train setPosition:ccp([train getRow], [train getColumn])];
     
+    [self addChild:train z:9];
     [self initScene];
     return self;
 }
@@ -67,12 +76,7 @@
     [self addChild:backButton z:9];
   
     
-    train = [[Train alloc] init];
-    train = [train create:0.5f ySet:0.15f];
-    //train.positionType = CCPositionTypeNormalized;
-    //[train setPosition:ccp([train getRow], [train getColumn])];
-    
-    [self addChild:train z:9];
+   
     
     [self insideScene];
 }
@@ -103,7 +107,7 @@
     int temp = [Train getCount];
     temp --;
     if(temp<0)
-        temp=3;
+        temp=2;
     [Train setCount:temp];
     CCLOG(@"Last Change, Count: %d", [Train getCount]);
     

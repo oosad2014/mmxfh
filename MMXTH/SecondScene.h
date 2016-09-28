@@ -25,6 +25,10 @@
 // -----------------------------------------------------------------
 // properties
 
+@property(nonatomic, assign) BOOL isMoved;
+@property(nonatomic, assign) CGPoint beganPoint;
+@property(nonatomic, assign) CGSize viewSize;
+
 // -----------------------------------------------------------------
 // methods
 

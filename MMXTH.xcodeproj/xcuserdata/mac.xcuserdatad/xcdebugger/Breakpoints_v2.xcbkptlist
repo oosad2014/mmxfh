@@ -39,11 +39,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "MMXTH/SecondScene.m"
-            timestampString = "496155751.164643"
+            timestampString = "496743394.576967"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "153"
-            endingLineNumber = "153"
+            startingLineNumber = "210"
+            endingLineNumber = "210"
             landmarkName = "-spriteSelectedOrNot:"
             landmarkType = "5">
          </BreakpointContent>
@@ -55,11 +55,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "MMXTH/SecondScene.m"
-            timestampString = "496157551.624414"
+            timestampString = "496743394.576967"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "160"
-            endingLineNumber = "160"
+            startingLineNumber = "217"
+            endingLineNumber = "217"
             landmarkName = "-changeSpriteStyle"
             landmarkType = "5">
          </BreakpointContent>
@@ -71,11 +71,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "MMXTH/SecondScene.m"
-            timestampString = "496157551.624414"
+            timestampString = "496743394.576967"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "162"
-            endingLineNumber = "162"
+            startingLineNumber = "219"
+            endingLineNumber = "219"
             landmarkName = "-changeSpriteStyle"
             landmarkType = "5">
          </BreakpointContent>

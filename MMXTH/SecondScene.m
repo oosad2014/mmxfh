@@ -27,6 +27,7 @@
 @synthesize isMoved;
 @synthesize beganPoint;
 @synthesize viewSize;
+@synthesize box;
 // -----------------------------------------------------------------
 
 + (SecondScene *)scene
@@ -69,7 +70,6 @@
     [backButton setTarget:self selector:@selector(onBackButtonClicked:)];
     backButton.positionType = CCPositionTypeNormalized;
     
-    // CGSize screenSize = [CCDirector sharedDirector].viewSize;
     [backButton setPosition:ccp(0.1f, 0.9f)];
     
     [self addChild:backButton z:9];
@@ -85,51 +85,16 @@
 }
 
 -(void)insideTrainHeadScene {
-    /*
-    CCButton *leftBtn = [CCButton buttonWithTitle:@"上一个" fontName:@"ArialMT" fontSize:20];
-    leftBtn.positionType = CCPositionTypeNormalized;
-    leftBtn.position = ccp(0.2f, 0.2f);
-    [leftBtn setTarget:self selector:@selector(onLastButtonClicked:)];
-    CCButton *rightBtn = [CCButton buttonWithTitle:@"下一个" fontName:@"ArialMT" fontSize:20];
-    rightBtn.positionType = CCPositionTypeNormalized;
-    rightBtn.position = ccp(0.8f, 0.2f);
-    [rightBtn setTarget:self selector:@selector(onNextButtonClicked:)];
-    */
     train = [[Train alloc] init];
     train = [train create:0.5f ySet:0.3f];
-    //train.positionType = CCPositionTypeNormalized;
-    //[train setPosition:ccp([train getRow], [train getColumn])];
-    
+    box = [CCSprite spriteWithImageNamed:@"white_square.png"];
+    self.box.positionType = CCPositionTypeNormalized;
+    [self.box setPosition:ccp(0.5f, 0.8f)];
+
     [self addChild:train z:9];
-    
-    //[self addChild:leftBtn z:9];
-    //[self addChild:rightBtn z:9];
-}
-/*
--(void)onLastButtonClicked:(id)sender {
-    int temp = [Train getCount];
-    temp --;
-    [Train setCount:temp];
-    CCLOG(@"Last Change, Count: %d", [Train getCount]);
-    
-    [train removeFromParent];
-    train = [[Train alloc] init];
-    train = [train create:0.5f ySet:0.3f];
-    [self addChild:train z:9];
+    [self addChild:self.box z:8];
 }
 
--(void)onNextButtonClicked:(id)sender {
-    int temp = [Train getCount];
-    temp ++;
-    [Train setCount:temp];
-    CCLOG(@"Next Change, Count: %d", [Train getCount]);
-    
-    [train removeFromParent];
-    train = [[Train alloc] init];
-    train = [train create:0.5f ySet:0.3f];
-    [self addChild:train z:9];
-}
-*/
 #pragma mark--------------------------------------------------------------
 #pragma mark - Touch Handler
 #pragma mark--------------------------------------------------------------
@@ -145,7 +110,7 @@
 }
 
 -(void)touchMoved:(CCTouch *)touch withEvent:(CCTouchEvent *)event {
-    /*
+    
     CGPoint touchLocation = [touch locationInNode:self];
     CGPoint oldTouchLocation = [touch previousLocationInView:touch.view];
     
@@ -153,8 +118,15 @@
     oldTouchLocation = [[CCDirector sharedDirector] convertToGL:oldTouchLocation];
     oldTouchLocation = [self convertToNodeSpace:oldTouchLocation];
     
+    // 跟随手指移动
     CGPoint tranLoc = ccpSub(touchLocation, oldTouchLocation);
+    tranLoc.x = tranLoc.x / self.viewSize.width;
+    tranLoc.y = tranLoc.y / self.viewSize.height;
+    CCLOG(@"TranLoc: %@", NSStringFromCGPoint(newTrain.position));
+    CCAction *action = [CCActionMoveBy actionWithDuration:0.0f position:tranLoc];
+    [newTrain runAction:action];
     
+    /*
     //  当在下方滑动，用来判断滑动方向
     
     if (touchLocation.y < self.viewSize.height / 2) {
@@ -180,7 +152,8 @@
     if (self.isMoved) {
         CGPoint tranLoc = ccpSub(endPoint, self.beganPoint);
         CCLOG(@"tranloc: %@", NSStringFromCGPoint(tranLoc));
-        if (self.beganPoint.y < self.viewSize.height / 2) {
+        
+        if (self.beganPoint.y < self.viewSize.height / 3) {
             if (tranLoc.x >= 100) {
                 // Right
                 CCLOG(@"Right!");
@@ -191,6 +164,21 @@
                 CCLOG(@"Left!");
                 [self onLeftTouchSlide];
             }
+        }
+        
+        if ([self spriteGetOrNot:endPoint]) {
+            CCLOG(@"Get!");
+            CCAction *moveEnd = [CCActionMoveTo actionWithDuration:0 position:self.box.position];
+            CCAction *little = [CCActionScaleTo actionWithDuration:0 scale:1.0f];
+            CCAction *remove = [CCActionRemove action];
+            CCAction *onSel = [CCActionCallFunc actionWithTarget:self selector:@selector(onSpriteForSel)];
+            CCAction * action = [CCActionSequence actionWithArray:@[moveEnd, little, remove, onSel]];
+            [newTrain runAction:action];
+            
+            //[newTrain stopAllActions];
+        }
+        else {
+            [newTrain removeFromParent];
         }
         //CCLOG(@"endPoint: %@", NSStringFromCGPoint(endPoint));
     }
@@ -211,12 +199,54 @@
     }
 }
 
+-(BOOL)spriteGetOrNot:(CGPoint)pos {
+    CGPoint posEnd = pos;
+    if (CGRectContainsPoint(box.boundingBox, posEnd)) {
+        CCLOG(@"火车已到达box！");
+        box.opacity = 0; // 隐藏
+        if (selTrain) {
+            // 如果存在，重置
+            [selTrain removeFromParent];
+        }
+        return YES;
+    }
+    return NO;
+}
+
+-(void)spriteSelectedMove:(CGPoint)pos {
+    CGPoint posSelected = pos;
+    if (CGRectContainsPoint(train.boundingBox, posSelected)) {
+        CCLOG(@"火车已选择此图片并移动！");
+    }
+}
+
+-(void)onSpriteForSel {
+    selTrain = [[Train alloc] init];
+    selTrain = [selTrain create:self.box.position.x ySet:self.box.position.y];
+    [self addChild:selTrain z:9];
+}
+
 -(void)changeSpriteStyle {
     [newTrain removeFromParent];
     newTrain = [[Train alloc] init];
-    newTrain = [newTrain create:0.5f ySet:0.8f];
+    newTrain = [newTrain create:0.5f ySet:0.3f];
     
     [self addChild:newTrain z:9];
+    
+    CCAction *bigger = [CCActionScaleTo actionWithDuration:0 scale:1.2f];
+    [newTrain runAction:bigger];
+}
+
+-(void)onActionEnd_Out {
+    [train removeFromParent];
+}
+
+-(void)onActionEnd_In:(float)x {
+    train = [[Train alloc] init];
+    train = [train create:0.5f+x ySet:0.3f];
+    //train.opacity = 0; //不显示
+    train.scale = 0.4f;
+    [self addChild:train z:9];
 }
 
 -(void)onRightTouchSlide {
@@ -228,15 +258,7 @@
     [Train setCount:temp];
     CCLOG(@"Next Change, Count: %d", [Train getCount]);
     
-    //CCAction *rightMove = [CCActionMoveBy actionWithDuration:2.0f position:CGPointMake(50.0, 0)];
-    //CCAction *spriteFadeOut = [CCActionFadeOut actionWithDuration:2.0f];
-    //CCAction *rightAction = [CCActionSpawn actionWithArray:@[rightMove, spriteFadeOut]];
-    //[train runAction:rightMove];
-    
-    [train removeFromParent];
-    train = [[Train alloc] init];
-    train = [train create:0.5f ySet:0.3f];
-    [self addChild:train z:9];
+    [self leftToRight_Out];
 }
 
 -(void)onLeftTouchSlide {
@@ -247,11 +269,55 @@
     }
     [Train setCount:temp];
     CCLOG(@"Last Change, Count: %d", [Train getCount]);
-    
-    [train removeFromParent];
-    train = [[Train alloc] init];
-    train = [train create:0.5f ySet:0.3f];
-    [self addChild:train z:9];
+
+    [self rightToLeft_Out];
+}
+
+-(void)leftToRight_Out {
+    id actionEnd = [CCActionCallFunc actionWithTarget:self selector:@selector(onActionEnd_Out)];
+    id actionIn = [CCActionCallFunc actionWithTarget:self selector:@selector(leftToRight_In)];
+    CCAction *rightMove = [CCActionMoveBy actionWithDuration:0.5f position:CGPointMake(0.1f, 0)];
+    CCAction *spriteFadeOut = [CCActionFadeOut actionWithDuration:0.5f];
+    CCAction *spriteToLittle = [CCActionScaleTo actionWithDuration:0.5f scale:0.4f];
+    CCAction *rightAction = [CCActionSpawn actionWithArray:@[rightMove, spriteToLittle, spriteFadeOut]];
+    CCAction *action = [CCActionSequence actionWithArray:@[rightAction, actionEnd, actionIn]];
+    [train runAction:action];
+}
+
+-(void)rightToLeft_Out {
+    id actionEnd = [CCActionCallFunc actionWithTarget:self selector:@selector(onActionEnd_Out)];
+    id actionIn = [CCActionCallFunc actionWithTarget:self selector:@selector(rightToLeft_In)];
+    CCAction *leftMove = [CCActionMoveBy actionWithDuration:0.5f position:CGPointMake(-0.1f, 0)];
+    CCAction *spriteFadeOut = [CCActionFadeOut actionWithDuration:0.5f];
+    CCAction *spriteToLittle = [CCActionScaleTo actionWithDuration:0.5f scale:0.4f];
+    CCAction *actionRemove = [CCActionRemove action];
+    CCAction *leftAction = [CCActionSpawn actionWithArray:@[leftMove, spriteToLittle, spriteFadeOut]];
+    CCAction *action = [CCActionSequence actionWithArray:@[leftAction, actionRemove, actionEnd, actionIn]];
+    [train runAction:action];
+}
+
+-(void)leftToRight_In {
+    [self onActionEnd_In:-0.1f];
+    CCAction *leftMove = [CCActionMoveBy actionWithDuration:0.5f position:CGPointMake(0.1f, 0)];
+    CCAction *spriteFadeIn = [CCActionFadeIn actionWithDuration:0.5f];
+    CCAction *spriteToLarge = [CCActionScaleTo actionWithDuration:0.5f scale:1.0f];
+    //CCAction *actionRemove = [CCActionRemove action];
+    CCAction *leftAction = [CCActionSpawn actionWithArray:@[leftMove, spriteToLarge, spriteFadeIn]];
+    //CCAction *action = [CCActionSequence actionWithArray:@[leftAction, actionRemove]];
+    //train.opacity = 1; //设置成显示
+    [train runAction:leftAction];
+}
+
+-(void)rightToLeft_In {
+    [self onActionEnd_In:0.1f];
+    CCAction *rightMove = [CCActionMoveBy actionWithDuration:0.5f position:CGPointMake(-0.1f, 0)];
+    CCAction *spriteFadeIn = [CCActionFadeIn actionWithDuration:0.5f];
+    CCAction *spriteToLarge = [CCActionScaleTo actionWithDuration:0.5f scale:1.0f];
+    //CCAction *actionRemove = [CCActionRemove action];
+    CCAction *rightAction = [CCActionSpawn actionWithArray:@[rightMove, spriteToLarge, spriteFadeIn]];
+    //CCAction *action = [CCActionSequence actionWithArray:@[rightAction, actionRemove]];
+    //train.opacity = 1; //设置成显示
+    [train runAction:rightAction];
 }
 @end
 

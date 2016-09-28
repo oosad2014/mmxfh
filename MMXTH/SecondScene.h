@@ -20,6 +20,7 @@
 @interface SecondScene : CCScene {
     Train *train;
     Train *newTrain;
+    Train *selTrain;
 }
 
 // -----------------------------------------------------------------
@@ -28,6 +29,7 @@
 @property(nonatomic, assign) BOOL isMoved;
 @property(nonatomic, assign) CGPoint beganPoint;
 @property(nonatomic, assign) CGSize viewSize;
+@property(nonatomic, retain) CCSprite *box;
 
 // -----------------------------------------------------------------
 // methods

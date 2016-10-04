@@ -10,6 +10,7 @@
 		04075E7C1D927B8600AC4280 /* timeField.png in Resources */ = {isa = PBXBuildFile; fileRef = 04075E7B1D927B8600AC4280 /* timeField.png */; };
 		04075E821D9298A300AC4280 /* TrainHead.m in Sources */ = {isa = PBXBuildFile; fileRef = 04075E811D9298A300AC4280 /* TrainHead.m */; };
 		04075E851D9298FB00AC4280 /* TrainGoods.m in Sources */ = {isa = PBXBuildFile; fileRef = 04075E841D9298FB00AC4280 /* TrainGoods.m */; };
+		0416C8551DA3913800EC8529 /* train.png in Resources */ = {isa = PBXBuildFile; fileRef = 0416C8541DA3913800EC8529 /* train.png */; };
 		04834B901D938B2F0016B651 /* ModleController.m in Sources */ = {isa = PBXBuildFile; fileRef = 04834B8F1D938B2F0016B651 /* ModleController.m */; };
 		04FB8FA91D8D29B300D81DE4 /* Train.m in Sources */ = {isa = PBXBuildFile; fileRef = 04FB8FA81D8D29B300D81DE4 /* Train.m */; };
 		04FB8FAC1D8D354400D81DE4 /* SecondScene.m in Sources */ = {isa = PBXBuildFile; fileRef = 04FB8FAB1D8D354400D81DE4 /* SecondScene.m */; };
@@ -219,6 +220,7 @@
 		04075E811D9298A300AC4280 /* TrainHead.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TrainHead.m; sourceTree = "<group>"; };
 		04075E831D9298FB00AC4280 /* TrainGoods.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TrainGoods.h; sourceTree = "<group>"; };
 		04075E841D9298FB00AC4280 /* TrainGoods.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TrainGoods.m; sourceTree = "<group>"; };
+		0416C8541DA3913800EC8529 /* train.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = train.png; path = Resources/train.png; sourceTree = "<group>"; };
 		04834B8E1D938B140016B651 /* ModleController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ModleController.h; sourceTree = "<group>"; };
 		04834B8F1D938B2F0016B651 /* ModleController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ModleController.m; sourceTree = "<group>"; };
 		04FB8FA71D8D29B300D81DE4 /* Train.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Train.h; sourceTree = "<group>"; };
@@ -760,6 +762,7 @@
 		5770E1761D82A5C10079ACBC /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				0416C8541DA3913800EC8529 /* train.png */,
 				04075E7B1D927B8600AC4280 /* timeField.png */,
 				5770E1771D82A5C10079ACBC /* Default.png */,
 				5770E1791D82A5C10079ACBC /* Default@2x.png */,
@@ -1677,6 +1680,7 @@
 			files = (
 				5770E17A1D82A5C10079ACBC /* Default@2x.png in Resources */,
 				5770E4251D82A5C50079ACBC /* LICENSE_Chipmunk.txt in Resources */,
+				0416C8551DA3913800EC8529 /* train.png in Resources */,
 				5770E18D1D82A5C10079ACBC /* Icon-120.png in Resources */,
 				5770E1831D82A5C10079ACBC /* Icon@2x.png in Resources */,
 				5770E1951D82A5C10079ACBC /* Icon-Small@2x.png in Resources */,

@@ -39,13 +39,13 @@
     [self addChild:background];
     mController=[ [ModleController alloc] init];
     [mController setTrain:[[TrainHead alloc] init]];
-    train=mController.getTrain;
-    train=[train create:0.3f ySet:0.6f];
-    [self addChild:train z:9];
+    trainHead=mController.getTrain;
+    trainHead=[trainHead create:0.3f ySet:0.6f];
+    [self addChild:trainHead z:2];
     [mController setTrain:[[TrainGoods alloc] init]];
     Traingoods=mController.getTrain;
     Traingoods=[Traingoods create:0.6f ySet:0.6f];
-    [self addChild:Traingoods z:9];
+    [self addChild:Traingoods z:2];
   // 目前准备用三个指针来更改三个不同的方位的三个图片
 
     
@@ -61,11 +61,11 @@
     BackGround.scaleX = self.contentSize.width/BackGround.contentSize.width;
     BackGround.scaleY = self.contentSize.height/BackGround.contentSize.height;
 
-    [self addChild:BackGround];
+    [self addChild:BackGround z:1];
       [mController setTrain:[[TrainHead alloc] init]];
     train=mController.getTrain;
     train=[train create:0.5f ySet:0.15f];
-    [self addChild:train z:9];
+    [self addChild:train z:2];
     
     
     // BackButton
@@ -80,7 +80,17 @@
     // CGSize screenSize = [CCDirector sharedDirector].viewSize;
     [backButton setPosition:ccp(0.15f, 0.85f)];
     
-    [self addChild:backButton z:9];
+    [self addChild:backButton z:2];
+    
+    CCButton *preViewButton=[CCButton buttonWithTitle:@"preview" spriteFrame:[CCSpriteFrame frameWithImageNamed:@"button.png"]];
+    [preViewButton setTarget: self selector:@selector(onpreButtonClicked:)];
+    
+    preViewButton.positionType = CCPositionTypeNormalized;
+    preViewButton.position = ccp(0.85f, 0.85f);
+    preViewButton.color=[CCColor redColor];
+    [self addChild:preViewButton z:2];
+
+                                                      
   
     
    
@@ -106,8 +116,8 @@
     rightBtn.color=[CCColor blackColor];
     [rightBtn setTarget:self selector:@selector(onNextButtonClicked:)];
     
-    [self addChild:leftBtn z:9];
-    [self addChild:rightBtn z:9];
+    [self addChild:leftBtn z:2];
+    [self addChild:rightBtn z:2];
 }
 
 -(void)onLastButtonClicked:(id)sender {
@@ -121,7 +131,7 @@
     [train removeFromParent];
     train = [[Train alloc] init];
     train = [train create:0.5f ySet:0.15f];
-    [self addChild:train z:9];
+    [self addChild:train z:2];
 }
 
 -(void)onNextButtonClicked:(id)sender {
@@ -135,8 +145,33 @@
     [train removeFromParent];
     train = [[Train alloc] init];
     train = [train create:0.5f ySet:0.15f];
-    [self addChild:train z:9];
+    [self addChild:train z:2];
 }
+-(void) onpreButtonClicked:(id) sender
+{
+    [Traingoods removeFromParent];
+    [trainHead removeFromParent];
+    [train removeFromParent];
+   trainHead = [[TrainHead alloc] init];
+    trainHead= [trainHead create:0.3f ySet:0.6f];
+    [self addChild:trainHead z:2];
+   Traingoods = [[TrainGoods alloc] init];
+    Traingoods = [Traingoods create:0.7f ySet:0.6f];
+    [self addChild:Traingoods z:2];
+    CCAction *xtrainMove = [CCActionMoveBy actionWithDuration:5 position:CGPointMake(0.4, 0)];
+    CCAction *ytrainMove = [CCActionMoveBy actionWithDuration:5 position:CGPointMake(0, -0.2)];
+    
+    [trainHead runAction:[CCActionSequence actionWithArray:@[xtrainMove,ytrainMove]]];
+    //[trainHead setFlipY:YES];
+    //[trainHead runAction:ytrainMove];
+    
+    //CCAction *trainRemove = [CCActionRemove action];
+    //CCAction *endloop = [CCActionCallFunc actionWithTarget:self selector:@selector(LoopEnd)];
+   //  [trainHead runAction:xmove];
+    //[Traingoods runAction:xmove];
+    
+    
+};
 
 #pragma mark--------------------------------------------------------------
 #pragma mark - Touch Handler
@@ -173,10 +208,10 @@
 
 -(void)changeSpriteStyle {
     [Traingoods removeFromParent];
-    Traingoods = [[Train alloc] init];
+    Traingoods = [[TrainGoods alloc] init];
     Traingoods = [Traingoods create:0.6f ySet:0.6f];
     
-    [self addChild:Traingoods z:9];
+    [self addChild:Traingoods z:2];
 }
 @end
 

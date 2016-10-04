@@ -22,6 +22,7 @@
     ModleController *mController;
    Train *train;
    Train *Traingoods;
+    Train *trainHead;
     Train *newTrain;
 }
 

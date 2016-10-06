@@ -15,11 +15,7 @@
 
 // -----------------------------------------------------------------
 
-@interface Train : CCSprite <NSCopying>{
-    float Row;
-    float Column;
-}
-
+@interface Train : CCSprite <NSCopying>
 // -----------------------------------------------------------------
 // properties
 

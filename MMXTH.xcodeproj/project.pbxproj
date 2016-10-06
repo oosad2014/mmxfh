@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		045465551DA682FD00C85EE1 /* ShopScene.m in Sources */ = {isa = PBXBuildFile; fileRef = 045465541DA682FD00C85EE1 /* ShopScene.m */; };
+		045465581DA6832800C85EE1 /* ShoppingThings.m in Sources */ = {isa = PBXBuildFile; fileRef = 045465571DA6832800C85EE1 /* ShoppingThings.m */; };
+		0454655B1DA6833F00C85EE1 /* Shop.m in Sources */ = {isa = PBXBuildFile; fileRef = 0454655A1DA6833F00C85EE1 /* Shop.m */; };
 		045A29351D8C21010065E181 /* TrainHead.m in Sources */ = {isa = PBXBuildFile; fileRef = 045A29341D8C21010065E181 /* TrainHead.m */; };
 		045A29381D8C21370065E181 /* TrainGoods.m in Sources */ = {isa = PBXBuildFile; fileRef = 045A29371D8C21370065E181 /* TrainGoods.m */; };
 		045A293B1D8C21530065E181 /* Track.m in Sources */ = {isa = PBXBuildFile; fileRef = 045A293A1D8C21530065E181 /* Track.m */; };
@@ -215,6 +218,12 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		045465531DA682FD00C85EE1 /* ShopScene.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ShopScene.h; sourceTree = "<group>"; };
+		045465541DA682FD00C85EE1 /* ShopScene.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ShopScene.m; sourceTree = "<group>"; };
+		045465561DA6832800C85EE1 /* ShoppingThings.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ShoppingThings.h; sourceTree = "<group>"; };
+		045465571DA6832800C85EE1 /* ShoppingThings.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ShoppingThings.m; sourceTree = "<group>"; };
+		045465591DA6833F00C85EE1 /* Shop.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Shop.h; sourceTree = "<group>"; };
+		0454655A1DA6833F00C85EE1 /* Shop.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Shop.m; sourceTree = "<group>"; };
 		045A29331D8C21010065E181 /* TrainHead.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TrainHead.h; sourceTree = "<group>"; };
 		045A29341D8C21010065E181 /* TrainHead.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TrainHead.m; sourceTree = "<group>"; };
 		045A29361D8C21370065E181 /* TrainGoods.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TrainGoods.h; sourceTree = "<group>"; };
@@ -709,6 +718,10 @@
 				045A29371D8C21370065E181 /* TrainGoods.m */,
 				045A29391D8C21530065E181 /* Track.h */,
 				045A293A1D8C21530065E181 /* Track.m */,
+				045465561DA6832800C85EE1 /* ShoppingThings.h */,
+				045465571DA6832800C85EE1 /* ShoppingThings.m */,
+				045465591DA6833F00C85EE1 /* Shop.h */,
+				0454655A1DA6833F00C85EE1 /* Shop.m */,
 			);
 			name = Model;
 			sourceTree = "<group>";
@@ -727,6 +740,8 @@
 				0471DC351D8696FA00547781 /* FirstScene.m */,
 				04607B031D8942B10052025A /* SecondScene.h */,
 				04607B041D8942B10052025A /* SecondScene.m */,
+				045465531DA682FD00C85EE1 /* ShopScene.h */,
+				045465541DA682FD00C85EE1 /* ShopScene.m */,
 			);
 			name = Scene;
 			sourceTree = "<group>";
@@ -1795,6 +1810,7 @@
 				5770E2151D82A5C20079ACBC /* CCNode.m in Sources */,
 				5770E1BE1D82A5C10079ACBC /* CCRenderer.m in Sources */,
 				5770E2BE1D82A5C30079ACBC /* CCEffectColor.m in Sources */,
+				045465581DA6832800C85EE1 /* ShoppingThings.m in Sources */,
 				5770E21C1D82A5C20079ACBC /* CCParallaxNode.m in Sources */,
 				5770E33F1D82A5C40079ACBC /* ZipUtils.m in Sources */,
 				5770E1B71D82A5C10079ACBC /* CCTouch.m in Sources */,
@@ -1851,6 +1867,7 @@
 				5770E2231D82A5C20079ACBC /* CCParticleExamples.m in Sources */,
 				5770E1D01D82A5C10079ACBC /* CCActionEase.m in Sources */,
 				5770E3131D82A5C30079ACBC /* CCWindow.m in Sources */,
+				0454655B1DA6833F00C85EE1 /* Shop.m in Sources */,
 				5770E3031D82A5C30079ACBC /* CCGLView.m in Sources */,
 				5770E25F1D82A5C20079ACBC /* CCSpriteFrameCache.m in Sources */,
 				5770E24F1D82A5C20079ACBC /* CCScheduler.m in Sources */,
@@ -1859,6 +1876,7 @@
 				5770E3351D82A5C40079ACBC /* NSThread+performBlock.m in Sources */,
 				5770E1E71D82A5C10079ACBC /* CCAnimationCache.m in Sources */,
 				5770E2671D82A5C20079ACBC /* CCTextureCache.m in Sources */,
+				045465551DA682FD00C85EE1 /* ShopScene.m in Sources */,
 				5770E2DD1D82A5C30079ACBC /* CCScrollView.m in Sources */,
 				5770E3AB1D82A5C40079ACBC /* NSMutableArray+WeakReferences.m in Sources */,
 			);

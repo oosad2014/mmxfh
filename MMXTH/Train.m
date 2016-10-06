@@ -16,7 +16,11 @@
 
 static int count = 0;
 
-@implementation Train
+@implementation Train {
+    float Row;
+    float Column;
+}
+
 
 @synthesize trainArray;
 @synthesize url;
@@ -25,8 +29,9 @@ static int count = 0;
 
 -(id)init {
     self = [super init];
-    Row = 0;
-    Column = 0;
+    [self setRow:0];
+    [self setColumn:0];
+    
     url = @"";
     trainArray = [NSArray arrayWithObjects:@"Icon.png", @"Icon-Small.png", @"button.png", nil];
     return self;
@@ -59,8 +64,7 @@ static int count = 0;
 // -----------------------------------------------------------------
 
 -(Train *)create:(float)x ySet:(float)y {
-    url = [trainArray objectAtIndex:[Train getCount]];
-    Train *train = [Train spriteWithImageNamed:url];
+    Train *train = [Train spriteWithImageNamed:[trainArray objectAtIndex:[Train getCount]]];
     train.url = [trainArray objectAtIndex:[Train getCount]];
     [train setRow:x];
     [train setColumn:y];

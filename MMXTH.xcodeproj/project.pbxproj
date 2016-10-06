@@ -11,6 +11,9 @@
 		04075E821D9298A300AC4280 /* TrainHead.m in Sources */ = {isa = PBXBuildFile; fileRef = 04075E811D9298A300AC4280 /* TrainHead.m */; };
 		04075E851D9298FB00AC4280 /* TrainGoods.m in Sources */ = {isa = PBXBuildFile; fileRef = 04075E841D9298FB00AC4280 /* TrainGoods.m */; };
 		0416C8551DA3913800EC8529 /* train.png in Resources */ = {isa = PBXBuildFile; fileRef = 0416C8541DA3913800EC8529 /* train.png */; };
+		0416C8571DA6820300EC8529 /* traingood.png in Resources */ = {isa = PBXBuildFile; fileRef = 0416C8561DA6820300EC8529 /* traingood.png */; };
+		0416C85A1DA6A95600EC8529 /* Customer.m in Sources */ = {isa = PBXBuildFile; fileRef = 0416C8591DA6A95600EC8529 /* Customer.m */; };
+		0416C85D1DA6AF8C00EC8529 /* ShopController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0416C85C1DA6AF8C00EC8529 /* ShopController.m */; };
 		04834B901D938B2F0016B651 /* ModleController.m in Sources */ = {isa = PBXBuildFile; fileRef = 04834B8F1D938B2F0016B651 /* ModleController.m */; };
 		04FB8FA91D8D29B300D81DE4 /* Train.m in Sources */ = {isa = PBXBuildFile; fileRef = 04FB8FA81D8D29B300D81DE4 /* Train.m */; };
 		04FB8FAC1D8D354400D81DE4 /* SecondScene.m in Sources */ = {isa = PBXBuildFile; fileRef = 04FB8FAB1D8D354400D81DE4 /* SecondScene.m */; };
@@ -221,6 +224,12 @@
 		04075E831D9298FB00AC4280 /* TrainGoods.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TrainGoods.h; sourceTree = "<group>"; };
 		04075E841D9298FB00AC4280 /* TrainGoods.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TrainGoods.m; sourceTree = "<group>"; };
 		0416C8541DA3913800EC8529 /* train.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = train.png; path = Resources/train.png; sourceTree = "<group>"; };
+		0416C8561DA6820300EC8529 /* traingood.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = traingood.png; path = Resources/traingood.png; sourceTree = "<group>"; };
+		0416C8581DA6A95600EC8529 /* Customer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Customer.h; sourceTree = "<group>"; };
+		0416C8591DA6A95600EC8529 /* Customer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Customer.m; sourceTree = "<group>"; };
+		0416C85B1DA6AF6700EC8529 /* ShopController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ShopController.h; sourceTree = "<group>"; };
+		0416C85C1DA6AF8C00EC8529 /* ShopController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ShopController.m; sourceTree = "<group>"; };
+		0416C85E1DA6B65700EC8529 /* Goods.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Goods.h; sourceTree = "<group>"; };
 		04834B8E1D938B140016B651 /* ModleController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ModleController.h; sourceTree = "<group>"; };
 		04834B8F1D938B2F0016B651 /* ModleController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ModleController.m; sourceTree = "<group>"; };
 		04FB8FA71D8D29B300D81DE4 /* Train.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Train.h; sourceTree = "<group>"; };
@@ -713,6 +722,8 @@
 			children = (
 				04834B8E1D938B140016B651 /* ModleController.h */,
 				04834B8F1D938B2F0016B651 /* ModleController.m */,
+				0416C85B1DA6AF6700EC8529 /* ShopController.h */,
+				0416C85C1DA6AF8C00EC8529 /* ShopController.m */,
 			);
 			name = Controller;
 			sourceTree = "<group>";
@@ -726,6 +737,9 @@
 				04075E811D9298A300AC4280 /* TrainHead.m */,
 				04075E831D9298FB00AC4280 /* TrainGoods.h */,
 				04075E841D9298FB00AC4280 /* TrainGoods.m */,
+				0416C8581DA6A95600EC8529 /* Customer.h */,
+				0416C8591DA6A95600EC8529 /* Customer.m */,
+				0416C85E1DA6B65700EC8529 /* Goods.h */,
 			);
 			name = Model;
 			sourceTree = "<group>";
@@ -762,6 +776,7 @@
 		5770E1761D82A5C10079ACBC /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				0416C8561DA6820300EC8529 /* traingood.png */,
 				0416C8541DA3913800EC8529 /* train.png */,
 				04075E7B1D927B8600AC4280 /* timeField.png */,
 				5770E1771D82A5C10079ACBC /* Default.png */,
@@ -1697,6 +1712,7 @@
 				5770E2831D82A5C30079ACBC /* CCEffectRenderer.h in Resources */,
 				5770E17C1D82A5C10079ACBC /* Default-568h@2x.png in Resources */,
 				5770E19C1D82A5C10079ACBC /* iTunesArtwork in Resources */,
+				0416C8571DA6820300EC8529 /* traingood.png in Resources */,
 				5770E35A1D82A5C40079ACBC /* LICENSE_CCBReader.txt in Resources */,
 				5770E1971D82A5C10079ACBC /* Icon-Spotlight-iOS7.png in Resources */,
 				5770E18B1D82A5C10079ACBC /* Icon-76@2x.png in Resources */,
@@ -1770,7 +1786,9 @@
 				5770E1CD1D82A5C10079ACBC /* CCActionCatmullRom.m in Sources */,
 				5770E1E41D82A5C10079ACBC /* CCAnimation.m in Sources */,
 				5770E34A1D82A5C40079ACBC /* CCBKeyframe.m in Sources */,
+				0416C85D1DA6AF8C00EC8529 /* ShopController.m in Sources */,
 				5770E2D31D82A5C30079ACBC /* CCButton.m in Sources */,
+				0416C85A1DA6A95600EC8529 /* Customer.m in Sources */,
 				5770E3A51D82A5C40079ACBC /* IOSVersion.m in Sources */,
 				5770E39D1D82A5C40079ACBC /* OALAudioSession.m in Sources */,
 				5770E3A01D82A5C40079ACBC /* OALSuspendHandler.m in Sources */,

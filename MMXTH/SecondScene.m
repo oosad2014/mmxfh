@@ -160,8 +160,9 @@
     [self addChild:Traingoods z:2];
     CCAction *xtrainMove = [CCActionMoveBy actionWithDuration:5 position:CGPointMake(0.4, 0)];
     CCAction *ytrainMove = [CCActionMoveBy actionWithDuration:5 position:CGPointMake(0, -0.2)];
-    
-    [trainHead runAction:[CCActionSequence actionWithArray:@[xtrainMove,ytrainMove]]];
+    CCAction *changeY=[CCActionFlipY actionWithFlipY:1];
+    [trainHead runAction:[CCActionSequence actionWithArray:@[xtrainMove,changeY]]];
+    [Traingoods runAction:ytrainMove];
     //[trainHead setFlipY:YES];
     //[trainHead runAction:ytrainMove];
     

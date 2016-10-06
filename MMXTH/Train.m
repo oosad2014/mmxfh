@@ -16,7 +16,7 @@ static int count = 0;
     Row = 0;
     Column = 0;
     url = @"";
-    trainArray = [NSArray arrayWithObjects:@"train.png", @"Icon-Small.png", @"button.png", nil];
+    trainArray = [NSArray arrayWithObjects:@"train.png", @"traingood.png", @"button.png", nil];
     return self;
 }
 

@@ -6,7 +6,8 @@
 //  Copyright © 2016年 xc. All rights reserved.
 //
 
-#import "CCSprite.h"
+#import <Foundation/Foundation.h>
+#import "cocos2d.h"
 
 @interface ShoppingThings : CCSprite 
 

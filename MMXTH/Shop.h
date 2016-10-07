@@ -12,6 +12,7 @@
 
 @property(nonatomic, retain)NSMutableArray *goodsShopArray;
 
++(Shop *)oneShop;
 -(void)setGoodsNum:(int)num;
 -(int)getGoodsNum;
 

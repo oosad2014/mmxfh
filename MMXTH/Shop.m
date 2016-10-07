@@ -27,27 +27,29 @@ static Shop *shop = nil;
 
 -(id)init {
     [self setGoodsNum:[ShoppingThings getGoodsCount]];
+    //goodsShopArray = [goodsShopArray initWithCapacity:[self getGoodsNum]];
+    goodsShopArray = [NSMutableArray arrayWithCapacity:[self getGoodsNum]];
     for (int i=1; i<=[self getGoodsNum]; i++) {
-        ShoppingThings *goods = [[ShoppingThings init] alloc];
+        ShoppingThings *goods = [[ShoppingThings alloc] init];
         [ShoppingThings setCount:i-1];
         switch (i%6) {
             case 1:
-                [goods create:0.25f ySet:0.4f];
+                goods = [goods create:i/6 + 0.25f ySet:0.7f];
                 break;
             case 2:
-                [goods create:0.25f ySet:0.8f];
+                goods = [goods create:i/6 + 0.25f ySet:0.3f];
                 break;
             case 3:
-                [goods create:0.5f ySet:0.4f];
+                goods = [goods create:i/6 + 0.5f ySet:0.7f];
                 break;
             case 4:
-                [goods create:0.5f ySet:0.8f];
+                goods = [goods create:i/6 + 0.5f ySet:0.3f];
                 break;
             case 5:
-                [goods create:0.75f ySet:0.4f];
+                goods = [goods create:i/6 + 0.75f ySet:0.7f];
                 break;
             case 0:
-                [goods create:0.75f ySet:0.8f];
+                goods = [goods create:(i/6 - 1) + 0.75f ySet:0.3f];
                 break;
                 
             default:

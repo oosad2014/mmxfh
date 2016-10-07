@@ -31,8 +31,8 @@ static int goodsCount = 12;
     
     url = @"";
     goodsArray = [NSMutableArray arrayWithCapacity:12]; // 初始化可变数组
-    for (int i=0; i<goodsCount; i+=3) {
-        [goodsArray addObject:@"Icon.png"];
+    for (int i=0; i<goodsCount; i+=2) {
+        [goodsArray addObject:@"Icon-Small.png"];
         [goodsArray addObject:@"button.png"];
     }
     

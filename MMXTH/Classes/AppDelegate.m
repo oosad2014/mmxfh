@@ -12,6 +12,7 @@
 
 #import "AppDelegate.h"
 #import "FirstScene.h"
+#import "ShopScene.h"
 
 // -----------------------------------------------------------------------
 
@@ -77,7 +78,7 @@
 
 - (CCScene *)startScene
 {
-	return [FirstScene new];
+	return [ShopScene new];
 }
 
 // -----------------------------------------------------------------------

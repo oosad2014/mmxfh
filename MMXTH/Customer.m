@@ -18,21 +18,23 @@
 
 // -----------------------------------------------------------------
 
-+ (instancetype)node
-{
-    return [[self alloc] init];
-}
 
-- (instancetype)init
+- (id)init
 {
     self = [super init];
-    NSAssert(self, @"Unable to create class %@", [self class]);
-    // class initalization goes here
-    
-    
-    
-    
+    for(int n=0;n<3;++n)
+    {
+        goods[n]=0;
+    }
     return self;
+}
+-(void) Buy:(int)b
+{
+    goods[b-1]=1;
+}
+-(int*)ShowBuy{
+    return goods;
+    
 }
 
 // -----------------------------------------------------------------

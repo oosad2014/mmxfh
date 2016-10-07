@@ -1,9 +1,9 @@
 //
-//  Customer.h
+//  Shop.h
 //
 //  Created by : Mac
 //  Project    : MMXTH
-//  Date       : 16/10/6
+//  Date       : 16/10/7
 //
 //  Copyright (c) 2016年 xc.
 //  All rights reserved.
@@ -12,24 +12,24 @@
 
 #import <Foundation/Foundation.h>
 #import "cocos2d.h"
+#import "cocos2d-ui.h"
+#import"ShopController.h"
 
 // -----------------------------------------------------------------
 
-@interface Customer : NSObject
+@interface ShopScene : CCScene
 {
-    int goods[3];
+    ShopController * mscontroller;
+}
+
 // -----------------------------------------------------------------
 // properties
-}
+
 // -----------------------------------------------------------------
 // methods
 
-
-
--(void) Buy:(int) b;
--(int *)ShowBuy;
-
-
+- (instancetype)init;
++ (ShopScene *)scene;
 
 // -----------------------------------------------------------------
 

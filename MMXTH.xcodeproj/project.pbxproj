@@ -14,6 +14,7 @@
 		0416C8571DA6820300EC8529 /* traingood.png in Resources */ = {isa = PBXBuildFile; fileRef = 0416C8561DA6820300EC8529 /* traingood.png */; };
 		0416C85A1DA6A95600EC8529 /* Customer.m in Sources */ = {isa = PBXBuildFile; fileRef = 0416C8591DA6A95600EC8529 /* Customer.m */; };
 		0416C85D1DA6AF8C00EC8529 /* ShopController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0416C85C1DA6AF8C00EC8529 /* ShopController.m */; };
+		041864881DA76EB2007F2D6C /* Shop.m in Sources */ = {isa = PBXBuildFile; fileRef = 041864871DA76EB2007F2D6C /* Shop.m */; };
 		04834B901D938B2F0016B651 /* ModleController.m in Sources */ = {isa = PBXBuildFile; fileRef = 04834B8F1D938B2F0016B651 /* ModleController.m */; };
 		04FB8FA91D8D29B300D81DE4 /* Train.m in Sources */ = {isa = PBXBuildFile; fileRef = 04FB8FA81D8D29B300D81DE4 /* Train.m */; };
 		04FB8FAC1D8D354400D81DE4 /* SecondScene.m in Sources */ = {isa = PBXBuildFile; fileRef = 04FB8FAB1D8D354400D81DE4 /* SecondScene.m */; };
@@ -229,7 +230,8 @@
 		0416C8591DA6A95600EC8529 /* Customer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Customer.m; sourceTree = "<group>"; };
 		0416C85B1DA6AF6700EC8529 /* ShopController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ShopController.h; sourceTree = "<group>"; };
 		0416C85C1DA6AF8C00EC8529 /* ShopController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ShopController.m; sourceTree = "<group>"; };
-		0416C85E1DA6B65700EC8529 /* Goods.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Goods.h; sourceTree = "<group>"; };
+		041864861DA76EB2007F2D6C /* Shop.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Shop.h; sourceTree = "<group>"; };
+		041864871DA76EB2007F2D6C /* Shop.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Shop.m; sourceTree = "<group>"; };
 		04834B8E1D938B140016B651 /* ModleController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ModleController.h; sourceTree = "<group>"; };
 		04834B8F1D938B2F0016B651 /* ModleController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ModleController.m; sourceTree = "<group>"; };
 		04FB8FA71D8D29B300D81DE4 /* Train.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Train.h; sourceTree = "<group>"; };
@@ -713,6 +715,8 @@
 				04FB8FAB1D8D354400D81DE4 /* SecondScene.m */,
 				5770E42E1D82A5C50079ACBC /* FirstScene.h */,
 				5770E42F1D82A5C50079ACBC /* FirstScene.m */,
+				041864861DA76EB2007F2D6C /* Shop.h */,
+				041864871DA76EB2007F2D6C /* Shop.m */,
 			);
 			name = Scene;
 			sourceTree = "<group>";
@@ -739,7 +743,6 @@
 				04075E841D9298FB00AC4280 /* TrainGoods.m */,
 				0416C8581DA6A95600EC8529 /* Customer.h */,
 				0416C8591DA6A95600EC8529 /* Customer.m */,
-				0416C85E1DA6B65700EC8529 /* Goods.h */,
 			);
 			name = Model;
 			sourceTree = "<group>";
@@ -1866,6 +1869,7 @@
 				5770E2881D82A5C30079ACBC /* CCLightCollection.m in Sources */,
 				5770E2231D82A5C20079ACBC /* CCParticleExamples.m in Sources */,
 				5770E1D01D82A5C10079ACBC /* CCActionEase.m in Sources */,
+				041864881DA76EB2007F2D6C /* Shop.m in Sources */,
 				5770E3131D82A5C30079ACBC /* CCWindow.m in Sources */,
 				5770E3031D82A5C30079ACBC /* CCGLView.m in Sources */,
 				5770E25F1D82A5C20079ACBC /* CCSpriteFrameCache.m in Sources */,

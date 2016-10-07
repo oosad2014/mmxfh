@@ -15,6 +15,7 @@
 #import "TrainHead.h"
 #import "TrainGoods.h"
 #import "ModleController.h"
+#import "Shop.h"
 
 
 // -----------------------------------------------------------------
@@ -89,6 +90,13 @@
     preViewButton.position = ccp(0.85f, 0.85f);
     preViewButton.color=[CCColor redColor];
     [self addChild:preViewButton z:2];
+    CCButton *ShopButton=[CCButton buttonWithTitle:@"shop" spriteFrame:[CCSpriteFrame frameWithImageNamed:@"button.png"]];
+    [ShopButton setTarget: self selector:@selector(onShopButtonClicked:)];
+    
+    ShopButton.positionType = CCPositionTypeNormalized;
+    ShopButton.position = ccp(0.85f, 0.6f);
+    ShopButton.color=[CCColor redColor];
+    [self addChild:ShopButton z:2];
 
                                                       
   
@@ -98,7 +106,10 @@
     [self insideScene];
 }
 // -----------------------------------------------------------------
-
+- (void)onShopButtonClicked:(id)sender {
+    [[CCDirector sharedDirector] pushScene:[ShopScene scene]
+                               withTransition:[CCTransition transitionPushWithDirection:CCTransitionDirectionLeft duration:0.5f]];
+}
 - (void)onBackButtonClicked:(id)sender {
     [[CCDirector sharedDirector] replaceScene:[FirstScene scene]
                                withTransition:[CCTransition transitionPushWithDirection:CCTransitionDirectionLeft duration:0.5f]];
@@ -147,6 +158,8 @@
     train = [train create:0.5f ySet:0.15f];
     [self addChild:train z:2];
 }
+
+
 -(void) onpreButtonClicked:(id) sender
 {
     [Traingoods removeFromParent];
@@ -156,13 +169,16 @@
     trainHead= [trainHead create:0.3f ySet:0.6f];
     [self addChild:trainHead z:2];
    Traingoods = [[TrainGoods alloc] init];
-    Traingoods = [Traingoods create:0.7f ySet:0.6f];
+    Traingoods = [Traingoods create:0.27f ySet:0.6f];
     [self addChild:Traingoods z:2];
     CCAction *xtrainMove = [CCActionMoveBy actionWithDuration:5 position:CGPointMake(0.4, 0)];
     CCAction *ytrainMove = [CCActionMoveBy actionWithDuration:5 position:CGPointMake(0, -0.2)];
     CCAction *changeY=[CCActionFlipY actionWithFlipY:1];
-    [trainHead runAction:[CCActionSequence actionWithArray:@[xtrainMove,changeY]]];
-    [Traingoods runAction:ytrainMove];
+   // CCAction *changeP=[CCActionCallFunc actionWithTarget:self selector:@selector(Changpicture)];
+   
+   // CCAction *changeP=[CCActionCallFunc actionWithTarget:self selector:@selector(CallBack1:)];
+    [trainHead runAction:[CCActionSequence actionWithArray:@[xtrainMove,changeY,ytrainMove]]];
+   //[Traingoods runAction:[CCActionSpawn  actionWithArray:@[xtrainMove,changeY,ytrainMove]]];
     //[trainHead setFlipY:YES];
     //[trainHead runAction:ytrainMove];
     
@@ -177,6 +193,13 @@
 #pragma mark--------------------------------------------------------------
 #pragma mark - Touch Handler
 #pragma mark--------------------------------------------------------------
+-(void) Changepicture
+{
+    CCAction *changeY=[CCActionFlipY actionWithFlipY:1];
+
+   [trainHead runAction:changeY];
+    
+}
 
 - (void)touchBegan:(CCTouch *)touch withEvent:(CCTouchEvent *)event {
     // 获取点击坐标

@@ -21,9 +21,12 @@
 // -----------------------------------------------------------------
 // properties
 
+@property(nonatomic, retain)NSMutableArray *trainArray;
+@property(nonatomic, copy)NSString *url;
 // -----------------------------------------------------------------
 // methods
 
+-(TrainHead *)createWithExists:(TrainHead *)head;
 // -----------------------------------------------------------------
 
 @end

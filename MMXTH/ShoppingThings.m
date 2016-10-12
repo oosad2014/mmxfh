@@ -16,7 +16,7 @@
 }
 
 static int count = 0;
-static int goodsCount = 12;
+static int goodsCount = 18;
 
 @synthesize goodsArray;
 @synthesize url;
@@ -30,7 +30,7 @@ static int goodsCount = 12;
     [self setBuyOrNot:NO];
     
     url = @"";
-    goodsArray = [NSMutableArray arrayWithCapacity:12]; // 初始化可变数组
+    goodsArray = [NSMutableArray arrayWithCapacity:0]; // 初始化可变数组
     for (int i=0; i<goodsCount; i+=2) {
         [goodsArray addObject:@"Icon-Small.png"];
         [goodsArray addObject:@"button.png"];

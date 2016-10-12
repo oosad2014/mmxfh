@@ -29,11 +29,13 @@ static int count = 0;
 
 -(id)init {
     self = [super init];
+    
     [self setRow:0];
     [self setColumn:0];
     
     url = @"";
-    trainArray = [NSArray arrayWithObjects:@"Icon.png", @"Icon-Small.png", @"button.png", nil];
+    //trainArray = [NSMutableArray arrayWithObjects:@"Icon.png", @"Icon-Small.png", @"button.png", nil];
+     
     return self;
 }
 
@@ -63,7 +65,7 @@ static int count = 0;
 
 // -----------------------------------------------------------------
 
--(Train *)create:(float)x ySet:(float)y {
+-(id)create:(float)x ySet:(float)y {
     Train *train = [Train spriteWithImageNamed:[trainArray objectAtIndex:[Train getCount]]];
     train.url = [trainArray objectAtIndex:[Train getCount]];
     [train setRow:x];
@@ -77,6 +79,13 @@ static int count = 0;
     Train *copyTrain = [[[self class] allocWithZone:zone] init];
     copyTrain.url = self.url;
     copyTrain.trainArray = self.trainArray;
+    /*
+    [copyTrain setRow:[self getRow]];
+    [copyTrain setColumn:[self getColumn]];
+    copyTrain.positionType = self.positionType;
+    copyTrain.position = self.position;
+    */
+    // 未理解copy无法copy私有数据的缘故
     return copyTrain;
 }
 

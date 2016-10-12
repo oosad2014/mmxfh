@@ -14,22 +14,36 @@
 #import "cocos2d.h"
 #import "cocos2d-ui.h"
 #import "Train.h"
+#import "TrainHead.h"
+#import "TrainGoods.h"
+#import "Track.h"
 
 // -----------------------------------------------------------------
 
 @interface SecondScene : CCScene {
-    Train *train;
-    Train *newTrain;
-    Train *selTrain;
+    TrainHead *trainHead;
+    TrainHead *newTrainHead;
+    TrainHead *selTrainHead;
 }
 
 // -----------------------------------------------------------------
 // properties
 
+enum TRAIN {
+    train_Head = 1,
+    train_Goods,
+    train_Track
+};
+
 @property(nonatomic, assign) BOOL isMoved;
+@property(nonatomic, assign) enum TRAIN trainNow;
+@property(nonatomic, assign) int sceneNow;
 @property(nonatomic, assign) CGPoint beganPoint;
 @property(nonatomic, assign) CGSize viewSize;
-@property(nonatomic, retain) CCSprite *box;
+@property(nonatomic, retain) CCSprite *boxHead;
+@property(nonatomic, retain) NSMutableArray<TrainHead *> *trainHeadArray;
+@property(nonatomic, retain) NSMutableArray<TrainGoods *> *trainGoodsArray;
+@property(nonatomic, retain) NSMutableArray<Track *> *trackArray;
 
 // -----------------------------------------------------------------
 // methods

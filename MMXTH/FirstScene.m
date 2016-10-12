@@ -11,7 +11,7 @@
 // -----------------------------------------------------------------
 
 #import "FirstScene.h"
-#import "SecondScene.h"
+#import "processBar.h"
 
 // -----------------------------------------------------------------
 
@@ -64,7 +64,7 @@
 // -----------------------------------------------------------------
 
 - (void)onBeginButtonClicked:(id)sender {
-    [[CCDirector sharedDirector] replaceScene:[SecondScene scene]
+    [[CCDirector sharedDirector] replaceScene:[processBar scene]
                                withTransition:[CCTransition transitionFadeWithColor:[CCColor redColor] duration:0.5f]];
 }
 

@@ -19,13 +19,13 @@
 // -----------------------------------------------------------------
 // properties
 
-@property(nonatomic, retain)NSArray *trainArray;
+@property(nonatomic, retain)NSMutableArray *trainArray;
 @property(nonatomic, copy)NSString *url;
 
 // -----------------------------------------------------------------
 // methods
 
--(Train *)create:(float)x ySet:(float)y;
+-(id)create:(float)x ySet:(float)y;
 -(void)setRow:(float)x;
 -(void)setColumn:(float)y;
 -(float)getRow;

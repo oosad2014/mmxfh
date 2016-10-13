@@ -79,7 +79,7 @@
 
 - (CCScene *)startScene
 {
-	return [SecondScene new];
+	return [FirstScene new];
 }
 
 // -----------------------------------------------------------------------

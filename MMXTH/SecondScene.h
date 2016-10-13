@@ -24,6 +24,12 @@
     TrainHead *trainHead;
     TrainHead *newTrainHead;
     TrainHead *selTrainHead;
+    TrainGoods *trainGoods;
+    TrainGoods *newTrainGoods;
+    TrainGoods *selTrainGoods;
+    Track *trainTrack;
+    Track *newTrainTrack;
+    Track *selTrainTrack;
 }
 
 // -----------------------------------------------------------------
@@ -36,11 +42,19 @@ enum TRAIN {
 };
 
 @property(nonatomic, assign) BOOL isMoved;
+@property(nonatomic, assign) BOOL spriteSelected;
 @property(nonatomic, assign) enum TRAIN trainNow;
-@property(nonatomic, assign) int sceneNow;
+@property(nonatomic, assign) int sceneHeadNow;
+@property(nonatomic, assign) int sceneGoodsNow;
+@property(nonatomic, assign) int sceneTrackNow;
 @property(nonatomic, assign) CGPoint beganPoint;
 @property(nonatomic, assign) CGSize viewSize;
 @property(nonatomic, retain) CCSprite *boxHead;
+@property(nonatomic, retain) CCSprite *boxGoods;
+@property(nonatomic, retain) CCSprite *boxTrack;
+@property(nonatomic, retain) CCButton *trainHeadBtn;
+@property(nonatomic, retain) CCButton *trainGoodsBtn;
+@property(nonatomic, retain) CCButton *trackBtn;
 @property(nonatomic, retain) NSMutableArray<TrainHead *> *trainHeadArray;
 @property(nonatomic, retain) NSMutableArray<TrainGoods *> *trainGoodsArray;
 @property(nonatomic, retain) NSMutableArray<Track *> *trackArray;

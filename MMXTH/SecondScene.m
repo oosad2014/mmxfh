@@ -21,18 +21,26 @@
 
 @implementation SecondScene
 
-#define LEFT 0
-#define RITHT 1
+//#define LEFT 0
+//#define RITHT 1
 
 @synthesize isMoved;
+@synthesize spriteSelected;
 @synthesize beganPoint;
 @synthesize trainNow;
-@synthesize sceneNow;
+@synthesize sceneHeadNow;
+@synthesize sceneGoodsNow;
+@synthesize sceneTrackNow;
 @synthesize viewSize;
 @synthesize boxHead;
+@synthesize boxGoods;
+@synthesize boxTrack;
 @synthesize trainHeadArray;
 @synthesize trainGoodsArray;
 @synthesize trackArray;
+@synthesize trainHeadBtn;
+@synthesize trainGoodsBtn;
+@synthesize trackBtn;
 
 // -----------------------------------------------------------------
 
@@ -53,11 +61,14 @@
     CCNodeColor *background = [CCNodeColor nodeWithColor:[CCColor colorWithRed:27.0f/255.0f green:185.0f/255.0f blue:239.0f/255.0f alpha:1.0f]];
     [self addChild:background];
     
-    trainNow = train_Head; // 当前为Head选择页面
-    sceneNow = 1; // 默认为第一页
+    sceneHeadNow = 1; // 默认为第一页
+    sceneTrackNow = 1;
+    sceneGoodsNow = 1;
+    spriteSelected = NO; // 默认没有东西选中
+    
+    // Head
     selTrainHead = [[TrainHead alloc] init];
     newTrainHead = [[TrainHead alloc] init];
-    
     trainHead = [[TrainHead alloc] init];
     trainHeadArray = [NSMutableArray arrayWithCapacity:0];
     NSInteger headCount = [[trainHead trainArray] count];
@@ -75,10 +86,55 @@
                 head = [head create:(i/3 - 1 + 0.75f) ySet:0.3f];
                 break;
         }
-        
         [trainHeadArray addObject:head];
     }
     
+    // Goods
+    selTrainGoods = [[TrainGoods alloc] init];
+    newTrainGoods = [[TrainGoods alloc] init];
+    trainGoods = [[TrainGoods alloc] init];
+    trainGoodsArray = [NSMutableArray arrayWithCapacity:0];
+    NSInteger goodsCount = [[trainGoods trainArray] count];
+    for (int i=1; i<=goodsCount; i++) {
+        TrainGoods *goods =  [[TrainGoods alloc] init];
+        [TrainGoods setCount:i-1];
+        switch (i%3) {
+            case 1:
+                goods = [goods create:(i/3 + 0.25f) ySet:0.3f];
+                break;
+            case 2:
+                goods = [goods create:(i/3 + 0.5f) ySet:0.3f];
+                break;
+            case 0:
+                goods = [goods create:(i/3 - 1 + 0.75f) ySet:0.3f];
+                break;
+        }
+        [trainGoodsArray addObject:goods];
+    }
+    
+    // Track
+    selTrainTrack = [[Track alloc] init];
+    newTrainTrack = [[Track alloc] init];
+    trainTrack = [[Track alloc] init];
+    trackArray = [NSMutableArray arrayWithCapacity:0];
+    NSInteger trackCount = [[trainTrack trainArray] count];
+    for (int i=1; i<=trackCount; i++) {
+        Track *track =  [[Track alloc] init];
+        [Track setCount:i-1];
+        switch (i%3) {
+            case 1:
+                track = [track create:(i/3 + 0.25f) ySet:0.3f];
+                break;
+            case 2:
+                track = [track create:(i/3 + 0.5f) ySet:0.3f];
+                break;
+            case 0:
+                track = [track create:(i/3 - 1 + 0.75f) ySet:0.3f];
+                break;
+        }
+        [trackArray addObject:track];
+    }
+
     [self initScene];
     return self;
 }
@@ -101,13 +157,49 @@
     CCButton *backButton = [CCButton buttonWithTitle:@"Back" spriteFrame:[CCSpriteFrame frameWithImageNamed:@"button.png"]];
     [backButton setTarget:self selector:@selector(onBackButtonClicked:)];
     backButton.positionType = CCPositionTypeNormalized;
-    
     [backButton setPosition:ccp(0.1f, 0.9f)];
     
     [self addChild:backButton z:9];
     [self addChild:backTitle z:10];
     
-    [self insideTrainHeadScene];
+    // TrainHead Button
+    trainHeadBtn = [CCButton buttonWithTitle:@"TrainHead" spriteFrame:[CCSpriteFrame frameWithImageNamed:@"button.png"]];
+    [trainHeadBtn setTarget:self selector:@selector(insideTrainHeadScene)];
+    trainHeadBtn.positionType = CCPositionTypeNormalized;
+    [trainHeadBtn setPosition:ccp(0.1f, 0.3f)];
+    
+    [self addChild:trainHeadBtn z:9];
+    
+    // TrainGoods Button
+    trainGoodsBtn = [CCButton buttonWithTitle:@"TrainGoods" spriteFrame:[CCSpriteFrame frameWithImageNamed:@"button.png"]];
+    [trainGoodsBtn setTarget:self selector:@selector(insideTrainGoodsScene)];
+    trainGoodsBtn.positionType = CCPositionTypeNormalized;
+    [trainGoodsBtn setPosition:ccp(0.1f, 0.2f)];
+    
+    [self addChild:trainGoodsBtn z:9];
+    
+    // Track Button
+    trackBtn = [CCButton buttonWithTitle:@"Track" spriteFrame:[CCSpriteFrame frameWithImageNamed:@"button.png"]];
+    [trackBtn setTarget:self selector:@selector(insideTrackScene)];
+    trackBtn.positionType = CCPositionTypeNormalized;
+    [trackBtn setPosition:ccp(0.1f, 0.1f)];
+    
+    [self addChild:trackBtn z:9];
+    
+    boxHead = [CCSprite spriteWithImageNamed:@"white_square.png"];
+    self.boxHead.positionType = CCPositionTypeNormalized;
+    [self.boxHead setPosition:ccp(0.35f, 0.8f)];
+    [self addChild:self.boxHead z:8];
+    
+    boxGoods = [CCSprite spriteWithImageNamed:@"white_square.png"];
+    self.boxGoods.positionType = CCPositionTypeNormalized;
+    [self.boxGoods setPosition:ccp(0.5f, 0.85f)];
+    [self addChild:self.boxGoods z:8];
+    
+    boxTrack = [CCSprite spriteWithImageNamed:@"white_square.png"];
+    self.boxTrack.positionType = CCPositionTypeNormalized;
+    [self.boxTrack setPosition:ccp(0.5f, 0.6f)];
+    [self addChild:self.boxTrack z:8];
 }
 // -----------------------------------------------------------------
 
@@ -117,13 +209,62 @@
 }
 
 -(void)insideTrainHeadScene {
-    boxHead = [CCSprite spriteWithImageNamed:@"white_square.png"];
-    self.boxHead.positionType = CCPositionTypeNormalized;
-    [self.boxHead setPosition:ccp(0.3f, 0.8f)];
-    [self addChild:self.boxHead z:8];
-    
+    [self removeTrainGoodsScene];
+    [trainGoodsBtn setEnabled:YES];
+    [self removeTrackScene];
+    [trackBtn setEnabled:YES];
+    trainNow = train_Head; // 当前为Head选择页面
+    CCAction *fadeIn = [CCActionFadeIn actionWithDuration:1.0f];
     for (TrainHead *head in trainHeadArray) {
         [self addChild:head z:9];
+        [head runAction:[fadeIn copy]];
+    }
+    [trainHeadBtn setEnabled:NO];
+}
+
+-(void)insideTrainGoodsScene {
+    [self removeTrainHeadScene];
+    [trainHeadBtn setEnabled:YES];
+    [self removeTrackScene];
+    [trackBtn setEnabled:YES];
+    trainNow = train_Goods; // 当前为Goods选择页面
+    CCAction *fadeIn = [CCActionFadeIn actionWithDuration:1.0f];
+    for (TrainGoods *goods in trainGoodsArray) {
+        [self addChild:goods z:9];
+        [goods runAction:[fadeIn copy]];
+    }
+    [trainGoodsBtn setEnabled:NO];
+}
+
+-(void)insideTrackScene {
+    [self removeTrainGoodsScene];
+    [trainGoodsBtn setEnabled:YES];
+    [self removeTrainHeadScene];
+    [trainHeadBtn setEnabled:YES];
+    trainNow = train_Track; // 当前为Track选择页面
+    CCAction *fadeIn = [CCActionFadeIn actionWithDuration:1.0f];
+    for (Track *track in trackArray) {
+        [self addChild:track z:9];
+        [track runAction:[fadeIn copy]];
+    }
+    [trackBtn setEnabled:NO];
+}
+
+-(void)removeTrainHeadScene {
+    for (TrainHead *head in trainHeadArray) {
+        [head removeFromParent];
+    }
+}
+
+-(void)removeTrainGoodsScene {
+    for (TrainGoods *goods in trainGoodsArray) {
+        [goods removeFromParent];
+    }
+}
+
+-(void)removeTrackScene {
+    for (Track *track in trackArray) {
+        [track removeFromParent];
     }
 }
 
@@ -154,9 +295,22 @@
     CGPoint tranLoc = ccpSub(touchLocation, oldTouchLocation);
     tranLoc.x = tranLoc.x / self.viewSize.width;
     tranLoc.y = tranLoc.y / self.viewSize.height;
-    CCLOG(@"TranLoc: %@", NSStringFromCGPoint(newTrainHead.position));
+    
     CCAction *action = [CCActionMoveBy actionWithDuration:0.0f position:tranLoc];
-    [newTrainHead runAction:action];
+    
+    switch (trainNow) {
+        case train_Head:
+            [newTrainHead runAction:[action copy]];
+            break;
+        case train_Goods:
+            [newTrainGoods runAction:[action copy]];
+            break;
+        case train_Track:
+            [newTrainTrack runAction:[action copy]];
+            break;
+        default:
+            break;
+    }
     
     CCLOG(@"touchMoved!");
 }
@@ -165,28 +319,61 @@
     CGPoint endPoint = [touch locationInNode:self];
     if (self.isMoved) {
         CGPoint tranLoc = ccpSub(endPoint, self.beganPoint);
-        CCLOG(@"tranloc: %@", NSStringFromCGPoint(tranLoc));
+        //CCLOG(@"tranloc: %@", NSStringFromCGPoint(tranLoc));
         BOOL getOfMove = NO;
+        
+        // Actions
+        CCAction *moveEnd = [CCActionMoveTo actionWithDuration:0 position:self.boxHead.position];
+        CCAction *little = [CCActionScaleTo actionWithDuration:0 scale:1.0f];
+        CCAction *remove = [CCActionRemove action];
+        CCAction *onSel = [CCActionCallFunc actionWithTarget:self selector:@selector(onSpriteForSel)];
+        CCAction * action = [CCActionSequence actionWithArray:@[moveEnd, little, remove, onSel]];
+        
         switch (trainNow) {
             case train_Head:
                 if ([self spriteGetOrNot:endPoint]) {
-                    CCLOG(@"Get!");
+                    CCLOG(@"Head Get!");
                     getOfMove = YES;
-                    selTrainHead = [selTrainHead createWithExists:newTrainHead];
-                    CCAction *moveEnd = [CCActionMoveTo actionWithDuration:0 position:self.boxHead.position];
-                    CCAction *little = [CCActionScaleTo actionWithDuration:0 scale:1.0f];
-                    CCAction *remove = [CCActionRemove action];
-                    CCAction *onSel = [CCActionCallFunc actionWithTarget:self selector:@selector(onSpriteForSel)];
-                    CCAction * action = [CCActionSequence actionWithArray:@[moveEnd, little, remove, onSel]];
-                    [newTrainHead runAction:action];
+                    selTrainHead= [selTrainHead createWithExists:newTrainHead];
+                    spriteSelected = NO;
+                    CCLOG(@"spriteSelect: NO!");
+                    [newTrainHead runAction:[action copy]];
                 }
                 else {
                     [newTrainHead removeFromParent];
+                    spriteSelected = NO;
+                    CCLOG(@"spriteSelect: NO!");
                 }
                 break;
             case train_Goods:
+                if ([self spriteGetOrNot:endPoint]) {
+                    CCLOG(@"Goods Get!");
+                    getOfMove = YES;
+                    selTrainGoods = [selTrainGoods createWithExists:newTrainGoods];
+                    spriteSelected = NO;
+                    CCLOG(@"spriteSelect: NO!");
+                    [newTrainGoods runAction:[action copy]];
+                }
+                else {
+                    [newTrainGoods removeFromParent];
+                    spriteSelected = NO;
+                    CCLOG(@"spriteSelect: NO!");
+                }
                 break;
             case train_Track:
+                if ([self spriteGetOrNot:endPoint]) {
+                    CCLOG(@"Track Get!");
+                    getOfMove = YES;
+                    selTrainTrack = [selTrainTrack createWithExists:newTrainTrack];
+                    spriteSelected = NO;
+                    CCLOG(@"spriteSelect: NO!");
+                    [newTrainTrack runAction:[action copy]];
+                }
+                else {
+                    [newTrainTrack removeFromParent];
+                    spriteSelected = NO;
+                    CCLOG(@"spriteSelect: NO!");
+                }
                 break;
             default:
                 break;
@@ -220,65 +407,187 @@
 // 此函数用来确认火车图片被选择，并进行相应操作
 -(void)spriteSelectedOrNot:(CGPoint)pos {
     CGPoint posSelected = pos;
-    for (TrainHead *head in trainHeadArray) {
-        if (CGRectContainsPoint(head.boundingBox, posSelected)) {
-            CCLOG(@"火车已选择%@图片！", head);
-            newTrainHead = [newTrainHead createWithExists:head];
-            [self addChild:newTrainHead z:10];
-            
-            CCAction *bigger = [CCActionScaleTo actionWithDuration:0 scale:1.2f];
-            [newTrainHead runAction:bigger];
-            
+    switch (trainNow) {
+        case train_Head:
+            for (TrainHead *head in trainHeadArray) {
+                if (CGRectContainsPoint(head.boundingBox, posSelected)) {
+                    spriteSelected = YES; // 设置有精灵选中，可以进行接下来的操作
+                    CCLOG(@"spriteSelect: YES");
+                    CCLOG(@"火车头已选择%@图片！", head);
+                    newTrainHead = [newTrainHead createWithExists:head];
+                    [self addChild:newTrainHead z:10];
+                    
+                    CCAction *bigger = [CCActionScaleTo actionWithDuration:0 scale:1.2f];
+                    [newTrainHead runAction:bigger];
+                    
+                    break;
+                }
+            }
             break;
-        }
+        case train_Goods:
+            for (TrainGoods *goods in trainGoodsArray) {
+                if (CGRectContainsPoint(goods.boundingBox, posSelected)) {
+                    spriteSelected = YES; // 设置有精灵选中，可以进行接下来的操作
+                    CCLOG(@"spriteSelect: YES");
+                    CCLOG(@"火车货物已选择%@图片！", goods);
+                    newTrainGoods = [newTrainGoods createWithExists:goods];
+                    [self addChild:newTrainGoods z:10];
+                    
+                    CCAction *bigger = [CCActionScaleTo actionWithDuration:0 scale:1.2f];
+                    [newTrainGoods runAction:bigger];
+                    
+                    break;
+                }
+            }
+            break;
+        case train_Track:
+            for (Track *track in trackArray) {
+                if (CGRectContainsPoint(track.boundingBox, posSelected)) {
+                    spriteSelected = YES; // 设置有精灵选中，可以进行接下来的操作
+                    CCLOG(@"spriteSelect: YES");
+                    CCLOG(@"火车铁轨已选择%@图片！", track);
+                    newTrainTrack = [newTrainTrack createWithExists:track];
+                    [self addChild:newTrainTrack z:10];
+                    
+                    CCAction *bigger = [CCActionScaleTo actionWithDuration:0 scale:1.2f];
+                    [newTrainTrack runAction:bigger];
+                    
+                    break;
+                }
+            }
+            break;
+        default:
+            break;
     }
 }
 
 -(void)onRightTouchSlide {
-    if (sceneNow > 1) {
-        CCAction *moveRight = [CCActionMoveBy actionWithDuration:1.0f position:CGPointMake(1.0f, 0)];
-        for (TrainHead *head in trainHeadArray) {
-            [head runAction:[moveRight copy]];
-        }
-        sceneNow -= 1;
-        CCLOG(@"scene: %d", sceneNow);
+    switch (trainNow) {
+        case train_Head:
+            if (sceneHeadNow > 1) {
+                CCAction *moveRight = [CCActionMoveBy actionWithDuration:1.0f position:CGPointMake(1.0f, 0)];
+                for (TrainHead *head in trainHeadArray) {
+                    [head runAction:[moveRight copy]];
+                }
+                sceneHeadNow -= 1;
+                CCLOG(@"scene: %d", sceneHeadNow);
+            }
+            break;
+        case train_Goods:
+            if (sceneGoodsNow > 1) {
+                CCAction *moveRight = [CCActionMoveBy actionWithDuration:1.0f position:CGPointMake(1.0f, 0)];
+                for (TrainGoods *goods in trainGoodsArray) {
+                    [goods runAction:[moveRight copy]];
+                }
+                sceneGoodsNow -= 1;
+                CCLOG(@"scene: %d", sceneGoodsNow);
+            }
+            break;
+        case train_Track:
+            if (sceneTrackNow > 1) {
+                CCAction *moveRight = [CCActionMoveBy actionWithDuration:1.0f position:CGPointMake(1.0f, 0)];
+                for (Track *track in trackArray) {
+                    [track runAction:[moveRight copy]];
+                }
+                sceneTrackNow -= 1;
+                CCLOG(@"scene: %d", sceneTrackNow);
+            }
+            break;
+        default:
+            break;
     }
 }
 
 -(void)onLeftTouchSlide {
-    if ([trainHeadArray count] % 3 == 0 && sceneNow < [trainHeadArray count] / 3) {
-        CCAction *moveLeft = [CCActionMoveBy actionWithDuration:1.0f position:CGPointMake(-1.0f, 0)];
-        for (TrainHead *head in trainHeadArray) {
-            [head runAction:[moveLeft copy]];
-        }
-        sceneNow += 1;
-        CCLOG(@"scene: %d", sceneNow);
-    }
-    else if ([trainHeadArray count] % 3 != 0 && sceneNow <= [trainHeadArray count] / 3) {
-        CCAction *moveLeft = [CCActionMoveBy actionWithDuration:1.0f position:CGPointMake(-1.0f, 0)];
-        for (TrainHead *head in trainHeadArray) {
-            [head runAction:[moveLeft copy]];
-        }
-        sceneNow += 1;
-        CCLOG(@"scene: %d", sceneNow);
-        
+    switch (trainNow) {
+        case train_Head:
+            if ([trainHeadArray count] % 3 == 0 && sceneHeadNow < [trainHeadArray count] / 3) {
+                CCAction *moveLeft = [CCActionMoveBy actionWithDuration:1.0f position:CGPointMake(-1.0f, 0)];
+                for (TrainHead *head in trainHeadArray) {
+                    [head runAction:[moveLeft copy]];
+                }
+                sceneHeadNow += 1;
+                CCLOG(@"scene: %d", sceneHeadNow);
+            }
+            else if ([trainHeadArray count] % 3 != 0 && sceneHeadNow <= [trainHeadArray count] / 3) {
+                CCAction *moveLeft = [CCActionMoveBy actionWithDuration:1.0f position:CGPointMake(-1.0f, 0)];
+                for (TrainHead *head in trainHeadArray) {
+                    [head runAction:[moveLeft copy]];
+                }
+                sceneHeadNow += 1;
+                CCLOG(@"scene: %d", sceneHeadNow);
+            }
+            break;
+        case train_Goods:
+            if ([trainGoodsArray count] % 3 == 0 && sceneGoodsNow < [trainGoodsArray count] / 3) {
+                CCAction *moveLeft = [CCActionMoveBy actionWithDuration:1.0f position:CGPointMake(-1.0f, 0)];
+                for (TrainGoods *goods in trainGoodsArray) {
+                    [goods runAction:[moveLeft copy]];
+                }
+                sceneHeadNow += 1;
+                CCLOG(@"scene: %d", sceneHeadNow);
+            }
+            else if ([trainGoodsArray count] % 3 != 0 && sceneGoodsNow <= [trainGoodsArray count] / 3) {
+                CCAction *moveLeft = [CCActionMoveBy actionWithDuration:1.0f position:CGPointMake(-1.0f, 0)];
+                for (TrainGoods *goods in trainGoodsArray) {
+                    [goods runAction:[moveLeft copy]];
+                }
+                sceneGoodsNow += 1;
+                CCLOG(@"scene: %d", sceneGoodsNow);
+            }
+            break;
+        case train_Track:
+            if ([trackArray count] % 3 == 0 && sceneTrackNow < [trackArray count] / 3) {
+                CCAction *moveLeft = [CCActionMoveBy actionWithDuration:1.0f position:CGPointMake(-1.0f, 0)];
+                for (Track *track in trackArray) {
+                    [track runAction:[moveLeft copy]];
+                }
+                sceneTrackNow += 1;
+                CCLOG(@"scene: %d", sceneTrackNow);
+            }
+            else if ([trackArray count] % 3 != 0 && sceneTrackNow <= [trackArray count] / 3) {
+                CCAction *moveLeft = [CCActionMoveBy actionWithDuration:1.0f position:CGPointMake(-1.0f, 0)];
+                for (Track *track in trackArray) {
+                    [track runAction:[moveLeft copy]];
+                }
+                sceneTrackNow += 1;
+                CCLOG(@"scene: %d", sceneTrackNow);
+            }
+            break;
+        default:
+            break;
     }
 }
 
 -(BOOL)spriteGetOrNot:(CGPoint)pos {
     CGPoint posEnd = pos;
+    if (!spriteSelected) {
+        return NO;
+    }
     switch (trainNow) {
         case train_Head:
             if (CGRectContainsPoint(boxHead.boundingBox, posEnd)) {
-                CCLOG(@"火车已到达boxHead！");
+                CCLOG(@"火车头已到达boxHead！");
                 boxHead.opacity = 0; // 隐藏
                 [selTrainHead removeFromParent];
                 return YES;
             }
             break;
         case train_Goods:
+            if (CGRectContainsPoint(boxGoods.boundingBox, posEnd)) {
+                CCLOG(@"火车货物已到达boxHead！");
+                boxGoods.opacity = 0; // 隐藏
+                [selTrainGoods removeFromParent];
+                return YES;
+            }
             break;
         case train_Track:
+            if (CGRectContainsPoint(boxTrack.boundingBox, posEnd)) {
+                CCLOG(@"火车铁轨已到达boxHead！");
+                boxTrack.opacity = 0; // 隐藏
+                [selTrainTrack removeFromParent];
+                return YES;
+            }
             break;
         default:
             break;
@@ -287,20 +596,33 @@
 }
 
 -(void)onSpriteForSel {
-    if (trainNow == train_Head) {
-        //selTrainHead = [selTrainHead createWithExists:selTrainHead];
-        [selTrainHead setRow:boxHead.position.x];
-        [selTrainHead setColumn:boxHead.position.y];
-        [selTrainHead setPosition:[boxHead position]];
-        
-        [self addChild:selTrainHead z:9];
-        CCLOG(@"sel Set!");
-    }
-    else if (trainNow == train_Goods) {
-        
-    }
-    else if (trainNow == train_Track) {
-        
+    switch (trainNow) {
+        case train_Head:
+            [selTrainHead setRow:boxHead.position.x];
+            [selTrainHead setColumn:boxHead.position.y];
+            [selTrainHead setPosition:[boxHead position]];
+            
+            [self addChild:selTrainHead z:9];
+            CCLOG(@"selTrainHead Set!");
+            break;
+        case train_Goods:
+            [selTrainGoods setRow:boxGoods.position.x];
+            [selTrainGoods setColumn:boxGoods.position.y];
+            [selTrainGoods setPosition:[boxGoods position]];
+            
+            [self addChild:selTrainGoods z:9];
+            CCLOG(@"selTrainGoods Set!");
+            break;
+        case train_Track:
+            [selTrainTrack setRow:boxTrack.position.x];
+            [selTrainTrack setColumn:boxTrack.position.y];
+            [selTrainTrack setPosition:[boxTrack position]];
+            
+            [self addChild:selTrainTrack z:9];
+            CCLOG(@"selTrainTrack Set!");
+            break;
+        default:
+            break;
     }
 }
 /*

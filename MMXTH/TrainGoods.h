@@ -25,7 +25,7 @@
 @property(nonatomic, copy)NSString *url;
 // -----------------------------------------------------------------
 // methods
-
+-(TrainGoods *)createWithExists:(TrainGoods *)head;
 // -----------------------------------------------------------------
 
 @end

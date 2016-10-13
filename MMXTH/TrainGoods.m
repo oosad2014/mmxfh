@@ -29,7 +29,7 @@ static int count_Goods = 0;
     [self setColumn:0];
     
     url = @"";
-    trainArray = [NSMutableArray arrayWithObjects:@"sound_mute.png", @"button.png", @"panda.png", @"pb.png", @"panda.png", @"tree_1.png", @"Icon.png", @"Icon-Small.png", @"button.png", nil];
+    trainArray = [NSMutableArray arrayWithObjects:@"button.png", @"panda.png", @"pb.png", @"panda.png", @"Icon.png", @"Icon-Small.png", @"button.png", nil];
     return self;
 }
 
@@ -51,12 +51,30 @@ static int count_Goods = 0;
     return train;
 }
 
+-(TrainGoods *)createWithExists:(TrainGoods *)head {
+    TrainGoods *train = [TrainGoods spriteWithImageNamed:[head url]];
+    train.url = [head url];
+    [train setRow:[head getRow]];
+    [train setColumn:[head getColumn]];
+    train.positionType = head.positionType;
+    [train setPosition:[head position]];
+    return train;
+}
+
 -(id)copyWithZone:(NSZone *)zone {
     TrainGoods *copyTrain = [[[self class] allocWithZone:zone] init];
     copyTrain.url = self.url;
     copyTrain.trainArray = self.trainArray;
+    
+    [copyTrain setRow:[self getRow]];
+    [copyTrain setColumn:[self getColumn]];
+    copyTrain.positionType = self.positionType;
+    copyTrain.position = self.position;
+    // copy不了父类的相关属性
+    
     return copyTrain;
 }
+
 // -----------------------------------------------------------------
 
 @end

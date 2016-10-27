@@ -34,6 +34,7 @@
     //CCSprite *spriteBG = [CCSprite spriteWithFile:@"pb.png"];
     spriteBG.position = ccp(254,53);
     spriteBG.scaleX = 292;
+    
     [self addChild:spriteBG ];
     [self setPb_bar];
     
@@ -49,7 +50,7 @@
     spriteLeftBAR.anchorPoint = CGPointZero;
     [self addChild:spriteLeftBAR ];
     
-    [self schedule:@selector(step:) interval:0.01];
+    [self schedule:@selector(step:) interval:0.005];
     
 }
 -(void) step:(CCTime)dt
@@ -77,7 +78,7 @@
         //[spriteBAR release];
         [self removeAllChildren];
         [[CCDirector sharedDirector] replaceScene:[SecondScene scene]
-                                   withTransition:[CCTransition transitionPushWithDirection:CCTransitionDirectionLeft duration:0.5f]];
+                                   withTransition:[CCTransition transitionCrossFadeWithDuration:0.5f]];
     }
     
 }

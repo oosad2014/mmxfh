@@ -59,6 +59,9 @@ enum TRAIN {
 @property(nonatomic, retain) NSMutableArray<TrainGoods *> *trainGoodsArray;
 @property(nonatomic, retain) NSMutableArray<Track *> *trackArray;
 
+// use for pause
+@property(nonatomic,retain) CCRenderTexture *pauseTexture;
+@property(nonatomic, retain) CCButton *pauseButton;
 // -----------------------------------------------------------------
 // methods
 

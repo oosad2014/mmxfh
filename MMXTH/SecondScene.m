@@ -16,6 +16,7 @@
 #import "TrainHead.h"
 #import "TrainGoods.h"
 #import "Track.h"
+#import "PauseScene.h"
 
 // -----------------------------------------------------------------
 
@@ -42,6 +43,8 @@
 @synthesize trainGoodsBtn;
 @synthesize trackBtn;
 
+@synthesize pauseButton;
+@synthesize pauseTexture;
 // -----------------------------------------------------------------
 
 + (SecondScene *)scene
@@ -162,6 +165,15 @@
     [self addChild:backButton z:9];
     [self addChild:backTitle z:10];
     
+    // PauseButton
+    pauseButton = [CCButton buttonWithTitle:@"" spriteFrame:[CCSpriteFrame frameWithImageNamed:@"icon/pause_normal.png"]];
+    pauseButton.scale = (self.contentSize.width/pauseButton.contentSize.width)*0.05f;
+    pauseButton.positionType = CCPositionTypeNormalized;
+    [pauseButton setPosition:ccp(0.93f, 0.93f)];
+    [pauseButton setTarget:self selector:@selector(onPauseButtonClicked:)];
+    
+    [self addChild:pauseButton z:9];
+    
     // TrainHead Button
     trainHeadBtn = [CCButton buttonWithTitle:@"TrainHead" spriteFrame:[CCSpriteFrame frameWithImageNamed:@"button.png"]];
     [trainHeadBtn setTarget:self selector:@selector(insideTrainHeadScene)];
@@ -206,6 +218,16 @@
 - (void)onBackButtonClicked:(id)sender {
     [[CCDirector sharedDirector] replaceScene:[FirstScene scene]
                                withTransition:[CCTransition transitionPushWithDirection:CCTransitionDirectionLeft duration:0.5f]];
+}
+
+-(void)onPauseButtonClicked:(id)sender {
+    // 此处将整个页面作为快照保存，作为暂停的背景
+    pauseTexture = [CCRenderTexture renderTextureWithWidth:self.contentSize.width height:self.contentSize.height];
+    [pauseTexture begin];
+    [self visit];
+    [pauseTexture end];
+    
+    [[CCDirector sharedDirector] pushScene:[[PauseScene scene] initWithParameter:pauseTexture] withTransition: [CCTransition transitionPushWithDirection:CCTransitionDirectionInvalid duration:1.0f]];
 }
 
 -(void)insideTrainHeadScene {

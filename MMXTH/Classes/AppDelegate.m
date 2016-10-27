@@ -14,12 +14,13 @@
 #import "FirstScene.h"
 #import "SecondScene.h"
 #import "ShopScene.h"
+#import "TestTrainScene.h"
 
 // -----------------------------------------------------------------------
 
 @implementation AppDelegate
 
-// -----------------------------------------------------------------------
+// -----------------------------------------------------------------------h
 // This is where your app starts. It takes two steps
 // 1) Setting up Cocos2D, which is done with setupCocos2dWithOptions
 // 2) Call your first scene, which is done by overriding startScene
@@ -79,7 +80,7 @@
 
 - (CCScene *)startScene
 {
-	return [FirstScene new];
+	return [TestTrainScene new];
 }
 
 // -----------------------------------------------------------------------

@@ -24,6 +24,7 @@
 @synthesize tempTran;
 @synthesize oldTranCenter;
 @synthesize isMoved;
+@synthesize isLocked;
 // -----------------------------------------------------------------
 
 + (TestTrainScene *)scene
@@ -46,6 +47,7 @@
     tempTran = CGPointMake(0, 0);
     oldTranCenter = CGPointMake(0.5f, 0.5f);
     isMoved = NO;
+    isLocked = NO;
     
     [self initScene];
     
@@ -72,11 +74,11 @@
         CGPoint touchPoint1 = [touch1 locationInNode:self];
         CGPoint touchPoint2 = [touch2 locationInNode:self];
         
-        CCLOG(@"firstPoint: %@ secondPoint: %@", NSStringFromCGPoint(touchPoint1), NSStringFromCGPoint(touchPoint2));
+        //CCLOG(@"firstPoint: %@ secondPoint: %@", NSStringFromCGPoint(touchPoint1), NSStringFromCGPoint(touchPoint2));
     }
     else {
         CGPoint touchPoint = [touch locationInNode:self];
-        CCLOG(@"onlyPoint: %@", NSStringFromCGPoint(touchPoint));
+        CCLOG(@"onlyPoint1: %@", NSStringFromCGPoint(touchPoint));
     }
     CCLOG(@"touchBegan--->%lu", (unsigned long)touches.count);
     // CGPoint touchPoint = [touch locationInNode:self];
@@ -97,26 +99,60 @@
         oldTouchPoint1 = [self convertToNodeSpace:oldTouchPoint1];
         oldTouchPoint2 = [[CCDirector sharedDirector] convertToGL:oldTouchPoint2];
         oldTouchPoint2 = [self convertToNodeSpace:oldTouchPoint2];
+        
         CGPoint newTranCenter = ccpMult(ccpAdd(oldTouchPoint1, oldTouchPoint2), 0.5);
+        //CCLOG(@"Center: %@", NSStringFromCGPoint(newTranCenter));
         
         CGFloat oldTranLoc = ccpDistance(oldTouchPoint1, oldTouchPoint2); // 两个Point变幻之前的距离
         CGFloat tranLoc = ccpDistance(touchPoint1, touchPoint2); // 两个Point变幻之后的距离
         
-        CCLOG(@"oldDistance: %f newDistance: %f", oldTranLoc, tranLoc);
+        //CCLOG(@"oldDistance: %f newDistance: %f", oldTranLoc, tranLoc);
         
         double tempScale = [self scale] * tranLoc / oldTranLoc;
-        // tempScale 约束到1 －> 5之间
+        // tempScale 约束到1 －> 2之间
         tempScale = tempScale <= 1 ? 1 : tempScale;
         tempScale = tempScale >= 5 ? 5 : tempScale;
         
+        CGPoint oldAnchorPoint = [self anchorPoint];
+        oldAnchorPoint.x *= self.contentSize.width;
+        oldAnchorPoint.y *= self.contentSize.height;
+        CGPoint tranFromAnchor = ccpSub(newTranCenter, oldAnchorPoint);
+        CGPoint newPosition = [self position];
+        double scale = [self scale];
+        newPosition.x += tranFromAnchor.x * scale;
+        newPosition.y += tranFromAnchor.y * scale;
+        
+        CGPoint newAnchorPoint = CGPointMake(newTranCenter.x/self.contentSize.width, newTranCenter.y/self.contentSize.height);
+        //CCLOG(@"AP: %f NP: %f", (1.0 - newAnchorPoint.y) * tempScale * self.contentSize.height, self.contentSize.height - newPosition.y);
+        if (newAnchorPoint.y * tempScale * self.contentSize.height < newPosition.y) {
+            newAnchorPoint.y = 0.0;
+            newPosition.y = 0.0;
+            CCLOG(@"Bottom get!");
+        }
+        if ((1.0 - newAnchorPoint.y) * tempScale * self.contentSize.height < (self.contentSize.height - newPosition.y)) {
+            newAnchorPoint.y = 1.0;
+            newPosition.y = self.contentSize.height;
+            CCLOG(@"Top get!");
+        }
+        if (newAnchorPoint.x * tempScale * self.contentSize.width < newPosition.x) {
+            newAnchorPoint.x = 0.0;
+            newPosition.x = 0.0;
+            CCLOG(@"left get!");
+        }
+        if ((1.0 - newAnchorPoint.x) * tempScale * self.contentSize.width < (self.contentSize.width - newPosition.x)) {
+            newAnchorPoint.x = 1.0;
+            newPosition.x = self.contentSize.width;
+            CCLOG(@"right get!");
+        }
+        
         // 重置锚点与位置，scene对应屏幕
-        [self setAnchorPoint:CGPointMake(newTranCenter.x/self.contentSize.width, newTranCenter.y/self.contentSize.height)];
-        [self setPosition:newTranCenter];
+        [self setAnchorPoint:newAnchorPoint];
+        [self setPosition:newPosition];
+        //CCLOG(@"NAP: %@, NP: %@", NSStringFromCGPoint(newAnchorPoint), NSStringFromCGPoint(newPosition));
         
         [self setScale:tempScale];
         CCLOG(@"scale: %f", [self scale]);
-        
-        
+
         /*
          **当初天真的自我实现
         CCTouch *touch1 = [touches objectAtIndex:0];
@@ -183,8 +219,17 @@
         CGPoint oldTouchPoint = [touch previousLocationInView:touch.view];
         oldTouchPoint = [[CCDirector sharedDirector] convertToGL:oldTouchPoint];
         oldTouchPoint = [self convertToNodeSpace:oldTouchPoint];
-        CGPoint tran = ccpSub(touchPoint, oldTouchPoint);
         
+        CGPoint tran = ccpSub(touchPoint, oldTouchPoint); // 识别移动距离，仅通过一个点
+        /*
+        CCLOG(@"oldPosition: %@", NSStringFromCGPoint([self position]));
+        CGPoint anchorPoint = [self anchorPoint];
+        CGPoint newPosition = ccpAdd(tran, [self position]);
+        newPosition.y = newPosition.y <= anchorPoint.y ? newPosition.y : anchorPoint.y;
+        newPosition.x = newPosition.x <= anchorPoint.x ? newPosition.x : anchorPoint.x;
+        [self setPosition:newPosition];
+        CCLOG(@"newPosition: %@", NSStringFromCGPoint([self position]));
+        */
         CCLOG(@"OnlyTran: %@", NSStringFromCGPoint(tran));
     }
 }

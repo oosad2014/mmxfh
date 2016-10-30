@@ -24,6 +24,7 @@
 @property(nonatomic, assign) CGPoint tempTran;
 @property(nonatomic, assign) CGPoint oldTranCenter;
 @property(nonatomic, assign) BOOL isMoved;
+@property(nonatomic, assign) BOOL isLocked;
 // -----------------------------------------------------------------
 // methods
 

@@ -74,7 +74,7 @@
         CGPoint touchPoint1 = [touch1 locationInNode:self];
         CGPoint touchPoint2 = [touch2 locationInNode:self];
         
-        //CCLOG(@"firstPoint: %@ secondPoint: %@", NSStringFromCGPoint(touchPoint1), NSStringFromCGPoint(touchPoint2));
+        CCLOG(@"Point1: %@ Point2: %@", NSStringFromCGPoint(touchPoint1), NSStringFromCGPoint(touchPoint2));
     }
     else {
         CGPoint touchPoint = [touch locationInNode:self];
@@ -220,16 +220,21 @@
         oldTouchPoint = [[CCDirector sharedDirector] convertToGL:oldTouchPoint];
         oldTouchPoint = [self convertToNodeSpace:oldTouchPoint];
         
+        CGFloat scale = [self scale];
+        CGPoint nowPos = [self position];
         CGPoint tran = ccpSub(touchPoint, oldTouchPoint); // 识别移动距离，仅通过一个点
-        /*
-        CCLOG(@"oldPosition: %@", NSStringFromCGPoint([self position]));
+        tran.x *= scale;
+        tran.y *= scale;
+        
+        CCLOG(@"oldPosition: %@", NSStringFromCGPoint(nowPos));
         CGPoint anchorPoint = [self anchorPoint];
-        CGPoint newPosition = ccpAdd(tran, [self position]);
-        newPosition.y = newPosition.y <= anchorPoint.y ? newPosition.y : anchorPoint.y;
-        newPosition.x = newPosition.x <= anchorPoint.x ? newPosition.x : anchorPoint.x;
+        CGPoint newPosition = ccpAdd(tran, nowPos);
+        
+        newPosition.y = (anchorPoint.y * scale * self.contentSize.height < newPosition.y) || (1.0 - anchorPoint.y) * scale * self.contentSize.height < (self.contentSize.height - newPosition.y) ? nowPos.y : newPosition.y;
+        newPosition.x = (anchorPoint.x * scale * self.contentSize.width < newPosition.x) || (1.0 - anchorPoint.x) * scale * self.contentSize.width < (self.contentSize.width - newPosition.x) ? nowPos.x : newPosition.x;
+        
         [self setPosition:newPosition];
-        CCLOG(@"newPosition: %@", NSStringFromCGPoint([self position]));
-        */
+        CCLOG(@"newPosition: %@", NSStringFromCGPoint(newPosition));
         CCLOG(@"OnlyTran: %@", NSStringFromCGPoint(tran));
     }
 }

@@ -55,11 +55,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "MMXTH/TestTrainScene.m"
-            timestampString = "499527142.61883"
+            timestampString = "499775490.718544"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "46"
-            endingLineNumber = "46"
+            startingLineNumber = "58"
+            endingLineNumber = "58"
             landmarkName = "-init"
             landmarkType = "7">
          </BreakpointContent>
@@ -71,11 +71,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "MMXTH/TestTrainScene.m"
-            timestampString = "499527142.61883"
+            timestampString = "499775490.718544"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "52"
-            endingLineNumber = "52"
+            startingLineNumber = "68"
+            endingLineNumber = "68"
             landmarkName = "-init"
             landmarkType = "7">
          </BreakpointContent>
@@ -87,11 +87,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "MMXTH/TestTrainScene.m"
-            timestampString = "499576162.192239"
+            timestampString = "499775727.419153"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "220"
-            endingLineNumber = "220"
+            startingLineNumber = "252"
+            endingLineNumber = "252"
             landmarkName = "-touchMoved:withEvent:"
             landmarkType = "7">
          </BreakpointContent>
@@ -103,11 +103,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "MMXTH/TestTrainScene.m"
-            timestampString = "499576162.192239"
+            timestampString = "499775727.419153"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "127"
-            endingLineNumber = "127"
+            startingLineNumber = "159"
+            endingLineNumber = "159"
             landmarkName = "-touchMoved:withEvent:"
             landmarkType = "7">
          </BreakpointContent>

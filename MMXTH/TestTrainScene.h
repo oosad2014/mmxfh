@@ -25,6 +25,10 @@
 @property(nonatomic, assign) CGPoint oldTranCenter;
 @property(nonatomic, assign) BOOL isMoved;
 @property(nonatomic, assign) BOOL isLocked;
+@property(nonatomic, retain) CCNodeColor *backgrounds;
+@property(nonatomic, retain) CCNodeColor *buttonLayer;
+@property(nonatomic, retain) CCSprite *buttonLock;
+@property(nonatomic, retain) CCSprite *pandaTrain;
 // -----------------------------------------------------------------
 // methods
 

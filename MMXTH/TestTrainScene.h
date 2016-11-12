@@ -12,6 +12,10 @@
 
 #import <Foundation/Foundation.h>
 #import "cocos2d.h"
+#import "cocos2d-ui.h"
+#import "TrainHead.h"
+#import "TrainGoods.h"
+#import "Track.h"
 
 // -----------------------------------------------------------------
 
@@ -27,8 +31,15 @@
 @property(nonatomic, assign) BOOL isLocked;
 @property(nonatomic, retain) CCNodeColor *backgrounds;
 @property(nonatomic, retain) CCNodeColor *buttonLayer;
+@property(nonatomic, retain) CCNodeColor *pauseLayer;
 @property(nonatomic, retain) CCSprite *buttonLock;
-@property(nonatomic, retain) CCSprite *pandaTrain;
+@property(nonatomic, retain) TrainHead *trainHead;
+@property(nonatomic, retain) TrainGoods *trainGoods;
+@property(nonatomic, retain) Track *track;
+
+// use for pause
+@property(nonatomic,retain) CCRenderTexture *pauseTexture;
+@property(nonatomic, retain) CCButton *pauseButton;
 // -----------------------------------------------------------------
 // methods
 

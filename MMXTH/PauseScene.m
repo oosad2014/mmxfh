@@ -7,8 +7,10 @@
 //
 
 #import "PauseScene.h"
+#import "TestTrainScene.h"
 #import "FirstScene.h"
 #import "SecondScene.h"
+
 
 @implementation PauseScene
 
@@ -80,12 +82,12 @@
 
 -(void)onBackBtnClicked:(id)sender {
     [[CCDirector sharedDirector] resume];
-    [[CCDirector sharedDirector] replaceScene:[FirstScene scene] withTransition:[CCTransition transitionCrossFadeWithDuration:1.0f]];
+    [[CCDirector sharedDirector] replaceScene:[SecondScene scene] withTransition:[CCTransition transitionCrossFadeWithDuration:1.0f]];
 }
 
 -(void)onRetryBtnClicked:(id)sender {
     [[CCDirector sharedDirector] resume];
-    [[CCDirector sharedDirector] replaceScene:[SecondScene scene] withTransition:[CCTransition transitionCrossFadeWithDuration:1.0f]];
+    [[CCDirector sharedDirector] replaceScene:[TestTrainScene scene] withTransition:[CCTransition transitionCrossFadeWithDuration:1.0f]];
 }
 
 -(void)onReturnBtnClicked:(id)sender {

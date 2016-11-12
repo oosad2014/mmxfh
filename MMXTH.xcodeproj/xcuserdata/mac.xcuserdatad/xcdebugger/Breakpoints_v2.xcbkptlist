@@ -39,11 +39,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "MMXTH/SecondScene.m"
-            timestampString = "498915933.619848"
+            timestampString = "500459064.194028"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "325"
-            endingLineNumber = "325"
+            startingLineNumber = "318"
+            endingLineNumber = "318"
             landmarkName = "-touchMoved:withEvent:"
             landmarkType = "7">
          </BreakpointContent>
@@ -55,11 +55,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "MMXTH/TestTrainScene.m"
-            timestampString = "499775490.718544"
+            timestampString = "500651701.644232"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "58"
-            endingLineNumber = "58"
+            startingLineNumber = "70"
+            endingLineNumber = "70"
             landmarkName = "-init"
             landmarkType = "7">
          </BreakpointContent>
@@ -71,11 +71,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "MMXTH/TestTrainScene.m"
-            timestampString = "499775490.718544"
+            timestampString = "500651701.644232"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "68"
-            endingLineNumber = "68"
+            startingLineNumber = "80"
+            endingLineNumber = "80"
             landmarkName = "-init"
             landmarkType = "7">
          </BreakpointContent>
@@ -87,12 +87,12 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "MMXTH/TestTrainScene.m"
-            timestampString = "499775727.419153"
+            timestampString = "500651701.644232"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "252"
-            endingLineNumber = "252"
-            landmarkName = "-touchMoved:withEvent:"
+            startingLineNumber = "90"
+            endingLineNumber = "90"
+            landmarkName = "-initScene"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
@@ -103,12 +103,28 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "MMXTH/TestTrainScene.m"
-            timestampString = "499775727.419153"
+            timestampString = "500651701.644232"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "159"
-            endingLineNumber = "159"
-            landmarkName = "-touchMoved:withEvent:"
+            startingLineNumber = "91"
+            endingLineNumber = "91"
+            landmarkName = "-initScene"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "MMXTH/TestTrainScene.m"
+            timestampString = "500652181.636471"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "105"
+            endingLineNumber = "105"
+            landmarkName = "-initScene"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>

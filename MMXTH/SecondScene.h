@@ -20,16 +20,17 @@
 
 // -----------------------------------------------------------------
 
+// 此处定义的静态用于其它类调用
+static TrainHead *selTrainHead;
+static TrainGoods *selTrainGoods;
+static Track *selTrainTrack;
 @interface SecondScene : CCScene {
     TrainHead *trainHead;
     TrainHead *newTrainHead;
-    TrainHead *selTrainHead;
     TrainGoods *trainGoods;
     TrainGoods *newTrainGoods;
-    TrainGoods *selTrainGoods;
     Track *trainTrack;
     Track *newTrainTrack;
-    Track *selTrainTrack;
 }
 
 // -----------------------------------------------------------------
@@ -59,9 +60,6 @@ enum TRAIN {
 @property(nonatomic, retain) NSMutableArray<TrainGoods *> *trainGoodsArray;
 @property(nonatomic, retain) NSMutableArray<Track *> *trackArray;
 
-// use for pause
-@property(nonatomic,retain) CCRenderTexture *pauseTexture;
-@property(nonatomic, retain) CCButton *pauseButton;
 // -----------------------------------------------------------------
 // methods
 
@@ -72,6 +70,10 @@ enum TRAIN {
 - (void)touchMoved:(CCTouch *)touch withEvent:(CCTouchEvent *)event;
 - (void)touchEnded:(CCTouch *)touch withEvent:(CCTouchEvent *)event;
 - (void)touchCancelled:(CCTouch *)touch withEvent:(CCTouchEvent *)event;
+
++ (TrainHead *)getTrainHeadSel;
++ (TrainGoods *)getTrainGoodsSel;
++ (Track *)getTrackSel;
 // -----------------------------------------------------------------
 
 @end

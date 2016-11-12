@@ -80,7 +80,7 @@
 
 - (CCScene *)startScene
 {
-	return [TestTrainScene new];
+	return [FirstScene new];
 }
 
 // -----------------------------------------------------------------------

@@ -22,9 +22,6 @@
 
 @implementation SecondScene
 
-//#define LEFT 0
-//#define RITHT 1
-
 @synthesize isMoved;
 @synthesize spriteSelected;
 @synthesize beganPoint;
@@ -55,24 +52,28 @@
     if ((self = [super init])) {
         CCLOG(@"%@: %@", NSStringFromSelector(_cmd), self);
     }
+    
     self.isMoved = NO; //默认为没有去触屏移动
-    self.viewSize = [CCDirector sharedDirector].viewSize;
+    self.viewSize = [CCDirector sharedDirector].viewSize; // 获取当前界面的大小
     self.userInteractionEnabled = YES; // 注册触屏事件
-    // 暂时不知道为什么必须定义一个CCNodeColor才能使用触屏功能
+    
+    // 定义颜色层节点，用于保存scene页面和触发触屏
     CCNodeColor *background = [CCNodeColor nodeWithColor:[CCColor colorWithRed:27.0f/255.0f green:185.0f/255.0f blue:239.0f/255.0f alpha:1.0f]];
     [self addChild:background];
     
     sceneHeadNow = 1; // 默认为第一页
     sceneTrackNow = 1;
     sceneGoodsNow = 1;
+    
     spriteSelected = NO; // 默认没有东西选中
     
     // Head
-    selTrainHead = [[TrainHead alloc] init];
-    newTrainHead = [[TrainHead alloc] init];
-    trainHead = [[TrainHead alloc] init];
-    trainHeadArray = [NSMutableArray arrayWithCapacity:0];
-    NSInteger headCount = [[trainHead trainArray] count];
+    selTrainHead = [[TrainHead alloc] init]; // 为选中火车头分配空间
+    newTrainHead = [[TrainHead alloc] init]; // 为拖动产生的火车头分配空间
+    trainHead = [[TrainHead alloc] init]; // 初始化火车头
+    trainHeadArray = [NSMutableArray arrayWithCapacity:0]; // 初始化火车头数组
+    NSInteger headCount = [[trainHead trainArray] count]; // 获取当前火车头数组大小
+    // 为火车头浏览页面加载所有的火车头种类，分配位置
     for (int i=1; i<=headCount; i++) {
         TrainHead *head =  [[TrainHead alloc] init];
         [TrainHead setCount:i-1];
@@ -91,6 +92,7 @@
     }
     
     // Goods
+    // 处理同上
     selTrainGoods = [[TrainGoods alloc] init];
     newTrainGoods = [[TrainGoods alloc] init];
     trainGoods = [[TrainGoods alloc] init];
@@ -114,6 +116,7 @@
     }
     
     // Track
+    // 处理同上
     selTrainTrack = [[Track alloc] init];
     newTrainTrack = [[Track alloc] init];
     trainTrack = [[Track alloc] init];
@@ -136,6 +139,7 @@
         [trackArray addObject:track];
     }
 
+    // 加载额外初始化元素
     [self initScene];
     return self;
 }
@@ -143,33 +147,33 @@
 -(void)initScene {
     // Background
     // You can change the .png files to change the background
+    // 背景
     CCSprite9Slice *background = [CCSprite9Slice spriteWithImageNamed:@"white_square.png"];
     background.anchorPoint = CGPointZero;
     background.contentSize = [CCDirector sharedDirector].viewSize;
     background.color = [CCColor grayColor];
     [self addChild:background];
     
+    // back按钮上文字
     CCLabelTTF *backTitle = [CCLabelTTF labelWithString:@"Back" fontName:@"ArialMT" fontSize:20];
     backTitle.color = [CCColor redColor];
     backTitle.positionType = CCPositionTypeNormalized;
     backTitle.position = ccp(0.1f, 0.9f);
+    [self addChild:backTitle z:10]; // 文字要高于按钮一层
     
-    // BackButton
+    // Back按钮
     CCButton *backButton = [CCButton buttonWithTitle:@"Back" spriteFrame:[CCSpriteFrame frameWithImageNamed:@"button.png"]];
     [backButton setTarget:self selector:@selector(onBackButtonClicked:)];
     backButton.positionType = CCPositionTypeNormalized;
     [backButton setPosition:ccp(0.1f, 0.9f)];
-    
     [self addChild:backButton z:9];
-    [self addChild:backTitle z:10];
     
-    // PlayButton
+    // Play按钮
     CCButton *play = [CCButton buttonWithTitle:@"" spriteFrame:[CCSpriteFrame frameWithImageNamed:@"icon/play.png"]];
     [play setTarget:self selector:@selector(onPlayButtonClicked:)];
     [play setPositionType:CCPositionTypeNormalized];
     [play setPosition:ccp(0.95f, 0.1f)];
     [play setScale:0.1f];
-    
     [self addChild:play z: 9];
     
     // TrainHead Button
@@ -177,7 +181,6 @@
     [trainHeadBtn setTarget:self selector:@selector(insideTrainHeadScene)];
     trainHeadBtn.positionType = CCPositionTypeNormalized;
     [trainHeadBtn setPosition:ccp(0.1f, 0.3f)];
-    
     [self addChild:trainHeadBtn z:9];
     
     // TrainGoods Button
@@ -185,7 +188,6 @@
     [trainGoodsBtn setTarget:self selector:@selector(insideTrainGoodsScene)];
     trainGoodsBtn.positionType = CCPositionTypeNormalized;
     [trainGoodsBtn setPosition:ccp(0.1f, 0.2f)];
-    
     [self addChild:trainGoodsBtn z:9];
     
     // Track Button
@@ -193,56 +195,71 @@
     [trackBtn setTarget:self selector:@selector(insideTrackScene)];
     trackBtn.positionType = CCPositionTypeNormalized;
     [trackBtn setPosition:ccp(0.1f, 0.1f)];
-    
     [self addChild:trackBtn z:9];
     
+    // 火车头终点贴图
     boxHead = [CCSprite spriteWithImageNamed:@"white_square.png"];
     self.boxHead.positionType = CCPositionTypeNormalized;
     [self.boxHead setPosition:ccp(0.35f, 0.8f)];
     [self addChild:self.boxHead z:8];
     
+    // 货车货物终点贴图
     boxGoods = [CCSprite spriteWithImageNamed:@"white_square.png"];
     self.boxGoods.positionType = CCPositionTypeNormalized;
     [self.boxGoods setPosition:ccp(0.5f, 0.85f)];
     [self addChild:self.boxGoods z:8];
     
+    // 火车铁轨终点贴图
     boxTrack = [CCSprite spriteWithImageNamed:@"white_square.png"];
     self.boxTrack.positionType = CCPositionTypeNormalized;
     [self.boxTrack setPosition:ccp(0.5f, 0.6f)];
     [self addChild:self.boxTrack z:8];
 }
-// -----------------------------------------------------------------
 
+#pragma mark--------------------------------------------------------------
+#pragma mark - Select Scene
+#pragma mark--------------------------------------------------------------
+
+// back按钮回调，返回firstScene
 - (void)onBackButtonClicked:(id)sender {
     [[CCDirector sharedDirector] replaceScene:[FirstScene scene]
                                withTransition:[CCTransition transitionPushWithDirection:CCTransitionDirectionLeft duration:0.5f]];
 }
 
+// play按钮回调，进入TestTrainScene界面
 - (void)onPlayButtonClicked:(id)sender {
     [[CCDirector sharedDirector] replaceScene:[TestTrainScene scene]
                                withTransition:[CCTransition transitionPushWithDirection:CCTransitionDirectionLeft duration:0.5f]];
 }
 
+// 添加火车头浏览界面
 -(void)insideTrainHeadScene {
+    // 移除其它两个控件浏览界面并使其按钮可点击
     [self removeTrainGoodsScene];
     [trainGoodsBtn setEnabled:YES];
     [self removeTrackScene];
     [trackBtn setEnabled:YES];
+    
     trainNow = train_Head; // 当前为Head选择页面
+    
+    // 加载所有的火车头种类控件
     CCAction *fadeIn = [CCActionFadeIn actionWithDuration:1.0f];
     for (TrainHead *head in trainHeadArray) {
         [self addChild:head z:9];
         [head runAction:[fadeIn copy]];
     }
-    [trainHeadBtn setEnabled:NO];
+    [trainHeadBtn setEnabled:NO]; // 禁用火车头按钮，防止多次点击
 }
 
+// 处理同上
 -(void)insideTrainGoodsScene {
     [self removeTrainHeadScene];
     [trainHeadBtn setEnabled:YES];
     [self removeTrackScene];
     [trackBtn setEnabled:YES];
-    trainNow = train_Goods; // 当前为Goods选择页面
+    
+    trainNow = train_Goods;
+    
     CCAction *fadeIn = [CCActionFadeIn actionWithDuration:1.0f];
     for (TrainGoods *goods in trainGoodsArray) {
         [self addChild:goods z:9];
@@ -251,12 +268,15 @@
     [trainGoodsBtn setEnabled:NO];
 }
 
+// 处理同上
 -(void)insideTrackScene {
     [self removeTrainGoodsScene];
     [trainGoodsBtn setEnabled:YES];
     [self removeTrainHeadScene];
     [trainHeadBtn setEnabled:YES];
-    trainNow = train_Track; // 当前为Track选择页面
+    
+    trainNow = train_Track;
+    
     CCAction *fadeIn = [CCActionFadeIn actionWithDuration:1.0f];
     for (Track *track in trackArray) {
         [self addChild:track z:9];
@@ -265,18 +285,22 @@
     [trackBtn setEnabled:NO];
 }
 
+// 移除火车头浏览界面
 -(void)removeTrainHeadScene {
+    // 移除浏览界面里的所有火车头种类以达到类似移除界面的效果
     for (TrainHead *head in trainHeadArray) {
         [head removeFromParent];
     }
 }
 
+// 同上
 -(void)removeTrainGoodsScene {
     for (TrainGoods *goods in trainGoodsArray) {
         [goods removeFromParent];
     }
 }
 
+// 同上
 -(void)removeTrackScene {
     for (Track *track in trackArray) {
         [track removeFromParent];
@@ -286,21 +310,20 @@
 #pragma mark--------------------------------------------------------------
 #pragma mark - Touch Handler
 #pragma mark--------------------------------------------------------------
-
+// 触屏开始
 -(void)touchBegan:(CCTouch *)touch withEvent:(CCTouchEvent *)event {
     self.isMoved = YES;
-    // 获取点击坐标
+    // 获取点击开始坐标
     beganPoint = [touch locationInNode:self];
-    CCLOG(@"touchBegan!");
-    //CCLOG(@"beganPoint: %@", NSStringFromCGPoint(beganPoint));
-    //CCLOG(@"Location:%@", NSStringFromCGPoint(touchLocation));
     
+    // 判断开始坐标是否选中图形
     [self spriteSelectedOrNot:beganPoint];
 }
 
+// 触屏运动
 -(void)touchMoved:(CCTouch *)touch withEvent:(CCTouchEvent *)event {
-    CGPoint touchLocation = [touch locationInNode:self];
-    CGPoint oldTouchLocation = [touch previousLocationInView:touch.view];
+    CGPoint touchLocation = [touch locationInNode:self]; // 获取当前坐标
+    CGPoint oldTouchLocation = [touch previousLocationInView:touch.view]; // 获取上一次点的坐标（基于View）
     
     // 通过View坐标去转换成Node坐标
     oldTouchLocation = [[CCDirector sharedDirector] convertToGL:oldTouchLocation];
@@ -308,11 +331,13 @@
     
     // 跟随手指移动
     CGPoint tranLoc = ccpSub(touchLocation, oldTouchLocation);
-    tranLoc.x = tranLoc.x / self.viewSize.width;
+    tranLoc.x = tranLoc.x / self.viewSize.width; // 转换成CGFloat格式坐标
     tranLoc.y = tranLoc.y / self.viewSize.height;
     
+    // 添加跟随运动
     CCAction *action = [CCActionMoveBy actionWithDuration:0.0f position:tranLoc];
     
+    // 判断此时存在的展示页面，对其进行运动操作
     switch (trainNow) {
         case train_Head:
             [newTrainHead runAction:[action copy]];
@@ -327,17 +352,19 @@
             break;
     }
     
-    CCLOG(@"touchMoved!");
 }
 
+// 触屏结束
 -(void)touchEnded:(CCTouch *)touch withEvent:(CCTouchEvent *)event {
+    // 获取触屏结束点坐标
     CGPoint endPoint = [touch locationInNode:self];
+    
+    // 如果是Move状态，则判断是否拖拉到终点
     if (self.isMoved) {
-        CGPoint tranLoc = ccpSub(endPoint, self.beganPoint);
-        //CCLOG(@"tranloc: %@", NSStringFromCGPoint(tranLoc));
-        BOOL getOfMove = NO;
+        CGPoint tranLoc = ccpSub(endPoint, self.beganPoint); // 计算起点终点坐标
+        BOOL getOfMove = NO; // 用于判断是到达终点，还是切浏览页面
         
-        // Actions
+        // 一系列动作特效，到达终点，缩小，取消，触发替换函数
         CCAction *moveEnd = [CCActionMoveTo actionWithDuration:0 position:self.boxHead.position];
         CCAction *little = [CCActionScaleTo actionWithDuration:0 scale:1.0f];
         CCAction *remove = [CCActionRemove action];
@@ -346,75 +373,69 @@
         
         switch (trainNow) {
             case train_Head:
+                // if判断是否到达终点，到达终点在触发下列运算
                 if ([self spriteGetOrNot:endPoint]) {
-                    CCLOG(@"Head Get!");
-                    getOfMove = YES;
-                    selTrainHead= [selTrainHead createWithExists:newTrainHead];
-                    spriteSelected = NO;
-                    CCLOG(@"spriteSelect: NO!");
-                    [newTrainHead runAction:[action copy]];
+                    getOfMove = YES; // 是到达终点而非切换页面
+                    selTrainHead= [selTrainHead createWithExists:newTrainHead]; // 通过已有的对象复制对象，记录选中的火车头
+                    spriteSelected = NO; // 重置纪录项，现在没有选中的对象
+                    [newTrainHead runAction:[action copy]]; // 到达终点，触发特效
                 }
                 else {
-                    [newTrainHead removeFromParent];
+                    [newTrainHead removeFromParent]; // 没有到达终点，重置位置，删除产生的选中对象
                     spriteSelected = NO;
-                    CCLOG(@"spriteSelect: NO!");
                 }
                 break;
             case train_Goods:
                 if ([self spriteGetOrNot:endPoint]) {
-                    CCLOG(@"Goods Get!");
                     getOfMove = YES;
                     selTrainGoods = [selTrainGoods createWithExists:newTrainGoods];
                     spriteSelected = NO;
-                    CCLOG(@"spriteSelect: NO!");
                     [newTrainGoods runAction:[action copy]];
                 }
                 else {
                     [newTrainGoods removeFromParent];
                     spriteSelected = NO;
-                    CCLOG(@"spriteSelect: NO!");
                 }
                 break;
             case train_Track:
                 if ([self spriteGetOrNot:endPoint]) {
-                    CCLOG(@"Track Get!");
                     getOfMove = YES;
                     selTrainTrack = [selTrainTrack createWithExists:newTrainTrack];
                     spriteSelected = NO;
-                    CCLOG(@"spriteSelect: NO!");
                     [newTrainTrack runAction:[action copy]];
                 }
                 else {
                     [newTrainTrack removeFromParent];
                     spriteSelected = NO;
-                    CCLOG(@"spriteSelect: NO!");
                 }
                 break;
             default:
                 break;
         }
         
+        // 如果是到达终点，而非切换页面，不需要出发接下来的页面切换操作，直接跳出
         if (getOfMove) {
             return;
         }
         
+        // 页面切换操作
         if (self.beganPoint.y < self.viewSize.height / 3) {
             if (tranLoc.x >= 100) {
                 // Right
-                CCLOG(@"Right!");
+                // 浏览页面整体向右，切换上一页
                 [self onRightTouchSlide];
             }
             else if (tranLoc.x <= -100) {
                 // Left
-                CCLOG(@"Left!");
+                // 浏览页面整体向左，切换下一页
                 [self onLeftTouchSlide];
             }
         }
     }
     self.isMoved = NO; // 触屏移动结束
-    CCLOG(@"touchEnded!");
 }
 
+// 触屏中断（暂时不知道如何触发，也用不到）
 -(void)touchCancelled:(CCTouch *)touch withEvent:(CCTouchEvent *)event {
     CCLOG(@"touchCancelled!");
 }
@@ -427,12 +448,10 @@
             for (TrainHead *head in trainHeadArray) {
                 if (CGRectContainsPoint(head.boundingBox, posSelected)) {
                     spriteSelected = YES; // 设置有精灵选中，可以进行接下来的操作
-                    CCLOG(@"spriteSelect: YES");
-                    CCLOG(@"火车头已选择%@图片！", head);
-                    newTrainHead = [newTrainHead createWithExists:head];
-                    [self addChild:newTrainHead z:10];
+                    newTrainHead = [newTrainHead createWithExists:head]; // 通过选中的对象，新建对象储存
+                    [self addChild:newTrainHead z:10]; // 添加对象覆盖住原对象，造成选中的特效
                     
-                    CCAction *bigger = [CCActionScaleTo actionWithDuration:0 scale:1.2f];
+                    CCAction *bigger = [CCActionScaleTo actionWithDuration:0 scale:1.2f]; // 增大特效，选中特效
                     [newTrainHead runAction:bigger];
                     
                     break;
@@ -442,9 +461,7 @@
         case train_Goods:
             for (TrainGoods *goods in trainGoodsArray) {
                 if (CGRectContainsPoint(goods.boundingBox, posSelected)) {
-                    spriteSelected = YES; // 设置有精灵选中，可以进行接下来的操作
-                    CCLOG(@"spriteSelect: YES");
-                    CCLOG(@"火车货物已选择%@图片！", goods);
+                    spriteSelected = YES;
                     newTrainGoods = [newTrainGoods createWithExists:goods];
                     [self addChild:newTrainGoods z:10];
                     
@@ -458,9 +475,7 @@
         case train_Track:
             for (Track *track in trackArray) {
                 if (CGRectContainsPoint(track.boundingBox, posSelected)) {
-                    spriteSelected = YES; // 设置有精灵选中，可以进行接下来的操作
-                    CCLOG(@"spriteSelect: YES");
-                    CCLOG(@"火车铁轨已选择%@图片！", track);
+                    spriteSelected = YES;
                     newTrainTrack = [newTrainTrack createWithExists:track];
                     [self addChild:newTrainTrack z:10];
                     
@@ -476,16 +491,17 @@
     }
 }
 
+// 向右滑动，切换上一页
 -(void)onRightTouchSlide {
     switch (trainNow) {
         case train_Head:
             if (sceneHeadNow > 1) {
+                // 火车头浏览页面所有元素整体向右移动一个页面，造成切换特效
                 CCAction *moveRight = [CCActionMoveBy actionWithDuration:1.0f position:CGPointMake(1.0f, 0)];
                 for (TrainHead *head in trainHeadArray) {
                     [head runAction:[moveRight copy]];
                 }
-                sceneHeadNow -= 1;
-                CCLOG(@"scene: %d", sceneHeadNow);
+                sceneHeadNow -= 1; // 纪录当前页面－1
             }
             break;
         case train_Goods:
@@ -495,7 +511,6 @@
                     [goods runAction:[moveRight copy]];
                 }
                 sceneGoodsNow -= 1;
-                CCLOG(@"scene: %d", sceneGoodsNow);
             }
             break;
         case train_Track:
@@ -505,7 +520,6 @@
                     [track runAction:[moveRight copy]];
                 }
                 sceneTrackNow -= 1;
-                CCLOG(@"scene: %d", sceneTrackNow);
             }
             break;
         default:
@@ -513,24 +527,26 @@
     }
 }
 
+// 向左滑动，切换下一页
 -(void)onLeftTouchSlide {
     switch (trainNow) {
         case train_Head:
+            // 火车头浏览页面整体左移动一个页面，造成切换特效
             if ([trainHeadArray count] % 3 == 0 && sceneHeadNow < [trainHeadArray count] / 3) {
+                // 如果刚好一个页面放下
                 CCAction *moveLeft = [CCActionMoveBy actionWithDuration:1.0f position:CGPointMake(-1.0f, 0)];
                 for (TrainHead *head in trainHeadArray) {
                     [head runAction:[moveLeft copy]];
                 }
-                sceneHeadNow += 1;
-                CCLOG(@"scene: %d", sceneHeadNow);
+                sceneHeadNow += 1; // 纪录当前页面＋1，
             }
             else if ([trainHeadArray count] % 3 != 0 && sceneHeadNow <= [trainHeadArray count] / 3) {
+                // 如果最后一个页面只放下一部分
                 CCAction *moveLeft = [CCActionMoveBy actionWithDuration:1.0f position:CGPointMake(-1.0f, 0)];
                 for (TrainHead *head in trainHeadArray) {
                     [head runAction:[moveLeft copy]];
                 }
                 sceneHeadNow += 1;
-                CCLOG(@"scene: %d", sceneHeadNow);
             }
             break;
         case train_Goods:
@@ -540,7 +556,6 @@
                     [goods runAction:[moveLeft copy]];
                 }
                 sceneHeadNow += 1;
-                CCLOG(@"scene: %d", sceneHeadNow);
             }
             else if ([trainGoodsArray count] % 3 != 0 && sceneGoodsNow <= [trainGoodsArray count] / 3) {
                 CCAction *moveLeft = [CCActionMoveBy actionWithDuration:1.0f position:CGPointMake(-1.0f, 0)];
@@ -548,7 +563,6 @@
                     [goods runAction:[moveLeft copy]];
                 }
                 sceneGoodsNow += 1;
-                CCLOG(@"scene: %d", sceneGoodsNow);
             }
             break;
         case train_Track:
@@ -558,7 +572,6 @@
                     [track runAction:[moveLeft copy]];
                 }
                 sceneTrackNow += 1;
-                CCLOG(@"scene: %d", sceneTrackNow);
             }
             else if ([trackArray count] % 3 != 0 && sceneTrackNow <= [trackArray count] / 3) {
                 CCAction *moveLeft = [CCActionMoveBy actionWithDuration:1.0f position:CGPointMake(-1.0f, 0)];
@@ -566,7 +579,6 @@
                     [track runAction:[moveLeft copy]];
                 }
                 sceneTrackNow += 1;
-                CCLOG(@"scene: %d", sceneTrackNow);
             }
             break;
         default:
@@ -574,32 +586,33 @@
     }
 }
 
+// 判断当前选终点是否到达终点
 -(BOOL)spriteGetOrNot:(CGPoint)pos {
     CGPoint posEnd = pos;
+    // 如果没有选中对象，此函数跳出
     if (!spriteSelected) {
         return NO;
     }
+    
     switch (trainNow) {
         case train_Head:
             if (CGRectContainsPoint(boxHead.boundingBox, posEnd)) {
-                CCLOG(@"火车头已到达boxHead！");
-                boxHead.opacity = 0; // 隐藏
-                [selTrainHead removeFromParent];
-                return YES;
+                // 到达火车头终点
+                boxHead.opacity = 0; // 终点box隐藏
+                [selTrainHead removeFromParent]; // 移除之前产生的纪录选中火车头的对象
+                return YES; // 提示调用者到达终点
             }
             break;
         case train_Goods:
             if (CGRectContainsPoint(boxGoods.boundingBox, posEnd)) {
-                CCLOG(@"火车货物已到达boxHead！");
-                boxGoods.opacity = 0; // 隐藏
+                boxGoods.opacity = 0;
                 [selTrainGoods removeFromParent];
                 return YES;
             }
             break;
         case train_Track:
             if (CGRectContainsPoint(boxTrack.boundingBox, posEnd)) {
-                CCLOG(@"火车铁轨已到达boxHead！");
-                boxTrack.opacity = 0; // 隐藏
+                boxTrack.opacity = 0;
                 [selTrainTrack removeFromParent];
                 return YES;
             }
@@ -610,6 +623,7 @@
     return NO;
 }
 
+// 到达终点后，使用新产生的选中对象放在终点处，造成把对象拉到终点纪录的特效
 -(void)onSpriteForSel {
     switch (trainNow) {
         case train_Head:
@@ -617,8 +631,7 @@
             [selTrainHead setColumn:boxHead.position.y];
             [selTrainHead setPosition:[boxHead position]];
             
-            [self addChild:selTrainHead z:9];
-            CCLOG(@"selTrainHead Set!");
+            [self addChild:selTrainHead z:9]; // 将产生的对象放在终点处
             break;
         case train_Goods:
             [selTrainGoods setRow:boxGoods.position.x];
@@ -626,7 +639,6 @@
             [selTrainGoods setPosition:[boxGoods position]];
             
             [self addChild:selTrainGoods z:9];
-            CCLOG(@"selTrainGoods Set!");
             break;
         case train_Track:
             [selTrainTrack setRow:boxTrack.position.x];
@@ -634,229 +646,23 @@
             [selTrainTrack setPosition:[boxTrack position]];
             
             [self addChild:selTrainTrack z:9];
-            CCLOG(@"selTrainTrack Set!");
             break;
         default:
             break;
     }
 }
-/*
-- (void)touchBegan:(CCTouch *)touch withEvent:(CCTouchEvent *)event {
-    self.isMoved = YES; // 标记发生触屏移动
-    // 获取点击坐标
-    beganPoint = [touch locationInNode:self];
-    CCLOG(@"touchBegan!");
-    //CCLOG(@"beganPoint: %@", NSStringFromCGPoint(beganPoint));
-    //CCLOG(@"Location:%@", NSStringFromCGPoint(touchLocation));
-    [self spriteSelectedOrNot:beganPoint];
-}
 
--(void)touchMoved:(CCTouch *)touch withEvent:(CCTouchEvent *)event {
-    
-    CGPoint touchLocation = [touch locationInNode:self];
-    CGPoint oldTouchLocation = [touch previousLocationInView:touch.view];
-    
-    // 通过View坐标去转换成Node坐标
-    oldTouchLocation = [[CCDirector sharedDirector] convertToGL:oldTouchLocation];
-    oldTouchLocation = [self convertToNodeSpace:oldTouchLocation];
-    
-    // 跟随手指移动
-    CGPoint tranLoc = ccpSub(touchLocation, oldTouchLocation);
-    tranLoc.x = tranLoc.x / self.viewSize.width;
-    tranLoc.y = tranLoc.y / self.viewSize.height;
-    CCLOG(@"TranLoc: %@", NSStringFromCGPoint(newTrain.position));
-    CCAction *action = [CCActionMoveBy actionWithDuration:0.0f position:tranLoc];
-    [newTrain runAction:action];
-    
-    CCLOG(@"touchMoved!");
-}
-
--(void)touchEnded:(CCTouch *)touch withEvent:(CCTouchEvent *)event {
-    CGPoint endPoint = [touch locationInNode:self];
-    if (self.isMoved) {
-        CGPoint tranLoc = ccpSub(endPoint, self.beganPoint);
-        CCLOG(@"tranloc: %@", NSStringFromCGPoint(tranLoc));
-        
-        if (self.beganPoint.y < self.viewSize.height / 3) {
-            if (tranLoc.x >= 100) {
-                // Right
-                CCLOG(@"Right!");
-                [self onRightTouchSlide];
-            }
-            else if (tranLoc.x <= -100) {
-                // Left
-                CCLOG(@"Left!");
-                [self onLeftTouchSlide];
-            }
-        }
-        
-        if ([self spriteGetOrNot:endPoint]) {
-            CCLOG(@"Get!");
-            CCAction *moveEnd = [CCActionMoveTo actionWithDuration:0 position:self.box.position];
-            CCAction *little = [CCActionScaleTo actionWithDuration:0 scale:1.0f];
-            CCAction *remove = [CCActionRemove action];
-            CCAction *onSel = [CCActionCallFunc actionWithTarget:self selector:@selector(onSpriteForSel)];
-            CCAction * action = [CCActionSequence actionWithArray:@[moveEnd, little, remove, onSel]];
-            [newTrain runAction:action];
-            
-            //[newTrain stopAllActions];
-        }
-        else {
-            [newTrain removeFromParent];
-        }
-        //CCLOG(@"endPoint: %@", NSStringFromCGPoint(endPoint));
-    }
-    self.isMoved = NO; // 触屏移动结束
-    CCLOG(@"touchEnded!");
-}
-
--(void)touchCancelled:(CCTouch *)touch withEvent:(CCTouchEvent *)event {
-    CCLOG(@"touchCancelled!");
-}
-
-// 此函数用来确认火车图片被选择，并进行相应操作
--(void)spriteSelectedOrNot:(CGPoint)pos {
-    CGPoint posSelected = pos;
-    if (CGRectContainsPoint(train.boundingBox, posSelected)) {
-        CCLOG(@"火车已选择此图片！");
-        [self changeSpriteStyle];
-    }
-}
-
--(BOOL)spriteGetOrNot:(CGPoint)pos {
-    CGPoint posEnd = pos;
-    if (CGRectContainsPoint(box.boundingBox, posEnd)) {
-        CCLOG(@"火车已到达box！");
-        box.opacity = 0; // 隐藏
-        if (selTrain) {
-            // 如果存在，重置
-            [selTrain removeFromParent];
-        }
-        return YES;
-    }
-    return NO;
-}
-
--(void)spriteSelectedMove:(CGPoint)pos {
-    CGPoint posSelected = pos;
-    if (CGRectContainsPoint(train.boundingBox, posSelected)) {
-        CCLOG(@"火车已选择此图片并移动！");
-    }
-}
-
--(void)onSpriteForSel {
-    selTrain = [[Train alloc] init];
-    selTrain = [selTrain create:self.box.position.x ySet:self.box.position.y];
-    [self addChild:selTrain z:9];
-}
-
--(void)changeSpriteStyle {
-    [newTrain removeFromParent];
-    newTrain = [[Train alloc] init];
-    newTrain = [newTrain create:0.5f ySet:0.3f];
-    
-    [self addChild:newTrain z:9];
-    
-    CCAction *bigger = [CCActionScaleTo actionWithDuration:0 scale:1.2f];
-    [newTrain runAction:bigger];
-}
-
--(void)onActionEnd_Out {
-    [train removeFromParent];
-}
-
--(void)onActionEnd_In:(float)x {
-    train = [[Train alloc] init];
-    train = [train create:0.5f+x ySet:0.3f];
-    //train.opacity = 0; //不显示
-    train.scale = 0.4f;
-    [self addChild:train z:9];
-}
-
--(void)onRightTouchSlide {
-    int temp = [Train getCount];
-    temp ++;
-    if (temp >= 3) {
-        temp = 0;
-    }
-    [Train setCount:temp];
-    CCLOG(@"Next Change, Count: %d", [Train getCount]);
-    
-    [self leftToRight_Out];
-}
-
--(void)onLeftTouchSlide {
-    int temp = [Train getCount];
-    temp --;
-    if (temp < 0) {
-        temp = 2;
-    }
-    [Train setCount:temp];
-    CCLOG(@"Last Change, Count: %d", [Train getCount]);
-
-    [self rightToLeft_Out];
-}
-
--(void)leftToRight_Out {
-    id actionEnd = [CCActionCallFunc actionWithTarget:self selector:@selector(onActionEnd_Out)];
-    id actionIn = [CCActionCallFunc actionWithTarget:self selector:@selector(leftToRight_In)];
-    CCAction *rightMove = [CCActionMoveBy actionWithDuration:0.5f position:CGPointMake(0.1f, 0)];
-    CCAction *spriteFadeOut = [CCActionFadeOut actionWithDuration:0.5f];
-    CCAction *spriteToLittle = [CCActionScaleTo actionWithDuration:0.5f scale:0.4f];
-    CCAction *rightAction = [CCActionSpawn actionWithArray:@[rightMove, spriteToLittle, spriteFadeOut]];
-    CCAction *action = [CCActionSequence actionWithArray:@[rightAction, actionEnd, actionIn]];
-    [train runAction:action];
-}
-
--(void)rightToLeft_Out {
-    id actionEnd = [CCActionCallFunc actionWithTarget:self selector:@selector(onActionEnd_Out)];
-    id actionIn = [CCActionCallFunc actionWithTarget:self selector:@selector(rightToLeft_In)];
-    CCAction *leftMove = [CCActionMoveBy actionWithDuration:0.5f position:CGPointMake(-0.1f, 0)];
-    CCAction *spriteFadeOut = [CCActionFadeOut actionWithDuration:0.5f];
-    CCAction *spriteToLittle = [CCActionScaleTo actionWithDuration:0.5f scale:0.4f];
-    CCAction *actionRemove = [CCActionRemove action];
-    CCAction *leftAction = [CCActionSpawn actionWithArray:@[leftMove, spriteToLittle, spriteFadeOut]];
-    CCAction *action = [CCActionSequence actionWithArray:@[leftAction, actionRemove, actionEnd, actionIn]];
-    [train runAction:action];
-}
-
--(void)leftToRight_In {
-    [self onActionEnd_In:-0.1f];
-    CCAction *leftMove = [CCActionMoveBy actionWithDuration:0.5f position:CGPointMake(0.1f, 0)];
-    CCAction *spriteFadeIn = [CCActionFadeIn actionWithDuration:0.5f];
-    CCAction *spriteToLarge = [CCActionScaleTo actionWithDuration:0.5f scale:1.0f];
-    //CCAction *actionRemove = [CCActionRemove action];
-    CCAction *leftAction = [CCActionSpawn actionWithArray:@[leftMove, spriteToLarge, spriteFadeIn]];
-    //CCAction *action = [CCActionSequence actionWithArray:@[leftAction, actionRemove]];
-    //train.opacity = 1; //设置成显示
-    [train runAction:leftAction];
-}
-
--(void)rightToLeft_In {
-    [self onActionEnd_In:0.1f];
-    CCAction *rightMove = [CCActionMoveBy actionWithDuration:0.5f position:CGPointMake(-0.1f, 0)];
-    CCAction *spriteFadeIn = [CCActionFadeIn actionWithDuration:0.5f];
-    CCAction *spriteToLarge = [CCActionScaleTo actionWithDuration:0.5f scale:1.0f];
-    //CCAction *actionRemove = [CCActionRemove action];
-    CCAction *rightAction = [CCActionSpawn actionWithArray:@[rightMove, spriteToLarge, spriteFadeIn]];
-    //CCAction *action = [CCActionSequence actionWithArray:@[rightAction, actionRemove]];
-    //train.opacity = 1; //设置成显示
-    [train runAction:rightAction];
-}
-@end
-
-
-
-*/
-
+// 类方法，暴露当前选中的火车头对象
 + (TrainHead *)getTrainHeadSel {
     return selTrainHead;
 }
 
+// 类方法，暴露当前选中的火车货物对象
 + (TrainGoods *)getTrainGoodsSel {
     return selTrainGoods;
 }
 
+// 类方法，暴露当前选中的火车轨对象
 + (Track *)getTrackSel {
     return selTrainTrack;
 }

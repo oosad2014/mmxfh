@@ -12,17 +12,11 @@
 
 @interface PauseScene : CCScene
 
-@property(nonatomic, retain) CCTexture *textureCache;
-@property(nonatomic, retain) CCSprite *menuground;
+@property(nonatomic, retain) CCTexture *textureCache; // 用来缓存图片
+@property(nonatomic, retain) CCSprite *menuground; // 用来记录menu界面背景
 
 +(PauseScene *)scene;
--(id)initWithParameter:(CCRenderTexture *)pauseTexture;
+-(id)initWithParameter:(CCRenderTexture *)pauseTexture; // 通过缓存池建立
 
-/*
-- (void)touchBegan:(CCTouch *)touch withEvent:(CCTouchEvent *)event;
-- (void)touchMoved:(CCTouch *)touch withEvent:(CCTouchEvent *)event;
-- (void)touchEnded:(CCTouch *)touch withEvent:(CCTouchEvent *)event;
-- (void)touchCancelled:(CCTouch *)touch withEvent:(CCTouchEvent *)event;
- */
 @end
  

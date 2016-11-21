@@ -41,11 +41,6 @@
     [pauseBlock setScaleY: self.contentSize.height / pauseBlock.contentSize.height];
     [self addChild:pauseBlock];
     
-    /*
-    CCTexture *menuPic = [CCTexture textureWithFile:@"icon/menu.png"];
-    CCSprite *menuground = [CCSprite spriteWithTexture:menuPic];
-     */
-    
     // v3.x没有CCMenu???
     
     // menu background
@@ -80,43 +75,21 @@
     [self addChild:returnBtn];
 }
 
+// Back按钮点击事件
 -(void)onBackBtnClicked:(id)sender {
-    [[CCDirector sharedDirector] resume];
+    [[CCDirector sharedDirector] resume]; // 暂停游戏，保存当前状态
     [[CCDirector sharedDirector] replaceScene:[SecondScene scene] withTransition:[CCTransition transitionCrossFadeWithDuration:1.0f]];
 }
 
+// Retry按钮点击事件
 -(void)onRetryBtnClicked:(id)sender {
     [[CCDirector sharedDirector] resume];
     [[CCDirector sharedDirector] replaceScene:[TestTrainScene scene] withTransition:[CCTransition transitionCrossFadeWithDuration:1.0f]];
 }
 
+// Return按钮点击事件
 -(void)onReturnBtnClicked:(id)sender {
     [[CCDirector sharedDirector] resume];
     [[CCDirector sharedDirector] popSceneWithTransition:[CCTransition transitionCrossFadeWithDuration:1.0f]];
 }
-
-/*
--(void)touchBegan:(CCTouch *)touch withEvent:(CCTouchEvent *)event {
-    CGPoint touchPoint = [touch locationInNode:self];
-    
-    if (CGRectContainsPoint(menuground.boundingBox, touchPoint)) {
-        CCLOG(@"pause in menu!");
-    }
-    else {
-        CCLOG(@"pause out menu!");
-    }
-}
-
--(void)touchMoved:(CCTouch *)touch withEvent:(CCTouchEvent *)event {
-    
-}
-
--(void)touchCancelled:(CCTouch *)touch withEvent:(CCTouchEvent *)event {
-    
-}
-
--(void)touchEnded:(CCTouch *)touch withEvent:(CCTouchEvent *)event {
-    
-}
- */
 @end

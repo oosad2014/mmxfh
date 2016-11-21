@@ -23,23 +23,20 @@
 
 // -----------------------------------------------------------------
 // properties
-@property(nonatomic, retain) CCSprite *background;
-@property(nonatomic, retain) CCTexture *backgroundImg;
-@property(nonatomic, assign) CGPoint tempTran;
-@property(nonatomic, assign) CGPoint oldTranCenter;
-@property(nonatomic, assign) BOOL isMoved;
-@property(nonatomic, assign) BOOL isLocked;
-@property(nonatomic, retain) CCNodeColor *backgrounds;
-@property(nonatomic, retain) CCNodeColor *buttonLayer;
-@property(nonatomic, retain) CCNodeColor *pauseLayer;
-@property(nonatomic, retain) CCSprite *buttonLock;
-@property(nonatomic, retain) TrainHead *trainHead;
-@property(nonatomic, retain) TrainGoods *trainGoods;
-@property(nonatomic, retain) Track *track;
+@property(nonatomic, retain) CCSprite *background; // 用于保存游戏界面背景图
+@property(nonatomic, retain) CCTexture *backgroundImg; // 用于储存背景的纹理
+@property(nonatomic, assign) BOOL isLocked; // 记录是否锁定视角
+@property(nonatomic, retain) CCNodeColor *backgrounds; // Node节点，用于盛放主scene层（变化层）
+@property(nonatomic, retain) CCNodeColor *buttonLayer; // Node节点，用于盛放锁定按钮（固定层）
+@property(nonatomic, retain) CCNodeColor *pauseLayer; // Node节点，用于盛放暂停按钮（固定层）
+@property(nonatomic, retain) CCSprite *buttonLock; // 用于保存锁定按钮图片
+@property(nonatomic, retain) TrainHead *trainHead; // 火车头
+@property(nonatomic, retain) TrainGoods *trainGoods; // 货车货物
+@property(nonatomic, retain) Track *track; // 火车轨
 
 // use for pause
-@property(nonatomic,retain) CCRenderTexture *pauseTexture;
-@property(nonatomic, retain) CCButton *pauseButton;
+@property(nonatomic,retain) CCRenderTexture *pauseTexture; // 用于保存暂停背景截图纹理
+@property(nonatomic, retain) CCButton *pauseButton; //暂停按钮
 // -----------------------------------------------------------------
 // methods
 

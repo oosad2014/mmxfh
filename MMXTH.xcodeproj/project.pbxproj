@@ -18,6 +18,7 @@
 		045A29381D8C21370065E181 /* TrainGoods.m in Sources */ = {isa = PBXBuildFile; fileRef = 045A29371D8C21370065E181 /* TrainGoods.m */; };
 		045A293B1D8C21530065E181 /* Track.m in Sources */ = {isa = PBXBuildFile; fileRef = 045A293A1D8C21530065E181 /* Track.m */; };
 		04607B051D8942B10052025A /* SecondScene.m in Sources */ = {isa = PBXBuildFile; fileRef = 04607B041D8942B10052025A /* SecondScene.m */; };
+		046F06841DE5636600B25ECB /* TestTrackScene.m in Sources */ = {isa = PBXBuildFile; fileRef = 046F06831DE5636600B25ECB /* TestTrackScene.m */; };
 		0471DC361D8696FA00547781 /* FirstScene.m in Sources */ = {isa = PBXBuildFile; fileRef = 0471DC351D8696FA00547781 /* FirstScene.m */; };
 		0471DC3C1D869F6C00547781 /* Train.m in Sources */ = {isa = PBXBuildFile; fileRef = 0471DC3B1D869F6C00547781 /* Train.m */; };
 		0471DC3E1D86B05400547781 /* button.png in Resources */ = {isa = PBXBuildFile; fileRef = 0471DC3D1D86B05400547781 /* button.png */; };
@@ -35,6 +36,9 @@
 		047CF2BF1DADE696004CBF4B /* tree_1.png in Resources */ = {isa = PBXBuildFile; fileRef = 047CF2BB1DADE696004CBF4B /* tree_1.png */; };
 		047CF2C11DADE804004CBF4B /* face.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 047CF2C01DADE804004CBF4B /* face.jpg */; };
 		04885AC91DC096610056CC13 /* TestTrainScene.m in Sources */ = {isa = PBXBuildFile; fileRef = 04885AC81DC096610056CC13 /* TestTrainScene.m */; };
+		04A12A4D1DF5392C00398D5A /* dead.png in Resources */ = {isa = PBXBuildFile; fileRef = 04A12A4A1DF5392C00398D5A /* dead.png */; };
+		04A12A4E1DF5392C00398D5A /* train.png in Resources */ = {isa = PBXBuildFile; fileRef = 04A12A4B1DF5392C00398D5A /* train.png */; };
+		04A12A4F1DF5392C00398D5A /* traingood.png in Resources */ = {isa = PBXBuildFile; fileRef = 04A12A4C1DF5392C00398D5A /* traingood.png */; };
 		5770E1781D82A5C10079ACBC /* Default.png in Resources */ = {isa = PBXBuildFile; fileRef = 5770E1771D82A5C10079ACBC /* Default.png */; };
 		5770E17A1D82A5C10079ACBC /* Default@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 5770E1791D82A5C10079ACBC /* Default@2x.png */; };
 		5770E17C1D82A5C10079ACBC /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 5770E17B1D82A5C10079ACBC /* Default-568h@2x.png */; };
@@ -253,6 +257,8 @@
 		045A293A1D8C21530065E181 /* Track.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Track.m; sourceTree = "<group>"; };
 		04607B031D8942B10052025A /* SecondScene.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SecondScene.h; sourceTree = "<group>"; };
 		04607B041D8942B10052025A /* SecondScene.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SecondScene.m; sourceTree = "<group>"; };
+		046F06821DE5636600B25ECB /* TestTrackScene.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TestTrackScene.h; sourceTree = "<group>"; };
+		046F06831DE5636600B25ECB /* TestTrackScene.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TestTrackScene.m; sourceTree = "<group>"; };
 		0471DC341D8696FA00547781 /* FirstScene.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FirstScene.h; sourceTree = "<group>"; };
 		0471DC351D8696FA00547781 /* FirstScene.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FirstScene.m; sourceTree = "<group>"; };
 		0471DC3A1D869F6C00547781 /* Train.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Train.h; sourceTree = "<group>"; };
@@ -275,6 +281,9 @@
 		047CF2C01DADE804004CBF4B /* face.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = face.jpg; path = Resources/face.jpg; sourceTree = "<group>"; };
 		04885AC71DC096610056CC13 /* TestTrainScene.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TestTrainScene.h; sourceTree = "<group>"; };
 		04885AC81DC096610056CC13 /* TestTrainScene.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TestTrainScene.m; sourceTree = "<group>"; };
+		04A12A4A1DF5392C00398D5A /* dead.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = dead.png; path = Resources/dead.png; sourceTree = "<group>"; };
+		04A12A4B1DF5392C00398D5A /* train.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = train.png; path = Resources/train.png; sourceTree = "<group>"; };
+		04A12A4C1DF5392C00398D5A /* traingood.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = traingood.png; path = Resources/traingood.png; sourceTree = "<group>"; };
 		5770E1701D82A5C10079ACBC /* MMXTH.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MMXTH.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		5770E1741D82A5C10079ACBC /* libObjectiveChipmunk.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libObjectiveChipmunk.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		5770E1771D82A5C10079ACBC /* Default.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = Default.png; path = Resources/Default.png; sourceTree = "<group>"; };
@@ -784,6 +793,8 @@
 				047B15F41DBC638D00ED1BD7 /* PauseScene.m */,
 				04885AC71DC096610056CC13 /* TestTrainScene.h */,
 				04885AC81DC096610056CC13 /* TestTrainScene.m */,
+				046F06821DE5636600B25ECB /* TestTrackScene.h */,
+				046F06831DE5636600B25ECB /* TestTrackScene.m */,
 			);
 			name = Scene;
 			sourceTree = "<group>";
@@ -820,6 +831,9 @@
 		5770E1761D82A5C10079ACBC /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				04A12A4A1DF5392C00398D5A /* dead.png */,
+				04A12A4B1DF5392C00398D5A /* train.png */,
+				04A12A4C1DF5392C00398D5A /* traingood.png */,
 				0452DCA61DC1B15A004238CE /* backGround.png */,
 				0452DCA71DC1B15A004238CE /* backGround2.png */,
 				0452DCA81DC1B15A004238CE /* backGround3.png */,
@@ -1756,6 +1770,7 @@
 				5770E18D1D82A5C10079ACBC /* Icon-120.png in Resources */,
 				047CF2B71DADDD7E004CBF4B /* pb.png in Resources */,
 				5770E1831D82A5C10079ACBC /* Icon@2x.png in Resources */,
+				04A12A4F1DF5392C00398D5A /* traingood.png in Resources */,
 				5770E1951D82A5C10079ACBC /* Icon-Small@2x.png in Resources */,
 				5770E1871D82A5C10079ACBC /* Icon-72@2x.png in Resources */,
 				0452DCAA1DC1B15A004238CE /* backGround.png in Resources */,
@@ -1771,6 +1786,7 @@
 				5770E4321D82A5C50079ACBC /* white_square.png in Resources */,
 				5770E1851D82A5C10079ACBC /* Icon-72.png in Resources */,
 				047CF2B31DADDD7E004CBF4B /* pb_bar.png in Resources */,
+				04A12A4D1DF5392C00398D5A /* dead.png in Resources */,
 				5770E2801D82A5C30079ACBC /* LICENSE_cocos2d.txt in Resources */,
 				047CF2B41DADDD7E004CBF4B /* pb_bg_left.png in Resources */,
 				047CF2C11DADE804004CBF4B /* face.jpg in Resources */,
@@ -1781,6 +1797,7 @@
 				5770E35A1D82A5C40079ACBC /* LICENSE_CCBReader.txt in Resources */,
 				047CF2BF1DADE696004CBF4B /* tree_1.png in Resources */,
 				0452DCAD1DC1B15A004238CE /* backGround4.png in Resources */,
+				04A12A4E1DF5392C00398D5A /* train.png in Resources */,
 				5770E1971D82A5C10079ACBC /* Icon-Spotlight-iOS7.png in Resources */,
 				047CF2B51DADDD7E004CBF4B /* pb_bg_right.png in Resources */,
 				5770E18B1D82A5C10079ACBC /* Icon-76@2x.png in Resources */,
@@ -1870,6 +1887,7 @@
 				5770E3271D82A5C30079ACBC /* ccUtils.c in Sources */,
 				5770E2B81D82A5C30079ACBC /* CCEffectBrightness.m in Sources */,
 				5770E1D61D82A5C10079ACBC /* CCActionInterval.m in Sources */,
+				046F06841DE5636600B25ECB /* TestTrackScene.m in Sources */,
 				5770E2591D82A5C20079ACBC /* CCSpriteBatchNode.m in Sources */,
 				5770E1B31D82A5C10079ACBC /* NSValue+CCRenderer.m in Sources */,
 				5770E38F1D82A5C40079ACBC /* ALSoundSourcePool.m in Sources */,

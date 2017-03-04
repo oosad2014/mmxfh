@@ -236,6 +236,17 @@
 		5770E4291D82A5C50079ACBC /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 5770E4281D82A5C50079ACBC /* main.m */; };
 		5770E42D1D82A5C50079ACBC /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 5770E42C1D82A5C50079ACBC /* AppDelegate.m */; };
 		5770E4321D82A5C50079ACBC /* white_square.png in Resources */ = {isa = PBXBuildFile; fileRef = 5770E4311D82A5C50079ACBC /* white_square.png */; };
+		EA7724651E697E17009E0BD8 /* 火车车厢.png in Resources */ = {isa = PBXBuildFile; fileRef = EA77245A1E697E17009E0BD8 /* 火车车厢.png */; };
+		EA7724661E697E17009E0BD8 /* 树1.png in Resources */ = {isa = PBXBuildFile; fileRef = EA77245B1E697E17009E0BD8 /* 树1.png */; };
+		EA7724671E697E17009E0BD8 /* 树2.png in Resources */ = {isa = PBXBuildFile; fileRef = EA77245C1E697E17009E0BD8 /* 树2.png */; };
+		EA7724681E697E17009E0BD8 /* 铁轨1.png in Resources */ = {isa = PBXBuildFile; fileRef = EA77245D1E697E17009E0BD8 /* 铁轨1.png */; };
+		EA7724691E697E17009E0BD8 /* 铁轨2.png in Resources */ = {isa = PBXBuildFile; fileRef = EA77245E1E697E17009E0BD8 /* 铁轨2.png */; };
+		EA77246A1E697E17009E0BD8 /* 铁轨3.png in Resources */ = {isa = PBXBuildFile; fileRef = EA77245F1E697E17009E0BD8 /* 铁轨3.png */; };
+		EA77246B1E697E17009E0BD8 /* 铁轨4.png in Resources */ = {isa = PBXBuildFile; fileRef = EA7724601E697E17009E0BD8 /* 铁轨4.png */; };
+		EA77246C1E697E17009E0BD8 /* 铁轨5.png in Resources */ = {isa = PBXBuildFile; fileRef = EA7724611E697E17009E0BD8 /* 铁轨5.png */; };
+		EA77246D1E697E17009E0BD8 /* 铁轨6.png in Resources */ = {isa = PBXBuildFile; fileRef = EA7724621E697E17009E0BD8 /* 铁轨6.png */; };
+		EA77246E1E697E17009E0BD8 /* 铁轨7.png in Resources */ = {isa = PBXBuildFile; fileRef = EA7724631E697E17009E0BD8 /* 铁轨7.png */; };
+		EA77246F1E697E17009E0BD8 /* 铁轨8.png in Resources */ = {isa = PBXBuildFile; fileRef = EA7724641E697E17009E0BD8 /* 铁轨8.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -738,6 +749,17 @@
 		5770E42B1D82A5C50079ACBC /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = AppDelegate.h; path = Classes/AppDelegate.h; sourceTree = "<group>"; };
 		5770E42C1D82A5C50079ACBC /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = AppDelegate.m; path = Classes/AppDelegate.m; sourceTree = "<group>"; };
 		5770E4311D82A5C50079ACBC /* white_square.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = white_square.png; path = Resources/white_square.png; sourceTree = "<group>"; };
+		EA77245A1E697E17009E0BD8 /* 火车车厢.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "火车车厢.png"; path = "../../部件/火车车厢.png"; sourceTree = "<group>"; };
+		EA77245B1E697E17009E0BD8 /* 树1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "树1.png"; path = "../../部件/树1.png"; sourceTree = "<group>"; };
+		EA77245C1E697E17009E0BD8 /* 树2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "树2.png"; path = "../../部件/树2.png"; sourceTree = "<group>"; };
+		EA77245D1E697E17009E0BD8 /* 铁轨1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "铁轨1.png"; path = "../../部件/铁轨1.png"; sourceTree = "<group>"; };
+		EA77245E1E697E17009E0BD8 /* 铁轨2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "铁轨2.png"; path = "../../部件/铁轨2.png"; sourceTree = "<group>"; };
+		EA77245F1E697E17009E0BD8 /* 铁轨3.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "铁轨3.png"; path = "../../部件/铁轨3.png"; sourceTree = "<group>"; };
+		EA7724601E697E17009E0BD8 /* 铁轨4.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "铁轨4.png"; path = "../../部件/铁轨4.png"; sourceTree = "<group>"; };
+		EA7724611E697E17009E0BD8 /* 铁轨5.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "铁轨5.png"; path = "../../部件/铁轨5.png"; sourceTree = "<group>"; };
+		EA7724621E697E17009E0BD8 /* 铁轨6.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "铁轨6.png"; path = "../../部件/铁轨6.png"; sourceTree = "<group>"; };
+		EA7724631E697E17009E0BD8 /* 铁轨7.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "铁轨7.png"; path = "../../部件/铁轨7.png"; sourceTree = "<group>"; };
+		EA7724641E697E17009E0BD8 /* 铁轨8.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "铁轨8.png"; path = "../../部件/铁轨8.png"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -831,6 +853,7 @@
 		5770E1761D82A5C10079ACBC /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				EA7724591E697DE5009E0BD8 /* newres */,
 				04A12A4A1DF5392C00398D5A /* dead.png */,
 				04A12A4B1DF5392C00398D5A /* train.png */,
 				04A12A4C1DF5392C00398D5A /* traingood.png */,
@@ -1689,6 +1712,24 @@
 			name = Classes;
 			sourceTree = "<group>";
 		};
+		EA7724591E697DE5009E0BD8 /* newres */ = {
+			isa = PBXGroup;
+			children = (
+				EA77245A1E697E17009E0BD8 /* 火车车厢.png */,
+				EA77245B1E697E17009E0BD8 /* 树1.png */,
+				EA77245C1E697E17009E0BD8 /* 树2.png */,
+				EA77245D1E697E17009E0BD8 /* 铁轨1.png */,
+				EA77245E1E697E17009E0BD8 /* 铁轨2.png */,
+				EA77245F1E697E17009E0BD8 /* 铁轨3.png */,
+				EA7724601E697E17009E0BD8 /* 铁轨4.png */,
+				EA7724611E697E17009E0BD8 /* 铁轨5.png */,
+				EA7724621E697E17009E0BD8 /* 铁轨6.png */,
+				EA7724631E697E17009E0BD8 /* 铁轨7.png */,
+				EA7724641E697E17009E0BD8 /* 铁轨8.png */,
+			);
+			name = newres;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -1764,6 +1805,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				EA7724681E697E17009E0BD8 /* 铁轨1.png in Resources */,
 				5770E17A1D82A5C10079ACBC /* Default@2x.png in Resources */,
 				5770E4251D82A5C50079ACBC /* LICENSE_Chipmunk.txt in Resources */,
 				047CF2BD1DADE696004CBF4B /* panda.png in Resources */,
@@ -1784,20 +1826,28 @@
 				5770E1931D82A5C10079ACBC /* Icon-Small.png in Resources */,
 				5770E1911D82A5C10079ACBC /* Icon-Small-50.png in Resources */,
 				5770E4321D82A5C50079ACBC /* white_square.png in Resources */,
+				EA77246D1E697E17009E0BD8 /* 铁轨6.png in Resources */,
+				EA77246B1E697E17009E0BD8 /* 铁轨4.png in Resources */,
+				EA7724691E697E17009E0BD8 /* 铁轨2.png in Resources */,
 				5770E1851D82A5C10079ACBC /* Icon-72.png in Resources */,
 				047CF2B31DADDD7E004CBF4B /* pb_bar.png in Resources */,
 				04A12A4D1DF5392C00398D5A /* dead.png in Resources */,
 				5770E2801D82A5C30079ACBC /* LICENSE_cocos2d.txt in Resources */,
 				047CF2B41DADDD7E004CBF4B /* pb_bg_left.png in Resources */,
+				EA7724661E697E17009E0BD8 /* 树1.png in Resources */,
 				047CF2C11DADE804004CBF4B /* face.jpg in Resources */,
 				5770E2831D82A5C30079ACBC /* CCEffectRenderer.h in Resources */,
 				5770E17C1D82A5C10079ACBC /* Default-568h@2x.png in Resources */,
+				EA7724651E697E17009E0BD8 /* 火车车厢.png in Resources */,
 				5770E19C1D82A5C10079ACBC /* iTunesArtwork in Resources */,
 				047B15F71DBC6A8300ED1BD7 /* icon in Resources */,
 				5770E35A1D82A5C40079ACBC /* LICENSE_CCBReader.txt in Resources */,
+				EA77246C1E697E17009E0BD8 /* 铁轨5.png in Resources */,
+				EA77246E1E697E17009E0BD8 /* 铁轨7.png in Resources */,
 				047CF2BF1DADE696004CBF4B /* tree_1.png in Resources */,
 				0452DCAD1DC1B15A004238CE /* backGround4.png in Resources */,
 				04A12A4E1DF5392C00398D5A /* train.png in Resources */,
+				EA7724671E697E17009E0BD8 /* 树2.png in Resources */,
 				5770E1971D82A5C10079ACBC /* Icon-Spotlight-iOS7.png in Resources */,
 				047CF2B51DADDD7E004CBF4B /* pb_bg_right.png in Resources */,
 				5770E18B1D82A5C10079ACBC /* Icon-76@2x.png in Resources */,
@@ -1805,6 +1855,8 @@
 				5770E1991D82A5C10079ACBC /* Icon-Spotlight-iOS7@2x.png in Resources */,
 				5770E1891D82A5C10079ACBC /* Icon-76.png in Resources */,
 				047CF2BC1DADE696004CBF4B /* goal.png in Resources */,
+				EA77246A1E697E17009E0BD8 /* 铁轨3.png in Resources */,
+				EA77246F1E697E17009E0BD8 /* 铁轨8.png in Resources */,
 				0452DCAB1DC1B15A004238CE /* backGround2.png in Resources */,
 				5770E19E1D82A5C10079ACBC /* iTunesArtwork@2x in Resources */,
 			);

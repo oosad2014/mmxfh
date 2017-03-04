@@ -20,7 +20,8 @@
 #define SLOW 10
 
 static CGPoint trainPoint;
-static id move;
+static id move2;
+
 static BOOL selOrNot = YES;
 // -----------------------------------------------------------------
 
@@ -99,7 +100,7 @@ static BOOL selOrNot = YES;
 -(void) judgehead
 {
     if ((trainPoint.x-[Checkpoint position].x<0.05)&&(trainPoint.x-[Checkpoint position].x>-0.05)&&(trainPoint.x-[Checkpoint position].y<0.05)&&(trainPoint.y-[Checkpoint position].y>-0.05))
-    {   [trainhead stopAction:move];
+    {   [trainhead stopAction:move2];
         [trainhead setVisible:0];
         [Trainup setVisible:1];
         [traindown setVisible:1];
@@ -159,7 +160,9 @@ static BOOL selOrNot = YES;
         [posArray addObject: [NSValue valueWithCGPoint:endPos]]; // 将CGPoint转换成NSValue储存到数组中(可不要)
         [trainhead stopAllActions];
         [trainhead removeFromParentAndCleanup:YES];
-        trainhead = [CCSprite spriteWithImageNamed:@"train.png"];
+        trainhead = [CCSprite spriteWithImageNamed:@"火车车厢.png"];
+        [trainhead setScaleX:0.01];
+        [trainhead setScaleY:0.01];
         [trainhead setPositionType:CCPositionTypeNormalized];
         CGPoint trainPos = [[posArray objectAtIndex:0] CGPointValue];
         trainPos.x = trainPos.x / self.contentSize.width;
@@ -172,15 +175,15 @@ static BOOL selOrNot = YES;
         NSMutableArray *actionArray = [NSMutableArray arrayWithCapacity:[posArray count]-1];
         for (int i=1; i<[posArray count]; i++) {
             nowPos = [[posArray objectAtIndex:i] CGPointValue];
-            CGPoint move = ccpSub(nowPos , lastPos);
-            move.x /= self.contentSize.width;
-            move.y /= self.contentSize.height;
-            id moveBy = [CCActionMoveBy actionWithDuration:(ccpDistance(nowPos, lastPos) / FAST) position:move];
+            CGPoint move1 = ccpSub(nowPos , lastPos);
+            move1.x /= self.contentSize.width;
+            move1.y /= self.contentSize.height;
+            id moveBy = [CCActionMoveBy actionWithDuration:(ccpDistance(nowPos, lastPos) / FAST) position:move1];
             [actionArray addObject:[moveBy copy]];
             lastPos = nowPos;
         }
-        move = [CCActionSequence actionWithArray:actionArray]; // 连接所有的动作
-        [trainhead runAction:move];
+        move2 = [CCActionSequence actionWithArray:actionArray]; // 连接所有的动作
+        [trainhead runAction:move2];
         [posArray removeAllObjects]; // 重置数组
     } else {
         CCLOG(@"[Log] Disvisible");
@@ -214,18 +217,18 @@ static BOOL selOrNot = YES;
 {
     
     [trainhead setPosition:CGPointMake(0.55,0.47)];
-    move=[CCActionMoveBy actionWithDuration:4 position:CGPointMake(0.2, -0.4)];
+    move2=[CCActionMoveBy actionWithDuration:4 position:CGPointMake(0.2, -0.4)];
 
-    [trainhead runAction:move];
+    [trainhead runAction:move2];
     selOrNot = YES;
 }
 //选择向上
 -(void)setmove2
 {
     [trainhead setPosition:CGPointMake(0.55,0.53)];
-    move=[CCActionMoveBy actionWithDuration:4 position:CGPointMake(0.2, 0.4)];
+    move2=[CCActionMoveBy actionWithDuration:4 position:CGPointMake(0.2, 0.4)];
     
-    [trainhead runAction:move];
+    [trainhead runAction:move2];
     selOrNot = YES;
     
 }

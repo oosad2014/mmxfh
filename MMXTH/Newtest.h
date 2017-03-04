@@ -12,6 +12,7 @@
 
 #import <Foundation/Foundation.h>
 #import "cocos2d.h"
+#import "cocos2d-ui.h"
 #import "train.h"
 
 // -----------------------------------------------------------------
@@ -22,6 +23,8 @@
     Train *trainup;
     Train *traindown;
     Train *Checkpoint;
+    Train *winpoint;
+    Train *losepoint;
     
 }
 
@@ -35,6 +38,10 @@
 
 + (id)scene;
 - (Newtest *)init;
+- (void)touchBegan:(CCTouch *)touch withEvent:(CCTouchEvent *)event;
+- (void)touchMoved:(CCTouch *)touch withEvent:(CCTouchEvent *)event;
+- (void)touchEnded:(CCTouch *)touch withEvent:(CCTouchEvent *)event;
+- (void)touchCancelled:(CCTouch *)touch withEvent:(CCTouchEvent *)event;
 // -----------------------------------------------------------------
 
 @end

@@ -16,6 +16,7 @@
 #import "ShopScene.h"
 #import "TestTrainScene.h"
 #import "TestTrackScene.h"
+#import "Newtest.h"
 
 // -----------------------------------------------------------------------
 
@@ -81,7 +82,7 @@
 
 - (CCScene *)startScene
 {
-	return [TestTrackScene new];
+	return [Newtest new];
 }
 
 // -----------------------------------------------------------------------

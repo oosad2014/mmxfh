@@ -73,6 +73,8 @@ static BOOL selOrNot = YES;
     [Checkpoint setTexture:texture1];
     [Checkpoint setScaleX:1.5];
     [self addChild:Checkpoint z:2];
+    
+    CCButton
 
     
     [self schedule:@selector (updatetrain) interval:0.01];
@@ -89,6 +91,7 @@ static BOOL selOrNot = YES;
     [background setPositionType:CCPositionTypeNormalized];
     [background setScale:self.contentSize.width / background.contentSize.width];
     [self addChild:background z:1];
+    
     
    
 }
@@ -147,6 +150,13 @@ static BOOL selOrNot = YES;
     selOrNot = YES;
     
 }
+-(void) onpreButtonClicked:(id) sender
+{
+  
+    
+    
+};
+
 
 // -----------------------------------------------------------------
 

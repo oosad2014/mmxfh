@@ -8,6 +8,7 @@
 
 #import "processBar.h"
 #import "SecondScene.h"
+#import "Newtest.h"
 
 @implementation processBar
 
@@ -77,7 +78,7 @@
     }else if (i>299){
         //[spriteBAR release];
         [self removeAllChildren];
-        [[CCDirector sharedDirector] replaceScene:[SecondScene scene]
+        [[CCDirector sharedDirector] replaceScene:[Newtest scene]
                                    withTransition:[CCTransition transitionCrossFadeWithDuration:0.5f]];
     }
     

@@ -45,10 +45,10 @@
     // Background
     // You can change the .png files to change the background
     // 背景图
-    CCSprite9Slice *background = [CCSprite9Slice spriteWithImageNamed:@"white_square.png"];
-    background.anchorPoint = CGPointZero;
-    background.contentSize = [CCDirector sharedDirector].viewSize;
-    background.color = [CCColor grayColor];
+    CCSprite9Slice *background = [CCSprite9Slice spriteWithImageNamed:@"backGround2.png"];
+    [background setPosition:ccp(0.5f, 0.5f)];
+    [background setPositionType:CCPositionTypeNormalized];
+    [background setScale:self.contentSize.width / background.contentSize.width];
     [self addChild:background];
     
     // As a reason of I couldn't change the color of the words of the button

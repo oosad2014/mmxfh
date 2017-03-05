@@ -10,6 +10,7 @@
 #import "TestTrainScene.h"
 #import "FirstScene.h"
 #import "SecondScene.h"
+#import "Newtest.h"
 
 
 @implementation PauseScene
@@ -55,7 +56,7 @@
     [backBtn setScale:(self.contentSize.width / backBtn.contentSize.width * 0.1f)];
     [backBtn setPositionType:CCPositionTypeNormalized];
     [backBtn setTarget:self selector:@selector(onBackBtnClicked:)];
-    [backBtn setPosition:ccp(0.5f, 0.5f)];
+    [backBtn setPosition:ccp(0.65f, 0.5f)];
     [self addChild:backBtn];
     
     // retry Button
@@ -63,33 +64,24 @@
     [retryBtn setScale:(self.contentSize.width / retryBtn.contentSize.width * 0.1f)];
     [retryBtn setPositionType:CCPositionTypeNormalized];
     [retryBtn setTarget:self selector:@selector(onRetryBtnClicked:)];
-    [retryBtn setPosition:ccp(0.65f, 0.5f)];
+    [retryBtn setPosition:ccp(0.35f, 0.5f)];
     [self addChild:retryBtn];
     
-    // return Button
-    CCButton *returnBtn = [CCButton buttonWithTitle:@"" spriteFrame:[CCSpriteFrame frameWithImageNamed:@"icon/return_normal.png"]];
-    [returnBtn setScale:(self.contentSize.width / returnBtn.contentSize.width * 0.1f)];
-    [returnBtn setPositionType:CCPositionTypeNormalized];
-    [returnBtn setTarget:self selector:@selector(onReturnBtnClicked:)];
-    [returnBtn setPosition:ccp(0.35f, 0.5f)];
-    [self addChild:returnBtn];
+    
 }
 
 // Back按钮点击事件
 -(void)onBackBtnClicked:(id)sender {
     [[CCDirector sharedDirector] resume]; // 暂停游戏，保存当前状态
-    [[CCDirector sharedDirector] replaceScene:[SecondScene scene] withTransition:[CCTransition transitionCrossFadeWithDuration:1.0f]];
+    [[CCDirector sharedDirector] replaceScene:[FirstScene scene] withTransition:[CCTransition transitionCrossFadeWithDuration:1.0f]];
 }
 
 // Retry按钮点击事件
 -(void)onRetryBtnClicked:(id)sender {
     [[CCDirector sharedDirector] resume];
-    [[CCDirector sharedDirector] replaceScene:[TestTrainScene scene] withTransition:[CCTransition transitionCrossFadeWithDuration:1.0f]];
+    [[CCDirector sharedDirector] replaceScene:[Newtest scene] withTransition:[CCTransition transitionCrossFadeWithDuration:1.0f]];
 }
 
 // Return按钮点击事件
--(void)onReturnBtnClicked:(id)sender {
-    [[CCDirector sharedDirector] resume];
-    [[CCDirector sharedDirector] popSceneWithTransition:[CCTransition transitionCrossFadeWithDuration:1.0f]];
-}
+
 @end

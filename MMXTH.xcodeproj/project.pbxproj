@@ -39,6 +39,11 @@
 		04A12A4D1DF5392C00398D5A /* dead.png in Resources */ = {isa = PBXBuildFile; fileRef = 04A12A4A1DF5392C00398D5A /* dead.png */; };
 		04A12A4E1DF5392C00398D5A /* train.png in Resources */ = {isa = PBXBuildFile; fileRef = 04A12A4B1DF5392C00398D5A /* train.png */; };
 		04A12A4F1DF5392C00398D5A /* traingood.png in Resources */ = {isa = PBXBuildFile; fileRef = 04A12A4C1DF5392C00398D5A /* traingood.png */; };
+		57108E921E6AF828003469F4 /* 火车车厢.png in Resources */ = {isa = PBXBuildFile; fileRef = 57108E861E6AF828003469F4 /* 火车车厢.png */; };
+		57108E931E6AF828003469F4 /* 树1.png in Resources */ = {isa = PBXBuildFile; fileRef = 57108E871E6AF828003469F4 /* 树1.png */; };
+		57108E941E6AF828003469F4 /* 树2.png in Resources */ = {isa = PBXBuildFile; fileRef = 57108E881E6AF828003469F4 /* 树2.png */; };
+		575B55981E723E37009123D9 /* EnterLittleMap.m in Sources */ = {isa = PBXBuildFile; fileRef = 575B55971E723E37009123D9 /* EnterLittleMap.m */; };
+		575B559A1E7255FC009123D9 /* stage_1 in Resources */ = {isa = PBXBuildFile; fileRef = 575B55991E7255FC009123D9 /* stage_1 */; };
 		5770E1781D82A5C10079ACBC /* Default.png in Resources */ = {isa = PBXBuildFile; fileRef = 5770E1771D82A5C10079ACBC /* Default.png */; };
 		5770E17A1D82A5C10079ACBC /* Default@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 5770E1791D82A5C10079ACBC /* Default@2x.png */; };
 		5770E17C1D82A5C10079ACBC /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 5770E17B1D82A5C10079ACBC /* Default-568h@2x.png */; };
@@ -236,6 +241,12 @@
 		5770E4291D82A5C50079ACBC /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 5770E4281D82A5C50079ACBC /* main.m */; };
 		5770E42D1D82A5C50079ACBC /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 5770E42C1D82A5C50079ACBC /* AppDelegate.m */; };
 		5770E4321D82A5C50079ACBC /* white_square.png in Resources */ = {isa = PBXBuildFile; fileRef = 5770E4311D82A5C50079ACBC /* white_square.png */; };
+		57DCF7341E6BFD5800DB78FC /* 铁轨横向.png in Resources */ = {isa = PBXBuildFile; fileRef = 57DCF72E1E6BFD5800DB78FC /* 铁轨横向.png */; };
+		57DCF7351E6BFD5800DB78FC /* 铁轨上右.png in Resources */ = {isa = PBXBuildFile; fileRef = 57DCF72F1E6BFD5800DB78FC /* 铁轨上右.png */; };
+		57DCF7361E6BFD5800DB78FC /* 铁轨上左.png in Resources */ = {isa = PBXBuildFile; fileRef = 57DCF7301E6BFD5800DB78FC /* 铁轨上左.png */; };
+		57DCF7371E6BFD5800DB78FC /* 铁轨竖直.png in Resources */ = {isa = PBXBuildFile; fileRef = 57DCF7311E6BFD5800DB78FC /* 铁轨竖直.png */; };
+		57DCF7381E6BFD5800DB78FC /* 铁轨下右.png in Resources */ = {isa = PBXBuildFile; fileRef = 57DCF7321E6BFD5800DB78FC /* 铁轨下右.png */; };
+		57DCF7391E6BFD5800DB78FC /* 铁轨下左.png in Resources */ = {isa = PBXBuildFile; fileRef = 57DCF7331E6BFD5800DB78FC /* 铁轨下左.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -284,6 +295,12 @@
 		04A12A4A1DF5392C00398D5A /* dead.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = dead.png; path = Resources/dead.png; sourceTree = "<group>"; };
 		04A12A4B1DF5392C00398D5A /* train.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = train.png; path = Resources/train.png; sourceTree = "<group>"; };
 		04A12A4C1DF5392C00398D5A /* traingood.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = traingood.png; path = Resources/traingood.png; sourceTree = "<group>"; };
+		57108E861E6AF828003469F4 /* 火车车厢.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "火车车厢.png"; sourceTree = "<group>"; };
+		57108E871E6AF828003469F4 /* 树1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "树1.png"; sourceTree = "<group>"; };
+		57108E881E6AF828003469F4 /* 树2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "树2.png"; sourceTree = "<group>"; };
+		575B55961E723E37009123D9 /* EnterLittleMap.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EnterLittleMap.h; sourceTree = "<group>"; };
+		575B55971E723E37009123D9 /* EnterLittleMap.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EnterLittleMap.m; sourceTree = "<group>"; };
+		575B55991E7255FC009123D9 /* stage_1 */ = {isa = PBXFileReference; lastKnownFileType = folder; name = stage_1; path = Resources/stage_1; sourceTree = "<group>"; };
 		5770E1701D82A5C10079ACBC /* MMXTH.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MMXTH.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		5770E1741D82A5C10079ACBC /* libObjectiveChipmunk.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libObjectiveChipmunk.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		5770E1771D82A5C10079ACBC /* Default.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = Default.png; path = Resources/Default.png; sourceTree = "<group>"; };
@@ -738,6 +755,12 @@
 		5770E42B1D82A5C50079ACBC /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = AppDelegate.h; path = Classes/AppDelegate.h; sourceTree = "<group>"; };
 		5770E42C1D82A5C50079ACBC /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = AppDelegate.m; path = Classes/AppDelegate.m; sourceTree = "<group>"; };
 		5770E4311D82A5C50079ACBC /* white_square.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = white_square.png; path = Resources/white_square.png; sourceTree = "<group>"; };
+		57DCF72E1E6BFD5800DB78FC /* 铁轨横向.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "铁轨横向.png"; sourceTree = "<group>"; };
+		57DCF72F1E6BFD5800DB78FC /* 铁轨上右.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "铁轨上右.png"; sourceTree = "<group>"; };
+		57DCF7301E6BFD5800DB78FC /* 铁轨上左.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "铁轨上左.png"; sourceTree = "<group>"; };
+		57DCF7311E6BFD5800DB78FC /* 铁轨竖直.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "铁轨竖直.png"; sourceTree = "<group>"; };
+		57DCF7321E6BFD5800DB78FC /* 铁轨下右.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "铁轨下右.png"; sourceTree = "<group>"; };
+		57DCF7331E6BFD5800DB78FC /* 铁轨下左.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "铁轨下左.png"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -793,6 +816,8 @@
 				047B15F41DBC638D00ED1BD7 /* PauseScene.m */,
 				04885AC71DC096610056CC13 /* TestTrainScene.h */,
 				04885AC81DC096610056CC13 /* TestTrainScene.m */,
+				575B55961E723E37009123D9 /* EnterLittleMap.h */,
+				575B55971E723E37009123D9 /* EnterLittleMap.m */,
 				046F06821DE5636600B25ECB /* TestTrackScene.h */,
 				046F06831DE5636600B25ECB /* TestTrackScene.m */,
 			);
@@ -831,6 +856,16 @@
 		5770E1761D82A5C10079ACBC /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				575B55991E7255FC009123D9 /* stage_1 */,
+				57DCF72E1E6BFD5800DB78FC /* 铁轨横向.png */,
+				57DCF72F1E6BFD5800DB78FC /* 铁轨上右.png */,
+				57DCF7301E6BFD5800DB78FC /* 铁轨上左.png */,
+				57DCF7311E6BFD5800DB78FC /* 铁轨竖直.png */,
+				57DCF7321E6BFD5800DB78FC /* 铁轨下右.png */,
+				57DCF7331E6BFD5800DB78FC /* 铁轨下左.png */,
+				57108E861E6AF828003469F4 /* 火车车厢.png */,
+				57108E871E6AF828003469F4 /* 树1.png */,
+				57108E881E6AF828003469F4 /* 树2.png */,
 				04A12A4A1DF5392C00398D5A /* dead.png */,
 				04A12A4B1DF5392C00398D5A /* train.png */,
 				04A12A4C1DF5392C00398D5A /* traingood.png */,
@@ -1778,6 +1813,8 @@
 				5770E1811D82A5C10079ACBC /* Icon.png in Resources */,
 				047CF2B61DADDD7E004CBF4B /* pb_bg.png in Resources */,
 				0452DCAC1DC1B15A004238CE /* backGround3.png in Resources */,
+				57DCF7361E6BFD5800DB78FC /* 铁轨上左.png in Resources */,
+				57DCF7381E6BFD5800DB78FC /* 铁轨下右.png in Resources */,
 				5770E18F1D82A5C10079ACBC /* Icon-iPad-Spotlight-iOS7@2x.png in Resources */,
 				5770E17E1D82A5C10079ACBC /* Default-Landscape~ipad.png in Resources */,
 				047CF2B21DADDD7E004CBF4B /* pb_bar_left.png in Resources */,
@@ -1787,22 +1824,30 @@
 				5770E1851D82A5C10079ACBC /* Icon-72.png in Resources */,
 				047CF2B31DADDD7E004CBF4B /* pb_bar.png in Resources */,
 				04A12A4D1DF5392C00398D5A /* dead.png in Resources */,
+				57DCF7391E6BFD5800DB78FC /* 铁轨下左.png in Resources */,
 				5770E2801D82A5C30079ACBC /* LICENSE_cocos2d.txt in Resources */,
 				047CF2B41DADDD7E004CBF4B /* pb_bg_left.png in Resources */,
+				57108E931E6AF828003469F4 /* 树1.png in Resources */,
 				047CF2C11DADE804004CBF4B /* face.jpg in Resources */,
 				5770E2831D82A5C30079ACBC /* CCEffectRenderer.h in Resources */,
 				5770E17C1D82A5C10079ACBC /* Default-568h@2x.png in Resources */,
+				57108E921E6AF828003469F4 /* 火车车厢.png in Resources */,
 				5770E19C1D82A5C10079ACBC /* iTunesArtwork in Resources */,
+				57DCF7341E6BFD5800DB78FC /* 铁轨横向.png in Resources */,
 				047B15F71DBC6A8300ED1BD7 /* icon in Resources */,
+				57DCF7371E6BFD5800DB78FC /* 铁轨竖直.png in Resources */,
+				57DCF7351E6BFD5800DB78FC /* 铁轨上右.png in Resources */,
 				5770E35A1D82A5C40079ACBC /* LICENSE_CCBReader.txt in Resources */,
 				047CF2BF1DADE696004CBF4B /* tree_1.png in Resources */,
 				0452DCAD1DC1B15A004238CE /* backGround4.png in Resources */,
 				04A12A4E1DF5392C00398D5A /* train.png in Resources */,
+				57108E941E6AF828003469F4 /* 树2.png in Resources */,
 				5770E1971D82A5C10079ACBC /* Icon-Spotlight-iOS7.png in Resources */,
 				047CF2B51DADDD7E004CBF4B /* pb_bg_right.png in Resources */,
 				5770E18B1D82A5C10079ACBC /* Icon-76@2x.png in Resources */,
 				0471DC3E1D86B05400547781 /* button.png in Resources */,
 				5770E1991D82A5C10079ACBC /* Icon-Spotlight-iOS7@2x.png in Resources */,
+				575B559A1E7255FC009123D9 /* stage_1 in Resources */,
 				5770E1891D82A5C10079ACBC /* Icon-76.png in Resources */,
 				047CF2BC1DADE696004CBF4B /* goal.png in Resources */,
 				0452DCAB1DC1B15A004238CE /* backGround2.png in Resources */,
@@ -1943,6 +1988,7 @@
 				5770E3921D82A5C40079ACBC /* ALSource.m in Sources */,
 				045A29351D8C21010065E181 /* TrainHead.m in Sources */,
 				5770E42D1D82A5C50079ACBC /* AppDelegate.m in Sources */,
+				575B55981E723E37009123D9 /* EnterLittleMap.m in Sources */,
 				5770E3AE1D82A5C40079ACBC /* NSMutableDictionary+WeakReferences.m in Sources */,
 				5770E2BB1D82A5C30079ACBC /* CCEffectContrast.m in Sources */,
 				5770E3251D82A5C30079ACBC /* CCProfiling.m in Sources */,

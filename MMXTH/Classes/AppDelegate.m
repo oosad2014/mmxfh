@@ -14,6 +14,7 @@
 #import "FirstScene.h"
 #import "SecondScene.h"
 #import "ShopScene.h"
+#import "EnterLittleMap.h"
 #import "TestTrainScene.h"
 #import "TestTrackScene.h"
 
@@ -81,7 +82,7 @@
 
 - (CCScene *)startScene
 {
-	return [TestTrackScene new];
+	return [FirstScene new];
 }
 
 // -----------------------------------------------------------------------

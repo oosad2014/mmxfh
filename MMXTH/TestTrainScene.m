@@ -66,7 +66,7 @@ static CGPoint oldPoint; // 用于刷新视角跟踪，记录上一次刷新的�
     [self addChild:pauseLayer z: 2];
     [self addChild:backgrounds z: 1];
     
-    backgroundImg = [CCTexture textureWithFile:@"backGround.png"];
+    backgroundImg = [CCTexture textureWithFile:@"stage_1/stage_1.png"];
     [self setUserInteractionEnabled:YES];
     [self setMultipleTouchEnabled:YES];
     isLocked = NO; // 初始状态不锁定视角
@@ -81,9 +81,11 @@ static CGPoint oldPoint; // 用于刷新视角跟踪，记录上一次刷新的�
     background = [CCSprite spriteWithTexture: backgroundImg]; // 通过纹理建立背景
     [background setPosition:ccp(0.5f, 0.5f)];
     [background setPositionType:CCPositionTypeNormalized];
-    [background setScale:backgrounds.contentSize.width / background.contentSize.width];
+    [background setScale:backgrounds.contentSize.height / background.contentSize.height];
     [backgrounds addChild:background z:5];
     
+    
+    // 此处为Train组件的加载，理论上由组装页面加载，现阶段预加载非组装火车
     // TrainHead
     trainHead = [[TrainHead alloc] init];
     trainHead = [trainHead createWithExists:[SecondScene getTrainHeadSel]];

@@ -39,18 +39,43 @@ static BOOL selOrNot = YES;
 @synthesize otherGoods;
 @synthesize trackNowArray;
 @synthesize trackArray;
+@synthesize statearray;
+@synthesize meshData;
 
 // -----------------------------------------------------------------
-
+typedef enum {
+    DIR_UP = 0,
+    DIR_DOWN,
+    DIR_LEFT,
+    DIR_RIGHT,
+    DIR_STATE
+}state;
+CCTexture * track1;
+CCTexture * track2;
+CCTexture * track3;
+CCTexture * track4;
+CCTexture * track5;
+CCTexture * track6;
+bool isPresentSelected;
 + (id)scene {
     return [[self alloc] init];
 }
 
+
 - (Newtest *)init {
     self = [super init];
     NSAssert(self, @"Unable to create class %@", [self class]);
+    isPresentSelected = false;
+    statearray=[NSMutableArray arrayWithObjects:@0,@0,@0,@0,@0, nil];
     
+    meshData=[[NSMutableArray alloc] init];
+   
+    CCLOG(@"%lu",(unsigned long)statearray.count);
     CCNodeColor *bg = [CCNodeColor nodeWithColor:[CCColor blackColor]];
+    
+    
+    _preLoc = CGPointMake(0, 0);
+    _nextLoc = CGPointMake(0, 0);
     
     pauseLayer =  [CCNodeColor nodeWithColor:[CCColor colorWithWhite:1.f alpha:0] width:30 height:30];
     [pauseLayer setPositionType:CCPositionTypeNormalized];
@@ -75,6 +100,14 @@ static BOOL selOrNot = YES;
     trackHorizontal = [CCTexture textureWithFile:@"铁轨竖直.png"];
     //CCTexture * track2=[CCTexture textureWithFile:@"铁轨6.png"];
     
+    track1=[CCTexture textureWithFile:@"rail-down-left.png"];
+      track2=[CCTexture textureWithFile:@"rail-down-right.png"];
+     track3=[CCTexture textureWithFile:@"rail-left-right.png"];
+     track4=[CCTexture textureWithFile:@"rail-up-down.png"];
+      track5=[CCTexture textureWithFile:@"rail-up-left.png"];
+      track6=[CCTexture textureWithFile:@"rail-up-right.png"];
+    
+    
     //铁轨数组
     trackArray = [NSMutableArray arrayWithCapacity:10]; // 10 * 10网格
     for (int i=0; i<10; i++) {
@@ -89,6 +122,21 @@ static BOOL selOrNot = YES;
     for (int i=0; i<9; i++) {
         [trackNowArray addObject:[NSValue valueWithCGPoint:CGPointMake(0.05f + i * 0.1f, 0.45f)]];
     }
+    
+    for (int i=0; i<24; i++) {
+        
+        NSMutableArray *rowArray = [[NSMutableArray alloc] init];
+        for (int j=0; j<14; j++) {
+            NSMutableArray *copy=[statearray mutableCopy];
+            [rowArray addObject:copy];
+            
+        }
+        [self.meshData addObject:rowArray];
+        //CCLOG(@"meshArray = %@",[meshData lastObject]);
+    }
+    
+    _tile = CGSizeMake(self.contentSize.width/24, self.contentSize.height/14);
+    CCLOG(@" tile is %f" ,_tile);
     
     // 放置树
     CCSprite *tree1 = [CCSprite spriteWithTexture:otherGoods];
@@ -111,6 +159,14 @@ static BOOL selOrNot = YES;
     [tree3 setPositionType:CCPositionTypeNormalized];
     [tree3 setPosition:CGPointMake(0.8f, 0.6f)];
     [self addChild:tree3 z:12];
+    
+    CCButton *button1 = [CCButton buttonWithTitle:@"" spriteFrame:[CCSpriteFrame frameWithImageNamed:@"icon/retry_normal.png"]];
+     [button1 setScale:(self.contentSize.width / button1.contentSize.width * 0.1f)];
+    [button1 setPositionType:CCPositionTypeNormalized];
+    [button1 setTarget:self selector:@selector(onMoeRetryClicked:)];
+    [button1 setPosition:ccp(0.85f, 0.85f)];
+    [self addChild:button1 z:12];
+
     
     //放置终点
 
@@ -145,72 +201,11 @@ static BOOL selOrNot = YES;
     
     
     return self;
-    /*trainup=[[TrainHead alloc] init];
-    trainup=[trainup create:0.5f ySet:0.60f];
-    [trainup setTexture:texture];
-    [trainup setVisible:0];
-    [self addChild:trainup z:2];
-    
-    traindown=[[TrainHead alloc] init];
-    traindown=[ traindown create:0.5f ySet:0.40f];
-    [traindown setTexture:texture];
-    [traindown setVisible:0];
-    [self addChild:traindown z:2];
-    
-    trainhead = [CCSprite spriteWithImageNamed:@"火车车厢.png"];
-    [trainhead setScaleX:0.03];
-    [trainhead setScaleY:0.03];
-    [trainhead setPositionType:CCPositionTypeNormalized];
-    CGPoint trainPos;
-    trainPos.x=0.2;
-    trainPos.y=0.5;
-    [trainhead setPosition:trainPos];
-    [self addChild:trainhead z:9];
-    */
-    
-    
-    /*winpoint=[[TrainHead alloc] init];
-    winpoint=[winpoint create:0.75 ySet:0.9];
-    [winpoint setTexture:texture1];
-  
-    [self addChild:winpoint z:2];
-    
-    losepoint=[[TrainHead alloc] init];
-    losepoint=[losepoint create:0.75 ySet: 0.1];
-    [losepoint setTexture:texture1];
-    
-    [self addChild:losepoint z:2];
-    
-    Track *track0;
-    track0=[[Track alloc] init];
-    track0=[track0 create:0.3 ySet:0.455];
-    [track0 setTexture:track1];
-    [track0 setScaleY:0.35];
-    [track0 setScaleX:4.0];
-    [self addChild:track0 z:2];
-    //Track *track00;
-    /*track00=[[Track alloc] init];
-    track00=[track00 create:0.5 ySet:0.475];
-    [track00 setTexture:track2];
-    [track00 setScaleY:0.1];
-    [track00 setScaleX:3.0];
-    [self addChild:track00 z:2];*/
-    
-    
-    
-
-    
+   
     
 }
 - (void)initScene {
-   /* CCButton *preViewButton=[CCButton buttonWithTitle:@"preview" spriteFrame:[CCSpriteFrame frameWithImageNamed:@"button.png"]];
-    
-    [preViewButton setTarget: self selector:@selector(onpreButtonClicked:)];
-    preViewButton.positionType = CCPositionTypeNormalized;
-    preViewButton.position = ccp(0.85f, 0.85f);
-    preViewButton.color=[CCColor redColor];
-    
-    [self addChild:preViewButton z:2];*/
+
     
 //背景更新
     CCSprite *background = [CCSprite spriteWithImageNamed:@"高仿师姐地图.png"]; // 通过纹理建立背景
@@ -252,19 +247,7 @@ static BOOL selOrNot = YES;
         [[CCDirector sharedDirector] pushScene:[[PauseScene scene] initWithParameter:pauseTexture] withTransition: [CCTransition transitionPushWithDirection:CCTransitionDirectionInvalid duration:1.0f]];
         selOrNot = NO;
     }
-   /* else{
-        [trainhead setVisible:1];
-        [trainup setVisible:0];
-        [traindown setVisible:0];
-    }
-    if((trainPoint.x-[winpoint position].x<0.05)&&(trainPoint.x-[winpoint position].x>-0.05)&&(trainPoint.y-[winpoint position].y<0.05)&&(trainPoint.y-[winpoint position].y>-0.05))
-    {
-        CCLOG(@"win");
-    }
-    if((trainPoint.x-[losepoint position].x<0.05)&&(trainPoint.x-[losepoint position].x>-0.05)&&(trainPoint.y-[losepoint position].y<0.05)&&(trainPoint.y-[losepoint position].y>-0.05))
-    {
-        CCLOG(@"lose");
-    }*/
+
 }
 //刷新位置
 -(void) updatetrain
@@ -305,136 +288,106 @@ struct Coordinates {
 
 
 
-// 此函数没啥用
-//-(void)spriteSelectedOrNot:(CGPoint)pos {
-//    /*CGPoint posSelected = pos;
-//    
-//    if (CGRectContainsPoint(traindown.boundingBox, posSelected)&&traindown.visible==1) {
-//        CCLOG(@"[Log] 火车已选择下！");
-//        
-//        [self setmove1];
-//    }
-//    if (CGRectContainsPoint(trainup.boundingBox, posSelected)&&trainup.visible==1) {
-//        CCLOG(@"[Log] 火车已选择上");
-//        [self setmove2];
-//    }*/
-//}
 
-//
-//-(void)setmove1
-//{
-//    
-//    [trainhead setPosition:CGPointMake(0.57,0.46)];
-//    move2=[CCActionMoveBy actionWithDuration:4 position:CGPointMake(0.2, -0.4)];
-//    
-//    [trainhead runAction:move2];
-//    selOrNot = YES;
-//}
-//选择向上
-//-(void)setmove2
-//{
-//    [trainhead setPosition:CGPointMake(0.57,0.54)];
-//    move2=[CCActionMoveBy actionWithDuration:4 position:CGPointMake(0.2, 0.4)];
-//    
-//    [trainhead runAction:move2];
-//    selOrNot = YES;
-//    
-//}
-//-(void) onpreButtonClicked:(id) sender
-//{
-//    [trainhead setPosition:(CGPointMake(0.2, 0.5))];
-//    CCAction *move3=[CCActionMoveBy actionWithDuration: 4 position:CGPointMake(0.3,0)];
-//    [trainhead runAction:move3];
-//    
-//    
-//};
 - (void)touchBegan:(CCTouch *)touch withEvent:(CCTouchEvent *)event {
-    CCLOG(@"[Log] touchBegin");
-    CGPoint beginPos = [touch locationInNode:self];
-    CCLOG(@"[Log] Begin Pos ----> %@", NSStringFromCGPoint(beginPos));
-    // 手绘用，暂时屏蔽
-    //    struct Coordinates coor = [self getCoordinate:beginPos];
-    //    [trackNowArray addObject:trackArray[coor.x][coor.y]];
-    if (selOrNot) {
-        [posArray addObject: [NSValue valueWithCGPoint:beginPos]]; // 将CGPoint转换成NSValue储存到数组中
-    }
+      CGPoint touchLoc = [touch locationInNode:self];
+    _preLoc = CGPointMake((int)(touchLoc.x/_tile.width), (int)(touchLoc.y/_tile.height));
 }
 //触屏开始
 - (void)touchMoved:(CCTouch *)touch withEvent:(CCTouchEvent *)event {
-    CCLOG(@"[Log] touchMove");
-    CGPoint nowPos = [touch locationInNode:self]; // 获取当前坐标
+
+        CGPoint touchLoc = [touch locationInNode:self];
     
-    CGPoint oldPos = [touch previousLocationInView:touch.view]; // 获取上一次点的坐标（基于View）
-    oldPos = [[CCDirector sharedDirector] convertToGL:oldPos];
-    oldPos = [self convertToNodeSpace:oldPos];
-    
-    //[self drawLine:oldPos PrevPoint: nowPos]; // 连接所有的相邻点
-    
-    if (selOrNot) {
-        [posArray addObject:[NSValue valueWithCGPoint:nowPos]];
+           _nextLoc = CGPointMake((int)(touchLoc.x/_tile.width), (int)(touchLoc.y/_tile.height));
+    {
+        _nextLoc = CGPointMake((int)(touchLoc.x/_tile.width), (int)(touchLoc.y/_tile.height));
+        
+        //start to draw the line
+        if (!isPresentSelected) {
+            CGPoint diff = ccpSub(_nextLoc, _preLoc);
+            if (diff.x!=0 | diff.y!=0) {
+                //select the present point
+                _presentLoc = _nextLoc;
+                isPresentSelected = true;
+                if (fabs(diff.x)>fabs(diff.y)) {
+                    if (diff.x > 0) {
+                        //presentLoc is rightward
+                        [[[self.meshData objectAtIndex:(int)_presentLoc.x] objectAtIndex:(int)_presentLoc.y] replaceObjectAtIndex:DIR_LEFT withObject:@1];
+                        
+                        CCLOG(@"judgeleft");
+                    }
+                    else{
+                        //presentLoc is leftward
+                        [[[self.meshData objectAtIndex:(int)_presentLoc.x] objectAtIndex:(int)_presentLoc.y] replaceObjectAtIndex:DIR_RIGHT withObject:@1];
+                        CCLOG(@"judgeright");
+                    }
+                }
+                else{
+                    if (diff.y > 0) {
+                        //presentLoc is upward
+                        [[[self.meshData objectAtIndex:(int)_presentLoc.x] objectAtIndex:(int)_presentLoc.y] replaceObjectAtIndex:DIR_DOWN withObject:@1];
+                        CCLOG(@"judgedown");
+                    }
+                    else{
+                        //presentLoc is downward
+                        [[[self.meshData objectAtIndex:(int)_presentLoc.x] objectAtIndex:(int)_presentLoc.y] replaceObjectAtIndex:DIR_UP withObject:@1];
+                        CCLOG(@"judgeup");
+                    }
+                    
+                }
+            }}
+        else{
+            CGPoint diff = ccpSub(_nextLoc, _presentLoc);
+            if (diff.x!=0 | diff.y!=0) {
+                if (fabs(diff.x)>fabs(diff.y)) {
+                    if (diff.x > 0) {
+                        [[[self.meshData objectAtIndex:(int)_presentLoc.x] objectAtIndex:(int)_presentLoc.y] replaceObjectAtIndex:DIR_RIGHT withObject:@1];
+                        CCLOG(@"right");
+                    }
+                    else{
+                        //nextLoc is leftward
+                        
+                        [[[self.meshData objectAtIndex:(int)_presentLoc.x] objectAtIndex:(int)_presentLoc.y] replaceObjectAtIndex:DIR_LEFT withObject:@1];
+                        CCLOG(@"left");
+                    }
+                }
+                else{
+                    if (diff.y > 0) {
+                        //nextLoc is upward
+                        [[[self.meshData objectAtIndex:(int)_presentLoc.x] objectAtIndex:(int)_presentLoc.y] replaceObjectAtIndex:DIR_UP withObject:@1];
+                        CCLOG(@"up");
+                    }
+                    else{
+                        //nextLoc is downward
+                        [[[self.meshData objectAtIndex:(int)_presentLoc.x] objectAtIndex:(int)_presentLoc.y] replaceObjectAtIndex:DIR_DOWN withObject:@1];
+                        CCLOG(@"down");
+                    }
+                }
+                
+                
+                //When isEdited == NO,build the rail
+                CCLOG(@"targetbefore inpu %d ,%d",(int)_presentLoc.x,(int)_presentLoc.y);
+                if ([[[[self.meshData objectAtIndex:(int)_presentLoc.x] objectAtIndex:(int)_presentLoc.y] objectAtIndex:DIR_STATE] isEqualToValue:@0]) {
+                    CCLOG(@"mesh input %@",[[self.meshData objectAtIndex:(int)_presentLoc.x] objectAtIndex:(int)_presentLoc.y]);
+                    [self createRailTargetX:(int)_presentLoc.x TargetY:(int)_presentLoc.y];
+                    CCLOG(@"pos %f , %f \n",_presentLoc.x,_presentLoc.y);
+                    
+                    _preLoc = _presentLoc;
+                    _presentLoc = _nextLoc;
+                    CCLOG(@"iguessdraw");
+                }
+                isPresentSelected = false;
+            }
+        }
+        
     }
-    // 手绘用，暂时屏蔽
-    //    struct Coordinates coor = [self getCoordinate:nowPos];
-    //    [trackNowArray addObject:trackArray[coor.x][coor.y]];
-    
-    CCLOG(@"[Log] oldPos: %@", NSStringFromCGPoint(oldPos));
-    CCLOG(@"[Log] nowPos: %@", NSStringFromCGPoint(nowPos));
-}
+ }
+
 //触屏结束
 - (void)touchEnded:(CCTouch *)touch withEvent:(CCTouchEvent *)event {
-    CCLOG(@"[Log] touchEnd");
-    CGPoint endPos = [touch locationInNode:self];
-    CCLOG(@"[Log] End Pos ----> %@", NSStringFromCGPoint(endPos));
+isPresentSelected = false;
+
     
-    if (selOrNot) {
-        CCLOG(@"[Log] Visible");
-        [posArray addObject: [NSValue valueWithCGPoint:endPos]]; // 将CGPoint转换成NSValue储存到数组中(可不要)
-        //        [trainhead stopAllActions];
-        //        [trainhead removeFromParentAndCleanup:YES];
-        //        trainhead = [CCSprite spriteWithImageNamed:@"train.png"];
-        //        [trainhead setPositionType:CCPositionTypeNormalized];
-        //        CGPoint trainPos = [[posArray objectAtIndex:0] CGPointValue];
-        //        trainPos.x = trainPos.x / self.contentSize.width;
-        //        trainPos.y = trainPos.y / self.contentSize.height;
-        //        [trainhead setPosition:trainPos];
-        //        [self addChild:trainhead z:9];
-        //
-        //        CGPoint lastPos = [[posArray objectAtIndex:0] CGPointValue];
-        //        CGPoint nowPos;
-        //        NSMutableArray *actionArray = [NSMutableArray arrayWithCapacity:[posArray count]-1];
-        //        for (int i=1; i<[posArray count]; i++) {
-        //            nowPos = [[posArray objectAtIndex:i] CGPointValue];
-        //            CGPoint move = ccpSub(nowPos , lastPos);
-        //            move.x /= self.contentSize.width;
-        //            move.y /= self.contentSize.height;
-        //            id moveBy = [CCActionMoveBy actionWithDuration:(ccpDistance(nowPos, lastPos) / FAST) position:move];
-        //            [actionArray addObject:[moveBy copy]];
-        //            lastPos = nowPos;
-        //        }
-        //        move = [CCActionSequence actionWithArray:actionArray]; // 连接所有的动作
-        //        [trainhead runAction:move]; // 跑动的，暂时屏蔽
-        [posArray removeAllObjects]; // 重置数组
-    } else {
-        CCLOG(@"[Log] Disvisible");
-       // [self spriteSelectedOrNot:endPos];
-    }
-    
-    // 铺铁轨
-    
-    
-    CGPoint lastPos = [[trackNowArray objectAtIndex:0] CGPointValue];
-    CGPoint nowPos;
-    [trainhead setPosition:CGPointMake(0.05f, 0.5f)];
-    NSMutableArray *actionArray = [NSMutableArray arrayWithCapacity:[trackNowArray count]-1];
-    for (int i=1; i<[trackNowArray count]; i++) {
-        nowPos = [[trackNowArray objectAtIndex:i] CGPointValue];
-        CGPoint move = ccpSub(nowPos , lastPos);
-        id moveBy = [CCActionMoveBy actionWithDuration:0.5f position:move];
-        [actionArray addObject:[moveBy copy]];
-        lastPos = nowPos;
-    }
-    move2 = [CCActionSequence actionWithArray:actionArray]; // 连接所有的动作
-    [trainhead runAction:move2];
 }
 
 - (void)touchCancelled:(CCTouch *)touch withEvent:(CCTouchEvent *)event {
@@ -443,10 +396,67 @@ struct Coordinates {
 }
 
 
+-(void)createRailTargetX:(int)targetX TargetY:(int)targetY{
+    
+    CCLOG(@"taget %d %d ",targetX,targetY);
+    NSObject *up=[[[self.meshData objectAtIndex:targetX] objectAtIndex:targetY] objectAtIndex: DIR_UP];
+    NSObject *down=[[[self.meshData objectAtIndex:targetX] objectAtIndex:targetY] objectAtIndex: DIR_DOWN];
+   NSObject *left=[[[self.meshData objectAtIndex:targetX] objectAtIndex:targetY] objectAtIndex: DIR_LEFT];
+    NSObject*right=[[[self.meshData objectAtIndex:targetX] objectAtIndex:targetY] objectAtIndex: DIR_RIGHT];
+    //NSInteger state=[[[self.meshData objectAtIndex:targetX] objectAtIndex:targetY] objectAtIndex: DIR_STATE];
+    CCLOG(@"left %@ right %@ up %@ down %@",left,right,up,down);
+    NSString *temp=@"train.png";
+    CCSprite *track=[[CCSprite alloc]init];
+    if ([right isEqual:@1] && [left isEqual:@1]){
+       temp=@"rail-left-right.png";
+        CCLOG(@"%@",temp);
+        
+    }
+    else if ([up isEqual:@1] &&[down isEqual:@1]){
+           temp=@"rail-up-down.png";
+          CCLOG(@"%@",temp);
+        
+    }
+    else if ([up isEqual:@1] && [left isEqual:@1]){
+          temp=@"rail-up-left.png";
+          CCLOG(@"%@",temp);
+    }
+    else if ([up isEqual:@1]&& [right isEqual:@1]){
+       temp=@"rail-up-right.png";
+          CCLOG(@"%@",temp);
+    }
+    else if ([down isEqual:@1]&&[left isEqual:@1]){
+              temp=@"rail-down-left.png";
+          CCLOG(@"%@",temp);
+    }
+    else if ([down isEqual:@1] && [right isEqual:@1]){
+        temp=@"rail-down-right.png";
+          CCLOG(@"%@",temp);
+    }
+    
+    CCTexture *new=[CCTexture textureWithFile:temp];
+   track=[CCSprite spriteWithTexture:new];
+    
+    [track setPosition:CGPointMake(targetX*_tile.width+_tile.width/2.0f, targetY*_tile.height+_tile.height/2.0f)
+];
+    [self addChild:track z:12];
+   
+    //[self addChild:Atrack z:2];
+            CCLOG(@"scaleX scale Y %f %f \n",track.scaleX,track.scaleY);
+            CCLOG(@"targetX targetY %d %d \n",targetX,targetY);
+            CCLOG(@"postionX positionY %f %f \n",track.position.x,track.position.y);
+    
+     [[[self.meshData objectAtIndex:targetX] objectAtIndex:targetY] replaceObjectAtIndex:DIR_STATE withObject:@1];
+    
+        }
+-(void)onMoeRetryClicked:(id)sender{
+    [[OALSimpleAudio sharedInstance] stopEverything];
+    [[CCDirector sharedDirector] resume];
+    [[CCDirector sharedDirector] replaceScene:[Newtest scene]
+                               withTransition:[CCTransition transitionPushWithDirection:CCTransitionDirectionDown duration:0.5f]];
+}
 
 
-
-// -----------------------------------------------------------------
 
 @end
 

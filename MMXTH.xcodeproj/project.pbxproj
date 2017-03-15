@@ -256,6 +256,12 @@
 		EAD602281E6C291500F74F8F /* 铁轨下右.png in Resources */ = {isa = PBXBuildFile; fileRef = EAD602211E6C291500F74F8F /* 铁轨下右.png */; };
 		EAD602291E6C291500F74F8F /* 铁轨下左.png in Resources */ = {isa = PBXBuildFile; fileRef = EAD602221E6C291500F74F8F /* 铁轨下左.png */; };
 		EAD6022B1E6C2D2C00F74F8F /* 高仿师姐地图.png in Resources */ = {isa = PBXBuildFile; fileRef = EAD6022A1E6C2D2C00F74F8F /* 高仿师姐地图.png */; };
+		EADA5D3D1E782D8200212EE6 /* rail-down-left.png in Resources */ = {isa = PBXBuildFile; fileRef = EADA5D371E782D8200212EE6 /* rail-down-left.png */; };
+		EADA5D3E1E782D8200212EE6 /* rail-down-right.png in Resources */ = {isa = PBXBuildFile; fileRef = EADA5D381E782D8200212EE6 /* rail-down-right.png */; };
+		EADA5D3F1E782D8200212EE6 /* rail-left-right.png in Resources */ = {isa = PBXBuildFile; fileRef = EADA5D391E782D8200212EE6 /* rail-left-right.png */; };
+		EADA5D401E782D8200212EE6 /* rail-up-down.png in Resources */ = {isa = PBXBuildFile; fileRef = EADA5D3A1E782D8200212EE6 /* rail-up-down.png */; };
+		EADA5D411E782D8200212EE6 /* rail-up-left.png in Resources */ = {isa = PBXBuildFile; fileRef = EADA5D3B1E782D8200212EE6 /* rail-up-left.png */; };
+		EADA5D421E782D8200212EE6 /* rail-up-right.png in Resources */ = {isa = PBXBuildFile; fileRef = EADA5D3C1E782D8200212EE6 /* rail-up-right.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -779,6 +785,12 @@
 		EAD602211E6C291500F74F8F /* 铁轨下右.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "铁轨下右.png"; path = "Resources/newres/铁轨下右.png"; sourceTree = "<group>"; };
 		EAD602221E6C291500F74F8F /* 铁轨下左.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "铁轨下左.png"; path = "Resources/newres/铁轨下左.png"; sourceTree = "<group>"; };
 		EAD6022A1E6C2D2C00F74F8F /* 高仿师姐地图.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "高仿师姐地图.png"; path = "Resources/newres/高仿师姐地图.png"; sourceTree = "<group>"; };
+		EADA5D371E782D8200212EE6 /* rail-down-left.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "rail-down-left.png"; path = "Resources/newres/rail-down-left.png"; sourceTree = "<group>"; };
+		EADA5D381E782D8200212EE6 /* rail-down-right.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "rail-down-right.png"; path = "Resources/newres/rail-down-right.png"; sourceTree = "<group>"; };
+		EADA5D391E782D8200212EE6 /* rail-left-right.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "rail-left-right.png"; path = "Resources/newres/rail-left-right.png"; sourceTree = "<group>"; };
+		EADA5D3A1E782D8200212EE6 /* rail-up-down.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "rail-up-down.png"; path = "Resources/newres/rail-up-down.png"; sourceTree = "<group>"; };
+		EADA5D3B1E782D8200212EE6 /* rail-up-left.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "rail-up-left.png"; path = "Resources/newres/rail-up-left.png"; sourceTree = "<group>"; };
+		EADA5D3C1E782D8200212EE6 /* rail-up-right.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "rail-up-right.png"; path = "Resources/newres/rail-up-right.png"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -874,6 +886,12 @@
 		5770E1761D82A5C10079ACBC /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				EADA5D371E782D8200212EE6 /* rail-down-left.png */,
+				EADA5D381E782D8200212EE6 /* rail-down-right.png */,
+				EADA5D391E782D8200212EE6 /* rail-left-right.png */,
+				EADA5D3A1E782D8200212EE6 /* rail-up-down.png */,
+				EADA5D3B1E782D8200212EE6 /* rail-up-left.png */,
+				EADA5D3C1E782D8200212EE6 /* rail-up-right.png */,
 				EAD6022A1E6C2D2C00F74F8F /* 高仿师姐地图.png */,
 				EAD6021C1E6C291500F74F8F /* 铁轨10.png */,
 				EAD6021D1E6C291500F74F8F /* 铁轨横向.png */,
@@ -1839,6 +1857,7 @@
 				5770E1871D82A5C10079ACBC /* Icon-72@2x.png in Resources */,
 				0452DCAA1DC1B15A004238CE /* backGround.png in Resources */,
 				5770E1781D82A5C10079ACBC /* Default.png in Resources */,
+				EADA5D421E782D8200212EE6 /* rail-up-right.png in Resources */,
 				5770E1811D82A5C10079ACBC /* Icon.png in Resources */,
 				EAD602291E6C291500F74F8F /* 铁轨下左.png in Resources */,
 				047CF2B61DADDD7E004CBF4B /* pb_bg.png in Resources */,
@@ -1856,10 +1875,12 @@
 				EA7724811E6B010C009E0BD8 /* 铁轨2.png in Resources */,
 				5770E1851D82A5C10079ACBC /* Icon-72.png in Resources */,
 				047CF2B31DADDD7E004CBF4B /* pb_bar.png in Resources */,
+				EADA5D3E1E782D8200212EE6 /* rail-down-right.png in Resources */,
 				04A12A4D1DF5392C00398D5A /* dead.png in Resources */,
 				5770E2801D82A5C30079ACBC /* LICENSE_cocos2d.txt in Resources */,
 				047CF2B41DADDD7E004CBF4B /* pb_bg_left.png in Resources */,
 				EA77247E1E6B010C009E0BD8 /* 树1.png in Resources */,
+				EADA5D3F1E782D8200212EE6 /* rail-left-right.png in Resources */,
 				047CF2C11DADE804004CBF4B /* face.jpg in Resources */,
 				5770E2831D82A5C30079ACBC /* CCEffectRenderer.h in Resources */,
 				5770E17C1D82A5C10079ACBC /* Default-568h@2x.png in Resources */,
@@ -1874,18 +1895,21 @@
 				04A12A4E1DF5392C00398D5A /* train.png in Resources */,
 				EA77247F1E6B010C009E0BD8 /* 树2.png in Resources */,
 				5770E1971D82A5C10079ACBC /* Icon-Spotlight-iOS7.png in Resources */,
+				EADA5D411E782D8200212EE6 /* rail-up-left.png in Resources */,
 				EAD602261E6C291500F74F8F /* 铁轨上左.png in Resources */,
 				047CF2B51DADDD7E004CBF4B /* pb_bg_right.png in Resources */,
 				5770E18B1D82A5C10079ACBC /* Icon-76@2x.png in Resources */,
 				0471DC3E1D86B05400547781 /* button.png in Resources */,
 				5770E1991D82A5C10079ACBC /* Icon-Spotlight-iOS7@2x.png in Resources */,
 				5770E1891D82A5C10079ACBC /* Icon-76.png in Resources */,
+				EADA5D401E782D8200212EE6 /* rail-up-down.png in Resources */,
 				EAD6022B1E6C2D2C00F74F8F /* 高仿师姐地图.png in Resources */,
 				047CF2BC1DADE696004CBF4B /* goal.png in Resources */,
 				EAD602281E6C291500F74F8F /* 铁轨下右.png in Resources */,
 				EA7724821E6B010C009E0BD8 /* 铁轨3.png in Resources */,
 				EA7724871E6B010C009E0BD8 /* 铁轨8.png in Resources */,
 				EAD602251E6C291500F74F8F /* 铁轨上右.png in Resources */,
+				EADA5D3D1E782D8200212EE6 /* rail-down-left.png in Resources */,
 				0452DCAB1DC1B15A004238CE /* backGround2.png in Resources */,
 				5770E19E1D82A5C10079ACBC /* iTunesArtwork@2x in Resources */,
 			);

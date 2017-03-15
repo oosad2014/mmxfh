@@ -25,7 +25,10 @@
     Train *Checkpoint;
     Train *winpoint;
     Train *losepoint;
-    
+    CGPoint _preLoc;
+    CGPoint _nextLoc;
+    CGPoint _presentLoc;
+       CGSize _tile;
 }
 
 // -----------------------------------------------------------------
@@ -54,6 +57,8 @@
 @property(nonatomic, retain) NSMutableArray *trackNowArray; // 当前已铺铁轨保存数组
 @property(nonatomic, retain) NSMutableArray *trackArray;
 
+@property(nonatomic,retain)    NSMutableArray *meshData;
+@property(nonatomic,retain)    NSMutableArray *statearray;
 + (id)scene;
 - (Newtest *)init;
 - (struct Coordinates)getCoordinate:(CGPoint)touchPos;

@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>GuangDong</key>
+	<array>
+		<integer>85</integer>
+		<integer>-110</integer>
+	</array>
+	<key>HaiNam</key>
+	<array>
+		<integer>55</integer>
+		<integer>-155</integer>
+	</array>
+	<key>HongKong</key>
+	<array>
+		<integer>93</integer>
+		<integer>-112</integer>
+	</array>
+	<key>TaiWan</key>
+	<array>
+		<integer>145</integer>
+		<integer>-105</integer>
+	</array>
+	<key>YunNan</key>
+	<array>
+		<integer>-10</integer>
+		<integer>-103</integer>
+	</array>
+</dict>
+</plist>

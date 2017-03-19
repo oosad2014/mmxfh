@@ -42,6 +42,9 @@
 		57108E921E6AF828003469F4 /* 火车车厢.png in Resources */ = {isa = PBXBuildFile; fileRef = 57108E861E6AF828003469F4 /* 火车车厢.png */; };
 		57108E931E6AF828003469F4 /* 树1.png in Resources */ = {isa = PBXBuildFile; fileRef = 57108E871E6AF828003469F4 /* 树1.png */; };
 		57108E941E6AF828003469F4 /* 树2.png in Resources */ = {isa = PBXBuildFile; fileRef = 57108E881E6AF828003469F4 /* 树2.png */; };
+		571895581E77DBA3008D7F17 /* DataManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 571895571E77DBA3008D7F17 /* DataManager.m */; };
+		5718955E1E781E97008D7F17 /* DataCreateScene.m in Sources */ = {isa = PBXBuildFile; fileRef = 5718955D1E781E97008D7F17 /* DataCreateScene.m */; };
+		571895621E782A86008D7F17 /* ChinaMap.plist in Resources */ = {isa = PBXBuildFile; fileRef = 571895611E782A86008D7F17 /* ChinaMap.plist */; };
 		575B55981E723E37009123D9 /* EnterLittleMap.m in Sources */ = {isa = PBXBuildFile; fileRef = 575B55971E723E37009123D9 /* EnterLittleMap.m */; };
 		575B559A1E7255FC009123D9 /* stage_1 in Resources */ = {isa = PBXBuildFile; fileRef = 575B55991E7255FC009123D9 /* stage_1 */; };
 		5770E1781D82A5C10079ACBC /* Default.png in Resources */ = {isa = PBXBuildFile; fileRef = 5770E1771D82A5C10079ACBC /* Default.png */; };
@@ -298,6 +301,11 @@
 		57108E861E6AF828003469F4 /* 火车车厢.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "火车车厢.png"; sourceTree = "<group>"; };
 		57108E871E6AF828003469F4 /* 树1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "树1.png"; sourceTree = "<group>"; };
 		57108E881E6AF828003469F4 /* 树2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "树2.png"; sourceTree = "<group>"; };
+		571895561E77DBA3008D7F17 /* DataManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DataManager.h; sourceTree = "<group>"; };
+		571895571E77DBA3008D7F17 /* DataManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DataManager.m; sourceTree = "<group>"; };
+		5718955C1E781E97008D7F17 /* DataCreateScene.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DataCreateScene.h; sourceTree = "<group>"; };
+		5718955D1E781E97008D7F17 /* DataCreateScene.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DataCreateScene.m; sourceTree = "<group>"; };
+		571895611E782A86008D7F17 /* ChinaMap.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = ChinaMap.plist; sourceTree = "<group>"; };
 		575B55961E723E37009123D9 /* EnterLittleMap.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EnterLittleMap.h; sourceTree = "<group>"; };
 		575B55971E723E37009123D9 /* EnterLittleMap.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EnterLittleMap.m; sourceTree = "<group>"; };
 		575B55991E7255FC009123D9 /* stage_1 */ = {isa = PBXFileReference; lastKnownFileType = folder; name = stage_1; path = Resources/stage_1; sourceTree = "<group>"; };
@@ -822,6 +830,18 @@
 				046F06831DE5636600B25ECB /* TestTrackScene.m */,
 			);
 			name = Scene;
+			sourceTree = "<group>";
+		};
+		571895591E781E1C008D7F17 /* Data */ = {
+			isa = PBXGroup;
+			children = (
+				571895611E782A86008D7F17 /* ChinaMap.plist */,
+				571895561E77DBA3008D7F17 /* DataManager.h */,
+				571895571E77DBA3008D7F17 /* DataManager.m */,
+				5718955C1E781E97008D7F17 /* DataCreateScene.h */,
+				5718955D1E781E97008D7F17 /* DataCreateScene.m */,
+			);
+			name = Data;
 			sourceTree = "<group>";
 		};
 		5770E1671D82A5C10079ACBC = {
@@ -1715,6 +1735,7 @@
 		5770E42A1D82A5C50079ACBC /* Classes */ = {
 			isa = PBXGroup;
 			children = (
+				571895591E781E1C008D7F17 /* Data */,
 				0471DC301D86969E00547781 /* Scene */,
 				0471DC2D1D86942D00547781 /* Layer */,
 				0471DC2C1D86942300547781 /* Model */,
@@ -1822,6 +1843,7 @@
 				5770E1911D82A5C10079ACBC /* Icon-Small-50.png in Resources */,
 				5770E4321D82A5C50079ACBC /* white_square.png in Resources */,
 				5770E1851D82A5C10079ACBC /* Icon-72.png in Resources */,
+				571895621E782A86008D7F17 /* ChinaMap.plist in Resources */,
 				047CF2B31DADDD7E004CBF4B /* pb_bar.png in Resources */,
 				04A12A4D1DF5392C00398D5A /* dead.png in Resources */,
 				57DCF7391E6BFD5800DB78FC /* 铁轨下左.png in Resources */,
@@ -1871,6 +1893,7 @@
 				5770E31B1D82A5C30079ACBC /* base64.c in Sources */,
 				5770E3661D82A5C40079ACBC /* OALAudioActions.m in Sources */,
 				5770E2301D82A5C20079ACBC /* CCPhysicsBody.m in Sources */,
+				571895581E77DBA3008D7F17 /* DataManager.m in Sources */,
 				5770E3691D82A5C40079ACBC /* OALUtilityActions.m in Sources */,
 				047B15F51DBC638D00ED1BD7 /* PauseScene.m in Sources */,
 				5770E4291D82A5C50079ACBC /* main.m in Sources */,
@@ -1888,6 +1911,7 @@
 				5770E3961D82A5C40079ACBC /* ALWrapper.m in Sources */,
 				5770E2C71D82A5C30079ACBC /* CCEffectNode.m in Sources */,
 				04885AC91DC096610056CC13 /* TestTrainScene.m in Sources */,
+				5718955E1E781E97008D7F17 /* DataCreateScene.m in Sources */,
 				5770E2C41D82A5C30079ACBC /* CCEffectPixellate.m in Sources */,
 				5770E1EB1D82A5C10079ACBC /* CCClippingNode.m in Sources */,
 				5770E3441D82A5C40079ACBC /* CCAnimationManager.m in Sources */,

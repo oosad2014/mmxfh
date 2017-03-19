@@ -17,6 +17,7 @@
 #import "EnterLittleMap.h"
 #import "TestTrainScene.h"
 #import "TestTrackScene.h"
+#import "DataCreateScene.h"
 
 // -----------------------------------------------------------------------
 
@@ -82,7 +83,7 @@
 
 - (CCScene *)startScene
 {
-	return [FirstScene new];
+	return [DataCreateScene new];
 }
 
 // -----------------------------------------------------------------------

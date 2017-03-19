@@ -50,7 +50,7 @@ enum TRAIN {
 @property(nonatomic, assign) int sceneGoodsNow; // 界面当前显示的火车货物浏览页码
 @property(nonatomic, assign) int sceneTrackNow; // 界面当前显示的火车轨浏览页码
 @property(nonatomic, assign) CGPoint beganPoint; // 记录触屏开始点
-@property(nonatomic, assign) CGSize viewSize; // 当前界面大笑
+@property(nonatomic, assign) CGSize viewSize; // 当前界面大小
 @property(nonatomic, retain) CCSprite *boxHead; // 火车头拖拉终点
 @property(nonatomic, retain) CCSprite *boxGoods; // 货车货物拖拉终点
 @property(nonatomic, retain) CCSprite *boxTrack; // 火车轨拖拉终点

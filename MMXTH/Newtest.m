@@ -427,7 +427,7 @@ isPresentSelected = false;
 
 
 -(void)createRailTargetX:(int)targetX TargetY:(int)targetY{
-    
+    [[[self.meshData objectAtIndex:targetX] objectAtIndex:targetY] replaceObjectAtIndex:DIR_STATE withObject:@1];
     CCLOG(@"taget %d %d ",targetX,targetY);
     NSObject *up=[[[self.meshData objectAtIndex:targetX] objectAtIndex:targetY] objectAtIndex: DIR_UP];
     NSObject *down=[[[self.meshData objectAtIndex:targetX] objectAtIndex:targetY] objectAtIndex: DIR_DOWN];
@@ -463,7 +463,11 @@ isPresentSelected = false;
         temp=@"rail-down-right.png";
           CCLOG(@"%@",temp);
     }
-    
+    else{
+        [[[self.meshData objectAtIndex:targetX] objectAtIndex:targetY] replaceObjectAtIndex:DIR_STATE withObject:@0];
+       
+    }
+    if(![temp isEqualToString:@"train.png"]){
     CCTexture *new=[CCTexture textureWithFile:temp];
    track=[CCSprite spriteWithTexture:new];
     track.scaleY = _tile.height/track.contentSize.height;
@@ -471,14 +475,14 @@ isPresentSelected = false;
     
     [track setPosition:CGPointMake(targetX*_tile.width+_tile.width/2.0f, targetY*_tile.height+_tile.height/2.0f)
 ];
-    [self addChild:track z:12];
+        [self addChild:track z:12];}
    
     //[self addChild:Atrack z:2];
             CCLOG(@"scaleX scale Y %f %f \n",track.scaleX,track.scaleY);
             CCLOG(@"targetX targetY %d %d \n",targetX,targetY);
             CCLOG(@"postionX positionY %f %f \n",track.position.x,track.position.y);
     
-     [[[self.meshData objectAtIndex:targetX] objectAtIndex:targetY] replaceObjectAtIndex:DIR_STATE withObject:@1];
+    
     
         }
 

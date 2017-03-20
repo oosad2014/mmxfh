@@ -21,6 +21,7 @@
 {
     CCSprite *trainhead;
     Train *trainup;
+    Train *_train;
     Train *traindown;
     Train *Checkpoint;
     Train *winpoint;
@@ -59,6 +60,7 @@
 
 @property(nonatomic,retain)    NSMutableArray *meshData;
 @property(nonatomic,retain)    NSMutableArray *statearray;
+@property(nonatomic,retain)    NSTimer *timer;
 + (id)scene;
 - (Newtest *)init;
 - (struct Coordinates)getCoordinate:(CGPoint)touchPos;

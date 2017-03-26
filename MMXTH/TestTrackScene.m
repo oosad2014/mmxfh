@@ -51,6 +51,7 @@ static BOOL selOrNot = YES;
     [self setUserInteractionEnabled:YES]; // 触屏
     [self setMultipleTouchEnabled:YES]; // 多点触控
     
+    _dataManager = [DataManager sharedManager]; // 获取单例
     
 //    CCTexture * texture=[CCTexture textureWithFile:@"dead.png"];
 //    CCTexture * texture1=[CCTexture textureWithFile:@"button.png"];
@@ -298,7 +299,7 @@ struct Coordinates {
         [self addChild:track z:10];
     }
     
-    CCSprite *trainStart = [CCSprite spriteWithImageNamed:@"火车车厢.png"];
+    CCSprite *trainStart = [self getTrainFromFile];
     [trainStart setScaleX:self.contentSize.width * 0.1 / trainStart.boundingBox.size.width];
     [trainStart setScaleY:self.contentSize.height * 0.1 / trainStart.boundingBox.size.height];
     [trainStart setPositionType:CCPositionTypeNormalized];
@@ -336,6 +337,12 @@ struct Coordinates {
         CCLOG(@"[Log] 火车已选择上");
         [self setmove2];
     }
+}
+
+- (CCSprite *)getTrainFromFile {
+    NSDictionary *dic = [_dataManager documentDicWithName:@"TrainNow"];
+    CCSprite *train = [CCSprite spriteWithImageNamed:[dic objectForKey:@"TrainSelected"]];
+    return train;
 }
 
 //选择向下

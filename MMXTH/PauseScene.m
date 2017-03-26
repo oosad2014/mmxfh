@@ -7,9 +7,9 @@
 //
 
 #import "PauseScene.h"
-#import "TestTrainScene.h"
 #import "FirstScene.h"
 #import "SecondScene.h"
+#import "EnterLittleMap.h"
 
 
 @implementation PauseScene
@@ -84,7 +84,7 @@
 // Retry按钮点击事件
 -(void)onRetryBtnClicked:(id)sender {
     [[CCDirector sharedDirector] resume];
-    [[CCDirector sharedDirector] replaceScene:[TestTrainScene scene] withTransition:[CCTransition transitionCrossFadeWithDuration:1.0f]];
+    [[CCDirector sharedDirector] replaceScene:[EnterLittleMap scene] withTransition:[CCTransition transitionCrossFadeWithDuration:1.0f]];
 }
 
 // Return按钮点击事件

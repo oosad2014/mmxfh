@@ -11,12 +11,7 @@
 		0452DCAB1DC1B15A004238CE /* backGround2.png in Resources */ = {isa = PBXBuildFile; fileRef = 0452DCA71DC1B15A004238CE /* backGround2.png */; };
 		0452DCAC1DC1B15A004238CE /* backGround3.png in Resources */ = {isa = PBXBuildFile; fileRef = 0452DCA81DC1B15A004238CE /* backGround3.png */; };
 		0452DCAD1DC1B15A004238CE /* backGround4.png in Resources */ = {isa = PBXBuildFile; fileRef = 0452DCA91DC1B15A004238CE /* backGround4.png */; };
-		045465551DA682FD00C85EE1 /* ShopScene.m in Sources */ = {isa = PBXBuildFile; fileRef = 045465541DA682FD00C85EE1 /* ShopScene.m */; };
-		045465581DA6832800C85EE1 /* ShoppingThings.m in Sources */ = {isa = PBXBuildFile; fileRef = 045465571DA6832800C85EE1 /* ShoppingThings.m */; };
-		0454655B1DA6833F00C85EE1 /* Shop.m in Sources */ = {isa = PBXBuildFile; fileRef = 0454655A1DA6833F00C85EE1 /* Shop.m */; };
 		045A29351D8C21010065E181 /* TrainHead.m in Sources */ = {isa = PBXBuildFile; fileRef = 045A29341D8C21010065E181 /* TrainHead.m */; };
-		045A29381D8C21370065E181 /* TrainGoods.m in Sources */ = {isa = PBXBuildFile; fileRef = 045A29371D8C21370065E181 /* TrainGoods.m */; };
-		045A293B1D8C21530065E181 /* Track.m in Sources */ = {isa = PBXBuildFile; fileRef = 045A293A1D8C21530065E181 /* Track.m */; };
 		04607B051D8942B10052025A /* SecondScene.m in Sources */ = {isa = PBXBuildFile; fileRef = 04607B041D8942B10052025A /* SecondScene.m */; };
 		046F06841DE5636600B25ECB /* TestTrackScene.m in Sources */ = {isa = PBXBuildFile; fileRef = 046F06831DE5636600B25ECB /* TestTrackScene.m */; };
 		0471DC361D8696FA00547781 /* FirstScene.m in Sources */ = {isa = PBXBuildFile; fileRef = 0471DC351D8696FA00547781 /* FirstScene.m */; };
@@ -35,7 +30,6 @@
 		047CF2BD1DADE696004CBF4B /* panda.png in Resources */ = {isa = PBXBuildFile; fileRef = 047CF2B91DADE696004CBF4B /* panda.png */; };
 		047CF2BF1DADE696004CBF4B /* tree_1.png in Resources */ = {isa = PBXBuildFile; fileRef = 047CF2BB1DADE696004CBF4B /* tree_1.png */; };
 		047CF2C11DADE804004CBF4B /* face.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 047CF2C01DADE804004CBF4B /* face.jpg */; };
-		04885AC91DC096610056CC13 /* TestTrainScene.m in Sources */ = {isa = PBXBuildFile; fileRef = 04885AC81DC096610056CC13 /* TestTrainScene.m */; };
 		04A12A4D1DF5392C00398D5A /* dead.png in Resources */ = {isa = PBXBuildFile; fileRef = 04A12A4A1DF5392C00398D5A /* dead.png */; };
 		04A12A4E1DF5392C00398D5A /* train.png in Resources */ = {isa = PBXBuildFile; fileRef = 04A12A4B1DF5392C00398D5A /* train.png */; };
 		04A12A4F1DF5392C00398D5A /* traingood.png in Resources */ = {isa = PBXBuildFile; fileRef = 04A12A4C1DF5392C00398D5A /* traingood.png */; };
@@ -45,6 +39,8 @@
 		571895581E77DBA3008D7F17 /* DataManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 571895571E77DBA3008D7F17 /* DataManager.m */; };
 		5718955E1E781E97008D7F17 /* DataCreateScene.m in Sources */ = {isa = PBXBuildFile; fileRef = 5718955D1E781E97008D7F17 /* DataCreateScene.m */; };
 		571895621E782A86008D7F17 /* ChinaMap.plist in Resources */ = {isa = PBXBuildFile; fileRef = 571895611E782A86008D7F17 /* ChinaMap.plist */; };
+		573C4BD21E7F85D10077E34B /* TrainHeadImages.plist in Resources */ = {isa = PBXBuildFile; fileRef = 573C4BD11E7F85D10077E34B /* TrainHeadImages.plist */; };
+		5743D1971E84E4A400B990C2 /* AllImagesResources.plist in Resources */ = {isa = PBXBuildFile; fileRef = 5743D1961E84E4A400B990C2 /* AllImagesResources.plist */; };
 		575B55981E723E37009123D9 /* EnterLittleMap.m in Sources */ = {isa = PBXBuildFile; fileRef = 575B55971E723E37009123D9 /* EnterLittleMap.m */; };
 		575B559A1E7255FC009123D9 /* stage_1 in Resources */ = {isa = PBXBuildFile; fileRef = 575B55991E7255FC009123D9 /* stage_1 */; };
 		5770E1781D82A5C10079ACBC /* Default.png in Resources */ = {isa = PBXBuildFile; fileRef = 5770E1771D82A5C10079ACBC /* Default.png */; };
@@ -257,18 +253,8 @@
 		0452DCA71DC1B15A004238CE /* backGround2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = backGround2.png; path = Resources/backGround2.png; sourceTree = "<group>"; };
 		0452DCA81DC1B15A004238CE /* backGround3.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = backGround3.png; path = Resources/backGround3.png; sourceTree = "<group>"; };
 		0452DCA91DC1B15A004238CE /* backGround4.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = backGround4.png; path = Resources/backGround4.png; sourceTree = "<group>"; };
-		045465531DA682FD00C85EE1 /* ShopScene.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ShopScene.h; sourceTree = "<group>"; };
-		045465541DA682FD00C85EE1 /* ShopScene.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ShopScene.m; sourceTree = "<group>"; };
-		045465561DA6832800C85EE1 /* ShoppingThings.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ShoppingThings.h; sourceTree = "<group>"; };
-		045465571DA6832800C85EE1 /* ShoppingThings.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ShoppingThings.m; sourceTree = "<group>"; };
-		045465591DA6833F00C85EE1 /* Shop.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Shop.h; sourceTree = "<group>"; };
-		0454655A1DA6833F00C85EE1 /* Shop.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Shop.m; sourceTree = "<group>"; };
 		045A29331D8C21010065E181 /* TrainHead.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TrainHead.h; sourceTree = "<group>"; };
 		045A29341D8C21010065E181 /* TrainHead.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TrainHead.m; sourceTree = "<group>"; };
-		045A29361D8C21370065E181 /* TrainGoods.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TrainGoods.h; sourceTree = "<group>"; };
-		045A29371D8C21370065E181 /* TrainGoods.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TrainGoods.m; sourceTree = "<group>"; };
-		045A29391D8C21530065E181 /* Track.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Track.h; sourceTree = "<group>"; };
-		045A293A1D8C21530065E181 /* Track.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Track.m; sourceTree = "<group>"; };
 		04607B031D8942B10052025A /* SecondScene.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SecondScene.h; sourceTree = "<group>"; };
 		04607B041D8942B10052025A /* SecondScene.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SecondScene.m; sourceTree = "<group>"; };
 		046F06821DE5636600B25ECB /* TestTrackScene.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TestTrackScene.h; sourceTree = "<group>"; };
@@ -293,8 +279,6 @@
 		047CF2B91DADE696004CBF4B /* panda.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = panda.png; path = Resources/panda.png; sourceTree = "<group>"; };
 		047CF2BB1DADE696004CBF4B /* tree_1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = tree_1.png; path = Resources/tree_1.png; sourceTree = "<group>"; };
 		047CF2C01DADE804004CBF4B /* face.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = face.jpg; path = Resources/face.jpg; sourceTree = "<group>"; };
-		04885AC71DC096610056CC13 /* TestTrainScene.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TestTrainScene.h; sourceTree = "<group>"; };
-		04885AC81DC096610056CC13 /* TestTrainScene.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TestTrainScene.m; sourceTree = "<group>"; };
 		04A12A4A1DF5392C00398D5A /* dead.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = dead.png; path = Resources/dead.png; sourceTree = "<group>"; };
 		04A12A4B1DF5392C00398D5A /* train.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = train.png; path = Resources/train.png; sourceTree = "<group>"; };
 		04A12A4C1DF5392C00398D5A /* traingood.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = traingood.png; path = Resources/traingood.png; sourceTree = "<group>"; };
@@ -306,6 +290,8 @@
 		5718955C1E781E97008D7F17 /* DataCreateScene.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DataCreateScene.h; sourceTree = "<group>"; };
 		5718955D1E781E97008D7F17 /* DataCreateScene.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DataCreateScene.m; sourceTree = "<group>"; };
 		571895611E782A86008D7F17 /* ChinaMap.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = ChinaMap.plist; sourceTree = "<group>"; };
+		573C4BD11E7F85D10077E34B /* TrainHeadImages.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = TrainHeadImages.plist; sourceTree = "<group>"; };
+		5743D1961E84E4A400B990C2 /* AllImagesResources.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = AllImagesResources.plist; sourceTree = "<group>"; };
 		575B55961E723E37009123D9 /* EnterLittleMap.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EnterLittleMap.h; sourceTree = "<group>"; };
 		575B55971E723E37009123D9 /* EnterLittleMap.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EnterLittleMap.m; sourceTree = "<group>"; };
 		575B55991E7255FC009123D9 /* stage_1 */ = {isa = PBXFileReference; lastKnownFileType = folder; name = stage_1; path = Resources/stage_1; sourceTree = "<group>"; };
@@ -790,14 +776,6 @@
 				0471DC3B1D869F6C00547781 /* Train.m */,
 				045A29331D8C21010065E181 /* TrainHead.h */,
 				045A29341D8C21010065E181 /* TrainHead.m */,
-				045A29361D8C21370065E181 /* TrainGoods.h */,
-				045A29371D8C21370065E181 /* TrainGoods.m */,
-				045A29391D8C21530065E181 /* Track.h */,
-				045A293A1D8C21530065E181 /* Track.m */,
-				045465561DA6832800C85EE1 /* ShoppingThings.h */,
-				045465571DA6832800C85EE1 /* ShoppingThings.m */,
-				045465591DA6833F00C85EE1 /* Shop.h */,
-				0454655A1DA6833F00C85EE1 /* Shop.m */,
 			);
 			name = Model;
 			sourceTree = "<group>";
@@ -818,12 +796,8 @@
 				0471DC351D8696FA00547781 /* FirstScene.m */,
 				04607B031D8942B10052025A /* SecondScene.h */,
 				04607B041D8942B10052025A /* SecondScene.m */,
-				045465531DA682FD00C85EE1 /* ShopScene.h */,
-				045465541DA682FD00C85EE1 /* ShopScene.m */,
 				047B15F31DBC638D00ED1BD7 /* PauseScene.h */,
 				047B15F41DBC638D00ED1BD7 /* PauseScene.m */,
-				04885AC71DC096610056CC13 /* TestTrainScene.h */,
-				04885AC81DC096610056CC13 /* TestTrainScene.m */,
 				575B55961E723E37009123D9 /* EnterLittleMap.h */,
 				575B55971E723E37009123D9 /* EnterLittleMap.m */,
 				046F06821DE5636600B25ECB /* TestTrackScene.h */,
@@ -835,11 +809,13 @@
 		571895591E781E1C008D7F17 /* Data */ = {
 			isa = PBXGroup;
 			children = (
+				573C4BD11E7F85D10077E34B /* TrainHeadImages.plist */,
 				571895611E782A86008D7F17 /* ChinaMap.plist */,
 				571895561E77DBA3008D7F17 /* DataManager.h */,
 				571895571E77DBA3008D7F17 /* DataManager.m */,
 				5718955C1E781E97008D7F17 /* DataCreateScene.h */,
 				5718955D1E781E97008D7F17 /* DataCreateScene.m */,
+				5743D1961E84E4A400B990C2 /* AllImagesResources.plist */,
 			);
 			name = Data;
 			sourceTree = "<group>";
@@ -1832,6 +1808,7 @@
 				0452DCAA1DC1B15A004238CE /* backGround.png in Resources */,
 				5770E1781D82A5C10079ACBC /* Default.png in Resources */,
 				5770E1811D82A5C10079ACBC /* Icon.png in Resources */,
+				5743D1971E84E4A400B990C2 /* AllImagesResources.plist in Resources */,
 				047CF2B61DADDD7E004CBF4B /* pb_bg.png in Resources */,
 				0452DCAC1DC1B15A004238CE /* backGround3.png in Resources */,
 				57DCF7361E6BFD5800DB78FC /* 铁轨上左.png in Resources */,
@@ -1849,6 +1826,7 @@
 				57DCF7391E6BFD5800DB78FC /* 铁轨下左.png in Resources */,
 				5770E2801D82A5C30079ACBC /* LICENSE_cocos2d.txt in Resources */,
 				047CF2B41DADDD7E004CBF4B /* pb_bg_left.png in Resources */,
+				573C4BD21E7F85D10077E34B /* TrainHeadImages.plist in Resources */,
 				57108E931E6AF828003469F4 /* 树1.png in Resources */,
 				047CF2C11DADE804004CBF4B /* face.jpg in Resources */,
 				5770E2831D82A5C30079ACBC /* CCEffectRenderer.h in Resources */,
@@ -1910,7 +1888,6 @@
 				5770E1C61D82A5C10079ACBC /* CCCache.m in Sources */,
 				5770E3961D82A5C40079ACBC /* ALWrapper.m in Sources */,
 				5770E2C71D82A5C30079ACBC /* CCEffectNode.m in Sources */,
-				04885AC91DC096610056CC13 /* TestTrainScene.m in Sources */,
 				5718955E1E781E97008D7F17 /* DataCreateScene.m in Sources */,
 				5770E2C41D82A5C30079ACBC /* CCEffectPixellate.m in Sources */,
 				5770E1EB1D82A5C10079ACBC /* CCClippingNode.m in Sources */,
@@ -1920,7 +1897,6 @@
 				5770E3851D82A5C40079ACBC /* ALContext.m in Sources */,
 				5770E2711D82A5C20079ACBC /* CCTiledMapLayer.m in Sources */,
 				5770E1AB1D82A5C10079ACBC /* CCRenderDispatch.m in Sources */,
-				045A293B1D8C21530065E181 /* Track.m in Sources */,
 				5770E2EB1D82A5C30079ACBC /* CCPlatformTextField.m in Sources */,
 				5770E2C11D82A5C30079ACBC /* CCEffectColorPulse.m in Sources */,
 				5770E3701D82A5C40079ACBC /* OALAudioTrackNotifications.m in Sources */,
@@ -1940,7 +1916,6 @@
 				5770E2051D82A5C20079ACBC /* CCNodeColor.m in Sources */,
 				5770E2271D82A5C20079ACBC /* CCParticleSystem.m in Sources */,
 				5770E1CD1D82A5C10079ACBC /* CCActionCatmullRom.m in Sources */,
-				045A29381D8C21370065E181 /* TrainGoods.m in Sources */,
 				5770E1E41D82A5C10079ACBC /* CCAnimation.m in Sources */,
 				5770E34A1D82A5C40079ACBC /* CCBKeyframe.m in Sources */,
 				5770E2D31D82A5C30079ACBC /* CCButton.m in Sources */,
@@ -1968,7 +1943,6 @@
 				5770E2151D82A5C20079ACBC /* CCNode.m in Sources */,
 				5770E1BE1D82A5C10079ACBC /* CCRenderer.m in Sources */,
 				5770E2BE1D82A5C30079ACBC /* CCEffectColor.m in Sources */,
-				045465581DA6832800C85EE1 /* ShoppingThings.m in Sources */,
 				5770E21C1D82A5C20079ACBC /* CCParallaxNode.m in Sources */,
 				5770E33F1D82A5C40079ACBC /* ZipUtils.m in Sources */,
 				5770E1B71D82A5C10079ACBC /* CCTouch.m in Sources */,
@@ -2027,7 +2001,6 @@
 				5770E2231D82A5C20079ACBC /* CCParticleExamples.m in Sources */,
 				5770E1D01D82A5C10079ACBC /* CCActionEase.m in Sources */,
 				5770E3131D82A5C30079ACBC /* CCWindow.m in Sources */,
-				0454655B1DA6833F00C85EE1 /* Shop.m in Sources */,
 				5770E3031D82A5C30079ACBC /* CCGLView.m in Sources */,
 				5770E25F1D82A5C20079ACBC /* CCSpriteFrameCache.m in Sources */,
 				5770E24F1D82A5C20079ACBC /* CCScheduler.m in Sources */,
@@ -2036,7 +2009,6 @@
 				5770E3351D82A5C40079ACBC /* NSThread+performBlock.m in Sources */,
 				5770E1E71D82A5C10079ACBC /* CCAnimationCache.m in Sources */,
 				5770E2671D82A5C20079ACBC /* CCTextureCache.m in Sources */,
-				045465551DA682FD00C85EE1 /* ShopScene.m in Sources */,
 				5770E2DD1D82A5C30079ACBC /* CCScrollView.m in Sources */,
 				5770E3AB1D82A5C40079ACBC /* NSMutableArray+WeakReferences.m in Sources */,
 			);

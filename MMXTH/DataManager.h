@@ -12,8 +12,13 @@
 
 + (DataManager *)sharedManager; // 单例类返回的文件操作对象
 
-- (id)bundleDataWithName:(NSString *)name; // 获取Bundle数据（字典）
-- (id)documentDataWithName:(NSString *)name; // 获取Document数据（字典）
-- (BOOL)writeDataWithName:(NSString *)name Dic:(NSDictionary *)dic;
+- (NSDictionary *)bundleDicWithName:(NSString *)name; // 获取Bundle数据（字典）
+- (NSDictionary *)documentDicWithName:(NSString *)name; // 获取Document数据（字典）
+
+- (NSArray *)bundleArrayWithName:(NSString *)name; // 获取Bundle数据（数组）
+- (NSArray *)documentArrayWithName:(NSString *)name; // 获取Document数据（数组）
+
+- (BOOL)writeDicWithName:(NSString *)name Dic:(NSDictionary *)dic;
+- (BOOL)writeArrayWithName:(NSString *)name Arr:(NSArray *)array;
 
 @end

@@ -24,7 +24,7 @@ static DataManager* dataManager = nil;
     return dataManager;
 }
 
-- (id)bundleDataWithName:(NSString *)name {
+- (NSDictionary *)bundleDicWithName:(NSString *)name {
     NSString *plistName = name;
     NSString *plistPath = [[NSBundle mainBundle] pathForResource:plistName ofType:@"plist"];
     NSDictionary *plistDic = [NSDictionary dictionaryWithContentsOfFile:plistPath];
@@ -32,7 +32,7 @@ static DataManager* dataManager = nil;
     return plistDic;
 }
 
-- (id)documentDataWithName:(NSString *)name {
+- (NSDictionary *)documentDicWithName:(NSString *)name {
     NSString *plistName = [name stringByAppendingString:@".plist"];
     NSString *plistPath = [NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES) firstObject];
     plistPath = [plistPath stringByAppendingPathComponent:plistName];
@@ -42,13 +42,41 @@ static DataManager* dataManager = nil;
     return plistDic;
 }
 
-- (BOOL)writeDataWithName:(NSString *)name Dic:(NSDictionary *)dic {
+- (NSArray *)bundleArrayWithName:(NSString *)name {
+    NSString *plistName = name;
+    NSString *plistPath = [[NSBundle mainBundle] pathForResource:plistName ofType:@"plist"];
+    NSArray *plistArr = [NSArray arrayWithContentsOfFile:plistPath];
+    
+    return plistArr;
+}
+
+- (NSArray *)documentArrayWithName:(NSString *)name {
+    NSString *plistName = [name stringByAppendingString:@".plist"];
+    NSString *plistPath = [NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES) firstObject];
+    plistPath = [plistPath stringByAppendingPathComponent:plistName];
+    
+    NSArray *plistArr = [NSArray arrayWithContentsOfFile:plistPath];
+    
+    return plistArr;
+}
+
+- (BOOL)writeDicWithName:(NSString *)name Dic:(NSDictionary *)dic {
     NSString *plistName = [name stringByAppendingString:@".plist"];
     NSString *plistPath = [NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES) firstObject];
     plistPath = [plistPath stringByAppendingPathComponent:plistName];
     
     NSDictionary *plistDic = dic;
     [plistDic writeToFile:plistPath atomically:YES];
+    return YES;
+}
+
+- (BOOL)writeArrayWithName:(NSString *)name Arr:(NSArray *)array {
+    NSString *plistName = [name stringByAppendingString:@".plist"];
+    NSString *plistPath = [NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES) firstObject];
+    plistPath = [plistPath stringByAppendingPathComponent:plistName];
+    
+    NSArray *plistArr = array;
+    [plistArr writeToFile:plistPath atomically:YES];
     return YES;
 }
 

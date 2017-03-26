@@ -26,6 +26,7 @@
     CCNodeColor *background = [CCNodeColor nodeWithColor:[CCColor colorWithRed:27.0f/255.0f green:185.0f/255.0f blue:239.0f/255.0f alpha:1.0f]];
     [self addChild:background z: 1];
     
+    [self createData];
     if ([self showData]) {
         [self createSuccess];
     }
@@ -42,14 +43,23 @@
 //                         @[@55, @-155], @"HaiNam",
 //                         @[@-10, @-103], @"YunNan",
 //                         nil];
-    
+//    
+//    NSArray *arr = [NSArray arrayWithObjects:@"pb.png", @"panda.png", @"button.png", @"panda.png", @"Icon.png", @"Icon-Small.png", @"button.png", nil];
+//    [_dataManager writeArrayWithName:@"TrainHeadImages" Arr:arr];
+    NSDictionary *dic = [NSDictionary dictionaryWithObjectsAndKeys:
+                            @"", @"TrainSelected",
+                            @"", @"Others",
+                            nil];
+    [_dataManager writeDicWithName:@"TrainNow" Dic:dic];
     
     return YES;
 }
 
 - (BOOL)showData {
-    NSDictionary *dic = [_dataManager documentDataWithName:@"ChinaMap"];
+    NSDictionary *dic = [_dataManager documentDicWithName:@"TrainNow"];
     NSLog(@"%@", dic);
+//    NSArray *arr = [_dataManager documentArrayWithName:@"TrainHeadImages"];
+//    NSLog(@"%@", arr);
     
     return YES;
 }

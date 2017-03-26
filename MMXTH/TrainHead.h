@@ -13,6 +13,7 @@
 #import <Foundation/Foundation.h>
 #import "cocos2d.h"
 #import "Train.h"
+#import "DataManager.h"
 
 // -----------------------------------------------------------------
 
@@ -21,8 +22,10 @@
 // -----------------------------------------------------------------
 // properties
 
-@property(nonatomic, retain)NSMutableArray *trainArray;
+@property(nonatomic, retain)NSArray *trainArray;
 @property(nonatomic, copy)NSString *url;
+
+@property(weak) DataManager *dataManager;
 // -----------------------------------------------------------------
 // methods
 

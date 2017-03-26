@@ -14,6 +14,8 @@
 #import "cocos2d.h"
 #import "cocos2d-ui.h"
 #import "Train.h"
+#import "TrainHead.h"
+#import "DataManager.h"
 
 // -----------------------------------------------------------------
 
@@ -35,6 +37,8 @@
 
 @property(nonatomic, retain) NSMutableArray *trackNowArray; // 当前已铺铁轨保存数组
 @property(nonatomic, retain) NSMutableArray *trackArray; // 全部铁轨网格
+
+@property(nonatomic, weak) DataManager *dataManager; // 文件
 // -----------------------------------------------------------------
 // methods
 

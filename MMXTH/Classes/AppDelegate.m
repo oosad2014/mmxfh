@@ -13,9 +13,7 @@
 #import "AppDelegate.h"
 #import "FirstScene.h"
 #import "SecondScene.h"
-#import "ShopScene.h"
 #import "EnterLittleMap.h"
-#import "TestTrainScene.h"
 #import "TestTrackScene.h"
 #import "DataCreateScene.h"
 
@@ -83,7 +81,7 @@
 
 - (CCScene *)startScene
 {
-	return [DataCreateScene new];
+	return [FirstScene new];
 }
 
 // -----------------------------------------------------------------------

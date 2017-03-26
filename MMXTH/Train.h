@@ -19,7 +19,7 @@
 // -----------------------------------------------------------------
 // properties
 
-@property(nonatomic, retain)NSMutableArray *trainArray;
+@property(nonatomic, retain)NSArray*trainArray;
 @property(nonatomic, copy)NSString *url;
 
 // -----------------------------------------------------------------

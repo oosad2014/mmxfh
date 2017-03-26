@@ -29,7 +29,9 @@ static int count_Head = 0;
     [self setColumn:0];
     
     url = @"";
-    trainArray = [NSMutableArray arrayWithObjects:@"pb.png", @"panda.png", @"button.png", @"panda.png", @"Icon.png", @"Icon-Small.png", @"button.png", nil];
+    _dataManager = [DataManager sharedManager];
+    trainArray = [_dataManager bundleArrayWithName:@"TrainHeadImages"];
+    
     return self;
 }
 

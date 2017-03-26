@@ -72,6 +72,7 @@
 
 // Back按钮点击事件
 -(void)onBackBtnClicked:(id)sender {
+    [[OALSimpleAudio sharedInstance] stopEverything];
     [[CCDirector sharedDirector] resume]; // 暂停游戏，保存当前状态
     [[CCDirector sharedDirector] replaceScene:[FirstScene scene] withTransition:[CCTransition transitionCrossFadeWithDuration:1.0f]];
 }

@@ -25,9 +25,7 @@
 static CGPoint trainPoint;
 static id move2;
 
-static BOOL selOrNot = YES;
-static BOOL isTraveling = NO;
-static BOOL isPaused = NO;
+
 @synthesize pauseLayer;
 
 
@@ -89,8 +87,10 @@ bool isPresentSelected;
     _nextLoc = CGPointMake(0, 0);
     trainDirection=TRAIN_DIRECTION_RIGHT;
     
-    _trainSpeedDuration=1.0f;
+    _trainSpeedDuration=0.1f;
     
+   isTraveling = NO;
+     isPaused = NO;
     
   
     
@@ -114,32 +114,27 @@ bool isPresentSelected;
     //纹理素材
     CCTexture * texture1=[CCTexture textureWithFile:@"goal.png"];
     otherGoods = [CCTexture textureWithFile:@"树2.png"];
+    
+    CCTexture * treet1=[CCTexture textureWithFile:@"树1.png"];
+     CCTexture * treet2=[CCTexture textureWithFile:@"树2.png"];
+     CCTexture * treet3=[CCTexture textureWithFile:@"树1+.png"];
+    
     trackVertical = [CCTexture textureWithFile:@"铁轨横向.png"];
     trackHorizontal = [CCTexture textureWithFile:@"铁轨竖直.png"];
     //CCTexture * track2=[CCTexture textureWithFile:@"铁轨6.png"];
     
-    track1=[CCTexture textureWithFile:@"rail-down-left.png"];
-      track2=[CCTexture textureWithFile:@"rail-down-right.png"];
-     track3=[CCTexture textureWithFile:@"rail-left-right.png"];
-     track4=[CCTexture textureWithFile:@"rail-up-down.png"];
-      track5=[CCTexture textureWithFile:@"rail-up-left.png"];
-      track6=[CCTexture textureWithFile:@"rail-up-right.png"];
+    track1=[CCTexture textureWithFile:@"rail-down-left1.png"];
+      track2=[CCTexture textureWithFile:@"rail-down-right1.png"];
+     track3=[CCTexture textureWithFile:@"rail-left-right1.png"];
+     track4=[CCTexture textureWithFile:@"rail-up-down1.png"];
+      track5=[CCTexture textureWithFile:@"rail-up-left1.png"];
+      track6=[CCTexture textureWithFile:@"rail-up-right1.png"];
+    
+    
     
     
     //铁轨数组
-    trackArray = [NSMutableArray arrayWithCapacity:10]; // 10 * 10网格
-    for (int i=0; i<10; i++) {
-        NSMutableArray *internArray = [NSMutableArray arrayWithCapacity:10];
-        for (int j=0; j<10; j++) {
-            [internArray addObject:[NSValue valueWithCGPoint:CGPointMake([self Floor:0.05 + i * 0.1 Pcs:2], [self Floor:0.05 + j * 0.1 Pcs:2]                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    )]];
-        }
-        
-        [trackArray addObject:internArray];
-    }
-    trackNowArray = [NSMutableArray arrayWithCapacity:10];
-    for (int i=0; i<9; i++) {
-        [trackNowArray addObject:[NSValue valueWithCGPoint:CGPointMake(0.05f + i * 0.1f, 0.45f)]];
-    }
+  
     
     for (int i=0; i<24; i++) {
         
@@ -157,26 +152,7 @@ bool isPresentSelected;
     CCLOG(@" tile is %f" ,_tile);
     
     // 放置树
-    CCSprite *tree1 = [CCSprite spriteWithTexture:otherGoods];
-    [tree1 setScaleX:self.contentSize.width * 0.1 / tree1.boundingBox.size.width];
-    [tree1 setScaleY:self.contentSize.height * 0.2 / tree1.boundingBox.size.height];
-    [tree1 setPositionType:CCPositionTypeNormalized];
-    [tree1 setPosition:CGPointMake(0.3f, 0.2f)];
-    [self addChild:tree1 z:12];
-    
-    CCSprite *tree2 = [CCSprite spriteWithTexture:otherGoods];
-    [tree2 setScaleX:self.contentSize.width * 0.1 / tree2.boundingBox.size.width];
-    [tree2 setScaleY:self.contentSize.height * 0.2 / tree2.boundingBox.size.height];
-    [tree2 setPositionType:CCPositionTypeNormalized];
-    [tree2 setPosition:CGPointMake(0.4f, 0.1f)];
-    [self addChild:tree2 z:12];
-    
-    CCSprite *tree3 = [CCSprite spriteWithTexture:otherGoods];
-    [tree3 setScaleX:self.contentSize.width * 0.1 / tree3.boundingBox.size.width];
-    [tree3 setScaleY:self.contentSize.height * 0.2 / tree3.boundingBox.size.height];
-    [tree3 setPositionType:CCPositionTypeNormalized];
-    [tree3 setPosition:CGPointMake(0.8f, 0.6f)];
-    [self addChild:tree3 z:12];
+  
     
     CCButton *button1 = [CCButton buttonWithTitle:@"" spriteFrame:[CCSpriteFrame frameWithImageNamed:@"icon/pause_click.png"]];
      [button1 setScale:(self.contentSize.width / button1.contentSize.width * 0.05f)];
@@ -191,7 +167,7 @@ bool isPresentSelected;
     [button2 setPosition:ccp(0.75f, 0.85f)];
     [self addChild:button2 z:12];
 
-    _train = [CCSprite spriteWithImageNamed:@"火车车厢.png"];
+    _train = [CCSprite spriteWithImageNamed:@"车.png"];
     [_train setScaleX:self.contentSize.width * 0.1 / _train.boundingBox.size.width];
     [_train  setScaleY:self.contentSize.height * 0.1 / _train.boundingBox.size.height];
     
@@ -206,29 +182,29 @@ bool isPresentSelected;
 //    [Checkpoint setScaleY:2.0f];
 //    [self addChild:Checkpoint z:2];
     
-    //放置铁轨和列车
-      posArray = [NSMutableArray arrayWithCapacity: 0]; // 初始化可变数组
-    for (int i=0; i<[trackNowArray count]; i++) {
-        CCSprite *track = [CCSprite spriteWithTexture:trackVertical];
-        [track setScaleX:self.contentSize.width * 0.1 / track.boundingBox.size.width];
-        [track setScaleY:self.contentSize.height * 0.1 / track.boundingBox.size.height];
-        [track setPositionType:CCPositionTypeNormalized];
-        [track setPosition:[trackNowArray[i] CGPointValue]];
-        [self addChild:track z:10];
-    }
-    CCTexture *new=[CCTexture textureWithFile:@"goal.png"];
+       CCTexture *new=[CCTexture textureWithFile:@"终点.png"];
     CCSprite *goal=[CCSprite spriteWithTexture:new];
     goal.scaleY = _tile.height/goal.contentSize.height;
     goal.scaleX = _tile.width/goal.contentSize.width;
     
-    [goal setPosition:CGPointMake(23*_tile.width+_tile.width/2.0f, 12*_tile.height+_tile.height/2.0f)];
-    [[[self.meshData objectAtIndex:23] objectAtIndex:12] replaceObjectAtIndex:DIR_STATE withObject:@2];
+    [goal setPosition:CGPointMake(22*_tile.width+_tile.width/2.0f, 12*_tile.height+_tile.height/2.0f)];
+    [[[self.meshData objectAtIndex:22] objectAtIndex:12] replaceObjectAtIndex:DIR_STATE withObject:@2];
     [self addChild:goal z:11];
+    
+    CCTexture *new2=[CCTexture textureWithFile:@"井.png"];
+    CCSprite *za=[CCSprite spriteWithTexture:new2];
+    za.scaleY = _tile.height/za.contentSize.height;
+    za.scaleX = _tile.width/za.contentSize.width;
+    
+    [za setPosition:CGPointMake(12*_tile.width+_tile.width/2.0f, 5*_tile.height+_tile.height/2.0f)];
+    [[[self.meshData objectAtIndex:12] objectAtIndex:5] replaceObjectAtIndex:DIR_STATE withObject:@3];
+    [self addChild:za z:11];
 
     
     //位置更新
 //    [self schedule:@selector (updatetrain) interval:0.01];
 //    [self schedule:@selector (judgehead) interval:0.05];
+    [self schedule:@selector (log) interval:1];
     [self initScene];
     
     
@@ -240,7 +216,7 @@ bool isPresentSelected;
 
     
 //背景更新
-    CCSprite *background = [CCSprite spriteWithImageNamed:@"高仿师姐地图.png"]; // 通过纹理建立背景
+    CCSprite *background = [CCSprite spriteWithImageNamed:@"草地.png"]; // 通过纹理建立背景
     [background setPosition:ccp(0.5f, 0.5f)];
     [background setPositionType:CCPositionTypeNormalized];
     [background setScale:self.contentSize.width / background.contentSize.width];
@@ -277,9 +253,13 @@ bool isPresentSelected;
         
         // 加载暂停界面
         [[CCDirector sharedDirector] pushScene:[[PauseScene scene] initWithParameter:pauseTexture] withTransition: [CCTransition transitionPushWithDirection:CCTransitionDirectionInvalid duration:1.0f]];
-        selOrNot = NO;
+    
     }
 
+}
+-(void) log
+{
+    CCLOG(@"%f,%f",_trainLoc.x,_trainLoc.y);
 }
 //刷新位置
 -(void) updatetrain
@@ -438,29 +418,29 @@ isPresentSelected = false;
     NSString *temp=@"train.png";
     CCSprite *track=[[CCSprite alloc]init];
     if ([right isEqual:@1] && [left isEqual:@1]){
-       temp=@"rail-left-right.png";
+       temp=@"rail-left-right1.png";
         CCLOG(@"%@",temp);
         
     }
     else if ([up isEqual:@1] &&[down isEqual:@1]){
-           temp=@"rail-up-down.png";
+           temp=@"rail-up-down1.png";
           CCLOG(@"%@",temp);
         
     }
     else if ([up isEqual:@1] && [left isEqual:@1]){
-          temp=@"rail-up-left.png";
+          temp=@"rail-up-left1.png";
           CCLOG(@"%@",temp);
     }
     else if ([up isEqual:@1]&& [right isEqual:@1]){
-       temp=@"rail-up-right.png";
+       temp=@"rail-up-right1.png";
           CCLOG(@"%@",temp);
     }
     else if ([down isEqual:@1]&&[left isEqual:@1]){
-              temp=@"rail-down-left.png";
+              temp=@"rail-down-left1.png";
           CCLOG(@"%@",temp);
     }
     else if ([down isEqual:@1] && [right isEqual:@1]){
-        temp=@"rail-down-right.png";
+        temp=@"rail-down-right1.png";
           CCLOG(@"%@",temp);
     }
     else{
@@ -470,8 +450,15 @@ isPresentSelected = false;
     if(![temp isEqualToString:@"train.png"]){
     CCTexture *new=[CCTexture textureWithFile:temp];
    track=[CCSprite spriteWithTexture:new];
-    track.scaleY = _tile.height/track.contentSize.height;
+        if(![temp isEqualToString:@"rail-left-right1.png"]&&![temp isEqualToString:@"rail-up-down1.png"])
+        {track.scaleY = _tile.height/track.contentSize.height;
     track.scaleX = _tile.width/track.contentSize.width;
+        }
+        else
+        {track.scaleY = _tile.height/track.contentSize.height;
+            track.scaleX = _tile.width/track.contentSize.width;
+            
+        }
     
     [track setPosition:CGPointMake(targetX*_tile.width+_tile.width/2.0f, targetY*_tile.height+_tile.height/2.0f)
 ];
@@ -493,7 +480,6 @@ isPresentSelected = false;
         {
             
             CCAction *goUp = [CCActionMoveBy actionWithDuration:_trainSpeedDuration position:CGPointMake(0.0f, _tile.height)];
-            CCLOG(@" up %d times",n);
             ++n;
             [self->_train runAction:goUp];
             
@@ -520,7 +506,15 @@ isPresentSelected = false;
                     
                     [self gameFinished:YES];
                 }
-                else [self gameFinished:NO];
+                else if([[[[self.meshData objectAtIndex:(int)_trainLoc.x-1] objectAtIndex:(int)_trainLoc.y] objectAtIndex:DIR_STATE] isEqual:@3])
+                {[self gameFinished:NO];
+                    CCLOG(@"bong");
+                }
+                else if ([[[[self.meshData objectAtIndex:(int)_trainLoc.x-1] objectAtIndex:(int)_trainLoc.y] objectAtIndex:DIR_STATE] isEqual:@0])
+                {[self gameFinished:NO];
+                    CCLOG(@"nowhere");
+                }
+                
             }
             break;
         }
@@ -529,7 +523,7 @@ isPresentSelected = false;
             CCAction *goDown = [CCActionMoveBy actionWithDuration:_trainSpeedDuration position:CGPointMake(0.0f, -_tile.height)];
             
             [self->_train runAction:goDown];
-            CCLOG(@" down %d times",n);
+
             ++n;
             
             
@@ -554,7 +548,15 @@ isPresentSelected = false;
                     
                     [self gameFinished:YES];
                 }
-                else [self gameFinished:NO];
+                else if([[[[self.meshData objectAtIndex:(int)_trainLoc.x-1] objectAtIndex:(int)_trainLoc.y] objectAtIndex:DIR_STATE] isEqual:@3])
+                {[self gameFinished:NO];
+                    CCLOG(@"bong");
+                }
+                else if ([[[[self.meshData objectAtIndex:(int)_trainLoc.x-1] objectAtIndex:(int)_trainLoc.y] objectAtIndex:DIR_STATE] isEqual:@0])
+                {[self gameFinished:NO];
+                    CCLOG(@"nowhere");
+                }
+                
             }
             break;
         }
@@ -562,7 +564,7 @@ isPresentSelected = false;
         {
             CCAction *goLeft = [CCActionMoveBy actionWithDuration:_trainSpeedDuration position:CGPointMake(-_tile.width, 0)];
             [self->_train runAction:goLeft];
-            CCLOG(@" left %d times",n);
+
             ++n;
             
             if([[[[self.meshData objectAtIndex:(int)_trainLoc.x-2] objectAtIndex:(int)_trainLoc.y-1] objectAtIndex:DIR_STATE] isEqual:@1] && [[[[self.meshData objectAtIndex:(int)_trainLoc.x-2] objectAtIndex:(int)_trainLoc.y-1] objectAtIndex:DIR_LEFT] isEqual:@1]&& [[[[self.meshData objectAtIndex:(int)_trainLoc.x-2] objectAtIndex:(int)_trainLoc.y-1] objectAtIndex:DIR_RIGHT] isEqual:@1]){
@@ -584,7 +586,15 @@ isPresentSelected = false;
                     
                     [self gameFinished:YES];
                 }
-                else [self gameFinished:NO];
+                else if([[[[self.meshData objectAtIndex:(int)_trainLoc.x-1] objectAtIndex:(int)_trainLoc.y] objectAtIndex:DIR_STATE] isEqual:@3])
+                {[self gameFinished:NO];
+                    CCLOG(@"bong");
+                }
+                else if ([[[[self.meshData objectAtIndex:(int)_trainLoc.x-1] objectAtIndex:(int)_trainLoc.y] objectAtIndex:DIR_STATE] isEqual:@0])
+                {[self gameFinished:NO];
+                    CCLOG(@"nowhere");
+                }
+                
             }
             break;
         }
@@ -593,7 +603,7 @@ isPresentSelected = false;
             
             CCAction *goRight = [CCActionMoveBy actionWithDuration:_trainSpeedDuration position:CGPointMake(_tile.width, 0)];
             [self->_train runAction:goRight];
-            CCLOG(@" right %d times",n);
+     
             ++n;
             
             if([[[[self.meshData objectAtIndex:(int)_trainLoc.x] objectAtIndex:(int)_trainLoc.y-1] objectAtIndex:DIR_STATE] isEqual:@1] && [[[[self.meshData objectAtIndex:(int)_trainLoc.x] objectAtIndex:(int)_trainLoc.y-1] objectAtIndex:DIR_LEFT] isEqual:@1]&&[[[[self.meshData objectAtIndex:(int)_trainLoc.x] objectAtIndex:(int)_trainLoc.y-1] objectAtIndex:DIR_RIGHT] isEqual:@1]){
@@ -615,7 +625,15 @@ isPresentSelected = false;
                     
                     [self gameFinished:YES];
                 }
-                else [self gameFinished:NO];
+                else if([[[[self.meshData objectAtIndex:(int)_trainLoc.x-1] objectAtIndex:(int)_trainLoc.y] objectAtIndex:DIR_STATE] isEqual:@3])
+                {[self gameFinished:NO];
+                CCLOG(@"bong");
+                }
+                else if ([[[[self.meshData objectAtIndex:(int)_trainLoc.x-1] objectAtIndex:(int)_trainLoc.y] objectAtIndex:DIR_STATE] isEqual:@0])
+                {[self gameFinished:NO];
+                        CCLOG(@"nowhere");
+                }
+                
             }
 
 
@@ -628,6 +646,7 @@ isPresentSelected = false;
 }//onTrain
 
 -(void)onMoeRetryClicked:(id)sender{
+   
     [[OALSimpleAudio sharedInstance] stopEverything];
     [[CCDirector sharedDirector] resume];
     [[CCDirector sharedDirector] replaceScene:[Newtest scene]
@@ -646,18 +665,24 @@ isPresentSelected = false;
 }
 
 -(void)gameFinished:(BOOL)isClear{
+    isPaused=YES;
+    if(isClear)
+    {
+    pauseTexture = [CCRenderTexture renderTextureWithWidth:self.contentSize.width height:self.contentSize.height];
     
-    isPaused = YES;
-
+    // 相关操作（记住就好）
+    [pauseTexture begin];
+    [self visit];
+    [pauseTexture end];
     
-    if(isClear){
-        //game clear
-        NSLog(@"Game Clear!");
+    // 加载暂停界面
+    [[CCDirector sharedDirector] pushScene:[[PauseScene scene] initWithParameter:pauseTexture] withTransition: [CCTransition transitionPushWithDirection:CCTransitionDirectionInvalid duration:1.0f]];
+    CCLOG(@"by finish func");
     }
     else {
-        //game over
-        NSLog(@"Game Over!");
+        CCLOG(@"Lose");
     }
+  
     
 }
 

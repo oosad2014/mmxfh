@@ -30,6 +30,8 @@
     CGPoint _nextLoc;
     CGPoint _presentLoc;
        CGSize _tile;
+   BOOL isTraveling ;
+     BOOL isPaused ;
 }
 
 // -----------------------------------------------------------------
@@ -69,6 +71,8 @@
 - (void)touchMoved:(CCTouch *)touch withEvent:(CCTouchEvent *)event;
 - (void)touchEnded:(CCTouch *)touch withEvent:(CCTouchEvent *)event;
 - (void)touchCancelled:(CCTouch *)touch withEvent:(CCTouchEvent *)event;
+
+- (id)initWithBGImageName:(NSString *)backgroundImage StageName:(NSString *)StageName;
 // -----------------------------------------------------------------
 
 @end

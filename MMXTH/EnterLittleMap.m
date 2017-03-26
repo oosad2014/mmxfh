@@ -13,8 +13,7 @@
 
 @synthesize background;
 @synthesize buttonLayer;
-@synthesize guangDongMap;
-@synthesize guangDongBtn;
+@synthesize chinaDic;
 
 #define MAX_SCALE 5 // 最大放大参数
 
@@ -45,35 +44,53 @@
 }
 
 - (void)initScene {
-    CCSprite *chinaMap = [CCSprite spriteWithImageNamed:@"stage_1/stage_1.png"];
+    CCSprite *chinaMap = [CCSprite spriteWithImageNamed:@"MapResources/中国.png"];
     [chinaMap setPositionType:CCPositionTypeNormalized];
     [chinaMap setPosition:CGPointMake(0.5f, 0.5f)];
     [chinaMap setScale:(self.contentSize.height / chinaMap.contentSize.height)];
     
     [background addChild:chinaMap z: 2];
     
+    _dataManager = [DataManager sharedManager];
+    chinaDic = [_dataManager bundleDicWithName:@"ChinaMap"];
+    //NSArray *chinaArr = chinaDic.allKeys;
+    
+    for (NSString *key in chinaDic.allKeys ) {
+        CCSprite *oneMap = [CCSprite spriteWithImageNamed:[@"MapResources/" stringByAppendingFormat:@"%@.png", key]];
+        //NSArray *thisArr = [chinaDic objectForKey:key];
+        [oneMap setPositionType:CCPositionTypeNormalized];
+        [oneMap setPosition:CGPointMake(0.5f, 0.5f)];
+        
+        [chinaMap addChild:oneMap z:1];
+    }
+    
     // GuangDong
-    guangDongMap = [CCSprite spriteWithImageNamed:@"stage_1/5Stage_1_GuangDong.png"];
-    [guangDongMap setPositionType:CCPositionTypeNormalized];
-    [guangDongMap setPosition:CGPointMake(0.5f, 0.5f)];
-    [guangDongMap setScale:(self.contentSize.height / guangDongMap.contentSize.height)];
+//    guangDongMap = [CCSprite spriteWithImageNamed:@"stage_1/5Stage_1_GuangDong.png"];
+//    [guangDongMap setPositionType:CCPositionTypeNormalized];
+//    [guangDongMap setPosition:CGPointMake(0.5f, 0.5f)];
+//    [guangDongMap setScale:(self.contentSize.height / guangDongMap.contentSize.height)];
     
-    guangDongBtn = [CCButton buttonWithTitle:@"广州" spriteFrame:[CCSpriteFrame frameWithImageNamed:@"button.png"]];
-    [guangDongBtn setScale:0.1f];
-    [guangDongBtn setColor:[CCColor blackColor]];
-    [guangDongBtn setBackgroundColor:[CCColor grayColor] forState:CCControlStateNormal];
-    [guangDongBtn setBackgroundColor:[CCColor redColor] forState: CCControlStateHighlighted];
-    [guangDongBtn setPositionType:CCPositionTypeNormalized];
-    [guangDongBtn setPosition:ccp(GD_X, GD_Y)];
-    [guangDongBtn setTarget:self selector:@selector(onMapButtonClicked:)];
-    [guangDongBtn setEnabled:NO];
+//    guangDongMap = [CCSprite spriteWithImageNamed:@"广东.png"];
+//    [guangDongMap setPosition:CGPointMake(0.5 * chinaMap.contentSize.width + 194, 0.5 * chinaMap.contentSize.height - 259)];
+//    
+//    [chinaMap addChild:guangDongMap z: 1];
     
-    [background addChild:guangDongMap z: 3];
-    [background addChild:guangDongBtn z: 4];
+//    guangDongBtn = [CCButton buttonWithTitle:@"广州" spriteFrame:[CCSpriteFrame frameWithImageNamed:@"button.png"]];
+//    [guangDongBtn setScale:0.1f];
+//    [guangDongBtn setColor:[CCColor blackColor]];
+//    [guangDongBtn setBackgroundColor:[CCColor grayColor] forState:CCControlStateNormal];
+//    [guangDongBtn setBackgroundColor:[CCColor redColor] forState: CCControlStateHighlighted];
+//    [guangDongBtn setPositionType:CCPositionTypeNormalized];
+//    [guangDongBtn setPosition:ccp(GD_X, GD_Y)];
+//    [guangDongBtn setTarget:self selector:@selector(onMapButtonClicked:)];
+//    [guangDongBtn setEnabled:NO];
+    
+    //[background addChild:guangDongMap z: 3];
+//    [background addChild:guangDongBtn z: 4];
     
     // 测试;假设为广东
     [self loadMap];
-    [guangDongBtn setEnabled:YES];
+//    [guangDongBtn setEnabled:YES];
 }
 
 
@@ -253,10 +270,12 @@
     [background setAnchorPoint:newAnchorPoint];
     [background setPosition:newPosition];
     
-    [self schedule:@selector(loadingAction:) interval:0.01f repeat:400 delay:0];
-    
-    CCAction* moveBy = [CCActionMoveBy actionWithDuration:4.f position:CGPointMake(-0.15f*MAX_SCALE*background.contentSize.width, 0.35f*MAX_SCALE*background.contentSize.height)];
-    [background runAction:moveBy];
+    //[self schedule:@selector(loadingAction:) interval:0.01f repeat:400 delay:0];
+    [background setAnchorPoint:CGPointMake(0.65f, 0.15f)];
+    [background setScale:5];
+    //[background setPosition: CGPointMake(0.35f*background.contentSize.width, 0.85f*background.contentSize.height)];
+//    CCAction* moveBy = [CCActionMoveBy actionWithDuration:0 position:CGPointMake(-0.15f*MAX_SCALE*background.contentSize.width, 0.35f*MAX_SCALE*background.contentSize.height)];
+//    [background runAction:moveBy];
 }
 
 // 此函数用于加载小界面

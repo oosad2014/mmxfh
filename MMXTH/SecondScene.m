@@ -77,8 +77,11 @@
                 head = [head create:(i/3 - 1 + 0.75f) ySet:0.3f];
                 break;
         }
+        [head setScale:(self.contentSize.width * 0.2f/head.contentSize.width)];
         [trainHeadArray addObject:head];
     }
+    
+    //[self setTrainHeadToFile:[trainHeadArray objectAtIndex:0]]; // 预设定
 
     // 加载额外初始化元素
     [self initScene];
@@ -118,10 +121,19 @@
     [self addChild:play z: 9];
     
     // 火车头终点贴图
-    boxHead = [CCSprite spriteWithImageNamed:@"white_square.png"];
+    boxHead = [CCSprite spriteWithImageNamed:@"face.jpg"];
     self.boxHead.positionType = CCPositionTypeNormalized;
     [self.boxHead setPosition:ccp(0.5f, 0.8f)];
+    [self.boxHead setScale:(self.contentSize.width*0.3/self.boxHead.contentSize.width)];
     [self addChild:self.boxHead z:8];
+    boxHead.opacity = 0;
+    
+    NSDictionary *trainNowDic = [_dataManager documentDicWithName:@"TrainNow"];
+    selTrainHead = [TrainHead spriteWithImageNamed:[trainNowDic objectForKey:@"TrainSelected"]];
+    selTrainHead.positionType = CCPositionTypeNormalized;
+    [selTrainHead setPosition: ccp(0.5f, 0.8f)];
+    [selTrainHead setScale:(self.contentSize.width*0.3/selTrainHead.contentSize.width)];
+    [self addChild:selTrainHead z:8];
     
     [self insideTrainHeadScene];
 }
@@ -202,7 +214,7 @@
         
         // 一系列动作特效，到达终点，缩小，取消，触发替换函数
         CCAction *moveEnd = [CCActionMoveTo actionWithDuration:0 position:self.boxHead.position];
-        CCAction *little = [CCActionScaleTo actionWithDuration:0 scale:1.0f];
+        CCAction *little = [CCActionScaleBy actionWithDuration:0 scale:1.5f];
         CCAction *remove = [CCActionRemove action];
         CCAction *onSel = [CCActionCallFunc actionWithTarget:self selector:@selector(onSpriteForSel)];
         CCAction * action = [CCActionSequence actionWithArray:@[moveEnd, little, remove, onSel]];
@@ -210,7 +222,7 @@
         // if判断是否到达终点，到达终点在触发下列运算
         if ([self spriteGetOrNot:endPoint]) {
             getOfMove = YES; // 是到达终点而非切换页面
-            selTrainHead= [selTrainHead createWithExists:newTrainHead]; // 通过已有的对象复制对象，记录选中的火车头
+            selTrainHead = [selTrainHead createWithExists:newTrainHead]; // 通过已有的对象复制对象，记录选中的火车头
             [self setTrainHeadToFile:selTrainHead]; // 文件储存
             spriteSelected = NO; // 重置纪录项，现在没有选中的对象
             [newTrainHead runAction:[action copy]]; // 到达终点，触发特效
@@ -254,9 +266,10 @@
         if (CGRectContainsPoint(head.boundingBox, posSelected)) {
             spriteSelected = YES; // 设置有精灵选中，可以进行接下来的操作
             newTrainHead = [newTrainHead createWithExists:head]; // 通过选中的对象，新建对象储存
+            [newTrainHead setScale:(self.contentSize.width * 0.2f/head.contentSize.width)];
             [self addChild:newTrainHead z:10]; // 添加对象覆盖住原对象，造成选中的特效
             
-            CCAction *bigger = [CCActionScaleTo actionWithDuration:0 scale:1.2f]; // 增大特效，选中特效
+            CCAction *bigger = [CCActionScaleBy actionWithDuration:0 scale:1.2f]; // 增大特效，选中特效
             [newTrainHead runAction:bigger];
             
             break;
@@ -305,9 +318,9 @@
         return NO;
     }
     
-    if (CGRectContainsPoint(boxHead.boundingBox, posEnd)) {
+    if (CGRectContainsPoint(selTrainHead.boundingBox, posEnd)) {
         // 到达火车头终点
-        boxHead.opacity = 0; // 终点box隐藏
+        //boxHead.opacity = 0; // 终点box隐藏
         [selTrainHead removeFromParent]; // 移除之前产生的纪录选中火车头的对象
         return YES; // 提示调用者到达终点
     }
@@ -319,6 +332,7 @@
     [selTrainHead setRow:boxHead.position.x];
     [selTrainHead setColumn:boxHead.position.y];
     [selTrainHead setPosition:[boxHead position]];
+    [selTrainHead setScale:(self.contentSize.width * 0.3f/selTrainHead.contentSize.width)];
     
     [self addChild:selTrainHead z:9]; // 将产生的对象放在终点处
 }

@@ -240,6 +240,11 @@
 		5770E4291D82A5C50079ACBC /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 5770E4281D82A5C50079ACBC /* main.m */; };
 		5770E42D1D82A5C50079ACBC /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 5770E42C1D82A5C50079ACBC /* AppDelegate.m */; };
 		5770E4321D82A5C50079ACBC /* white_square.png in Resources */ = {isa = PBXBuildFile; fileRef = 5770E4311D82A5C50079ACBC /* white_square.png */; };
+		57CEE2C41E87A60B0039C344 /* TestChinaMapScene.m in Sources */ = {isa = PBXBuildFile; fileRef = 57CEE2C31E87A60B0039C344 /* TestChinaMapScene.m */; };
+		57CEE30C1E87F5AB0039C344 /* MapResources in Resources */ = {isa = PBXBuildFile; fileRef = 57CEE30B1E87F5AB0039C344 /* MapResources */; };
+		57CEE3101E8802AB0039C344 /* 火车1.png in Resources */ = {isa = PBXBuildFile; fileRef = 57CEE30D1E8802AB0039C344 /* 火车1.png */; };
+		57CEE3111E8802AB0039C344 /* 火车2.png in Resources */ = {isa = PBXBuildFile; fileRef = 57CEE30E1E8802AB0039C344 /* 火车2.png */; };
+		57CEE3121E8802AB0039C344 /* 火车3.png in Resources */ = {isa = PBXBuildFile; fileRef = 57CEE30F1E8802AB0039C344 /* 火车3.png */; };
 		57DCF7341E6BFD5800DB78FC /* 铁轨横向.png in Resources */ = {isa = PBXBuildFile; fileRef = 57DCF72E1E6BFD5800DB78FC /* 铁轨横向.png */; };
 		57DCF7351E6BFD5800DB78FC /* 铁轨上右.png in Resources */ = {isa = PBXBuildFile; fileRef = 57DCF72F1E6BFD5800DB78FC /* 铁轨上右.png */; };
 		57DCF7361E6BFD5800DB78FC /* 铁轨上左.png in Resources */ = {isa = PBXBuildFile; fileRef = 57DCF7301E6BFD5800DB78FC /* 铁轨上左.png */; };
@@ -749,6 +754,12 @@
 		5770E42B1D82A5C50079ACBC /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = AppDelegate.h; path = Classes/AppDelegate.h; sourceTree = "<group>"; };
 		5770E42C1D82A5C50079ACBC /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = AppDelegate.m; path = Classes/AppDelegate.m; sourceTree = "<group>"; };
 		5770E4311D82A5C50079ACBC /* white_square.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = white_square.png; path = Resources/white_square.png; sourceTree = "<group>"; };
+		57CEE2C21E87A60B0039C344 /* TestChinaMapScene.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TestChinaMapScene.h; sourceTree = "<group>"; };
+		57CEE2C31E87A60B0039C344 /* TestChinaMapScene.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TestChinaMapScene.m; sourceTree = "<group>"; };
+		57CEE30B1E87F5AB0039C344 /* MapResources */ = {isa = PBXFileReference; lastKnownFileType = folder; path = MapResources; sourceTree = "<group>"; };
+		57CEE30D1E8802AB0039C344 /* 火车1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "火车1.png"; sourceTree = "<group>"; };
+		57CEE30E1E8802AB0039C344 /* 火车2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "火车2.png"; sourceTree = "<group>"; };
+		57CEE30F1E8802AB0039C344 /* 火车3.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "火车3.png"; sourceTree = "<group>"; };
 		57DCF72E1E6BFD5800DB78FC /* 铁轨横向.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "铁轨横向.png"; sourceTree = "<group>"; };
 		57DCF72F1E6BFD5800DB78FC /* 铁轨上右.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "铁轨上右.png"; sourceTree = "<group>"; };
 		57DCF7301E6BFD5800DB78FC /* 铁轨上左.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "铁轨上左.png"; sourceTree = "<group>"; };
@@ -802,6 +813,8 @@
 				575B55971E723E37009123D9 /* EnterLittleMap.m */,
 				046F06821DE5636600B25ECB /* TestTrackScene.h */,
 				046F06831DE5636600B25ECB /* TestTrackScene.m */,
+				57CEE2C21E87A60B0039C344 /* TestChinaMapScene.h */,
+				57CEE2C31E87A60B0039C344 /* TestChinaMapScene.m */,
 			);
 			name = Scene;
 			sourceTree = "<group>";
@@ -852,6 +865,10 @@
 		5770E1761D82A5C10079ACBC /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				57CEE30D1E8802AB0039C344 /* 火车1.png */,
+				57CEE30E1E8802AB0039C344 /* 火车2.png */,
+				57CEE30F1E8802AB0039C344 /* 火车3.png */,
+				57CEE30B1E87F5AB0039C344 /* MapResources */,
 				575B55991E7255FC009123D9 /* stage_1 */,
 				57DCF72E1E6BFD5800DB78FC /* 铁轨横向.png */,
 				57DCF72F1E6BFD5800DB78FC /* 铁轨上右.png */,
@@ -1814,6 +1831,8 @@
 				57DCF7361E6BFD5800DB78FC /* 铁轨上左.png in Resources */,
 				57DCF7381E6BFD5800DB78FC /* 铁轨下右.png in Resources */,
 				5770E18F1D82A5C10079ACBC /* Icon-iPad-Spotlight-iOS7@2x.png in Resources */,
+				57CEE3121E8802AB0039C344 /* 火车3.png in Resources */,
+				57CEE3101E8802AB0039C344 /* 火车1.png in Resources */,
 				5770E17E1D82A5C10079ACBC /* Default-Landscape~ipad.png in Resources */,
 				047CF2B21DADDD7E004CBF4B /* pb_bar_left.png in Resources */,
 				5770E1931D82A5C10079ACBC /* Icon-Small.png in Resources */,
@@ -1828,10 +1847,12 @@
 				047CF2B41DADDD7E004CBF4B /* pb_bg_left.png in Resources */,
 				573C4BD21E7F85D10077E34B /* TrainHeadImages.plist in Resources */,
 				57108E931E6AF828003469F4 /* 树1.png in Resources */,
+				57CEE3111E8802AB0039C344 /* 火车2.png in Resources */,
 				047CF2C11DADE804004CBF4B /* face.jpg in Resources */,
 				5770E2831D82A5C30079ACBC /* CCEffectRenderer.h in Resources */,
 				5770E17C1D82A5C10079ACBC /* Default-568h@2x.png in Resources */,
 				57108E921E6AF828003469F4 /* 火车车厢.png in Resources */,
+				57CEE30C1E87F5AB0039C344 /* MapResources in Resources */,
 				5770E19C1D82A5C10079ACBC /* iTunesArtwork in Resources */,
 				57DCF7341E6BFD5800DB78FC /* 铁轨横向.png in Resources */,
 				047B15F71DBC6A8300ED1BD7 /* icon in Resources */,
@@ -1931,6 +1952,7 @@
 				5770E3271D82A5C30079ACBC /* ccUtils.c in Sources */,
 				5770E2B81D82A5C30079ACBC /* CCEffectBrightness.m in Sources */,
 				5770E1D61D82A5C10079ACBC /* CCActionInterval.m in Sources */,
+				57CEE2C41E87A60B0039C344 /* TestChinaMapScene.m in Sources */,
 				046F06841DE5636600B25ECB /* TestTrackScene.m in Sources */,
 				5770E2591D82A5C20079ACBC /* CCSpriteBatchNode.m in Sources */,
 				5770E1B31D82A5C10079ACBC /* NSValue+CCRenderer.m in Sources */,

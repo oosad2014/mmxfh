@@ -33,7 +33,7 @@
 @property(nonatomic, assign) int sceneHeadNow; // 界面当前显示的火车头浏览页码
 @property(nonatomic, assign) CGPoint beganPoint; // 记录触屏开始点
 @property(nonatomic, assign) CGSize viewSize; // 当前界面大小
-@property(nonatomic, retain) CCSprite *boxHead; // 火车头拖拉终点
+@property(nonatomic, retain) TrainHead *boxHead; // 火车头拖拉终点
 @property(nonatomic, retain) NSMutableArray<TrainHead *> *trainHeadArray; // 保存所有火车头种类
 
 @property(nonatomic, weak) DataManager *dataManager; // 文件管理类

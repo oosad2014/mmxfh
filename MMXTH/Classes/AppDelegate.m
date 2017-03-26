@@ -16,6 +16,7 @@
 #import "EnterLittleMap.h"
 #import "TestTrackScene.h"
 #import "DataCreateScene.h"
+#import "TestChinaMapScene.h"
 
 // -----------------------------------------------------------------------
 
@@ -50,6 +51,7 @@
     // Show FPS
     // We really want this when developing an app
     [startUpOptions setObject:@(YES) forKey:CCSetupShowDebugStats];
+    
     
     // A acouple of other examples
     

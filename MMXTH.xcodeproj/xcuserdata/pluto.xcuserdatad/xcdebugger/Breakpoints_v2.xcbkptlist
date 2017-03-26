@@ -170,11 +170,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "MMXTH/SecondScene.m"
-            timestampString = "511682655.263687"
+            timestampString = "512233307.178962"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "215"
-            endingLineNumber = "215"
+            startingLineNumber = "227"
+            endingLineNumber = "227"
             landmarkName = "-touchEnded:withEvent:"
             landmarkType = "7">
          </BreakpointContent>
@@ -186,11 +186,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "MMXTH/SecondScene.m"
-            timestampString = "511682655.263687"
+            timestampString = "512233307.178962"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "213"
-            endingLineNumber = "213"
+            startingLineNumber = "225"
+            endingLineNumber = "225"
             landmarkName = "-touchEnded:withEvent:"
             landmarkType = "7">
          </BreakpointContent>
@@ -240,6 +240,38 @@
             startingLineNumber = "68"
             endingLineNumber = "68"
             landmarkName = "-writeDicWithName:Dic:"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "MMXTH/EnterLittleMap.m"
+            timestampString = "512225902.1664"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "47"
+            endingLineNumber = "47"
+            landmarkName = "-initScene"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "MMXTH/SecondScene.m"
+            timestampString = "512233307.178962"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "133"
+            endingLineNumber = "133"
+            landmarkName = "-initScene"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>

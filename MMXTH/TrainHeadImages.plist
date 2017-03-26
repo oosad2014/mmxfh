@@ -2,12 +2,12 @@
 <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
 <plist version="1.0">
 <array>
-	<string>pb.png</string>
-	<string>panda.png</string>
-	<string>button.png</string>
-	<string>panda.png</string>
-	<string>Icon.png</string>
-	<string>Icon-Small.png</string>
-	<string>button.png</string>
+	<string>火车1.png</string>
+	<string>火车2.png</string>
+	<string>火车3.png</string>
+	<string>火车3.png</string>
+	<string>火车1.png</string>
+	<string>火车2.png</string>
+	<string>火车3.png</string>
 </array>
 </plist>

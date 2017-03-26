@@ -9,13 +9,14 @@
 #import <Foundation/Foundation.h>
 #import "cocos2d.h"
 #import "cocos2d-ui.h"
+#import "DataManager.h"
 
 @interface EnterLittleMap : CCScene
 
 @property(nonatomic, retain) CCNodeColor *background; // 用于保存游戏界面背景图
 @property(nonatomic, retain) CCNodeColor *buttonLayer; // Node节点，用于盛放锁定按钮（固定层）
-@property(nonatomic, retain) CCSprite *guangDongMap; // 广东地图
-@property(nonatomic, retain) CCButton *guangDongBtn; // 广东按钮
+@property(nonatomic, copy) NSDictionary *chinaDic;
+@property(nonatomic, weak) DataManager *dataManager;
 
 +(EnterLittleMap *)scene;
 - (id)init;

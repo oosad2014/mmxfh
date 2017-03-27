@@ -86,7 +86,7 @@
  */
 
 -(void)loadCallBack {
-    loadResCount++;
+    NSLog(@"Load: ~~~~~~~~~~~~~%d", loadResCount++);
     CCProgressNode *pb=(CCProgressNode*)[self getChildByName:@"progressBar" recursively:false];
     pb.percentage=(int)loadResCount*100/totalResCount;
     

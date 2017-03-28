@@ -450,16 +450,9 @@ isPresentSelected = false;
     if(![temp isEqualToString:@"train.png"]){
     CCTexture *new=[CCTexture textureWithFile:temp];
    track=[CCSprite spriteWithTexture:new];
-        if(![temp isEqualToString:@"rail-left-right1.png"]&&![temp isEqualToString:@"rail-up-down1.png"])
-        {track.scaleY = _tile.height/track.contentSize.height;
+        
+        track.scaleY = _tile.height/track.contentSize.height;
     track.scaleX = _tile.width/track.contentSize.width;
-        }
-        else
-        {track.scaleY = _tile.height/track.contentSize.height;
-            track.scaleX = _tile.width/track.contentSize.width;
-            
-        }
-    
     [track setPosition:CGPointMake(targetX*_tile.width+_tile.width/2.0f, targetY*_tile.height+_tile.height/2.0f)
 ];
         [self addChild:track z:12];}
@@ -508,6 +501,7 @@ isPresentSelected = false;
                 }
                 else if([[[[self.meshData objectAtIndex:(int)_trainLoc.x-1] objectAtIndex:(int)_trainLoc.y] objectAtIndex:DIR_STATE] isEqual:@3])
                 {[self gameFinished:NO];
+                    [self setAction:_train];
                     CCLOG(@"bong");
                 }
                 else if ([[[[self.meshData objectAtIndex:(int)_trainLoc.x-1] objectAtIndex:(int)_trainLoc.y] objectAtIndex:DIR_STATE] isEqual:@0])
@@ -551,9 +545,11 @@ isPresentSelected = false;
                 else if([[[[self.meshData objectAtIndex:(int)_trainLoc.x-1] objectAtIndex:(int)_trainLoc.y] objectAtIndex:DIR_STATE] isEqual:@3])
                 {[self gameFinished:NO];
                     CCLOG(@"bong");
+                    [self setAction:_train];
                 }
                 else if ([[[[self.meshData objectAtIndex:(int)_trainLoc.x-1] objectAtIndex:(int)_trainLoc.y] objectAtIndex:DIR_STATE] isEqual:@0])
                 {[self gameFinished:NO];
+                    
                     CCLOG(@"nowhere");
                 }
                 
@@ -589,6 +585,8 @@ isPresentSelected = false;
                 else if([[[[self.meshData objectAtIndex:(int)_trainLoc.x-1] objectAtIndex:(int)_trainLoc.y] objectAtIndex:DIR_STATE] isEqual:@3])
                 {[self gameFinished:NO];
                     CCLOG(@"bong");
+                    [self setAction:_train];
+                    
                 }
                 else if ([[[[self.meshData objectAtIndex:(int)_trainLoc.x-1] objectAtIndex:(int)_trainLoc.y] objectAtIndex:DIR_STATE] isEqual:@0])
                 {[self gameFinished:NO];
@@ -626,8 +624,9 @@ isPresentSelected = false;
                     [self gameFinished:YES];
                 }
                 else if([[[[self.meshData objectAtIndex:(int)_trainLoc.x-1] objectAtIndex:(int)_trainLoc.y] objectAtIndex:DIR_STATE] isEqual:@3])
-                {[self gameFinished:NO];
-                CCLOG(@"bong");
+                { CCLOG(@"bong");
+                    [self gameFinished:NO];
+                    [self setAction:_train];
                 }
                 else if ([[[[self.meshData objectAtIndex:(int)_trainLoc.x-1] objectAtIndex:(int)_trainLoc.y] objectAtIndex:DIR_STATE] isEqual:@0])
                 {[self gameFinished:NO];
@@ -683,6 +682,23 @@ isPresentSelected = false;
         CCLOG(@"Lose");
     }
   
+    
+}
+
+-(void) setAction:(CCSprite *) m_actor
+{
+   
+    
+    id rotate=[CCActionRotateBy actionWithDuration:0.5 angle:360];
+    id scale=[CCActionScaleBy actionWithDuration:0.5 scale:0.7];
+    id moveto=[CCActionMoveTo actionWithDuration:5 position:CGPointMake(1*_tile.width+_tile.width/2.0f, 12*_tile.height+_tile.height/2.0f)];
+ 
+    id moveset=[CCActionSpawn actions: rotate,scale,nil];
+    //循环这个并行的组合序列
+    id repeatAct = [CCActionRepeat actionWithAction:moveset times:8];
+    id bingxingAct=[CCActionSpawn actions: repeatAct,moveto,nil];
+    [m_actor runAction:bingxingAct];
+    //启动action
     
 }
 

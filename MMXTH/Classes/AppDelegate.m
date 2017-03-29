@@ -16,7 +16,6 @@
 #import "EnterLittleMap.h"
 #import "TestTrackScene.h"
 #import "DataCreateScene.h"
-#import "TestChinaMapScene.h"
 
 // -----------------------------------------------------------------------
 

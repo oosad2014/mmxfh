@@ -35,7 +35,7 @@
     [self addChild:background];
     
     // The standard Hello World text
-    CCLabelTTF *label = [CCLabelTTF labelWithString:@"Hello World" fontName:@"ArialMT" fontSize:64];
+    CCLabelTTF *label = [CCLabelTTF labelWithString:@"Pluto, Hello!" fontName:@"ArialMT" fontSize:64];
     label.positionType = CCPositionTypeNormalized;
     label.position = (CGPoint){0.5, 0.5};
     [self addChild:label];

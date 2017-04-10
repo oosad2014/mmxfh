@@ -11,7 +11,12 @@
 // -----------------------------------------------------------------
 
 #import "AppDelegate.h"
-#import "HelloWorldScene.h"
+#import "FirstScene.h"
+#import "SecondScene.h"
+#import "EnterLittleMap.h"
+#import "TestTrackScene.h"
+#import "DataCreateScene.h"
+#import "CollectionScene.h"
 
 // -----------------------------------------------------------------------
 
@@ -47,6 +52,7 @@
     // We really want this when developing an app
     [startUpOptions setObject:@(YES) forKey:CCSetupShowDebugStats];
     
+    
     // A acouple of other examples
     
     // Use a 16 bit color buffer
@@ -77,7 +83,7 @@
 
 - (CCScene *)startScene
 {
-	return [HelloWorldScene new];
+	return [FirstScene new];
 }
 
 // -----------------------------------------------------------------------

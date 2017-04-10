@@ -48,8 +48,8 @@
     _dataManager = [DataManager sharedManager]; // 获取单例
     
     // 定义颜色层节点，用于保存scene页面和触发触屏
-    CCNodeColor *background = [CCNodeColor nodeWithColor:[CCColor colorWithRed:27.0f/255.0f green:185.0f/255.0f blue:239.0f/255.0f alpha:1.0f]];
-    [self addChild:background];
+//    CCNodeColor *background = [CCNodeColor nodeWithColor:[CCColor colorWithRed:27.0f/255.0f green:185.0f/255.0f blue:239.0f/255.0f alpha:1.0f]];
+//    [self addChild:background];
     
     sceneHeadNow = 1; // 默认为第一页
     
@@ -68,13 +68,13 @@
         [TrainHead setCount:i-1];
         switch (i%3) {
             case 1:
-                head = [head create:(i/3 + 0.25f) ySet:0.3f];
+                head = [head create:(i/3 + 0.25f) ySet:0.28f];
                 break;
             case 2:
-                head = [head create:(i/3 + 0.5f) ySet:0.3f];
+                head = [head create:(i/3 + 0.5f) ySet:0.28f];
                 break;
             case 0:
-                head = [head create:(i/3 - 1 + 0.75f) ySet:0.3f];
+                head = [head create:(i/3 - 1 + 0.75f) ySet:0.28f];
                 break;
         }
         [head setScale:(self.contentSize.width * 0.2f/head.contentSize.width)];
@@ -92,47 +92,34 @@
     // Background
     // You can change the .png files to change the background
     // 背景
-    CCSprite9Slice *background = [CCSprite9Slice spriteWithImageNamed:@"white_square.png"];
-    background.anchorPoint = CGPointZero;
-    background.contentSize = [CCDirector sharedDirector].viewSize;
-    background.color = [CCColor grayColor];
+    CCSprite *background = [CCSprite spriteWithImageNamed:@"组装界面.png"];
+    [background setPositionType:CCPositionTypeNormalized];
+    [background setPosition:CGPointZero];
+    [background setAnchorPoint:CGPointZero];
+    [background setScale: self.contentSize.width/background.contentSize.width];
     [self addChild:background];
     
-    // back按钮上文字
-    CCLabelTTF *backTitle = [CCLabelTTF labelWithString:@"Back" fontName:@"ArialMT" fontSize:20];
-    backTitle.color = [CCColor redColor];
-    backTitle.positionType = CCPositionTypeNormalized;
-    backTitle.position = ccp(0.1f, 0.9f);
-    [self addChild:backTitle z:10]; // 文字要高于按钮一层
-    
     // Back按钮
-    CCButton *backButton = [CCButton buttonWithTitle:@"Back" spriteFrame:[CCSpriteFrame frameWithImageNamed:@"button.png"]];
+    CCButton *backButton = [CCButton buttonWithTitle:@" " spriteFrame:[CCSpriteFrame frameWithImageNamed:@"撤销.png"]];
     [backButton setTarget:self selector:@selector(onBackButtonClicked:)];
-    backButton.positionType = CCPositionTypeNormalized;
-    [backButton setPosition:ccp(0.1f, 0.9f)];
+    [backButton setPositionType:CCPositionTypeNormalized];
+    [backButton setScale:0.1*self.contentSize.width/backButton.contentSize.width];
+    [backButton setPosition:ccp(0.1f, 0.85f)];
     [self addChild:backButton z:9];
-    
-    // Play按钮
-    CCButton *play = [CCButton buttonWithTitle:@"" spriteFrame:[CCSpriteFrame frameWithImageNamed:@"icon/play.png"]];
-    [play setTarget:self selector:@selector(onPlayButtonClicked:)];
-    [play setPositionType:CCPositionTypeNormalized];
-    [play setPosition:ccp(0.95f, 0.1f)];
-    [play setScale:0.1f];
-    [self addChild:play z: 9];
     
     // 火车头终点贴图
     boxHead = [CCSprite spriteWithImageNamed:@"face.jpg"];
     self.boxHead.positionType = CCPositionTypeNormalized;
-    [self.boxHead setPosition:ccp(0.5f, 0.8f)];
-    [self.boxHead setScale:(self.contentSize.width*0.3/self.boxHead.contentSize.width)];
+    [self.boxHead setPosition:ccp(0.5f, 0.65f)];
+    [self.boxHead setScale:(self.contentSize.width*0.4/self.boxHead.contentSize.width)];
     [self addChild:self.boxHead z:8];
     boxHead.opacity = 0;
     
     NSDictionary *trainNowDic = [_dataManager documentDicWithName:@"TrainNow"];
     selTrainHead = [TrainHead spriteWithImageNamed:[trainNowDic objectForKey:@"TrainSelected"]];
     selTrainHead.positionType = CCPositionTypeNormalized;
-    [selTrainHead setPosition: ccp(0.5f, 0.8f)];
-    [selTrainHead setScale:(self.contentSize.width*0.3/selTrainHead.contentSize.width)];
+    [selTrainHead setPosition: ccp(0.5f, 0.65f)];
+    [selTrainHead setScale:(self.contentSize.width*0.4/selTrainHead.contentSize.width)];
     [self addChild:selTrainHead z:8];
     
     [self insideTrainHeadScene];
@@ -149,10 +136,10 @@
 }
 
 // play按钮回调，进入TestTrainScene界面
-- (void)onPlayButtonClicked:(id)sender {
-    [[CCDirector sharedDirector] replaceScene:[EnterLittleMap scene]
-                               withTransition:[CCTransition transitionPushWithDirection:CCTransitionDirectionLeft duration:0.5f]];
-}
+//- (void)onPlayButtonClicked:(id)sender {
+//    [[CCDirector sharedDirector] replaceScene:[EnterLittleMap scene]
+//                               withTransition:[CCTransition transitionPushWithDirection:CCTransitionDirectionLeft duration:0.5f]];
+//}
 
 // 添加火车头浏览界面
 -(void)insideTrainHeadScene {
@@ -332,7 +319,7 @@
     [selTrainHead setRow:boxHead.position.x];
     [selTrainHead setColumn:boxHead.position.y];
     [selTrainHead setPosition:[boxHead position]];
-    [selTrainHead setScale:(self.contentSize.width * 0.3f/selTrainHead.contentSize.width)];
+    [selTrainHead setScale:(self.contentSize.width * 0.4f/selTrainHead.contentSize.width)];
     
     [self addChild:selTrainHead z:9]; // 将产生的对象放在终点处
 }

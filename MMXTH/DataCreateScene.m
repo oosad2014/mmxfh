@@ -46,17 +46,35 @@
 //    
 //    NSArray *arr = [NSArray arrayWithObjects:@"pb.png", @"panda.png", @"button.png", @"panda.png", @"Icon.png", @"Icon-Small.png", @"button.png", nil];
 //    [_dataManager writeArrayWithName:@"TrainHeadImages" Arr:arr];
+//    NSDictionary *dic = [NSDictionary dictionaryWithObjectsAndKeys:
+//                            @"", @"TrainSelected",
+//                            @"", @"Others",
+//                            nil];
+    NSArray *collectionImg = [NSArray arrayWithObjects:
+                              @"panda",
+                              @"goal",
+                              @"train",
+                              @"goal",
+                              @"train",
+                              @"panda",
+                              @"train",
+                              @"panda",
+                              @"goal",
+                              nil];
+    NSArray *collectionArr = [NSArray arrayWithObjects: @1, @1, @1, @1, @1, @1, @1, @1, @1, nil];
     NSDictionary *dic = [NSDictionary dictionaryWithObjectsAndKeys:
-                            @"", @"TrainSelected",
-                            @"", @"Others",
-                            nil];
-    [_dataManager writeDicWithName:@"TrainNow" Dic:dic];
+                         @9, @"count",
+                         @9, @"countNow",
+                         collectionArr, @"collectionArr",
+                         collectionImg, @"collectionImg",
+                         nil];
+    [_dataManager writeDicWithName:@"Collection" Dic:dic];
     
     return YES;
 }
 
 - (BOOL)showData {
-    NSDictionary *dic = [_dataManager documentDicWithName:@"TrainNow"];
+    NSDictionary *dic = [_dataManager documentDicWithName:@"Collection"];
     NSLog(@"%@", dic);
 //    NSArray *arr = [_dataManager documentArrayWithName:@"TrainHeadImages"];
 //    NSLog(@"%@", arr);

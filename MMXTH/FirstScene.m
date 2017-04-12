@@ -12,13 +12,13 @@
 
 #import "FirstScene.h"
 #import "processBar.h"
+#import "CollectionScene.h"
 
 // -----------------------------------------------------------------
 
 @implementation FirstScene
-
 // -----------------------------------------------------------------
-
+int isFirstRun;
 // 类方法，产生界面
 + (FirstScene *)scene {
     return [[self alloc] init];
@@ -32,8 +32,8 @@
     // class initalization goes here
 
     // 建立一个色层节点，用于存放scene界面
-    CCNodeColor *background = [CCNodeColor nodeWithColor:[CCColor colorWithRed:27.0f/255.0f green:185.0f/255.0f blue:239.0f/255.0f alpha:1.0f]];
-    [self addChild:background];
+//    CCNodeColor *background = [CCNodeColor nodeWithColor:[CCColor colorWithRed:27.0f/255.0f green:185.0f/255.0f blue:239.0f/255.0f alpha:1.0f]];
+//    [self addChild:background];
     
     [self initScene];
 
@@ -45,11 +45,11 @@
     // Background
     // You can change the .png files to change the background
     // 背景图
-    CCSprite9Slice *background = [CCSprite9Slice spriteWithImageNamed:@"white_square.png"];
-    background.anchorPoint = CGPointZero;
-    background.contentSize = [CCDirector sharedDirector].viewSize;
-    background.color = [CCColor grayColor];
-    [self addChild:background];
+    CCSprite *background = [CCSprite spriteWithImageNamed:@"背景.png"];
+    [background setPositionType:CCPositionTypeNormalized];
+    [background setPosition:CGPointMake(0.5f, 0.5f)];
+    [background setScale:self.contentSize.width/background.contentSize.width];
+    [self addChild:background z: 1];
     
     // As a reason of I couldn't change the color of the words of the button
     // 开始按钮上文字
@@ -64,17 +64,50 @@
     beginButton.positionType = CCPositionTypeNormalized;
     beginButton.position = ccp(0.5f, 0.5f);
     
+    // 组装按钮
+    CCButton *assembleBtn = [CCButton buttonWithTitle:@"Assemble" spriteFrame:[CCSpriteFrame frameWithImageNamed:@"button.png"]];
+    [assembleBtn setTarget:self selector:@selector(onAssembleButtonClicked:)];
+    assembleBtn.positionType = CCPositionTypeNormalized;
+    assembleBtn.position = ccp(0.5f, 0.4f);
+    
+    // 收藏按钮
+    CCButton *collectBtn = [CCButton buttonWithTitle:@" " spriteFrame:[CCSpriteFrame frameWithImageNamed:@"Collection.png"]];
+    [collectBtn setTarget:self selector:@selector(onCollectionBtnClicked:)];
+    [collectBtn setPositionType:CCPositionTypeNormalized];
+    [collectBtn setScale:0.1*self.contentSize.width/collectBtn.contentSize.width];
+    collectBtn.position = ccp(0.9f, 0.85f);
+    
     // 添加到页面
     [self addChild:title z:10];
     [self addChild:beginButton z:9];
+    [self addChild:assembleBtn z:9];
+    [self addChild:collectBtn z:9];
 }
 
 // -----------------------------------------------------------------
 
 // 开始按钮回调函数
 - (void)onBeginButtonClicked:(id)sender {
+    if(isFirstRun==0){
+        isFirstRun++;
     [[CCDirector sharedDirector] replaceScene:[processBar scene]
                                withTransition:[CCTransition transitionFadeWithColor:[CCColor redColor] duration:0.5f]];
+    }
+    else{
+        [[CCDirector sharedDirector] replaceScene:[EnterLittleMap scene]
+                                   withTransition:[CCTransition transitionFadeWithColor:[CCColor redColor] duration:0.5f]];
+    }
+}
+
+- (void)onAssembleButtonClicked:(id)sender {
+    [[CCDirector sharedDirector] replaceScene:[SecondScene scene]
+                               withTransition:[CCTransition transitionFadeWithColor:[CCColor redColor] duration:0.5f]];
+}
+
+- (void)onCollectionBtnClicked:(id)sender {
+    [[CCDirector sharedDirector] replaceScene:[CollectionScene scene]
+                               withTransition:[CCTransition transitionFadeWithColor:[CCColor redColor] duration:0.5f]];
+    
 }
 
 @end

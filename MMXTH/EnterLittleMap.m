@@ -8,6 +8,7 @@
 
 #import "EnterLittleMap.h"
 #import "TestTrackScene.h"
+#import "FirstScene.h"
 
 @implementation EnterLittleMap
 
@@ -38,6 +39,14 @@
 
     // 使主Scene层在最下方
     [self addChild:background z: 1];
+    
+    // Back按钮
+    CCButton *backButton = [CCButton buttonWithTitle:@" " spriteFrame:[CCSpriteFrame frameWithImageNamed:@"return.png"]];
+    [backButton setTarget:self selector:@selector(onBackButtonClicked:)];
+    [backButton setPositionType:CCPositionTypeNormalized];
+    [backButton setScale:0.1*self.contentSize.width/backButton.contentSize.width];
+    [backButton setPosition:ccp(0.1f, 0.85f)];
+    [self addChild:backButton z:9];
     
     [self initScene];
     return self;
@@ -290,6 +299,13 @@
     if (CGRectContainsPoint(mapSprite.boundingBox, posSelected)) {
         [self loadMap];
     }
+}
+
+
+// back按钮回调，返回firstScene
+- (void)onBackButtonClicked:(id)sender {
+    [[CCDirector sharedDirector] replaceScene:[FirstScene scene]
+                               withTransition:[CCTransition transitionPushWithDirection:CCTransitionDirectionLeft duration:0.5f]];
 }
 
 @end

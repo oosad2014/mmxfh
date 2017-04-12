@@ -17,6 +17,7 @@
  */
 
 #import "CollectionScene.h"
+#import "FirstScene.h"
 
 @interface CollectionScene ()
 
@@ -38,16 +39,19 @@
     
     _dataManager = [DataManager sharedManager];
     
-    CCSprite *collectionBg = [CCSprite spriteWithImageNamed:@"收集界面.png"];
+    CCSprite *collectionBg = [CCSprite spriteWithImageNamed:@"收集界面4行.png"];
     [collectionBg setPositionType:CCPositionTypeNormalized];
     [collectionBg setPosition:CGPointMake(0.5f, 0.5f)];
     [collectionBg setScale:self.contentSize.width/collectionBg.contentSize.width];
     [self addChild:collectionBg z: 1];
     
-    backBtn = [CCSprite spriteWithImageNamed:@"撤销.png"];
+    // Back按钮
+    backBtn = [CCButton buttonWithTitle:@" " spriteFrame:[CCSpriteFrame frameWithImageNamed:@"return.png"]];
+    [backBtn setTarget:self selector:@selector(onBackButtonClicked:)];
     [backBtn setPositionType:CCPositionTypeNormalized];
-    [backBtn setPosition:CGPointMake(0.1f, 0.9f)];
-    [self addChild:backBtn z: 2];
+    [backBtn setScale:0.1*self.contentSize.width/backBtn.contentSize.width];
+    [backBtn setPosition:ccp(0.1f, 0.85f)];
+    [self addChild:backBtn z:9];
     
     [self initScene];
     return self;
@@ -59,27 +63,59 @@
     NSArray *collectionImg = [collectionDic objectForKey:@"collectionImg"];
     int maxImgCount = [[collectionDic objectForKey:@"count"] intValue];
     
-    for (int i=0; i<3; i++) {
-        for (int j=0; j<3; j++) {
-            if ((i*3+j) < maxImgCount ) {
+    for (int i=0; i<4; i++) {
+        for (int j=0; j<4; j++) {
+            if ((i*4+j) < maxImgCount ) {
                 if ([[collectionArr objectAtIndex:(i*3+j)] intValue] == 1) {
-                    NSString *imgName = [(NSString *)[collectionImg objectAtIndex:(i*3+j)] stringByAppendingString:@".png"];
+                    NSString *imgName = [(NSString *)[collectionImg objectAtIndex:(i*4+j)] stringByAppendingString:@".png"];
                     CCSprite *collection = [CCSprite spriteWithImageNamed:imgName];
                     [collection setPositionType:CCPositionTypeNormalized];
-                    [collection setPosition:ccp(0.25f * (j+1), (1 - 0.25f * (i+1)))];
-                    [collection setScale:self.contentSize.width / 10 / collection.contentSize.width];
+                    if (j < 2) {
+                        if (i < 2) {
+                            [collection setPosition:ccp(0.56f - 0.15f*(j+1), (0.54f - 0.18f*(2-i)))];
+                        } else {
+                            [collection setPosition:ccp(0.56f - 0.15f*(j+1), (0.54f + 0.18f*(i-2)))];
+                        }
+                    } else {
+                        if (i < 2) {
+                            [collection setPosition:ccp(0.44f + 0.15f*(j-1), (0.54f - 0.18f*(2-i)))];
+                        } else {
+                            [collection setPosition:ccp(0.44f + 0.15f*(j-1), (0.54f + 0.18f*(i-2)))];
+                        }
+                    }
+                    [collection setScale:self.contentSize.height / 10 / collection.contentSize.height];
                     [self addChild:collection z:3];
                 } else {
-                    NSString *imgName = [(NSString *)[collectionImg objectAtIndex:(i*3+j)] stringByAppendingString:@"_NO.png"];
+                    NSString *imgName = [(NSString *)[collectionImg objectAtIndex:(i*4+j)] stringByAppendingString:@"_NO.png"];
                     CCSprite *collection = [CCSprite spriteWithImageNamed:imgName];
                     [collection setPositionType:CCPositionTypeNormalized];
-                    [collection setPosition:ccp(0.25f * (j+1), (1 - 0.25f * (i+1)))];
-                    [collection setScale:self.contentSize.width / 10 / collection.contentSize.width];
+                    if (j < 2) {
+                        if (i < 2) {
+                            [collection setPosition:ccp(0.56f - 0.15f*(j+1), (0.54f - 0.18f*(2-i)))];
+                        } else {
+                            [collection setPosition:ccp(0.56f - 0.15f*(j+1), (0.54f + 0.18f*(i-2)))];
+                        }
+                    } else {
+                        if (i < 2) {
+                            [collection setPosition:ccp(0.44f + 0.15f*(j-1), (0.54f - 0.18f*(2-i)))];
+                        } else {
+                            [collection setPosition:ccp(0.44f + 0.15f*(j-1), (0.54f + 0.18f*(i-2)))];
+                        }
+                    }
+                    [collection setScale:self.contentSize.height / 10 / collection.contentSize.height];
                     [self addChild:collection z:3];
                 }
+            } else {
+                break;
             }
         }
     }
+}
+
+// back按钮回调，返回firstScene
+- (void)onBackButtonClicked:(id)sender {
+    [[CCDirector sharedDirector] replaceScene:[FirstScene scene]
+                               withTransition:[CCTransition transitionPushWithDirection:CCTransitionDirectionLeft duration:0.5f]];
 }
 
 @end

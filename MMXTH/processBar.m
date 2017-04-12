@@ -92,7 +92,7 @@
     
     if(loadResCount==totalResCount){
         NSLog(@"~~~~~~~~~~~~资源加载完毕");
-        [[CCDirector sharedDirector] replaceScene:[SecondScene scene]
+        [[CCDirector sharedDirector] replaceScene:[EnterLittleMap scene]
                                    withTransition:[CCTransition transitionFadeWithColor:[CCColor redColor] duration:0.5f]];
         //切换场景
     }

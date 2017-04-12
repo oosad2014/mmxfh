@@ -14,7 +14,7 @@
 @interface CollectionScene : CCScene
 
 @property(nonatomic, weak) DataManager *dataManager;
-@property(nonatomic, strong) CCSprite *backBtn;
+@property(nonatomic, strong) CCButton *backBtn;
 
 + (id)scene;
 - (CollectionScene *)init;

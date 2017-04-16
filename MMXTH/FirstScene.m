@@ -45,28 +45,22 @@
     // Background
     // You can change the .png files to change the background
     // 背景图
-    CCSprite9Slice *background = [CCSprite9Slice spriteWithImageNamed:@"backGround2.png"];
+    CCSprite9Slice *background = [CCSprite9Slice spriteWithImageNamed:@"firstscene.png"];
     [background setPosition:ccp(0.5f, 0.5f)];
     [background setPositionType:CCPositionTypeNormalized];
     [background setScale:self.contentSize.width / background.contentSize.width];
+    [background setOpacity:0.8];
     [self addChild:background];
     
-    // As a reason of I couldn't change the color of the words of the button
-    // 开始按钮上文字
-    CCLabelTTF *title = [CCLabelTTF labelWithString:@"Start" fontName:@"ArialMT" fontSize:20];
-    title.color = [CCColor redColor];
-    title.positionType = CCPositionTypeNormalized;
-    title.position = ccp(0.5f, 0.5f);
-    
-    // 开始按钮
-    CCButton *beginButton = [CCButton buttonWithTitle:@"Start" spriteFrame:[CCSpriteFrame frameWithImageNamed:@"button.png"]];
-    [beginButton setTarget:self selector:@selector(onBeginButtonClicked:)];
-    beginButton.positionType = CCPositionTypeNormalized;
-    beginButton.position = ccp(0.5f, 0.5f);
+    CCButton *begin = [CCButton buttonWithTitle:@"" spriteFrame:[CCSpriteFrame frameWithImageNamed:@"开始游戏.png"]];
+    [begin setScale:(self.contentSize.width / begin.contentSize.width * 0.25f)];
+    [begin setPositionType:CCPositionTypeNormalized];
+    [begin setTarget:self selector:@selector(onBeginButtonClicked:)];
+    [begin setPosition:ccp(0.5f, 0.5f)];
+    [self addChild:begin z:12];
     
     // 添加到页面
-    [self addChild:title z:10];
-    [self addChild:beginButton z:9];
+
 }
 
 // -----------------------------------------------------------------

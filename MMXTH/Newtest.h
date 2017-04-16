@@ -30,8 +30,15 @@
     CGPoint _nextLoc;
     CGPoint _presentLoc;
        CGSize _tile;
+    CGPoint _goal;
+    int _row;
+    int _column;
+    int gamemode;
    BOOL isTraveling ;
      BOOL isPaused ;
+    CGPoint _trainLoc;
+    float _trainSpeedDuration;
+    bool isPresentSelected;
 }
 
 // -----------------------------------------------------------------
@@ -63,6 +70,13 @@
 @property(nonatomic,retain)    NSMutableArray *meshData;
 @property(nonatomic,retain)    NSMutableArray *statearray;
 @property(nonatomic,retain)    NSTimer *timer;
+@property(nonatomic,retain)    NSMutableArray *railGroup;
+@property(nonatomic,retain)    NSMutableArray *goodsarray;
+@property(nonatomic,retain)    NSMutableArray *collectionsarray;
+@property(nonatomic,retain)    NSMutableArray *kindsarray;
+@property(nonatomic,retain)    NSMutableArray *scenekinds;
+@property(nonatomic,retain)    NSMutableArray *collectgroup;
+
 + (id)scene;
 - (Newtest *)init;
 - (struct Coordinates)getCoordinate:(CGPoint)touchPos;

@@ -60,6 +60,7 @@
 		571E911A1E9BBA1D00AEDC07 /* Collection.plist in Resources */ = {isa = PBXBuildFile; fileRef = 571E91191E9BBA1D00AEDC07 /* Collection.plist */; };
 		5729150A1E8D6AB700297DE7 /* CollectionScene.m in Sources */ = {isa = PBXBuildFile; fileRef = 572915091E8D6AB700297DE7 /* CollectionScene.m */; };
 		573C4BD21E7F85D10077E34B /* TrainHeadImages.plist in Resources */ = {isa = PBXBuildFile; fileRef = 573C4BD11E7F85D10077E34B /* TrainHeadImages.plist */; };
+		574222321EA4EF9B00909273 /* 地图标志.png in Resources */ = {isa = PBXBuildFile; fileRef = 574222311EA4EF9B00909273 /* 地图标志.png */; };
 		5743D1971E84E4A400B990C2 /* AllImagesResources.plist in Resources */ = {isa = PBXBuildFile; fileRef = 5743D1961E84E4A400B990C2 /* AllImagesResources.plist */; };
 		5757F2951E9B88DA008B5454 /* 101.png in Resources */ = {isa = PBXBuildFile; fileRef = 5757F2871E9B88DA008B5454 /* 101.png */; };
 		5757F2961E9B88DA008B5454 /* 凤梨酥.png in Resources */ = {isa = PBXBuildFile; fileRef = 5757F2881E9B88DA008B5454 /* 凤梨酥.png */; };
@@ -358,6 +359,7 @@
 		572915081E8D6AB700297DE7 /* CollectionScene.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CollectionScene.h; sourceTree = "<group>"; };
 		572915091E8D6AB700297DE7 /* CollectionScene.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CollectionScene.m; sourceTree = "<group>"; };
 		573C4BD11E7F85D10077E34B /* TrainHeadImages.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = TrainHeadImages.plist; sourceTree = "<group>"; };
+		574222311EA4EF9B00909273 /* 地图标志.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "地图标志.png"; sourceTree = "<group>"; };
 		5743D1961E84E4A400B990C2 /* AllImagesResources.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = AllImagesResources.plist; sourceTree = "<group>"; };
 		5757F2871E9B88DA008B5454 /* 101.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = 101.png; path = "元素/101.png"; sourceTree = "<group>"; };
 		5757F2881E9B88DA008B5454 /* 凤梨酥.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "凤梨酥.png"; path = "元素/凤梨酥.png"; sourceTree = "<group>"; };
@@ -948,6 +950,7 @@
 		5770E1761D82A5C10079ACBC /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				574222311EA4EF9B00909273 /* 地图标志.png */,
 				571E91171E9BB3D700AEDC07 /* 收集界面4行.png */,
 				571E910D1E9BB17E00AEDC07 /* 开始游戏.png */,
 				571E910E1E9BB17E00AEDC07 /* 离开游戏.png */,
@@ -1971,6 +1974,7 @@
 				571E91121E9BB17E00AEDC07 /* 开始游戏.png in Resources */,
 				5770E1931D82A5C10079ACBC /* Icon-Small.png in Resources */,
 				5770E1911D82A5C10079ACBC /* Icon-Small-50.png in Resources */,
+				574222321EA4EF9B00909273 /* 地图标志.png in Resources */,
 				571E91051E9BA23E00AEDC07 /* mainScence.png in Resources */,
 				5757F29D1E9B88DA008B5454 /* 牛轧糖.png in Resources */,
 				5757F29E1E9B88DA008B5454 /* 日月潭.png in Resources */,

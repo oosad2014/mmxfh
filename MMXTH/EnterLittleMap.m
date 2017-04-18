@@ -20,7 +20,7 @@
 
 // 后期省市坐标需用plist来储存
 #define GD_X  0.65f // 广东X坐标
-#define GD_Y 0.15f // 广东Y坐标
+#define GD_Y 0.18f // 广东Y坐标
 
 + (EnterLittleMap *)scene {
     return [[self alloc] init];
@@ -74,28 +74,15 @@
     }
     
     // GuangDong
-//    guangDongMap = [CCSprite spriteWithImageNamed:@"stage_1/5Stage_1_GuangDong.png"];
-//    [guangDongMap setPositionType:CCPositionTypeNormalized];
-//    [guangDongMap setPosition:CGPointMake(0.5f, 0.5f)];
-//    [guangDongMap setScale:(self.contentSize.height / guangDongMap.contentSize.height)];
     
-//    guangDongMap = [CCSprite spriteWithImageNamed:@"广东.png"];
-//    [guangDongMap setPosition:CGPointMake(0.5 * chinaMap.contentSize.width + 194, 0.5 * chinaMap.contentSize.height - 259)];
-//    
-//    [chinaMap addChild:guangDongMap z: 1];
-    
-//    guangDongBtn = [CCButton buttonWithTitle:@"广州" spriteFrame:[CCSpriteFrame frameWithImageNamed:@"button.png"]];
-//    [guangDongBtn setScale:0.1f];
-//    [guangDongBtn setColor:[CCColor blackColor]];
-//    [guangDongBtn setBackgroundColor:[CCColor grayColor] forState:CCControlStateNormal];
-//    [guangDongBtn setBackgroundColor:[CCColor redColor] forState: CCControlStateHighlighted];
-//    [guangDongBtn setPositionType:CCPositionTypeNormalized];
-//    [guangDongBtn setPosition:ccp(GD_X, GD_Y)];
-//    [guangDongBtn setTarget:self selector:@selector(onMapButtonClicked:)];
+    CCButton *guangDongBtn = [CCButton buttonWithTitle:@"" spriteFrame:[CCSpriteFrame frameWithImageNamed:@"地图标志.png"]];
+    [guangDongBtn setScale:0.01f];
+    [guangDongBtn setPositionType:CCPositionTypeNormalized];
+    [guangDongBtn setPosition:ccp(GD_X, GD_Y)];
+    [guangDongBtn setTarget:self selector:@selector(onMapButtonClicked:)];
 //    [guangDongBtn setEnabled:NO];
     
-    //[background addChild:guangDongMap z: 3];
-//    [background addChild:guangDongBtn z: 4];
+    [background addChild:guangDongBtn z: 3];
     
     // 测试;假设为广东
     [self loadMap];
@@ -294,7 +281,7 @@
 }
 
 // 此函数用来确认地图块被选择，并进行相应操作
-- (void)spriteSelectedOrNot:(CGPoint)pos Map: (CCSprite *)mapSprite {
+- (void)spriteSelectedOrNot:(CGPoint)pos Map:(CCSprite *)mapSprite {
     CGPoint posSelected = pos;
     if (CGRectContainsPoint(mapSprite.boundingBox, posSelected)) {
         [self loadMap];

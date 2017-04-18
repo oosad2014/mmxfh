@@ -2,6 +2,13 @@
 <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
 <plist version="1.0">
 <dict>
+	<key>StartLoc</key>
+	<array>
+		<integer>21</integer>
+		<integer>10</integer>
+	</array>
+	<key>TrainDir</key>
+	<integer>3</integer>
 	<key>MapRow</key>
 	<integer>14</integer>
 	<key>MapCol</key>
@@ -21,13 +28,13 @@
 	<integer>1</integer>
 	<key>TrainGoal</key>
 	<array>
-		<integer>2</integer>
-		<integer>3</integer>
+		<integer>6</integer>
+		<integer>4</integer>
 	</array>
 	<key>TrainLocation</key>
 	<array>
-		<integer>2</integer>
-		<integer>6</integer>
+		<integer>20</integer>
+		<integer>10</integer>
 	</array>
 	<key>GoodsArray</key>
 	<array>

@@ -288,7 +288,7 @@
 		EAD860D81E850CB400EC8090 /* rail-up-right11.png in Resources */ = {isa = PBXBuildFile; fileRef = EAD860CB1E850CB400EC8090 /* rail-up-right11.png */; };
 		EAD860DA1E850CB400EC8090 /* 7.png in Resources */ = {isa = PBXBuildFile; fileRef = EAD860CD1E850CB400EC8090 /* 7.png */; };
 		EAD860DE1E850CB400EC8090 /* 草地.png in Resources */ = {isa = PBXBuildFile; fileRef = EAD860D11E850CB400EC8090 /* 草地.png */; };
-		EAD860DF1E850CB400EC8090 /* 车.png in Resources */ = {isa = PBXBuildFile; fileRef = EAD860D21E850CB400EC8090 /* 车.png */; };
+		EAD860DF1E850CB400EC8090 /* 火车左.png in Resources */ = {isa = PBXBuildFile; fileRef = EAD860D21E850CB400EC8090 /* 火车左.png */; };
 		EAD860E01E850CB400EC8090 /* 井.png in Resources */ = {isa = PBXBuildFile; fileRef = EAD860D31E850CB400EC8090 /* 井.png */; };
 		EAD860E41E850CD400EC8090 /* 起点.png in Resources */ = {isa = PBXBuildFile; fileRef = EAD860E11E850CD400EC8090 /* 起点.png */; };
 		EAD860E51E850CD400EC8090 /* 树1+.png in Resources */ = {isa = PBXBuildFile; fileRef = EAD860E21E850CD400EC8090 /* 树1+.png */; };
@@ -848,7 +848,7 @@
 		EAD860CB1E850CB400EC8090 /* rail-up-right11.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "rail-up-right11.png"; path = "Resources/newres/rail-up-right11.png"; sourceTree = "<group>"; };
 		EAD860CD1E850CB400EC8090 /* 7.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = 7.png; path = Resources/newres/7.png; sourceTree = "<group>"; };
 		EAD860D11E850CB400EC8090 /* 草地.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "草地.png"; path = "Resources/newres/草地.png"; sourceTree = "<group>"; };
-		EAD860D21E850CB400EC8090 /* 车.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "车.png"; path = "Resources/newres/车.png"; sourceTree = "<group>"; };
+		EAD860D21E850CB400EC8090 /* 火车左.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "火车左.png"; path = "Resources/newres/火车左.png"; sourceTree = "<group>"; };
 		EAD860D31E850CB400EC8090 /* 井.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "井.png"; path = "Resources/newres/井.png"; sourceTree = "<group>"; };
 		EAD860E11E850CD400EC8090 /* 起点.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "起点.png"; path = "Resources/newres/起点.png"; sourceTree = "<group>"; };
 		EAD860E21E850CD400EC8090 /* 树1+.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "树1+.png"; path = "Resources/newres/树1+.png"; sourceTree = "<group>"; };
@@ -999,7 +999,7 @@
 				EAD860CB1E850CB400EC8090 /* rail-up-right11.png */,
 				EAD860CD1E850CB400EC8090 /* 7.png */,
 				EAD860D11E850CB400EC8090 /* 草地.png */,
-				EAD860D21E850CB400EC8090 /* 车.png */,
+				EAD860D21E850CB400EC8090 /* 火车左.png */,
 				EAD860D31E850CB400EC8090 /* 井.png */,
 				EA7724721E6B010C009E0BD8 /* 火车车厢.png */,
 				EA7724731E6B010C009E0BD8 /* 树1.png */,
@@ -1973,7 +1973,7 @@
 				047CF2B21DADDD7E004CBF4B /* pb_bar_left.png in Resources */,
 				5770E1931D82A5C10079ACBC /* Icon-Small.png in Resources */,
 				EA1AF9B51E9B9C3600E2CD95 /* 开始游戏.png in Resources */,
-				EAD860DF1E850CB400EC8090 /* 车.png in Resources */,
+				EAD860DF1E850CB400EC8090 /* 火车左.png in Resources */,
 				5770E1911D82A5C10079ACBC /* Icon-Small-50.png in Resources */,
 				5770E4321D82A5C50079ACBC /* white_square.png in Resources */,
 				5770E1851D82A5C10079ACBC /* Icon-72.png in Resources */,

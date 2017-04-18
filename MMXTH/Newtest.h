@@ -31,6 +31,7 @@
     CGPoint _presentLoc;
        CGSize _tile;
     CGPoint _goal;
+     CGPoint _start;
     int _row;
     int _column;
     int gamemode;

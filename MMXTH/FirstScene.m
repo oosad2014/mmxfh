@@ -13,6 +13,8 @@
 #import "FirstScene.h"
 #import "processBar.h"
 #import "CollectionScene.h"
+#import "SettingScene.h"
+#import "AudioPlayer.h"
 
 // -----------------------------------------------------------------
 
@@ -77,11 +79,27 @@ int isFirstRun;
     [collectBtn setScale:0.1*self.contentSize.width/collectBtn.contentSize.width];
     collectBtn.position = ccp(0.9f, 0.85f);
     
+    //设置界面入口
+    CCLabelTTF *setting = [CCLabelTTF labelWithString:@"Setting" fontName:@"ArialMT" fontSize:20];
+    setting.color = [CCColor redColor];
+    setting.positionType = CCPositionTypeNormalized;
+    setting.position = ccp(0.5f, 0.3f);
+    [self addChild:setting z:10];
+    
+    CCButton *setButton = [CCButton buttonWithTitle:@"Setting" spriteFrame:[CCSpriteFrame frameWithImageNamed:@"button.png"]];
+    [setButton setTarget:self selector:@selector(onSetButtonClicked:)];
+    setButton.positionType = CCPositionTypeNormalized;
+    setButton.position = ccp(0.5f, 0.3f);
+    
+    //音乐播放器初始化
+    [[AudioPlayer audioplayer] playMusic];
+    
     // 添加到页面
     [self addChild:title z:10];
     [self addChild:beginButton z:9];
     [self addChild:assembleBtn z:9];
     [self addChild:collectBtn z:9];
+    [self addChild:setButton z:9];
 }
 
 // -----------------------------------------------------------------
@@ -108,6 +126,13 @@ int isFirstRun;
     [[CCDirector sharedDirector] replaceScene:[CollectionScene scene]
                                withTransition:[CCTransition transitionFadeWithColor:[CCColor redColor] duration:0.5f]];
     
+}
+
+- (void)onSetButtonClicked:(id)sender {
+    [[CCDirector sharedDirector] pushScene:[SettingScene scene]];
+    /*    [[CCDirector sharedDirector] replaceScene:[SettingScene scene]
+     withTransition:[CCTransition transitionPushWithDirection:CCTransitionDirectionLeft duration:0.5f]];
+     */
 }
 
 @end

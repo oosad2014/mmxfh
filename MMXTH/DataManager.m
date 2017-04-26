@@ -25,15 +25,15 @@ static DataManager* dataManager = nil;
 }
 
 // 重写方法，防止任何方式创建第二个实例
-+ (id)allocWithZone:(struct _NSZone *)zone {
-    dispatch_once_t once;
-    dispatch_once(&once, ^{
-        if (dataManager == nil) {
-            dataManager = [super allocWithZone:zone];
-        }
-    });
-    return dataManager;
-}
+//+ (id)allocWithZone:(struct _NSZone *)zone {
+//    dispatch_once_t once;
+//    dispatch_once(&once, ^{
+//        if (dataManager == nil) {
+//            dataManager = [super allocWithZone:zone];
+//        }
+//    });
+//    return dataManager;
+//}
 
 - (NSDictionary *)bundleDicWithName:(NSString *)name {
     NSString *plistName = name;

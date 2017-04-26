@@ -58,6 +58,14 @@
 		571E91161E9BB17E00AEDC07 /* 装扮.png in Resources */ = {isa = PBXBuildFile; fileRef = 571E91111E9BB17E00AEDC07 /* 装扮.png */; };
 		571E91181E9BB3D700AEDC07 /* 收集界面4行.png in Resources */ = {isa = PBXBuildFile; fileRef = 571E91171E9BB3D700AEDC07 /* 收集界面4行.png */; };
 		571E911A1E9BBA1D00AEDC07 /* Collection.plist in Resources */ = {isa = PBXBuildFile; fileRef = 571E91191E9BBA1D00AEDC07 /* Collection.plist */; };
+		57283FF11EB03C3500BE6F4F /* SettingScene.m in Sources */ = {isa = PBXBuildFile; fileRef = 57283FF01EB03C3500BE6F4F /* SettingScene.m */; };
+		57283FF41EB03CB700BE6F4F /* AudioPlayer.m in Sources */ = {isa = PBXBuildFile; fileRef = 57283FF31EB03CB700BE6F4F /* AudioPlayer.m */; };
+		57283FFB1EB0408700BE6F4F /* 滑块-4.png in Resources */ = {isa = PBXBuildFile; fileRef = 57283FF51EB0408700BE6F4F /* 滑块-4.png */; };
+		57283FFC1EB0408700BE6F4F /* inside-bar.png in Resources */ = {isa = PBXBuildFile; fileRef = 57283FF61EB0408700BE6F4F /* inside-bar.png */; };
+		57283FFD1EB0408700BE6F4F /* music.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 57283FF71EB0408700BE6F4F /* music.mp3 */; };
+		57283FFE1EB0408700BE6F4F /* outside-bar.png in Resources */ = {isa = PBXBuildFile; fileRef = 57283FF81EB0408700BE6F4F /* outside-bar.png */; };
+		57283FFF1EB0408700BE6F4F /* return.png in Resources */ = {isa = PBXBuildFile; fileRef = 57283FF91EB0408700BE6F4F /* return.png */; };
+		572840001EB0408700BE6F4F /* ruler.png in Resources */ = {isa = PBXBuildFile; fileRef = 57283FFA1EB0408700BE6F4F /* ruler.png */; };
 		5729150A1E8D6AB700297DE7 /* CollectionScene.m in Sources */ = {isa = PBXBuildFile; fileRef = 572915091E8D6AB700297DE7 /* CollectionScene.m */; };
 		573C4BD21E7F85D10077E34B /* TrainHeadImages.plist in Resources */ = {isa = PBXBuildFile; fileRef = 573C4BD11E7F85D10077E34B /* TrainHeadImages.plist */; };
 		574222321EA4EF9B00909273 /* 地图标志.png in Resources */ = {isa = PBXBuildFile; fileRef = 574222311EA4EF9B00909273 /* 地图标志.png */; };
@@ -356,6 +364,16 @@
 		571E91111E9BB17E00AEDC07 /* 装扮.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "装扮.png"; path = "矢量版按钮/装扮.png"; sourceTree = "<group>"; };
 		571E91171E9BB3D700AEDC07 /* 收集界面4行.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "收集界面4行.png"; path = "元素/收集界面4行.png"; sourceTree = "<group>"; };
 		571E91191E9BBA1D00AEDC07 /* Collection.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Collection.plist; sourceTree = "<group>"; };
+		57283FEF1EB03C3500BE6F4F /* SettingScene.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SettingScene.h; sourceTree = "<group>"; };
+		57283FF01EB03C3500BE6F4F /* SettingScene.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SettingScene.m; sourceTree = "<group>"; };
+		57283FF21EB03CB700BE6F4F /* AudioPlayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AudioPlayer.h; sourceTree = "<group>"; };
+		57283FF31EB03CB700BE6F4F /* AudioPlayer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AudioPlayer.m; sourceTree = "<group>"; };
+		57283FF51EB0408700BE6F4F /* 滑块-4.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "滑块-4.png"; sourceTree = "<group>"; };
+		57283FF61EB0408700BE6F4F /* inside-bar.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "inside-bar.png"; sourceTree = "<group>"; };
+		57283FF71EB0408700BE6F4F /* music.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = music.mp3; sourceTree = "<group>"; };
+		57283FF81EB0408700BE6F4F /* outside-bar.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "outside-bar.png"; sourceTree = "<group>"; };
+		57283FF91EB0408700BE6F4F /* return.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = return.png; sourceTree = "<group>"; };
+		57283FFA1EB0408700BE6F4F /* ruler.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = ruler.png; sourceTree = "<group>"; };
 		572915081E8D6AB700297DE7 /* CollectionScene.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CollectionScene.h; sourceTree = "<group>"; };
 		572915091E8D6AB700297DE7 /* CollectionScene.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CollectionScene.m; sourceTree = "<group>"; };
 		573C4BD11E7F85D10077E34B /* TrainHeadImages.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = TrainHeadImages.plist; sourceTree = "<group>"; };
@@ -871,6 +889,8 @@
 				0471DC3B1D869F6C00547781 /* Train.m */,
 				045A29331D8C21010065E181 /* TrainHead.h */,
 				045A29341D8C21010065E181 /* TrainHead.m */,
+				57283FF21EB03CB700BE6F4F /* AudioPlayer.h */,
+				57283FF31EB03CB700BE6F4F /* AudioPlayer.m */,
 			);
 			name = Model;
 			sourceTree = "<group>";
@@ -899,6 +919,8 @@
 				046F06831DE5636600B25ECB /* TestTrackScene.m */,
 				572915081E8D6AB700297DE7 /* CollectionScene.h */,
 				572915091E8D6AB700297DE7 /* CollectionScene.m */,
+				57283FEF1EB03C3500BE6F4F /* SettingScene.h */,
+				57283FF01EB03C3500BE6F4F /* SettingScene.m */,
 			);
 			name = Scene;
 			sourceTree = "<group>";
@@ -950,6 +972,12 @@
 		5770E1761D82A5C10079ACBC /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				57283FF51EB0408700BE6F4F /* 滑块-4.png */,
+				57283FF61EB0408700BE6F4F /* inside-bar.png */,
+				57283FF71EB0408700BE6F4F /* music.mp3 */,
+				57283FF81EB0408700BE6F4F /* outside-bar.png */,
+				57283FF91EB0408700BE6F4F /* return.png */,
+				57283FFA1EB0408700BE6F4F /* ruler.png */,
 				574222311EA4EF9B00909273 /* 地图标志.png */,
 				571E91171E9BB3D700AEDC07 /* 收集界面4行.png */,
 				571E910D1E9BB17E00AEDC07 /* 开始游戏.png */,
@@ -1944,6 +1972,7 @@
 				571E910C1E9BA61E00AEDC07 /* 背景.png in Resources */,
 				047CF2BD1DADE696004CBF4B /* panda.png in Resources */,
 				5770E18D1D82A5C10079ACBC /* Icon-120.png in Resources */,
+				57283FFD1EB0408700BE6F4F /* music.mp3 in Resources */,
 				047CF2B71DADDD7E004CBF4B /* pb.png in Resources */,
 				5770E1831D82A5C10079ACBC /* Icon@2x.png in Resources */,
 				04A12A4F1DF5392C00398D5A /* traingood.png in Resources */,
@@ -1968,6 +1997,7 @@
 				5757F29B1E9B88DA008B5454 /* 火车右.png in Resources */,
 				5770E17E1D82A5C10079ACBC /* Default-Landscape~ipad.png in Resources */,
 				5757F2971E9B88DA008B5454 /* 广州塔.png in Resources */,
+				572840001EB0408700BE6F4F /* ruler.png in Resources */,
 				571E91131E9BB17E00AEDC07 /* 离开游戏.png in Resources */,
 				047CF2B21DADDD7E004CBF4B /* pb_bar_left.png in Resources */,
 				5757F2AB1E9B8CC2008B5454 /* 凤梨酥_NO.png in Resources */,
@@ -1986,6 +2016,7 @@
 				04A12A4D1DF5392C00398D5A /* dead.png in Resources */,
 				57DCF7391E6BFD5800DB78FC /* 铁轨下左.png in Resources */,
 				5770E2801D82A5C30079ACBC /* LICENSE_cocos2d.txt in Resources */,
+				57283FFC1EB0408700BE6F4F /* inside-bar.png in Resources */,
 				047CF2B41DADDD7E004CBF4B /* pb_bg_left.png in Resources */,
 				5757F2951E9B88DA008B5454 /* 101.png in Resources */,
 				573C4BD21E7F85D10077E34B /* TrainHeadImages.plist in Resources */,
@@ -1997,6 +2028,7 @@
 				57CEE3111E8802AB0039C344 /* 火车2.png in Resources */,
 				047CF2C11DADE804004CBF4B /* face.jpg in Resources */,
 				5770E2831D82A5C30079ACBC /* CCEffectRenderer.h in Resources */,
+				57283FFF1EB0408700BE6F4F /* return.png in Resources */,
 				5770E17C1D82A5C10079ACBC /* Default-568h@2x.png in Resources */,
 				57108E921E6AF828003469F4 /* 火车车厢.png in Resources */,
 				57CEE30C1E87F5AB0039C344 /* MapResources in Resources */,
@@ -2012,6 +2044,7 @@
 				57DCF7371E6BFD5800DB78FC /* 铁轨竖直.png in Resources */,
 				57DCF7351E6BFD5800DB78FC /* 铁轨上右.png in Resources */,
 				5770E35A1D82A5C40079ACBC /* LICENSE_CCBReader.txt in Resources */,
+				57283FFE1EB0408700BE6F4F /* outside-bar.png in Resources */,
 				571E91161E9BB17E00AEDC07 /* 装扮.png in Resources */,
 				047CF2BF1DADE696004CBF4B /* tree_1.png in Resources */,
 				5757F2AF1E9B8CC2008B5454 /* 牛轧糖_NO.png in Resources */,
@@ -2028,6 +2061,7 @@
 				0471DC3E1D86B05400547781 /* button.png in Resources */,
 				5770E1991D82A5C10079ACBC /* Icon-Spotlight-iOS7@2x.png in Resources */,
 				575B559A1E7255FC009123D9 /* stage_1 in Resources */,
+				57283FFB1EB0408700BE6F4F /* 滑块-4.png in Resources */,
 				571E911A1E9BBA1D00AEDC07 /* Collection.plist in Resources */,
 				571E91081E9BA23E00AEDC07 /* setting.png in Resources */,
 				5770E1891D82A5C10079ACBC /* Icon-76.png in Resources */,
@@ -2150,6 +2184,7 @@
 				5770E32F1D82A5C30079ACBC /* CGPointExtension.m in Sources */,
 				5770E2021D82A5C20079ACBC /* CCLabelTTF.m in Sources */,
 				5770E2E61D82A5C30079ACBC /* CCTextField.m in Sources */,
+				57283FF11EB03C3500BE6F4F /* SettingScene.m in Sources */,
 				5770E2201D82A5C20079ACBC /* CCParticleBatchNode.m in Sources */,
 				5770E25C1D82A5C20079ACBC /* CCSpriteFrame.m in Sources */,
 				5770E37C1D82A5C40079ACBC /* ALBuffer.m in Sources */,
@@ -2201,6 +2236,7 @@
 				5770E2671D82A5C20079ACBC /* CCTextureCache.m in Sources */,
 				5770E2DD1D82A5C30079ACBC /* CCScrollView.m in Sources */,
 				5770E3AB1D82A5C40079ACBC /* NSMutableArray+WeakReferences.m in Sources */,
+				57283FF41EB03CB700BE6F4F /* AudioPlayer.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

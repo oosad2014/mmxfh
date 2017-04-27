@@ -39,23 +39,16 @@
 		571895581E77DBA3008D7F17 /* DataManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 571895571E77DBA3008D7F17 /* DataManager.m */; };
 		5718955E1E781E97008D7F17 /* DataCreateScene.m in Sources */ = {isa = PBXBuildFile; fileRef = 5718955D1E781E97008D7F17 /* DataCreateScene.m */; };
 		571895621E782A86008D7F17 /* ChinaMap.plist in Resources */ = {isa = PBXBuildFile; fileRef = 571895611E782A86008D7F17 /* ChinaMap.plist */; };
-		571E91001E9BA23E00AEDC07 /* before.png in Resources */ = {isa = PBXBuildFile; fileRef = 571E90F51E9BA23E00AEDC07 /* before.png */; };
-		571E91011E9BA23E00AEDC07 /* begin.png in Resources */ = {isa = PBXBuildFile; fileRef = 571E90F61E9BA23E00AEDC07 /* begin.png */; };
-		571E91021E9BA23E00AEDC07 /* close.png in Resources */ = {isa = PBXBuildFile; fileRef = 571E90F71E9BA23E00AEDC07 /* close.png */; };
 		571E91031E9BA23E00AEDC07 /* Collection_other.png in Resources */ = {isa = PBXBuildFile; fileRef = 571E90F81E9BA23E00AEDC07 /* Collection_other.png */; };
 		571E91041E9BA23E00AEDC07 /* Collection.png in Resources */ = {isa = PBXBuildFile; fileRef = 571E90F91E9BA23E00AEDC07 /* Collection.png */; };
 		571E91051E9BA23E00AEDC07 /* mainScence.png in Resources */ = {isa = PBXBuildFile; fileRef = 571E90FA1E9BA23E00AEDC07 /* mainScence.png */; };
 		571E91061E9BA23E00AEDC07 /* retry.png in Resources */ = {isa = PBXBuildFile; fileRef = 571E90FB1E9BA23E00AEDC07 /* retry.png */; };
-		571E91071E9BA23E00AEDC07 /* return.png in Resources */ = {isa = PBXBuildFile; fileRef = 571E90FC1E9BA23E00AEDC07 /* return.png */; };
-		571E91081E9BA23E00AEDC07 /* setting.png in Resources */ = {isa = PBXBuildFile; fileRef = 571E90FD1E9BA23E00AEDC07 /* setting.png */; };
-		571E91091E9BA23E00AEDC07 /* voice_close.png in Resources */ = {isa = PBXBuildFile; fileRef = 571E90FE1E9BA23E00AEDC07 /* voice_close.png */; };
-		571E910A1E9BA23E00AEDC07 /* voice_open.png in Resources */ = {isa = PBXBuildFile; fileRef = 571E90FF1E9BA23E00AEDC07 /* voice_open.png */; };
 		571E910C1E9BA61E00AEDC07 /* 背景.png in Resources */ = {isa = PBXBuildFile; fileRef = 571E910B1E9BA61E00AEDC07 /* 背景.png */; };
-		571E91121E9BB17E00AEDC07 /* 开始游戏.png in Resources */ = {isa = PBXBuildFile; fileRef = 571E910D1E9BB17E00AEDC07 /* 开始游戏.png */; };
-		571E91131E9BB17E00AEDC07 /* 离开游戏.png in Resources */ = {isa = PBXBuildFile; fileRef = 571E910E1E9BB17E00AEDC07 /* 离开游戏.png */; };
-		571E91141E9BB17E00AEDC07 /* 设置.png in Resources */ = {isa = PBXBuildFile; fileRef = 571E910F1E9BB17E00AEDC07 /* 设置.png */; };
+		571E91121E9BB17E00AEDC07 /* start.png in Resources */ = {isa = PBXBuildFile; fileRef = 571E910D1E9BB17E00AEDC07 /* start.png */; };
+		571E91131E9BB17E00AEDC07 /* exit.png in Resources */ = {isa = PBXBuildFile; fileRef = 571E910E1E9BB17E00AEDC07 /* exit.png */; };
+		571E91141E9BB17E00AEDC07 /* setting.png in Resources */ = {isa = PBXBuildFile; fileRef = 571E910F1E9BB17E00AEDC07 /* setting.png */; };
 		571E91151E9BB17E00AEDC07 /* 收集.png in Resources */ = {isa = PBXBuildFile; fileRef = 571E91101E9BB17E00AEDC07 /* 收集.png */; };
-		571E91161E9BB17E00AEDC07 /* 装扮.png in Resources */ = {isa = PBXBuildFile; fileRef = 571E91111E9BB17E00AEDC07 /* 装扮.png */; };
+		571E91161E9BB17E00AEDC07 /* skin.png in Resources */ = {isa = PBXBuildFile; fileRef = 571E91111E9BB17E00AEDC07 /* skin.png */; };
 		571E91181E9BB3D700AEDC07 /* 收集界面4行.png in Resources */ = {isa = PBXBuildFile; fileRef = 571E91171E9BB3D700AEDC07 /* 收集界面4行.png */; };
 		571E911A1E9BBA1D00AEDC07 /* Collection.plist in Resources */ = {isa = PBXBuildFile; fileRef = 571E91191E9BBA1D00AEDC07 /* Collection.plist */; };
 		57283FF11EB03C3500BE6F4F /* SettingScene.m in Sources */ = {isa = PBXBuildFile; fileRef = 57283FF01EB03C3500BE6F4F /* SettingScene.m */; };
@@ -64,8 +57,22 @@
 		57283FFC1EB0408700BE6F4F /* inside-bar.png in Resources */ = {isa = PBXBuildFile; fileRef = 57283FF61EB0408700BE6F4F /* inside-bar.png */; };
 		57283FFD1EB0408700BE6F4F /* music.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 57283FF71EB0408700BE6F4F /* music.mp3 */; };
 		57283FFE1EB0408700BE6F4F /* outside-bar.png in Resources */ = {isa = PBXBuildFile; fileRef = 57283FF81EB0408700BE6F4F /* outside-bar.png */; };
-		57283FFF1EB0408700BE6F4F /* return.png in Resources */ = {isa = PBXBuildFile; fileRef = 57283FF91EB0408700BE6F4F /* return.png */; };
 		572840001EB0408700BE6F4F /* ruler.png in Resources */ = {isa = PBXBuildFile; fileRef = 57283FFA1EB0408700BE6F4F /* ruler.png */; };
+		572840301EB0969700BE6F4F /* return.png in Resources */ = {isa = PBXBuildFile; fileRef = 572840211EB0969700BE6F4F /* return.png */; };
+		572840311EB0969700BE6F4F /* 关闭.png in Resources */ = {isa = PBXBuildFile; fileRef = 572840221EB0969700BE6F4F /* 关闭.png */; };
+		572840321EB0969700BE6F4F /* 开始.png in Resources */ = {isa = PBXBuildFile; fileRef = 572840231EB0969700BE6F4F /* 开始.png */; };
+		572840331EB0969700BE6F4F /* 列表菜单.png in Resources */ = {isa = PBXBuildFile; fileRef = 572840241EB0969700BE6F4F /* 列表菜单.png */; };
+		572840341EB0969700BE6F4F /* 铺设铁轨.png in Resources */ = {isa = PBXBuildFile; fileRef = 572840251EB0969700BE6F4F /* 铺设铁轨.png */; };
+		572840351EB0969700BE6F4F /* 删除铁轨.png in Resources */ = {isa = PBXBuildFile; fileRef = 572840261EB0969700BE6F4F /* 删除铁轨.png */; };
+		572840361EB0969700BE6F4F /* 上一页.png in Resources */ = {isa = PBXBuildFile; fileRef = 572840271EB0969700BE6F4F /* 上一页.png */; };
+		572840371EB0969700BE6F4F /* 设置.png in Resources */ = {isa = PBXBuildFile; fileRef = 572840281EB0969700BE6F4F /* 设置.png */; };
+		572840381EB0969700BE6F4F /* 收藏.png in Resources */ = {isa = PBXBuildFile; fileRef = 572840291EB0969700BE6F4F /* 收藏.png */; };
+		572840391EB0969700BE6F4F /* 收集物品（无效果）.png in Resources */ = {isa = PBXBuildFile; fileRef = 5728402A1EB0969700BE6F4F /* 收集物品（无效果）.png */; };
+		5728403A1EB0969800BE6F4F /* 下一页.png in Resources */ = {isa = PBXBuildFile; fileRef = 5728402B1EB0969700BE6F4F /* 下一页.png */; };
+		5728403B1EB0969800BE6F4F /* 暂停.png in Resources */ = {isa = PBXBuildFile; fileRef = 5728402C1EB0969700BE6F4F /* 暂停.png */; };
+		5728403C1EB0969800BE6F4F /* 暂停背景.png in Resources */ = {isa = PBXBuildFile; fileRef = 5728402D1EB0969700BE6F4F /* 暂停背景.png */; };
+		5728403D1EB0969800BE6F4F /* 重新游戏.png in Resources */ = {isa = PBXBuildFile; fileRef = 5728402E1EB0969700BE6F4F /* 重新游戏.png */; };
+		5728403E1EB0969800BE6F4F /* 主页.png in Resources */ = {isa = PBXBuildFile; fileRef = 5728402F1EB0969700BE6F4F /* 主页.png */; };
 		5729150A1E8D6AB700297DE7 /* CollectionScene.m in Sources */ = {isa = PBXBuildFile; fileRef = 572915091E8D6AB700297DE7 /* CollectionScene.m */; };
 		573C4BD21E7F85D10077E34B /* TrainHeadImages.plist in Resources */ = {isa = PBXBuildFile; fileRef = 573C4BD11E7F85D10077E34B /* TrainHeadImages.plist */; };
 		574222321EA4EF9B00909273 /* 地图标志.png in Resources */ = {isa = PBXBuildFile; fileRef = 574222311EA4EF9B00909273 /* 地图标志.png */; };
@@ -345,23 +352,16 @@
 		5718955C1E781E97008D7F17 /* DataCreateScene.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DataCreateScene.h; sourceTree = "<group>"; };
 		5718955D1E781E97008D7F17 /* DataCreateScene.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DataCreateScene.m; sourceTree = "<group>"; };
 		571895611E782A86008D7F17 /* ChinaMap.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = ChinaMap.plist; sourceTree = "<group>"; };
-		571E90F51E9BA23E00AEDC07 /* before.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = before.png; path = "矢量版按钮/before.png"; sourceTree = "<group>"; };
-		571E90F61E9BA23E00AEDC07 /* begin.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = begin.png; path = "矢量版按钮/begin.png"; sourceTree = "<group>"; };
-		571E90F71E9BA23E00AEDC07 /* close.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = close.png; path = "矢量版按钮/close.png"; sourceTree = "<group>"; };
 		571E90F81E9BA23E00AEDC07 /* Collection_other.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = Collection_other.png; path = "矢量版按钮/Collection_other.png"; sourceTree = "<group>"; };
 		571E90F91E9BA23E00AEDC07 /* Collection.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = Collection.png; path = "矢量版按钮/Collection.png"; sourceTree = "<group>"; };
 		571E90FA1E9BA23E00AEDC07 /* mainScence.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = mainScence.png; path = "矢量版按钮/mainScence.png"; sourceTree = "<group>"; };
 		571E90FB1E9BA23E00AEDC07 /* retry.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = retry.png; path = "矢量版按钮/retry.png"; sourceTree = "<group>"; };
-		571E90FC1E9BA23E00AEDC07 /* return.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = return.png; path = "矢量版按钮/return.png"; sourceTree = "<group>"; };
-		571E90FD1E9BA23E00AEDC07 /* setting.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = setting.png; path = "矢量版按钮/setting.png"; sourceTree = "<group>"; };
-		571E90FE1E9BA23E00AEDC07 /* voice_close.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = voice_close.png; path = "矢量版按钮/voice_close.png"; sourceTree = "<group>"; };
-		571E90FF1E9BA23E00AEDC07 /* voice_open.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = voice_open.png; path = "矢量版按钮/voice_open.png"; sourceTree = "<group>"; };
 		571E910B1E9BA61E00AEDC07 /* 背景.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "背景.png"; path = "元素/背景.png"; sourceTree = "<group>"; };
-		571E910D1E9BB17E00AEDC07 /* 开始游戏.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "开始游戏.png"; path = "矢量版按钮/开始游戏.png"; sourceTree = "<group>"; };
-		571E910E1E9BB17E00AEDC07 /* 离开游戏.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "离开游戏.png"; path = "矢量版按钮/离开游戏.png"; sourceTree = "<group>"; };
-		571E910F1E9BB17E00AEDC07 /* 设置.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "设置.png"; path = "矢量版按钮/设置.png"; sourceTree = "<group>"; };
+		571E910D1E9BB17E00AEDC07 /* start.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = start.png; path = "矢量版按钮/start.png"; sourceTree = "<group>"; };
+		571E910E1E9BB17E00AEDC07 /* exit.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = exit.png; path = "矢量版按钮/exit.png"; sourceTree = "<group>"; };
+		571E910F1E9BB17E00AEDC07 /* setting.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = setting.png; path = "矢量版按钮/setting.png"; sourceTree = "<group>"; };
 		571E91101E9BB17E00AEDC07 /* 收集.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "收集.png"; path = "矢量版按钮/收集.png"; sourceTree = "<group>"; };
-		571E91111E9BB17E00AEDC07 /* 装扮.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "装扮.png"; path = "矢量版按钮/装扮.png"; sourceTree = "<group>"; };
+		571E91111E9BB17E00AEDC07 /* skin.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = skin.png; path = "矢量版按钮/skin.png"; sourceTree = "<group>"; };
 		571E91171E9BB3D700AEDC07 /* 收集界面4行.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "收集界面4行.png"; path = "元素/收集界面4行.png"; sourceTree = "<group>"; };
 		571E91191E9BBA1D00AEDC07 /* Collection.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Collection.plist; sourceTree = "<group>"; };
 		57283FEF1EB03C3500BE6F4F /* SettingScene.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SettingScene.h; sourceTree = "<group>"; };
@@ -372,8 +372,22 @@
 		57283FF61EB0408700BE6F4F /* inside-bar.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "inside-bar.png"; sourceTree = "<group>"; };
 		57283FF71EB0408700BE6F4F /* music.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = music.mp3; sourceTree = "<group>"; };
 		57283FF81EB0408700BE6F4F /* outside-bar.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "outside-bar.png"; sourceTree = "<group>"; };
-		57283FF91EB0408700BE6F4F /* return.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = return.png; sourceTree = "<group>"; };
 		57283FFA1EB0408700BE6F4F /* ruler.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = ruler.png; sourceTree = "<group>"; };
+		572840211EB0969700BE6F4F /* return.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = return.png; path = "按钮重制版-最终版/按钮重制版-最终版/return.png"; sourceTree = "<group>"; };
+		572840221EB0969700BE6F4F /* 关闭.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "关闭.png"; path = "按钮重制版-最终版/按钮重制版-最终版/关闭.png"; sourceTree = "<group>"; };
+		572840231EB0969700BE6F4F /* 开始.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "开始.png"; path = "按钮重制版-最终版/按钮重制版-最终版/开始.png"; sourceTree = "<group>"; };
+		572840241EB0969700BE6F4F /* 列表菜单.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "列表菜单.png"; path = "按钮重制版-最终版/按钮重制版-最终版/列表菜单.png"; sourceTree = "<group>"; };
+		572840251EB0969700BE6F4F /* 铺设铁轨.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "铺设铁轨.png"; path = "按钮重制版-最终版/按钮重制版-最终版/铺设铁轨.png"; sourceTree = "<group>"; };
+		572840261EB0969700BE6F4F /* 删除铁轨.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "删除铁轨.png"; path = "按钮重制版-最终版/按钮重制版-最终版/删除铁轨.png"; sourceTree = "<group>"; };
+		572840271EB0969700BE6F4F /* 上一页.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "上一页.png"; path = "按钮重制版-最终版/按钮重制版-最终版/上一页.png"; sourceTree = "<group>"; };
+		572840281EB0969700BE6F4F /* 设置.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "设置.png"; path = "按钮重制版-最终版/按钮重制版-最终版/设置.png"; sourceTree = "<group>"; };
+		572840291EB0969700BE6F4F /* 收藏.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "收藏.png"; path = "按钮重制版-最终版/按钮重制版-最终版/收藏.png"; sourceTree = "<group>"; };
+		5728402A1EB0969700BE6F4F /* 收集物品（无效果）.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "收集物品（无效果）.png"; path = "按钮重制版-最终版/按钮重制版-最终版/收集物品（无效果）.png"; sourceTree = "<group>"; };
+		5728402B1EB0969700BE6F4F /* 下一页.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "下一页.png"; path = "按钮重制版-最终版/按钮重制版-最终版/下一页.png"; sourceTree = "<group>"; };
+		5728402C1EB0969700BE6F4F /* 暂停.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "暂停.png"; path = "按钮重制版-最终版/按钮重制版-最终版/暂停.png"; sourceTree = "<group>"; };
+		5728402D1EB0969700BE6F4F /* 暂停背景.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "暂停背景.png"; path = "按钮重制版-最终版/按钮重制版-最终版/暂停背景.png"; sourceTree = "<group>"; };
+		5728402E1EB0969700BE6F4F /* 重新游戏.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "重新游戏.png"; path = "按钮重制版-最终版/按钮重制版-最终版/重新游戏.png"; sourceTree = "<group>"; };
+		5728402F1EB0969700BE6F4F /* 主页.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "主页.png"; path = "按钮重制版-最终版/按钮重制版-最终版/主页.png"; sourceTree = "<group>"; };
 		572915081E8D6AB700297DE7 /* CollectionScene.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CollectionScene.h; sourceTree = "<group>"; };
 		572915091E8D6AB700297DE7 /* CollectionScene.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CollectionScene.m; sourceTree = "<group>"; };
 		573C4BD11E7F85D10077E34B /* TrainHeadImages.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = TrainHeadImages.plist; sourceTree = "<group>"; };
@@ -972,31 +986,38 @@
 		5770E1761D82A5C10079ACBC /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				572840211EB0969700BE6F4F /* return.png */,
+				572840221EB0969700BE6F4F /* 关闭.png */,
+				572840231EB0969700BE6F4F /* 开始.png */,
+				572840241EB0969700BE6F4F /* 列表菜单.png */,
+				572840251EB0969700BE6F4F /* 铺设铁轨.png */,
+				572840261EB0969700BE6F4F /* 删除铁轨.png */,
+				572840271EB0969700BE6F4F /* 上一页.png */,
+				572840281EB0969700BE6F4F /* 设置.png */,
+				572840291EB0969700BE6F4F /* 收藏.png */,
+				5728402A1EB0969700BE6F4F /* 收集物品（无效果）.png */,
+				5728402B1EB0969700BE6F4F /* 下一页.png */,
+				5728402C1EB0969700BE6F4F /* 暂停.png */,
+				5728402D1EB0969700BE6F4F /* 暂停背景.png */,
+				5728402E1EB0969700BE6F4F /* 重新游戏.png */,
+				5728402F1EB0969700BE6F4F /* 主页.png */,
 				57283FF51EB0408700BE6F4F /* 滑块-4.png */,
 				57283FF61EB0408700BE6F4F /* inside-bar.png */,
 				57283FF71EB0408700BE6F4F /* music.mp3 */,
 				57283FF81EB0408700BE6F4F /* outside-bar.png */,
-				57283FF91EB0408700BE6F4F /* return.png */,
 				57283FFA1EB0408700BE6F4F /* ruler.png */,
 				574222311EA4EF9B00909273 /* 地图标志.png */,
 				571E91171E9BB3D700AEDC07 /* 收集界面4行.png */,
-				571E910D1E9BB17E00AEDC07 /* 开始游戏.png */,
-				571E910E1E9BB17E00AEDC07 /* 离开游戏.png */,
-				571E910F1E9BB17E00AEDC07 /* 设置.png */,
+				571E910D1E9BB17E00AEDC07 /* start.png */,
+				571E910E1E9BB17E00AEDC07 /* exit.png */,
+				571E910F1E9BB17E00AEDC07 /* setting.png */,
 				571E91101E9BB17E00AEDC07 /* 收集.png */,
-				571E91111E9BB17E00AEDC07 /* 装扮.png */,
+				571E91111E9BB17E00AEDC07 /* skin.png */,
 				571E910B1E9BA61E00AEDC07 /* 背景.png */,
-				571E90F51E9BA23E00AEDC07 /* before.png */,
-				571E90F61E9BA23E00AEDC07 /* begin.png */,
-				571E90F71E9BA23E00AEDC07 /* close.png */,
 				571E90F81E9BA23E00AEDC07 /* Collection_other.png */,
 				571E90F91E9BA23E00AEDC07 /* Collection.png */,
 				571E90FA1E9BA23E00AEDC07 /* mainScence.png */,
 				571E90FB1E9BA23E00AEDC07 /* retry.png */,
-				571E90FC1E9BA23E00AEDC07 /* return.png */,
-				571E90FD1E9BA23E00AEDC07 /* setting.png */,
-				571E90FE1E9BA23E00AEDC07 /* voice_close.png */,
-				571E90FF1E9BA23E00AEDC07 /* voice_open.png */,
 				5757F2A31E9B8CC2008B5454 /* 凤梨酥_NO.png */,
 				5757F2A41E9B8CC2008B5454 /* 广州塔_NO.png */,
 				5757F2A51E9B8CC2008B5454 /* 黄埔军校_NO.png */,
@@ -1970,16 +1991,17 @@
 				5770E17A1D82A5C10079ACBC /* Default@2x.png in Resources */,
 				5770E4251D82A5C50079ACBC /* LICENSE_Chipmunk.txt in Resources */,
 				571E910C1E9BA61E00AEDC07 /* 背景.png in Resources */,
+				5728403D1EB0969800BE6F4F /* 重新游戏.png in Resources */,
 				047CF2BD1DADE696004CBF4B /* panda.png in Resources */,
 				5770E18D1D82A5C10079ACBC /* Icon-120.png in Resources */,
 				57283FFD1EB0408700BE6F4F /* music.mp3 in Resources */,
 				047CF2B71DADDD7E004CBF4B /* pb.png in Resources */,
 				5770E1831D82A5C10079ACBC /* Icon@2x.png in Resources */,
+				572840361EB0969700BE6F4F /* 上一页.png in Resources */,
 				04A12A4F1DF5392C00398D5A /* traingood.png in Resources */,
+				5728403E1EB0969800BE6F4F /* 主页.png in Resources */,
 				5770E1951D82A5C10079ACBC /* Icon-Small@2x.png in Resources */,
 				5770E1871D82A5C10079ACBC /* Icon-72@2x.png in Resources */,
-				571E91091E9BA23E00AEDC07 /* voice_close.png in Resources */,
-				571E91011E9BA23E00AEDC07 /* begin.png in Resources */,
 				0452DCAA1DC1B15A004238CE /* backGround.png in Resources */,
 				5770E1781D82A5C10079ACBC /* Default.png in Resources */,
 				5770E1811D82A5C10079ACBC /* Icon.png in Resources */,
@@ -1992,23 +2014,25 @@
 				57DCF7381E6BFD5800DB78FC /* 铁轨下右.png in Resources */,
 				5757F2B01E9B8CC2008B5454 /* 日月潭_NO.png in Resources */,
 				5770E18F1D82A5C10079ACBC /* Icon-iPad-Spotlight-iOS7@2x.png in Resources */,
+				572840381EB0969700BE6F4F /* 收藏.png in Resources */,
 				57CEE3121E8802AB0039C344 /* 火车3.png in Resources */,
 				57CEE3101E8802AB0039C344 /* 火车1.png in Resources */,
 				5757F29B1E9B88DA008B5454 /* 火车右.png in Resources */,
+				572840341EB0969700BE6F4F /* 铺设铁轨.png in Resources */,
 				5770E17E1D82A5C10079ACBC /* Default-Landscape~ipad.png in Resources */,
 				5757F2971E9B88DA008B5454 /* 广州塔.png in Resources */,
 				572840001EB0408700BE6F4F /* ruler.png in Resources */,
-				571E91131E9BB17E00AEDC07 /* 离开游戏.png in Resources */,
+				5728403C1EB0969800BE6F4F /* 暂停背景.png in Resources */,
+				571E91131E9BB17E00AEDC07 /* exit.png in Resources */,
 				047CF2B21DADDD7E004CBF4B /* pb_bar_left.png in Resources */,
 				5757F2AB1E9B8CC2008B5454 /* 凤梨酥_NO.png in Resources */,
-				571E91121E9BB17E00AEDC07 /* 开始游戏.png in Resources */,
+				571E91121E9BB17E00AEDC07 /* start.png in Resources */,
 				5770E1931D82A5C10079ACBC /* Icon-Small.png in Resources */,
 				5770E1911D82A5C10079ACBC /* Icon-Small-50.png in Resources */,
 				574222321EA4EF9B00909273 /* 地图标志.png in Resources */,
 				571E91051E9BA23E00AEDC07 /* mainScence.png in Resources */,
 				5757F29D1E9B88DA008B5454 /* 牛轧糖.png in Resources */,
 				5757F29E1E9B88DA008B5454 /* 日月潭.png in Resources */,
-				571E910A1E9BA23E00AEDC07 /* voice_open.png in Resources */,
 				5770E4321D82A5C50079ACBC /* white_square.png in Resources */,
 				5770E1851D82A5C10079ACBC /* Icon-72.png in Resources */,
 				571895621E782A86008D7F17 /* ChinaMap.plist in Resources */,
@@ -2018,19 +2042,21 @@
 				5770E2801D82A5C30079ACBC /* LICENSE_cocos2d.txt in Resources */,
 				57283FFC1EB0408700BE6F4F /* inside-bar.png in Resources */,
 				047CF2B41DADDD7E004CBF4B /* pb_bg_left.png in Resources */,
+				572840371EB0969700BE6F4F /* 设置.png in Resources */,
+				572840351EB0969700BE6F4F /* 删除铁轨.png in Resources */,
 				5757F2951E9B88DA008B5454 /* 101.png in Resources */,
 				573C4BD21E7F85D10077E34B /* TrainHeadImages.plist in Resources */,
 				57108E931E6AF828003469F4 /* 树1.png in Resources */,
 				5757F2B11E9B8CC2008B5454 /* 沙县_NO.png in Resources */,
 				5757F2961E9B88DA008B5454 /* 凤梨酥.png in Resources */,
-				571E91001E9BA23E00AEDC07 /* before.png in Resources */,
+				5728403A1EB0969800BE6F4F /* 下一页.png in Resources */,
 				5757F2B21E9B8CC2008B5454 /* 土楼_NO.png in Resources */,
 				57CEE3111E8802AB0039C344 /* 火车2.png in Resources */,
 				047CF2C11DADE804004CBF4B /* face.jpg in Resources */,
 				5770E2831D82A5C30079ACBC /* CCEffectRenderer.h in Resources */,
-				57283FFF1EB0408700BE6F4F /* return.png in Resources */,
 				5770E17C1D82A5C10079ACBC /* Default-568h@2x.png in Resources */,
 				57108E921E6AF828003469F4 /* 火车车厢.png in Resources */,
+				572840301EB0969700BE6F4F /* return.png in Resources */,
 				57CEE30C1E87F5AB0039C344 /* MapResources in Resources */,
 				5757F2A21E9B88DA008B5454 /* 组装界面.png in Resources */,
 				5770E19C1D82A5C10079ACBC /* iTunesArtwork in Resources */,
@@ -2040,18 +2066,22 @@
 				5757F2991E9B88DA008B5454 /* 火车上.png in Resources */,
 				5757F2AD1E9B8CC2008B5454 /* 黄埔军校_NO.png in Resources */,
 				047B15F71DBC6A8300ED1BD7 /* icon in Resources */,
+				572840321EB0969700BE6F4F /* 开始.png in Resources */,
+				572840331EB0969700BE6F4F /* 列表菜单.png in Resources */,
 				5757F29A1E9B88DA008B5454 /* 火车下.png in Resources */,
+				572840311EB0969700BE6F4F /* 关闭.png in Resources */,
 				57DCF7371E6BFD5800DB78FC /* 铁轨竖直.png in Resources */,
 				57DCF7351E6BFD5800DB78FC /* 铁轨上右.png in Resources */,
 				5770E35A1D82A5C40079ACBC /* LICENSE_CCBReader.txt in Resources */,
 				57283FFE1EB0408700BE6F4F /* outside-bar.png in Resources */,
-				571E91161E9BB17E00AEDC07 /* 装扮.png in Resources */,
+				571E91161E9BB17E00AEDC07 /* skin.png in Resources */,
 				047CF2BF1DADE696004CBF4B /* tree_1.png in Resources */,
 				5757F2AF1E9B8CC2008B5454 /* 牛轧糖_NO.png in Resources */,
 				571E91031E9BA23E00AEDC07 /* Collection_other.png in Resources */,
 				0452DCAD1DC1B15A004238CE /* backGround4.png in Resources */,
 				5757F29F1E9B88DA008B5454 /* 沙县.png in Resources */,
 				04A12A4E1DF5392C00398D5A /* train.png in Resources */,
+				5728403B1EB0969800BE6F4F /* 暂停.png in Resources */,
 				57108E941E6AF828003469F4 /* 树2.png in Resources */,
 				5770E1971D82A5C10079ACBC /* Icon-Spotlight-iOS7.png in Resources */,
 				5757F29C1E9B88DA008B5454 /* 荔枝.png in Resources */,
@@ -2061,9 +2091,9 @@
 				0471DC3E1D86B05400547781 /* button.png in Resources */,
 				5770E1991D82A5C10079ACBC /* Icon-Spotlight-iOS7@2x.png in Resources */,
 				575B559A1E7255FC009123D9 /* stage_1 in Resources */,
+				572840391EB0969700BE6F4F /* 收集物品（无效果）.png in Resources */,
 				57283FFB1EB0408700BE6F4F /* 滑块-4.png in Resources */,
 				571E911A1E9BBA1D00AEDC07 /* Collection.plist in Resources */,
-				571E91081E9BA23E00AEDC07 /* setting.png in Resources */,
 				5770E1891D82A5C10079ACBC /* Icon-76.png in Resources */,
 				047CF2BC1DADE696004CBF4B /* goal.png in Resources */,
 				5757F2A01E9B88DA008B5454 /* 收集界面.png in Resources */,
@@ -2071,10 +2101,8 @@
 				5757F2AC1E9B8CC2008B5454 /* 广州塔_NO.png in Resources */,
 				571E91041E9BA23E00AEDC07 /* Collection.png in Resources */,
 				5770E19E1D82A5C10079ACBC /* iTunesArtwork@2x in Resources */,
-				571E91021E9BA23E00AEDC07 /* close.png in Resources */,
 				5757F2AE1E9B8CC2008B5454 /* 荔枝_NO.png in Resources */,
-				571E91141E9BB17E00AEDC07 /* 设置.png in Resources */,
-				571E91071E9BA23E00AEDC07 /* return.png in Resources */,
+				571E91141E9BB17E00AEDC07 /* setting.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

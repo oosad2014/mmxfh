@@ -49,7 +49,7 @@
     backBtn = [CCButton buttonWithTitle:@" " spriteFrame:[CCSpriteFrame frameWithImageNamed:@"return.png"]];
     [backBtn setTarget:self selector:@selector(onBackButtonClicked:)];
     [backBtn setPositionType:CCPositionTypeNormalized];
-    [backBtn setScale:0.1*self.contentSize.width/backBtn.contentSize.width];
+    [backBtn setScale:0.3];
     [backBtn setPosition:ccp(0.1f, 0.85f)];
     [self addChild:backBtn z:9];
     

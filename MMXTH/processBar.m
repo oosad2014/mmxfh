@@ -42,18 +42,22 @@
     NSAssert(self, @"Whoops");
     
     //进度条(cocos2d v3自动调用update方法）
-    CCSprite *pic=[CCSprite spriteWithImageNamed:@"Icon-120.png"];
-    CCProgressNode *pb=[CCProgressNode progressWithSprite:pic];
+    CCSprite *outPic = [CCSprite spriteWithImageNamed:@"outside-bar.png"];
+    [outPic setPosition:ccp(0.5f, 0.3f)];
+    [outPic setPositionType:CCPositionTypeNormalized];
+    [self addChild:outPic z:1];
     
-    CGSize viewSize=[CCDirector sharedDirector].viewSize;
-    pb.position=ccp(viewSize.width/2, viewSize.height/2);
+    CCSprite *pic = [CCSprite spriteWithImageNamed:@"inside-bar.png"];
+    CCProgressNode *pb = [CCProgressNode progressWithSprite:pic];
+    [pb setPositionType:CCPositionTypeNormalized];
+    [pb setPosition:ccp(0.5f, 0.3f)];
+    [pb setType:CCProgressNodeTypeBar];
     
     pb.percentage=0;
-    pb.type=CCProgressNodeTypeBar;
     
     pb.midpoint=ccp(0.0, 0.0);
     pb.barChangeRate=ccp(1.0, 0.0);
-    [self addChild:pb z:0 name:@"progressBar"];
+    [self addChild:pb z:2 name:@"progressBar"];
     NSLog(@"~~~~~~~~~~~~~~~~~~~进度条初始配置完成");
     
     //加载资源,进度条显示加载进度
@@ -92,6 +96,7 @@
     
     if(loadResCount==totalResCount){
         NSLog(@"~~~~~~~~~~~~资源加载完毕");
+        [[CCDirector sharedDirector] popScene];
         [[CCDirector sharedDirector] replaceScene:[EnterLittleMap scene]
                                    withTransition:[CCTransition transitionFadeWithColor:[CCColor redColor] duration:0.5f]];
         //切换场景

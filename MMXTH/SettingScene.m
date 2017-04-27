@@ -75,11 +75,11 @@
     
     
     // Back按钮
-    CCButton *backButton = [CCButton buttonWithTitle:@"Back" spriteFrame:[CCSpriteFrame frameWithImageNamed:@"return.png"]];
+    CCButton *backButton = [CCButton buttonWithTitle:@" " spriteFrame:[CCSpriteFrame frameWithImageNamed:@"return.png"]];
     [backButton setTarget:self selector:@selector(onBackButtonClicked:)];
     backButton.positionType = CCPositionTypeNormalized;
+    [backButton setScale:0.3];
     [backButton setPosition:ccp(0.1f, 0.85f)];
-    backButton.scale=0.03f;
     [self addChild:backButton z:9];
     
     return self;

@@ -54,48 +54,38 @@ int isFirstRun;
     [self addChild:background z: 1];
     
     // As a reason of I couldn't change the color of the words of the button
-    // 开始按钮上文字
-    CCLabelTTF *title = [CCLabelTTF labelWithString:@"Start" fontName:@"ArialMT" fontSize:20];
-    title.color = [CCColor redColor];
-    title.positionType = CCPositionTypeNormalized;
-    title.position = ccp(0.5f, 0.5f);
-    
     // 开始按钮
-    CCButton *beginButton = [CCButton buttonWithTitle:@"Start" spriteFrame:[CCSpriteFrame frameWithImageNamed:@"button.png"]];
+    CCButton *beginButton = [CCButton buttonWithTitle:@" " spriteFrame:[CCSpriteFrame frameWithImageNamed:@"start.png"]];
     [beginButton setTarget:self selector:@selector(onBeginButtonClicked:)];
     beginButton.positionType = CCPositionTypeNormalized;
-    beginButton.position = ccp(0.5f, 0.5f);
+    [beginButton setScale:0.5f];
+    beginButton.position = ccp(0.5f, 0.6f);
     
     // 组装按钮
-    CCButton *assembleBtn = [CCButton buttonWithTitle:@"Assemble" spriteFrame:[CCSpriteFrame frameWithImageNamed:@"button.png"]];
+    CCButton *assembleBtn = [CCButton buttonWithTitle:@" " spriteFrame:[CCSpriteFrame frameWithImageNamed:@"skin.png"]];
     [assembleBtn setTarget:self selector:@selector(onAssembleButtonClicked:)];
     assembleBtn.positionType = CCPositionTypeNormalized;
+    [assembleBtn setScale:0.5f];
     assembleBtn.position = ccp(0.5f, 0.4f);
     
     // 收藏按钮
-    CCButton *collectBtn = [CCButton buttonWithTitle:@" " spriteFrame:[CCSpriteFrame frameWithImageNamed:@"Collection.png"]];
+    CCButton *collectBtn = [CCButton buttonWithTitle:@" " spriteFrame:[CCSpriteFrame frameWithImageNamed:@"收藏.png"]];
     [collectBtn setTarget:self selector:@selector(onCollectionBtnClicked:)];
     [collectBtn setPositionType:CCPositionTypeNormalized];
-    [collectBtn setScale:0.1*self.contentSize.width/collectBtn.contentSize.width];
+    [collectBtn setScale:0.3];
     collectBtn.position = ccp(0.9f, 0.85f);
     
     //设置界面入口
-    CCLabelTTF *setting = [CCLabelTTF labelWithString:@"Setting" fontName:@"ArialMT" fontSize:20];
-    setting.color = [CCColor redColor];
-    setting.positionType = CCPositionTypeNormalized;
-    setting.position = ccp(0.5f, 0.3f);
-    [self addChild:setting z:10];
-    
-    CCButton *setButton = [CCButton buttonWithTitle:@"Setting" spriteFrame:[CCSpriteFrame frameWithImageNamed:@"button.png"]];
+    CCButton *setButton = [CCButton buttonWithTitle:@" " spriteFrame:[CCSpriteFrame frameWithImageNamed:@"setting.png"]];
     [setButton setTarget:self selector:@selector(onSetButtonClicked:)];
     setButton.positionType = CCPositionTypeNormalized;
-    setButton.position = ccp(0.5f, 0.3f);
+    [setButton setScale:0.5f];
+    setButton.position = ccp(0.5f, 0.2f);
     
     //音乐播放器初始化
     [[AudioPlayer audioplayer] playMusic];
     
     // 添加到页面
-    [self addChild:title z:10];
     [self addChild:beginButton z:9];
     [self addChild:assembleBtn z:9];
     [self addChild:collectBtn z:9];
@@ -108,8 +98,7 @@ int isFirstRun;
 - (void)onBeginButtonClicked:(id)sender {
     if(isFirstRun==0){
         isFirstRun++;
-    [[CCDirector sharedDirector] replaceScene:[processBar scene]
-                               withTransition:[CCTransition transitionFadeWithColor:[CCColor redColor] duration:0.5f]];
+    [[CCDirector sharedDirector] pushScene:[processBar scene]];
     }
     else{
         [[CCDirector sharedDirector] replaceScene:[EnterLittleMap scene]

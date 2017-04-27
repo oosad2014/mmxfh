@@ -132,7 +132,7 @@
 // back按钮回调，返回firstScene
 - (void)onBackButtonClicked:(id)sender {
     [[CCDirector sharedDirector] replaceScene:[FirstScene scene]
-                               withTransition:[CCTransition transitionPushWithDirection:CCTransitionDirectionLeft duration:0.5f]];
+                               withTransition:[CCTransition transitionFadeWithColor:[CCColor blackColor] duration:0.5f]];
 }
 
 // play按钮回调，进入TestTrainScene界面

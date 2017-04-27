@@ -98,22 +98,22 @@ int isFirstRun;
 - (void)onBeginButtonClicked:(id)sender {
     if(isFirstRun==0){
         isFirstRun++;
-    [[CCDirector sharedDirector] pushScene:[processBar scene]];
+        [[CCDirector sharedDirector] pushScene:[processBar scene]];
     }
     else{
         [[CCDirector sharedDirector] replaceScene:[EnterLittleMap scene]
-                                   withTransition:[CCTransition transitionFadeWithColor:[CCColor redColor] duration:0.5f]];
+                                   withTransition:[CCTransition transitionFadeWithColor:[CCColor blackColor] duration:0.5f]];
     }
 }
 
 - (void)onAssembleButtonClicked:(id)sender {
     [[CCDirector sharedDirector] replaceScene:[SecondScene scene]
-                               withTransition:[CCTransition transitionFadeWithColor:[CCColor redColor] duration:0.5f]];
+                               withTransition:[CCTransition transitionFadeWithColor:[CCColor blackColor] duration:0.5f]];
 }
 
 - (void)onCollectionBtnClicked:(id)sender {
     [[CCDirector sharedDirector] replaceScene:[CollectionScene scene]
-                               withTransition:[CCTransition transitionFadeWithColor:[CCColor redColor] duration:0.5f]];
+                               withTransition:[CCTransition transitionFadeWithColor:[CCColor blackColor] duration:0.5f]];
     
 }
 

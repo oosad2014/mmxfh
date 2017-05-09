@@ -1,0 +1,41 @@
+//
+//  FirstScene.h
+//
+//  Created by : mac
+//  Project    : MMXTH
+//  Date       : 16/9/12
+//
+//  Copyright (c) 2016年 xc.
+//  All rights reserved.
+//
+// -----------------------------------------------------------------
+
+#import <Foundation/Foundation.h>
+#import "ProcessScene.h"
+#import "CollectionScene.h"
+#import "SettingScene.h"
+#import "AudioPlayer.h"
+#import "cocos2d.h"
+#import "cocos2d-ui.h"
+
+// -----------------------------------------------------------------
+
+@interface FirstScene : CCScene
+
+// -----------------------------------------------------------------
+// properties
+
+// -----------------------------------------------------------------
+// methods
+
++ (FirstScene *)scene;
+- (id)init;
+-(void)initScene;
+
+// -----------------------------------------------------------------
+
+@end
+
+
+
+

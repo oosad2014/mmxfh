@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>collectionArr</key>
+	<array>
+		<integer>0</integer>
+		<integer>0</integer>
+		<integer>0</integer>
+		<integer>1</integer>
+		<integer>1</integer>
+		<integer>0</integer>
+		<integer>0</integer>
+		<string>0</string>
+		<string>0</string>
+		<string>0</string>
+		<string>0</string>
+		<string>0</string>
+		<string>0</string>
+	</array>
+	<key>collectionImg</key>
+	<array>
+		<string>凤梨酥</string>
+		<string>黄埔军校</string>
+		<string>荔枝</string>
+		<string>牛轧糖</string>
+		<string>日月潭</string>
+		<string>沙县</string>
+		<string>土楼</string>
+		<string>凤梨酥</string>
+		<string>荔枝</string>
+		<string>土楼</string>
+		<string>牛轧糖</string>
+		<string>牛轧糖</string>
+		<string>日月潭</string>
+	</array>
+	<key>count</key>
+	<integer>13</integer>
+	<key>countNow</key>
+	<integer>13</integer>
+</dict>
+</plist>

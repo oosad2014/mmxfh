@@ -1,4 +1,4 @@
-//
+ //
 //  main.m
 //  cocos2d-template
 //

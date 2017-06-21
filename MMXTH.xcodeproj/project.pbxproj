@@ -324,6 +324,18 @@
 		57819A4F1EC1E90F00300AD2 /* 红火车右.png in Resources */ = {isa = PBXBuildFile; fileRef = 57819A4B1EC1E90F00300AD2 /* 红火车右.png */; };
 		57819A501EC1E90F00300AD2 /* 红火车左.png in Resources */ = {isa = PBXBuildFile; fileRef = 57819A4C1EC1E90F00300AD2 /* 红火车左.png */; };
 		57819A581EC1E91D00300AD2 /* 蓝火车左.png in Resources */ = {isa = PBXBuildFile; fileRef = 57819A541EC1E91D00300AD2 /* 蓝火车左.png */; };
+		57C65A6A1EFA116300BF635C /* 青火车上.png in Resources */ = {isa = PBXBuildFile; fileRef = 57C65A661EFA116300BF635C /* 青火车上.png */; };
+		57C65A6B1EFA116300BF635C /* 青火车下.png in Resources */ = {isa = PBXBuildFile; fileRef = 57C65A671EFA116300BF635C /* 青火车下.png */; };
+		57C65A6C1EFA116300BF635C /* 青火车右.png in Resources */ = {isa = PBXBuildFile; fileRef = 57C65A681EFA116300BF635C /* 青火车右.png */; };
+		57C65A6D1EFA116300BF635C /* 青火车左.png in Resources */ = {isa = PBXBuildFile; fileRef = 57C65A691EFA116300BF635C /* 青火车左.png */; };
+		57C65A721EFA117100BF635C /* 红火车2上.png in Resources */ = {isa = PBXBuildFile; fileRef = 57C65A6E1EFA117100BF635C /* 红火车2上.png */; };
+		57C65A731EFA117100BF635C /* 红火车2下.png in Resources */ = {isa = PBXBuildFile; fileRef = 57C65A6F1EFA117100BF635C /* 红火车2下.png */; };
+		57C65A741EFA117100BF635C /* 红火车2右.png in Resources */ = {isa = PBXBuildFile; fileRef = 57C65A701EFA117100BF635C /* 红火车2右.png */; };
+		57C65A751EFA117100BF635C /* 红火车2左.png in Resources */ = {isa = PBXBuildFile; fileRef = 57C65A711EFA117100BF635C /* 红火车2左.png */; };
+		57C65A7A1EFA117B00BF635C /* 绿火车上.png in Resources */ = {isa = PBXBuildFile; fileRef = 57C65A761EFA117B00BF635C /* 绿火车上.png */; };
+		57C65A7B1EFA117B00BF635C /* 绿火车下.png in Resources */ = {isa = PBXBuildFile; fileRef = 57C65A771EFA117B00BF635C /* 绿火车下.png */; };
+		57C65A7C1EFA117B00BF635C /* 绿火车右.png in Resources */ = {isa = PBXBuildFile; fileRef = 57C65A781EFA117B00BF635C /* 绿火车右.png */; };
+		57C65A7D1EFA117B00BF635C /* 绿火车左.png in Resources */ = {isa = PBXBuildFile; fileRef = 57C65A791EFA117B00BF635C /* 绿火车左.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -915,6 +927,18 @@
 		57819A4B1EC1E90F00300AD2 /* 红火车右.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "红火车右.png"; path = "Resources/Image/Train/Red/红火车右.png"; sourceTree = "<group>"; };
 		57819A4C1EC1E90F00300AD2 /* 红火车左.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "红火车左.png"; path = "Resources/Image/Train/Red/红火车左.png"; sourceTree = "<group>"; };
 		57819A541EC1E91D00300AD2 /* 蓝火车左.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "蓝火车左.png"; path = "Resources/Image/Train/Blue/蓝火车左.png"; sourceTree = "<group>"; };
+		57C65A661EFA116300BF635C /* 青火车上.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "青火车上.png"; path = "Resources/Image/Train/cyan/青火车上.png"; sourceTree = "<group>"; };
+		57C65A671EFA116300BF635C /* 青火车下.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "青火车下.png"; path = "Resources/Image/Train/cyan/青火车下.png"; sourceTree = "<group>"; };
+		57C65A681EFA116300BF635C /* 青火车右.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "青火车右.png"; path = "Resources/Image/Train/cyan/青火车右.png"; sourceTree = "<group>"; };
+		57C65A691EFA116300BF635C /* 青火车左.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "青火车左.png"; path = "Resources/Image/Train/cyan/青火车左.png"; sourceTree = "<group>"; };
+		57C65A6E1EFA117100BF635C /* 红火车2上.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "红火车2上.png"; path = "Resources/Image/Train/Red2/红火车2上.png"; sourceTree = "<group>"; };
+		57C65A6F1EFA117100BF635C /* 红火车2下.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "红火车2下.png"; path = "Resources/Image/Train/Red2/红火车2下.png"; sourceTree = "<group>"; };
+		57C65A701EFA117100BF635C /* 红火车2右.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "红火车2右.png"; path = "Resources/Image/Train/Red2/红火车2右.png"; sourceTree = "<group>"; };
+		57C65A711EFA117100BF635C /* 红火车2左.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "红火车2左.png"; path = "Resources/Image/Train/Red2/红火车2左.png"; sourceTree = "<group>"; };
+		57C65A761EFA117B00BF635C /* 绿火车上.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "绿火车上.png"; path = "Resources/Image/Train/Green/绿火车上.png"; sourceTree = "<group>"; };
+		57C65A771EFA117B00BF635C /* 绿火车下.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "绿火车下.png"; path = "Resources/Image/Train/Green/绿火车下.png"; sourceTree = "<group>"; };
+		57C65A781EFA117B00BF635C /* 绿火车右.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "绿火车右.png"; path = "Resources/Image/Train/Green/绿火车右.png"; sourceTree = "<group>"; };
+		57C65A791EFA117B00BF635C /* 绿火车左.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "绿火车左.png"; path = "Resources/Image/Train/Green/绿火车左.png"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -1844,6 +1868,9 @@
 		5781990F1EC1BB4800300AD2 /* Train images */ = {
 			isa = PBXGroup;
 			children = (
+				57C65A801EFA119A00BF635C /* 青 */,
+				57C65A7F1EFA119000BF635C /* 红2 */,
+				57C65A7E1EFA118100BF635C /* 绿 */,
 				578199651EC1BEA700300AD2 /* 红 */,
 				578199641EC1BEA100300AD2 /* 蓝 */,
 			);
@@ -2227,6 +2254,39 @@
 			name = Other;
 			sourceTree = "<group>";
 		};
+		57C65A7E1EFA118100BF635C /* 绿 */ = {
+			isa = PBXGroup;
+			children = (
+				57C65A761EFA117B00BF635C /* 绿火车上.png */,
+				57C65A771EFA117B00BF635C /* 绿火车下.png */,
+				57C65A781EFA117B00BF635C /* 绿火车右.png */,
+				57C65A791EFA117B00BF635C /* 绿火车左.png */,
+			);
+			name = "绿";
+			sourceTree = "<group>";
+		};
+		57C65A7F1EFA119000BF635C /* 红2 */ = {
+			isa = PBXGroup;
+			children = (
+				57C65A6E1EFA117100BF635C /* 红火车2上.png */,
+				57C65A6F1EFA117100BF635C /* 红火车2下.png */,
+				57C65A701EFA117100BF635C /* 红火车2右.png */,
+				57C65A711EFA117100BF635C /* 红火车2左.png */,
+			);
+			name = "红2";
+			sourceTree = "<group>";
+		};
+		57C65A801EFA119A00BF635C /* 青 */ = {
+			isa = PBXGroup;
+			children = (
+				57C65A661EFA116300BF635C /* 青火车上.png */,
+				57C65A671EFA116300BF635C /* 青火车下.png */,
+				57C65A681EFA116300BF635C /* 青火车右.png */,
+				57C65A691EFA116300BF635C /* 青火车左.png */,
+			);
+			name = "青";
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -2315,12 +2375,14 @@
 				57819A4F1EC1E90F00300AD2 /* 红火车右.png in Resources */,
 				57819A1D1EC1E79900300AD2 /* 沙县.png in Resources */,
 				578199E81EC1E6C900300AD2 /* 吉林.png in Resources */,
+				57C65A6A1EFA116300BF635C /* 青火车上.png in Resources */,
 				57819A441EC1E89700300AD2 /* ruler.png in Resources */,
 				57819A181EC1E79900300AD2 /* 广州塔.png in Resources */,
 				57819A1C1EC1E79900300AD2 /* 日月潭.png in Resources */,
 				57819A3C1EC1E83F00300AD2 /* rail-down-right1.png in Resources */,
 				57819A0E1EC1E78F00300AD2 /* 土楼_NO.png in Resources */,
 				57819A281EC1E7AD00300AD2 /* Default@2x.png in Resources */,
+				57C65A721EFA117100BF635C /* 红火车2上.png in Resources */,
 				5770E1951D82A5C10079ACBC /* Icon-Small@2x.png in Resources */,
 				578199F91EC1E6C900300AD2 /* 云南.png in Resources */,
 				5770E1871D82A5C10079ACBC /* Icon-72@2x.png in Resources */,
@@ -2333,7 +2395,9 @@
 				571E118F1EC1E980007671B9 /* return.png in Resources */,
 				578199FE1EC1E6D700300AD2 /* 中国.png in Resources */,
 				578199F31EC1E6C900300AD2 /* 四川.png in Resources */,
+				57C65A7C1EFA117B00BF635C /* 绿火车右.png in Resources */,
 				57819A261EC1E7AD00300AD2 /* Default-Landscape~ipad.png in Resources */,
+				57C65A7B1EFA117B00BF635C /* 绿火车下.png in Resources */,
 				5781997A1EC1E4B700300AD2 /* 草地.png in Resources */,
 				5770E18F1D82A5C10079ACBC /* Icon-iPad-Spotlight-iOS7@2x.png in Resources */,
 				57819A581EC1E91D00300AD2 /* 蓝火车左.png in Resources */,
@@ -2342,8 +2406,10 @@
 				57819A1B1EC1E79900300AD2 /* 牛轧糖.png in Resources */,
 				578199951EC1E53000300AD2 /* GuangZhouMap.plist in Resources */,
 				578199DB1EC1E6C900300AD2 /* 北京.png in Resources */,
+				57C65A7A1EFA117B00BF635C /* 绿火车上.png in Resources */,
 				571E11861EC1E980007671B9 /* 收藏.png in Resources */,
 				57819A0C1EC1E78F00300AD2 /* 日月潭_NO.png in Resources */,
+				57C65A731EFA117100BF635C /* 红火车2下.png in Resources */,
 				57819A071EC1E78F00300AD2 /* 凤梨酥_NO.png in Resources */,
 				57819A0D1EC1E78F00300AD2 /* 沙县_NO.png in Resources */,
 				578199E51EC1E6C900300AD2 /* 黑龙江.png in Resources */,
@@ -2363,6 +2429,7 @@
 				5770E1911D82A5C10079ACBC /* Icon-Small-50.png in Resources */,
 				5770E1851D82A5C10079ACBC /* Icon-72.png in Resources */,
 				57819A081EC1E78F00300AD2 /* 广州塔_NO.png in Resources */,
+				57C65A7D1EFA117B00BF635C /* 绿火车左.png in Resources */,
 				57819A0B1EC1E78F00300AD2 /* 牛轧糖_NO.png in Resources */,
 				5770E2801D82A5C30079ACBC /* LICENSE_cocos2d.txt in Resources */,
 				578199EB1EC1E6C900300AD2 /* 辽宁.png in Resources */,
@@ -2382,6 +2449,7 @@
 				57819A431EC1E89700300AD2 /* 滑块-4.png in Resources */,
 				578199EE1EC1E6C900300AD2 /* 青海.png in Resources */,
 				57819A4E1EC1E90F00300AD2 /* 红火车下.png in Resources */,
+				57C65A751EFA117100BF635C /* 红火车2左.png in Resources */,
 				571E11891EC1E980007671B9 /* 下一页.png in Resources */,
 				5770E2831D82A5C30079ACBC /* CCEffectRenderer.h in Resources */,
 				578199F41EC1E6C900300AD2 /* 台湾.png in Resources */,
@@ -2395,6 +2463,8 @@
 				578199DE1EC1E6C900300AD2 /* 甘肃.png in Resources */,
 				57819A401EC1E83F00300AD2 /* rail-up-right1.png in Resources */,
 				571E11921EC1E980007671B9 /* start.png in Resources */,
+				57C65A6D1EFA116300BF635C /* 青火车左.png in Resources */,
+				57C65A741EFA117100BF635C /* 红火车2右.png in Resources */,
 				5781997B1EC1E4B700300AD2 /* 收集界面4行.png in Resources */,
 				57819A471EC1E8A200300AD2 /* inside-bar.png in Resources */,
 				578199F81EC1E6C900300AD2 /* 新疆.png in Resources */,
@@ -2426,6 +2496,8 @@
 				578199DD1EC1E6C900300AD2 /* 福建.png in Resources */,
 				571E118E1EC1E980007671B9 /* exit.png in Resources */,
 				57819A311EC1E83400300AD2 /* 树1.png in Resources */,
+				57C65A6B1EFA116300BF635C /* 青火车下.png in Resources */,
+				57C65A6C1EFA116300BF635C /* 青火车右.png in Resources */,
 				5770E19E1D82A5C10079ACBC /* iTunesArtwork@2x in Resources */,
 				578199EF1EC1E6C900300AD2 /* 山东.png in Resources */,
 				571E11841EC1E980007671B9 /* 上一页.png in Resources */,

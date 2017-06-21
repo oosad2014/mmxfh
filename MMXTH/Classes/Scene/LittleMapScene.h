@@ -85,6 +85,9 @@
 
 @property(nonatomic,retain)    NSMutableDictionary *collection;
 
+@property(nonatomic, retain) CCNodeColor *panelLayer;
+@property(nonatomic, assign) int collectionCount;
+
 + (id)scene;
 - (Newtest *)init;
 - (struct Coordinates)getCoordinate:(CGPoint)touchPos;

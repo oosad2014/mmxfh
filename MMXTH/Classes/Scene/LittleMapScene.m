@@ -40,6 +40,9 @@
 @synthesize dataManager;
 @synthesize collection;
 
+@synthesize panelLayer;
+@synthesize collectionCount;
+
 // -----------------------------------------------------------------
 typedef enum {
     DIR_UP = 0,
@@ -314,6 +317,10 @@ NSString *trainname=@"蓝火车";
 
     [self initScene];
     
+#pragma mark -
+#pragma mark initCollectionPanel
+    collectionCount = 1; // 初始化为1
+    [self initCollectionPanel:2]; // 2为收集物数量
     
     return self;
    
@@ -908,6 +915,8 @@ isPresentSelected = false;
         
        if(((int)([Spoint position].x/_tile.width)==x&& (int)([Spoint position].y/_tile.height)==y))
        {
+#pragma mark -
+           [self collectToPanel:Spoint]; // 将碰到的收集物执行操作
            int index=[Spoint getCount];
            NSMutableArray *temp=[[collection objectForKey:@"collectionArr"] mutableCopy];
            [temp replaceObjectAtIndex:index withObject:@1];
@@ -1006,7 +1015,32 @@ isPresentSelected = false;
 //NSObject *left=[[[self.meshData objectAtIndex:targetX] objectAtIndex:targetY] objectAtIndex: DIR_LEFT];
 //NSObject*right=[[[self.meshData objectAtIndex:targetX] objectAtIndex:targetY] objectAtIndex: DIR_RIGHT];
 
+- (void)initCollectionPanel:(int)number {
+    panelLayer = [[CCNodeColor alloc] initWithColor:[CCColor brownColor] width:50 * number + (10 * number - 1) height:50 ];
+//    [panelLayer setUserInteractionEnabled:NO];
+    [panelLayer setAnchorPoint:ccp(0.5f, 0.5f)];
+    [panelLayer setPositionType:CCPositionTypeNormalized];
+    [panelLayer setPosition:ccp(0.5f, 0.10f)];
+    
+    [self addChild:panelLayer z:10];
+    
+    
+    // 2个收集物
+//    NSMutableArray *panelItems = [[NSMutableArray alloc] initWithCapacity:1];
+    
+}
 
+- (void)collectToPanel:(CCSprite*)collectionToAdd {
+//    CCSprite *collectionAdd = collectionToAdd;
+    CCSprite *tmp = collectionToAdd;
+    CCSprite *collectionAdd = [[CCSprite alloc] initWithTexture:[tmp texture]];
+//    [collectionToAdd setPositionType:CCPositionTypeNormalized];
+    [collectionAdd setAnchorPoint:ccp(0.5f, 0.5f)];
+    [collectionAdd setScale:50 / collectionAdd.contentSize.width];
+    [collectionAdd setPosition:CGPointMake(25 + 60 * collectionCount - 60, 25)];
+    [panelLayer addChild:collectionAdd z:2];
+    collectionCount++;
+}
 
 
 @end

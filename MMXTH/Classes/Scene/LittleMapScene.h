@@ -30,6 +30,7 @@
     Train *Checkpoint;
     Train *winpoint;
     Train *losepoint;
+    Train *_enemytrain;
     CGPoint _preLoc;
     CGPoint _nextLoc;
     CGPoint _presentLoc;
@@ -42,6 +43,7 @@
    BOOL isTraveling ;
      BOOL isPaused ;
     CGPoint _trainLoc;
+    CGPoint _enemytrainLoc;
     float _trainSpeedDuration;
     bool isPresentSelected;
 }
@@ -82,19 +84,16 @@
 @property(nonatomic,retain)    NSMutableArray *kindsarray;
 @property(nonatomic,retain)    NSMutableArray *scenekinds;
 @property(nonatomic,retain)    NSMutableArray *collectgroup;
-
+@property(nonatomic,retain)    NSMutableArray *specialgroup;
 @property(nonatomic,retain)    NSMutableDictionary *collection;
 
 + (id)scene;
 - (Newtest *)init;
-- (struct Coordinates)getCoordinate:(CGPoint)touchPos;
-- (double)Floor:(double)num Pcs:(int)pcs;
 - (void)touchBegan:(CCTouch *)touch withEvent:(CCTouchEvent *)event;
 - (void)touchMoved:(CCTouch *)touch withEvent:(CCTouchEvent *)event;
 - (void)touchEnded:(CCTouch *)touch withEvent:(CCTouchEvent *)event;
 - (void)touchCancelled:(CCTouch *)touch withEvent:(CCTouchEvent *)event;
 
-- (id)initWithBGImageName:(NSString *)backgroundImage StageName:(NSString *)StageName;
 // -----------------------------------------------------------------
 
 @end

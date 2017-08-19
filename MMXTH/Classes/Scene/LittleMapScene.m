@@ -39,6 +39,9 @@
 @synthesize collectgroup;
 @synthesize dataManager;
 @synthesize collection;
+@synthesize specialgroup;
+static int trainskin=0;
+int enemyDirection;
 
 // -----------------------------------------------------------------
 typedef enum {
@@ -76,6 +79,8 @@ CCTexture *traintexpoint;
 CCTexture *temp1;
 CollectObj *Spoint;
 NSDictionary *dress;
+bool noway;
+
 NSString *trainname=@"蓝火车";
 + (id)scene {
     return [[self alloc] init];
@@ -93,10 +98,12 @@ NSString *trainname=@"蓝火车";
     if([trainname1 isEqualToString:@"红火车左.png"])
     {
         trainname=@"红火车";
+        trainskin=1;
     }
     if([trainname1 isEqualToString:@"蓝火车左.png"])
     {
         trainname=@"蓝火车";
+        trainskin=0;
     }
     CCLOG(@" name is %@",dress);
     
@@ -115,6 +122,7 @@ NSString *trainname=@"蓝火车";
     self.kindsarray=[[NSMutableArray alloc] init];
     self.scenekinds=[[NSMutableArray alloc] init];
      self.collectgroup=[[NSMutableArray alloc] init];
+    self.specialgroup=[[NSMutableArray alloc] init];
     
     _row=[[dictionary objectForKey:@"MapRow"] intValue];
     _column=[[dictionary objectForKey:@"MapCol"] intValue];
@@ -122,6 +130,11 @@ NSString *trainname=@"蓝火车";
     CCNodeColor *bg = [CCNodeColor nodeWithColor:[CCColor blackColor]];
     _trainLoc.x=[[[dictionary objectForKey:@"TrainLocation"] objectAtIndex:0] doubleValue];
     _trainLoc.y=[[[dictionary objectForKey:@"TrainLocation"] objectAtIndex:1] doubleValue];
+    _enemytrainLoc.x=5;
+    _enemytrainLoc.y=7;
+    _trainLoc.x=18;
+    _trainLoc.y=10;
+    CCLOG(@"trainloc %f,%f",_trainLoc.x,_trainLoc.y);
     _goal.x=[[[dictionary objectForKey:@"TrainGoal"] objectAtIndex:0] doubleValue];
     _goal.y=[[[dictionary objectForKey:@"TrainGoal"] objectAtIndex:1] doubleValue];
     _start.x=[[[dictionary objectForKey:@"StartLoc"] objectAtIndex:0] doubleValue];
@@ -142,6 +155,7 @@ NSString *trainname=@"蓝火车";
     
    isTraveling = NO;
      isPaused = NO;
+    noway=NO;
     gamemode=DRAW_MODE;
     
     for (int i=0; i<[[dictionary objectForKey:@"GoodsKind"] count]; i++) {
@@ -170,6 +184,14 @@ NSString *trainname=@"蓝火车";
 
         [self.collectionsarray addObject:scenes];
 
+        
+    }
+    
+    for (int i=0; i<[[dictionary objectForKey:@"SpecialPlane"] count]; i++) {
+        NSMutableArray *spec=[[dictionary objectForKey:@"SpecialPlane"] objectAtIndex:i];
+        
+        [self.specialgroup addObject:spec];
+        
         
     }
   
@@ -202,6 +224,8 @@ NSString *trainname=@"蓝火车";
     traintexdown=[CCTexture textureWithFile:down];
     traintexleft=[CCTexture textureWithFile:left];
     traintexright=[CCTexture textureWithFile:right];
+    enemyDirection=trainDirection;
+    
     switch (trainDirection)
     {
         case(1):
@@ -282,13 +306,35 @@ NSString *trainname=@"蓝火车";
         [self addChild:item z:10];
         [self.collectgroup addObject:item];
     }
+    
+    for(int i=0;i<[self.specialgroup count];i++)
+    {   NSMutableArray *points=[self.specialgroup objectAtIndex:i];
+        
+        int x,y,z;
+        z=[[points objectAtIndex:0] intValue];
+        x=[[points objectAtIndex:1] intValue];
+        y=[[points objectAtIndex:2] intValue];
+        if(trainskin==z)
+          [[[self.meshData objectAtIndex:x] objectAtIndex:y] setObject:@0 forKey:@"State"];
+        else  [[[self.meshData objectAtIndex:x] objectAtIndex:y] setObject:@-1 forKey:@"State"];;
+        
+       
+
+    }
 
     
     _train = [CCSprite spriteWithTexture:traintexpoint];
     _train.scaleY = (_tile.height/_train.contentSize.height);
     _train.scaleX = 1.5*(_tile.width/_train.contentSize.width);
-    [_train setPosition:CGPointMake((_trainLoc.x)*_tile.width+_tile.width/2.0f, (_trainLoc.y)*_tile.height+_tile.height/2.0f)];
+    [_train setPosition:CGPointMake((18)*_tile.width+_tile.width/2.0f, (10)*_tile.height+_tile.height/2.0f)];
     [self addChild:_train z:13];
+    
+    _enemytrain=[CCSprite spriteWithTexture:traintexpoint];
+    _enemytrain.scaleY = (_tile.height/_enemytrain.contentSize.height);
+    _enemytrain.scaleX = 1.5*(_tile.width/_enemytrain.contentSize.width);
+    [_enemytrain setPosition:CGPointMake((_enemytrainLoc.x)*_tile.width+_tile.width/2.0f, (_enemytrainLoc.y)*_tile.height+_tile.height/2.0f)];
+    [self addChild:_enemytrain z:13];
+    CCLOG(@"init pos %f,%f",_train.position.x,_train.position.y);
 
     //放置终点
     
@@ -377,7 +423,6 @@ NSString *trainname=@"蓝火车";
 
 - (void)touchBegan:(CCTouch *)touch withEvent:(CCTouchEvent *)event {
       CGPoint touchLoc = [touch locationInNode:self];
-    CCLOG(@"ontouchBegan");
     if (gamemode == DRAW_MODE ){
         //select the start point
         _preLoc = CGPointMake((int)(touchLoc.x/_tile.width), (int)(touchLoc.y/_tile.height));
@@ -389,8 +434,6 @@ NSString *trainname=@"蓝火车";
 }
 //触屏开始
 - (void)touchMoved:(CCTouch *)touch withEvent:(CCTouchEvent *)event {
-
-    CCLOG(@"ontouchmove");
         CGPoint touchLoc = [touch locationInNode:self];
     if (gamemode == DRAW_MODE){
         _nextLoc = CGPointMake((int)(touchLoc.x/_tile.width), (int)(touchLoc.y/_tile.height));
@@ -403,13 +446,13 @@ NSString *trainname=@"蓝火车";
                 isPresentSelected = true;
                 if (fabs(diff.x)>fabs(diff.y)) {
                     if (diff.x > 0) {
-                        CCLOG(@"onjudgeleft");
+
                         //presentLoc is rightward
                         [[[self.meshData objectAtIndex:(int)_presentLoc.x] objectAtIndex:(int)_presentLoc.y] setObject:@1 forKey:@"Left"];
 
                     }
                     else{
-                        CCLOG(@"onjudgeright");
+
 
                         //presentLoc is leftward
                          [[[self.meshData objectAtIndex:(int)_presentLoc.x] objectAtIndex:(int)_presentLoc.y] setObject:@1 forKey:@"Right"];
@@ -431,7 +474,6 @@ NSString *trainname=@"蓝火车";
                 }
             }}
         else{
-            CCLOG(@"onjudge2");
             CGPoint diff = ccpSub(_nextLoc, _presentLoc);
             if (diff.x!=0 | diff.y!=0) {
                 if (fabs(diff.x)>fabs(diff.y)) {
@@ -465,7 +507,7 @@ NSString *trainname=@"蓝火车";
                 if ([[[[self.meshData objectAtIndex:(int)_presentLoc.x] objectAtIndex:(int)_presentLoc.y] objectForKey:@"State"] isEqual:@0]|| [[[[self.meshData objectAtIndex:(int)_presentLoc.x] objectAtIndex:(int)_presentLoc.y] objectForKey:@"State"] isEqual:@4]) {
 
                     [self createRailTargetX:(int)_presentLoc.x TargetY:(int)_presentLoc.y];
-                    CCLOG(@"draw");
+
             
                     _preLoc = _presentLoc;
                     _presentLoc = _nextLoc;
@@ -502,7 +544,6 @@ isPresentSelected = false;
     else
         [[[self.meshData objectAtIndex:targetX] objectAtIndex:targetY] setObject:@5 forKey:@"State"];
 
-    CCLOG(@"indraw");
     //NSInteger state=[[[self.meshData objectAtIndex:targetX] objectAtIndex:targetY] objectAtIndex: DIR_STATE];
 
     NSString *temp=@"train.png";
@@ -573,8 +614,7 @@ isPresentSelected = false;
 
             
         case TRAIN_DIRECTION_UP:
-            
-        {   [_train setTexture:traintexup];
+                    {   [_train setTexture:traintexup];
             _train.scaleY = 1.5*_tile.height/_train.contentSize.height;
             _train.scaleX = _tile.width/_train.contentSize.width;
             if(_trainLoc.y==23)
@@ -585,6 +625,7 @@ isPresentSelected = false;
             CCAction *goUp = [CCActionMoveBy actionWithDuration:_trainSpeedDuration position:CGPointMake(0.0f, _tile.height)];
             [self->_train runAction:goUp];
                _trainLoc.y += 1.0f;
+
             if([[[[self.meshData objectAtIndex:(int)_trainLoc.x] objectAtIndex:(int)_trainLoc.y] objectForKey:@"State"] isEqual:@5]||[[[[self.meshData objectAtIndex:(int)_trainLoc.x] objectAtIndex:(int)_trainLoc.y] objectForKey:@"State"] isEqual:@4])
             {
                 [self collect:(int)_trainLoc.x :(int)_trainLoc.y];
@@ -611,7 +652,6 @@ isPresentSelected = false;
                
                else if ([[[[self.meshData objectAtIndex:(int)_trainLoc.x] objectAtIndex:(int)_trainLoc.y] objectForKey:@"State"] isEqual:@0]||[[[[self.meshData objectAtIndex:(int)_trainLoc.x] objectAtIndex:(int)_trainLoc.y] objectForKey:@"State"] isEqual:@3])
                {[self gameFinished:NO];
-                   CCLOG(@"nowhere");
                }
                
            }
@@ -644,8 +684,7 @@ isPresentSelected = false;
             else if ([[[[self.meshData objectAtIndex:(int)_trainLoc.x] objectAtIndex:(int)_trainLoc.y] objectForKey:@"State"] isEqual:@1] && [[[[self.meshData objectAtIndex:(int)_trainLoc.x] objectAtIndex:(int)_trainLoc.y] objectForKey:@"Direction"]isEqualToString:@"UpRight"]){
                 
                 trainDirection = TRAIN_DIRECTION_RIGHT;
-                _train.scaleY = _tile.height/_train.contentSize.height;
-                _train.scaleX = 1.5*_tile.width/_train.contentSize.width;
+                
             }
             else{
                 if([[[[self.meshData objectAtIndex:(int)_trainLoc.x] objectAtIndex:(int)_trainLoc.y] objectForKey:@"State"] isEqual:@2]){
@@ -655,7 +694,6 @@ isPresentSelected = false;
 
                 else if ([[[[self.meshData objectAtIndex:(int)_trainLoc.x] objectAtIndex:(int)_trainLoc.y] objectForKey:@"State"] isEqual:@0]||[[[[self.meshData objectAtIndex:(int)_trainLoc.x] objectAtIndex:(int)_trainLoc.y] objectForKey:@"State"] isEqual:@3]||[[[[self.meshData objectAtIndex:(int)_trainLoc.x] objectAtIndex:(int)_trainLoc.y] objectForKey:@"State"] isEqual:@4])
                 {[self gameFinished:NO];
-                    CCLOG(@"nowhere");
                 }
                 
                 
@@ -699,7 +737,6 @@ isPresentSelected = false;
                 
                 else if ([[[[self.meshData objectAtIndex:(int)_trainLoc.x] objectAtIndex:(int)_trainLoc.y] objectForKey:@"State"] isEqual:@0]||[[[[self.meshData objectAtIndex:(int)_trainLoc.x] objectAtIndex:(int)_trainLoc.y] objectForKey:@"State"] isEqual:@3])
                 {[self gameFinished:NO];
-                    CCLOG(@"nowhere");
                 }
                 
             }
@@ -742,7 +779,7 @@ isPresentSelected = false;
                
                 else if ([[[[self.meshData objectAtIndex:(int)_trainLoc.x] objectAtIndex:(int)_trainLoc.y] objectForKey:@"State"] isEqual:@0]||[[[[self.meshData objectAtIndex:(int)_trainLoc.x] objectAtIndex:(int)_trainLoc.y] objectForKey:@"State"] isEqual:@3])
                 {[self gameFinished:NO];
-                        CCLOG(@"nowhere");
+
                 }
                 
             }
@@ -770,7 +807,8 @@ isPresentSelected = false;
     
     if (!isTraveling) {
 
-        [self onTrainTravelAction];
+      [self onTrainTravelAction];
+        [self onEnemyTravelAction];
         isTraveling = YES;
     }
 }
@@ -841,7 +879,6 @@ isPresentSelected = false;
 -(void)deleteSpriteTouching:(CGPoint)touchLocation{   if (![[[[self.meshData objectAtIndex:(int)(touchLocation.x/_tile.width)] objectAtIndex:(int)(touchLocation.y/_tile.height)] objectForKey:@"Removeable"] isEqual:@1]) {
     return;
 }
-    CCLOG(@"in delete judge");
     for (CCSprite *sprite in self.railGroup) {
         if(CGRectContainsPoint(sprite.boundingBox, touchLocation)){
             [sprite removeFromParentAndCleanup:YES];
@@ -849,7 +886,7 @@ isPresentSelected = false;
             [self.railGroup removeObjectAtIndex:[self.railGroup indexOfObject:sprite]];
             if([[[[self.meshData objectAtIndex:(int)(touchLocation.x/_tile.width)] objectAtIndex:(int)(touchLocation.y/_tile.height)] objectForKey:@"State"] isEqual:@1])
             {[[[self.meshData objectAtIndex:(int)(touchLocation.x/_tile.width)] objectAtIndex:(int)(touchLocation.y/_tile.height)] setObject:@0 forKey:@"State"];
-                CCLOG(@"set01");
+
             }
             else if([[[[self.meshData objectAtIndex:(int)(touchLocation.x/_tile.width)] objectAtIndex:(int)(touchLocation.y/_tile.height)] objectForKey:@"State"] isEqual:@5])
             {CCLOG(@"set0");
@@ -1005,7 +1042,136 @@ isPresentSelected = false;
 //NSObject *down=[[[self.meshData objectAtIndex:targetX] objectAtIndex:targetY] objectAtIndex: DIR_DOWN];
 //NSObject *left=[[[self.meshData objectAtIndex:targetX] objectAtIndex:targetY] objectAtIndex: DIR_LEFT];
 //NSObject*right=[[[self.meshData objectAtIndex:targetX] objectAtIndex:targetY] objectAtIndex: DIR_RIGHT];
-
+-(void)onEnemyTravelAction{
+    switch (enemyDirection) {
+            
+            
+        case TRAIN_DIRECTION_UP:
+        {   [_enemytrain setTexture:traintexup];
+            _enemytrain.scaleY = 1.5*_tile.height/_enemytrain.contentSize.height;
+            _enemytrain.scaleX = _tile.width/_enemytrain.contentSize.width;
+            if([[[[self.meshData objectAtIndex:(int)_enemytrainLoc.x] objectAtIndex:(int)_enemytrainLoc.y] objectForKey:@"State"] isEqual:@0]||_enemytrainLoc.y+1>=14)
+            {noway=YES;
+            }
+            CCAction *goUp = [CCActionMoveBy actionWithDuration:_trainSpeedDuration position:CGPointMake(0.0f, _tile.height)];
+            [self->_enemytrain runAction:goUp];
+            _enemytrainLoc.y += 1.0f;
+            if ([[[[self.meshData objectAtIndex:(int)_enemytrainLoc.x] objectAtIndex:(int)_enemytrainLoc.y] objectForKey:@"State"] isEqual:@1] && [[[[self.meshData objectAtIndex:(int)_enemytrainLoc.x] objectAtIndex:(int)_enemytrainLoc.y] objectForKey:@"Direction"]isEqualToString:@"DownLeft"]){
+                enemyDirection = TRAIN_DIRECTION_LEFT;
+            }
+            else if ([[[[self.meshData objectAtIndex:(int)_enemytrainLoc.x] objectAtIndex:(int)_enemytrainLoc.y] objectForKey:@"State"] isEqual:@1] && [[[[self.meshData objectAtIndex:(int)_enemytrainLoc.x] objectAtIndex:(int)_enemytrainLoc.y] objectForKey:@"Direction"]isEqualToString:@"DownRight"]){
+                enemyDirection = TRAIN_DIRECTION_RIGHT;
+                
+                
+            }
+            if([[[[self.meshData objectAtIndex:(int)_enemytrainLoc.x] objectAtIndex:(int)_enemytrainLoc.y] objectForKey:@"State"] isEqual:@5])
+            {
+                [self gameFinished:(NO)];
+            }
+            if(_enemytrainLoc.x==_trainLoc.x&&_enemytrainLoc.y==_trainLoc.y)
+            {
+                [self gameFinished:(NO)];
+            }
+ 
+            break;
+        }
+        case TRAIN_DIRECTION_DOWN:
+        {
+            [_enemytrain setTexture:traintexdown];
+            _enemytrain.scaleY = 1.5*_tile.height/_enemytrain.contentSize.height;
+            _enemytrain.scaleX = _tile.width/_enemytrain.contentSize.width;
+            if([[[[self.meshData objectAtIndex:(int)_enemytrainLoc.x] objectAtIndex:(int)_enemytrainLoc.y] objectForKey:@"State"] isEqual:@0]||_enemytrainLoc.y-1<=0)
+            {noway=YES;
+            }
+            CCAction *goDown = [CCActionMoveBy actionWithDuration:_trainSpeedDuration position:CGPointMake(0.0f, -_tile.height)];
+            [self->_enemytrain runAction:goDown];
+            _enemytrainLoc.y -= 1.0f;
+            if ([[[[self.meshData objectAtIndex:(int)_enemytrainLoc.x] objectAtIndex:(int)_enemytrainLoc.y] objectForKey:@"State"] isEqual:@1] && [[[[self.meshData objectAtIndex:(int)_enemytrainLoc.x] objectAtIndex:(int)_enemytrainLoc.y] objectForKey:@"Direction"]isEqualToString:@"UpLeft"]){
+                enemyDirection = TRAIN_DIRECTION_LEFT;
+            }
+            else if ([[[[self.meshData objectAtIndex:(int)_enemytrainLoc.x] objectAtIndex:(int)_enemytrainLoc.y] objectForKey:@"State"] isEqual:@1] && [[[[self.meshData objectAtIndex:(int)_enemytrainLoc.x] objectAtIndex:(int)_enemytrainLoc.y] objectForKey:@"Direction"]isEqualToString:@"UpRight"]){
+                
+                enemyDirection = TRAIN_DIRECTION_RIGHT;
+         
+            }
+            if([[[[self.meshData objectAtIndex:(int)_enemytrainLoc.x] objectAtIndex:(int)_enemytrainLoc.y] objectForKey:@"State"] isEqual:@5])
+            {
+                [self gameFinished:(NO)];
+            }
+            
+            break;
+        }
+        case TRAIN_DIRECTION_LEFT:
+        {
+            [_enemytrain setTexture:traintexleft];
+            _enemytrain.scaleY = _tile.height/_enemytrain.contentSize.height;
+            _enemytrain.scaleX = 1.5*_tile.width/_enemytrain.contentSize.width;
+            if([[[[self.meshData objectAtIndex:(int)_enemytrainLoc.x] objectAtIndex:(int)_enemytrainLoc.y] objectForKey:@"State"] isEqual:@0]||_enemytrainLoc.x-1<=0)
+            {noway=YES;
+            }
+            CCAction *goLeft = [CCActionMoveBy actionWithDuration:_trainSpeedDuration position:CGPointMake(-_tile.width, 0)];
+            [self->_enemytrain runAction:goLeft];
+            _enemytrainLoc.x-=1.0f;
+            if ([[[[self.meshData objectAtIndex:(int)_enemytrainLoc.x] objectAtIndex:(int)_enemytrainLoc.y] objectForKey:@"State"] isEqual:@1] && [[[[self.meshData objectAtIndex:(int)_enemytrainLoc.x] objectAtIndex:(int)_enemytrainLoc.y] objectForKey:@"Direction"]isEqualToString:@"DownRight"]){
+                
+                enemyDirection = TRAIN_DIRECTION_DOWN;
+                
+            }
+            else if ([[[[self.meshData objectAtIndex:(int)_enemytrainLoc.x] objectAtIndex:(int)_enemytrainLoc.y] objectForKey:@"State"] isEqual:@1] && [[[[self.meshData objectAtIndex:(int)_enemytrainLoc.x] objectAtIndex:(int)_enemytrainLoc.y] objectForKey:@"Direction"]isEqualToString:@"UpRight"]){
+                
+                enemyDirection = TRAIN_DIRECTION_UP;
+                
+                
+            }
+            if([[[[self.meshData objectAtIndex:(int)_enemytrainLoc.x] objectAtIndex:(int)_enemytrainLoc.y] objectForKey:@"State"] isEqual:@5])
+            {
+                [self gameFinished:(NO)];
+            }
+            if(_enemytrainLoc.x==_trainLoc.x&&_enemytrainLoc.y==_trainLoc.y)
+            {
+                [self gameFinished:(NO)];
+            }
+                        break;
+        }
+        case TRAIN_DIRECTION_RIGHT:
+        {
+            [_enemytrain setTexture:traintexright];
+            _enemytrain.scaleY = _tile.height/_enemytrain.contentSize.height;
+            _enemytrain.scaleX = 1.5*_tile.width/_enemytrain.contentSize.width;
+            CCAction *goRight = [CCActionMoveBy actionWithDuration:_trainSpeedDuration position:CGPointMake(_tile.width, 0)];
+            if([[[[self.meshData objectAtIndex:(int)_enemytrainLoc.x] objectAtIndex:(int)_enemytrainLoc.y] objectForKey:@"State"] isEqual:@0]||_enemytrainLoc.x+1>=24)
+            {noway=YES;
+                
+            }
+            [self->_enemytrain runAction:goRight];
+            _enemytrainLoc.x+=1.0f;
+            if ([[[[self.meshData objectAtIndex:(int)_enemytrainLoc.x] objectAtIndex:(int)_enemytrainLoc.y] objectForKey:@"State"] isEqual:@1] && [[[[self.meshData objectAtIndex:(int)_enemytrainLoc.x] objectAtIndex:(int)_enemytrainLoc.y] objectForKey:@"Direction"]isEqualToString:@"DownLeft"]){
+                
+                enemyDirection = TRAIN_DIRECTION_DOWN;
+                
+                
+            }
+            else if ([[[[self.meshData objectAtIndex:(int)_enemytrainLoc.x] objectAtIndex:(int)_enemytrainLoc.y] objectForKey:@"State"] isEqual:@1] && [[[[self.meshData objectAtIndex:(int)_enemytrainLoc.x] objectAtIndex:(int)_enemytrainLoc.y] objectForKey:@"Direction"]isEqualToString:@"UpLeft"]){
+                
+                enemyDirection = TRAIN_DIRECTION_UP;
+                
+            }
+            if([[[[self.meshData objectAtIndex:(int)_enemytrainLoc.x] objectAtIndex:(int)_enemytrainLoc.y] objectForKey:@"State"] isEqual:@5])
+            {
+                [self gameFinished:(NO)];
+            }
+            if(_enemytrainLoc.x==_trainLoc.x&&_enemytrainLoc.y==_trainLoc.y)
+            {
+                [self gameFinished:(NO)];
+            }
+            
+            break;
+        }
+        default:
+            break;
+    }
+    if(!isPaused&&!noway)self.timer =[NSTimer scheduledTimerWithTimeInterval:_trainSpeedDuration target:self selector:@selector(onEnemyTravelAction) userInfo:nil repeats:NO];
+}
 
 
 

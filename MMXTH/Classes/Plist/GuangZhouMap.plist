@@ -4,8 +4,36 @@
 <dict>
 	<key>StartLoc</key>
 	<array>
-		<integer>21</integer>
-		<integer>10</integer>
+		<integer>18</integer>
+		<integer>7</integer>
+	</array>
+	<key>SpecialPlane</key>
+	<array>
+		<array>
+			<integer>1</integer>
+			<integer>18</integer>
+			<integer>1</integer>
+		</array>
+		<array>
+			<integer>1</integer>
+			<integer>19</integer>
+			<integer>1</integer>
+		</array>
+		<array>
+			<integer>1</integer>
+			<integer>20</integer>
+			<integer>1</integer>
+		</array>
+		<array>
+			<integer>1</integer>
+			<integer>21</integer>
+			<integer>1</integer>
+		</array>
+		<array>
+			<integer>0</integer>
+			<integer>22</integer>
+			<integer>1</integer>
+		</array>
 	</array>
 	<key>TrainDir</key>
 	<string>Left</string>
@@ -39,8 +67,8 @@
 	</array>
 	<key>TrainLocation</key>
 	<array>
-		<integer>20</integer>
-		<integer>10</integer>
+		<integer>15</integer>
+		<integer>7</integer>
 	</array>
 	<key>GoodsArray</key>
 	<array>

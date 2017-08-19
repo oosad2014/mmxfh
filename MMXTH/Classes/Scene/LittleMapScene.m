@@ -79,6 +79,7 @@ CCTexture *traintexpoint;
 CCTexture *temp1;
 CollectObj *Spoint;
 NSDictionary *dress;
+
 bool noway;
 bool hasenemy=YES;
 NSString *trainname=@"蓝火车";
@@ -90,7 +91,7 @@ NSString *trainname=@"蓝火车";
 - (Newtest *)init {
     self = [super init];
     dataManager = [DataManager sharedManager];
-  
+    NSMutableArray *tracklist;
     NSDictionary *dictionary = [dataManager bundleDicWithName:@"GuangZhouMap"];
     collection=[[dataManager bundleDicWithName:@"Collection"]mutableCopy];
     dress=[dataManager documentDicWithName:@"TrainNow"];
@@ -123,6 +124,7 @@ NSString *trainname=@"蓝火车";
     self.scenekinds=[[NSMutableArray alloc] init];
      self.collectgroup=[[NSMutableArray alloc] init];
     self.specialgroup=[[NSMutableArray alloc] init];
+    tracklist=[[NSMutableArray alloc] init];
     
     _row=[[dictionary objectForKey:@"MapRow"] intValue];
     _column=[[dictionary objectForKey:@"MapCol"] intValue];
@@ -132,6 +134,7 @@ NSString *trainname=@"蓝火车";
     _trainLoc.y=[[[dictionary objectForKey:@"TrainLocation"] objectAtIndex:1] doubleValue];
     _enemytrainLoc.x=[[[dictionary objectForKey:@"EnemyPos"] objectAtIndex:0] doubleValue];
     _enemytrainLoc.y=[[[dictionary objectForKey:@"EnemyPos"] objectAtIndex:1] doubleValue];
+    tracklist=[dictionary objectForKey:@"Tracklist"];
 //    _enemytrainLoc.x=5;
 //    _enemytrainLoc.y=7;
 //    _trainLoc.x=18;
@@ -286,6 +289,85 @@ NSString *trainname=@"蓝火车";
 
         [[[self.meshData objectAtIndex:itempoint.x] objectAtIndex:itempoint.y] setObject:@3 forKey:@"State"];
         [self addChild:item z:13];
+
+    }
+//    -(BOOL) judgeLeftRight:(int)x :(int)y
+//    {
+//        CCLOG(@"in judge");
+//        if ([[[[self.meshData objectAtIndex:x] objectAtIndex:y] objectForKey:@"Left"] isEqual:@1] && [[[[self.meshData objectAtIndex:x] objectAtIndex:y] objectForKey:@"Right"] isEqual:@1])
+//            return true;
+//        else return false;
+//    }
+//    -(BOOL) judgeUpDown:(int)x :(int)y
+//    {
+//        if ([[[[self.meshData objectAtIndex:x] objectAtIndex:y] objectForKey:@"Up"] isEqual:@1] &&[[[[self.meshData objectAtIndex:x] objectAtIndex:y] objectForKey:@"Down"] isEqual:@1])
+//            return true;
+//        else return false;
+//    }
+//    -(BOOL) judgeUpLeft:(int)x :(int)y
+//    {
+//        if ([[[[self.meshData objectAtIndex:x] objectAtIndex:y] objectForKey:@"Up"] isEqual:@1] && [[[[self.meshData objectAtIndex:x] objectAtIndex:y] objectForKey:@"Left"] isEqual:@1])
+//            return true;
+//        else return false;
+//    }
+//    -(BOOL) judgeUpRight:(int)x :(int)y
+//    {
+//        if ([[[[self.meshData objectAtIndex:x] objectAtIndex:y] objectForKey:@"Up"] isEqual:@1]&& [[[[self.meshData objectAtIndex:x] objectAtIndex:y] objectForKey:@"Right"] isEqual:@1])
+//            return true;
+//        else return false;
+//    }
+//    -(BOOL) judgeDownLeft:(int)x :(int)y
+//    {
+//        if ([[[[self.meshData objectAtIndex:x] objectAtIndex:y] objectForKey:@"Down"] isEqual:@1]&&[[[[self.meshData objectAtIndex:x] objectAtIndex:y] objectForKey:@"Left"] isEqual:@1])
+//            return true;
+//        else return false;
+//    }
+//    -(BOOL) judgeDownRight:(int)x :(int)y
+//    {
+//        if ([[[[self.meshData objectAtIndex:x] objectAtIndex:y] objectForKey:@"Down"] isEqual:@1] && [[[[self.meshData objectAtIndex:x] objectAtIndex:y] objectForKey:@"Right"] isEqual:@1])
+//            return true;
+//        else return false;
+//    }
+
+    for(int i=0;i<[tracklist count];i++)
+    { NSMutableArray *points=[tracklist objectAtIndex:i];
+      CGPoint trackpoint;
+      NSString *dir=[points objectAtIndex:0];
+      trackpoint.x=[[points objectAtIndex:1] intValue];
+      trackpoint.y=[[points objectAtIndex:2] intValue];
+      if([dir isEqual:@"leftright"])
+      {
+          [[[self.meshData objectAtIndex:trackpoint.x] objectAtIndex:trackpoint.y]setObject:@1 forKey: @"Left"] ;
+          [[[self.meshData objectAtIndex:trackpoint.x] objectAtIndex:trackpoint.y] setObject:@1 forKey:@"Right"] ;
+          
+      }
+        if([dir isEqual:@"updown"])
+        {
+            [[[self.meshData objectAtIndex:trackpoint.x] objectAtIndex:trackpoint.y]setObject:@1 forKey: @"Up"] ;
+            [[[self.meshData objectAtIndex:trackpoint.x] objectAtIndex:trackpoint.y] setObject:@1 forKey:@"Down"] ;
+        }
+        if([dir isEqual:@"upleft"])
+        {
+            [[[self.meshData objectAtIndex:trackpoint.x] objectAtIndex:trackpoint.y]setObject:@1 forKey: @"Up"] ;
+            [[[self.meshData objectAtIndex:trackpoint.x] objectAtIndex:trackpoint.y] setObject:@1 forKey:@"Left"] ;
+        }
+        if([dir isEqual:@"upright"])
+        {
+            [[[self.meshData objectAtIndex:trackpoint.x] objectAtIndex:trackpoint.y]setObject:@1 forKey: @"Up"] ;
+            [[[self.meshData objectAtIndex:trackpoint.x] objectAtIndex:trackpoint.y] setObject:@1 forKey:@"Right"] ;
+        }
+        if([dir isEqual:@"downleft"])
+        {
+            [[[self.meshData objectAtIndex:trackpoint.x] objectAtIndex:trackpoint.y]setObject:@1 forKey: @"Down"] ;
+            [[[self.meshData objectAtIndex:trackpoint.x] objectAtIndex:trackpoint.y] setObject:@1 forKey:@"Left"] ;
+        }
+        if([dir isEqual:@"downright"])
+        {
+            [[[self.meshData objectAtIndex:trackpoint.x] objectAtIndex:trackpoint.y]setObject:@1 forKey: @"Down"] ;
+            [[[self.meshData objectAtIndex:trackpoint.x] objectAtIndex:trackpoint.y] setObject:@1 forKey:@"Right"] ;
+        }
+        [self createRailTargetX:trackpoint.x TargetY:trackpoint.y];
+        
 
     }
     for(int i=0;i<[self.collectionsarray count];i++)

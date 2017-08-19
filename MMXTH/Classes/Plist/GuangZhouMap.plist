@@ -2,6 +2,19 @@
 <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
 <plist version="1.0">
 <dict>
+	<key>Tracklist</key>
+	<array>
+		<array>
+			<string>leftright</string>
+			<integer>3</integer>
+			<integer>4</integer>
+		</array>
+		<array>
+			<string>leftright</string>
+			<integer>5</integer>
+			<integer>6</integer>
+		</array>
+	</array>
 	<key>EnemyPos</key>
 	<array>
 		<integer>5</integer>

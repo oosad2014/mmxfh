@@ -2,6 +2,13 @@
 <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
 <plist version="1.0">
 <dict>
+	<key>EnemyPos</key>
+	<array>
+		<integer>5</integer>
+		<integer>7</integer>
+	</array>
+	<key>HasEnemy</key>
+	<true/>
 	<key>StartLoc</key>
 	<array>
 		<integer>18</integer>
@@ -67,8 +74,8 @@
 	</array>
 	<key>TrainLocation</key>
 	<array>
-		<integer>15</integer>
-		<integer>7</integer>
+		<integer>18</integer>
+		<integer>10</integer>
 	</array>
 	<key>GoodsArray</key>
 	<array>

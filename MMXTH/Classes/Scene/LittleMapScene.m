@@ -80,7 +80,7 @@ CCTexture *temp1;
 CollectObj *Spoint;
 NSDictionary *dress;
 bool noway;
-
+bool hasenemy=YES;
 NSString *trainname=@"蓝火车";
 + (id)scene {
     return [[self alloc] init];
@@ -130,10 +130,12 @@ NSString *trainname=@"蓝火车";
     CCNodeColor *bg = [CCNodeColor nodeWithColor:[CCColor blackColor]];
     _trainLoc.x=[[[dictionary objectForKey:@"TrainLocation"] objectAtIndex:0] doubleValue];
     _trainLoc.y=[[[dictionary objectForKey:@"TrainLocation"] objectAtIndex:1] doubleValue];
-    _enemytrainLoc.x=5;
-    _enemytrainLoc.y=7;
-    _trainLoc.x=18;
-    _trainLoc.y=10;
+    _enemytrainLoc.x=[[[dictionary objectForKey:@"EnemyPos"] objectAtIndex:0] doubleValue];
+    _enemytrainLoc.y=[[[dictionary objectForKey:@"EnemyPos"] objectAtIndex:1] doubleValue];
+//    _enemytrainLoc.x=5;
+//    _enemytrainLoc.y=7;
+//    _trainLoc.x=18;
+//    _trainLoc.y=10;
     CCLOG(@"trainloc %f,%f",_trainLoc.x,_trainLoc.y);
     _goal.x=[[[dictionary objectForKey:@"TrainGoal"] objectAtIndex:0] doubleValue];
     _goal.y=[[[dictionary objectForKey:@"TrainGoal"] objectAtIndex:1] doubleValue];
@@ -283,7 +285,7 @@ NSString *trainname=@"蓝火车";
         [item setPosition:CGPointMake((itempoint.x)*_tile.width+_tile.width/2.0f, (itempoint.y)*_tile.height+_tile.height/2.0f)];
 
         [[[self.meshData objectAtIndex:itempoint.x] objectAtIndex:itempoint.y] setObject:@3 forKey:@"State"];
-        [self addChild:item z:11];
+        [self addChild:item z:13];
 
     }
     for(int i=0;i<[self.collectionsarray count];i++)
@@ -303,7 +305,7 @@ NSString *trainname=@"蓝火车";
 
         
         [[[self.meshData objectAtIndex:itempoint.x] objectAtIndex:itempoint.y] setObject:@4 forKey:@"State"];
-        [self addChild:item z:10];
+        [self addChild:item z:13];
         [self.collectgroup addObject:item];
     }
     
@@ -326,14 +328,14 @@ NSString *trainname=@"蓝火车";
     _train = [CCSprite spriteWithTexture:traintexpoint];
     _train.scaleY = (_tile.height/_train.contentSize.height);
     _train.scaleX = 1.5*(_tile.width/_train.contentSize.width);
-    [_train setPosition:CGPointMake((18)*_tile.width+_tile.width/2.0f, (10)*_tile.height+_tile.height/2.0f)];
+    [_train setPosition:CGPointMake((_trainLoc.x)*_tile.width+_tile.width/2.0f, (_trainLoc.y)*_tile.height+_tile.height/2.0f)];
     [self addChild:_train z:13];
-    
+    if(hasenemy){
     _enemytrain=[CCSprite spriteWithTexture:traintexpoint];
     _enemytrain.scaleY = (_tile.height/_enemytrain.contentSize.height);
     _enemytrain.scaleX = 1.5*(_tile.width/_enemytrain.contentSize.width);
     [_enemytrain setPosition:CGPointMake((_enemytrainLoc.x)*_tile.width+_tile.width/2.0f, (_enemytrainLoc.y)*_tile.height+_tile.height/2.0f)];
-    [self addChild:_enemytrain z:13];
+        [self addChild:_enemytrain z:13];}
     CCLOG(@"init pos %f,%f",_train.position.x,_train.position.y);
 
     //放置终点
@@ -599,7 +601,7 @@ isPresentSelected = false;
     track.scaleX = _tile.width/track.contentSize.width;
     [track setPosition:CGPointMake(targetX*_tile.width+_tile.width/2.0f, targetY*_tile.height+_tile.height/2.0f)
 ];
-        [self addChild:track z:12];
+        [self addChild:track z:10];
         [self.railGroup addObject:track];
         [[[self.meshData objectAtIndex:targetX] objectAtIndex:targetY] setObject:@1 forKey:@"Removeable"];
 
@@ -808,7 +810,9 @@ isPresentSelected = false;
     if (!isTraveling) {
 
       [self onTrainTravelAction];
+        if(hasenemy){
         [self onEnemyTravelAction];
+        }
         isTraveling = YES;
     }
 }
